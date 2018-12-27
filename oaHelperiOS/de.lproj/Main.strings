@@ -1,0 +1,35 @@
+
+/* Class = "UIButton"; normalTitle = "Help"; ObjectID = "0EK-mq-2BI"; */
+"0EK-mq-2BI.normalTitle" = "Hilfe";
+
+/* Class = "UILabel"; text = "titleLabel"; ObjectID = "Ldk-r4-ZZV"; */
+"Ldk-r4-ZZV.text" = "titleLabel";
+
+/* Class = "UILabel"; text = "Enter your search:"; ObjectID = "aEM-QZ-eEg"; */
+"aEM-QZ-eEg.text" = "Ihr Suche:";
+
+/* Class = "UIButton"; normalTitle = "Access Document"; ObjectID = "bqf-wb-KsL"; */
+"bqf-wb-KsL.normalTitle" = "Dokument abrufen";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "cjE-4d-ZYa"; */
+"cjE-4d-ZYa.text" = "Title";
+
+/* Class = "UILabel"; text = "authorLabel"; ObjectID = "hFn-dy-2Xd"; */
+"hFn-dy-2Xd.text" = "authorLabel";
+
+/* Class = "UILabel"; text = "Search API kindly provided by core.ac.uk"; ObjectID = "i0s-Th-Qsb"; */
+"i0s-Th-Qsb.text" = "Die Such-API wird von core.ac.uk bereitestellt";
+
+/* Class = "UILabel"; text = "Abstract"; ObjectID = "iSb-6n-f6q"; */
+"iSb-6n-f6q.text" = "Zusammenfassung";
+
+/* Class = "UILabel"; text = "Please remember that you'll get the most out of OA Helper, if you use the Safari Share Sheet!"; ObjectID = "oHP-zt-CAG"; */
+"oHP-zt-CAG.text" = "Bitte denken Sie daran, dass Sie den größten Nuzten aus dem Safari Share Sheet ziehen werden";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "y5E-9n-LU8"; */
+"y5E-9n-LU8.text" = "Untertitel";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zpM-2j-XVw"; */
+"zpM-2j-XVw.text" = "Label";
+
+"JJr-Ge-nca.normalTitle" = "Open Access Suche";

@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "actionButton"; ObjectID = "DTw-Gm-XyT"; */
+"DTw-Gm-XyT.normalTitle" = "actionButton";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "J8N-TJ-bjg"; */
+"J8N-TJ-bjg.normalTitle" = "Abbrechen";
+
+/* Class = "UIViewController"; title = "Image"; ObjectID = "ObA-dk-sSI"; */
+"ObA-dk-sSI.title" = "Bild";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "WYi-yp-eM6"; */
+"WYi-yp-eM6.title" = "Fertig";
+
+/* Class = "UILabel"; text = "OA Type"; ObjectID = "fEr-kP-ah3"; */
+"fEr-kP-ah3.text" = "OA Typ";
+
+/* Class = "UITextView"; text = "We're helping you find Open Access documents here!"; ObjectID = "i9C-Sz-Y4w"; */
+"i9C-Sz-Y4w.text" = "Wir helfen Dir hier Open Access Dokumente zu finden!";
+
+/* Class = "UILabel"; text = "Source"; ObjectID = "kcR-8X-IwJ"; */
+"kcR-8X-IwJ.text" = "Quelle";

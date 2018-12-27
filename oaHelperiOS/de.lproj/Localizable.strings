@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  oaHelperiOS
+
+  Created by Claus Wolf on 26.12.18.
+  Copyright © 2018 Claus Wolf. All rights reserved.
+*/
+
+"Searchig core.ac.uk for you" = "Suche in core.ac.uk gestartet";
+"Sorry, we encountered a problem" = "Sorry, ein Problem ist aufgetreten";
+"Enter your search:" = "Ihre Suche:";
+"core.ac.uk API key missing - please quit app" = "core.ac.uk API Key fehlt - bitte beenden Sie die App";
+"Sorry, we encountered a data problem" = "Sorry, wir hatten ein Datenproblem";
+"Access Full Text" = "Volltext abrufen";
+"View Record at core.ac.uk" = "core.ac.uk Datensatz zeigen";
+"%@ Hits" = "%@ Treffer";
+"😢 No Results" = "😢 Keine Ergebnisse";
+"Sadly there were no results for your search. Please check your search terms or rephrase your query and try again." = "Leider ergab Ihre Suche keine Treffer. Bitte überprüfen Sie Ihre Suchbegriffe, oder formulieren Sie die Suche um";
+"❗This wasn't meant to happen" = "❗Das hätte nicht passieren sollen";
+"We encountered an error, which we thought you'd never see. Sorry about that. Please try again!" = "Sie haben einen Fehler gefunden, der nie hätte gezeigt werden sollen. Sorry! Bitte versuchen Sie es erneut";
+"Search Results" = "Ergebnisse";
+"By: " = "Von: ";

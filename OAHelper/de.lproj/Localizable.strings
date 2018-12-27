@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  oaHelperiOS
+
+  Created by Claus Wolf on 26.12.18.
+  Copyright © 2018 Claus Wolf. All rights reserved.
+*/
+"DOI detected" = "DOI gefunden";
+"We found a DOI and are checking the web for an Open Access version" = "Wir haben einen DOI gefunden und suchen nun nach Open Access";
+"Multiple DOIs detected" = "Mehrere DOIs gefunden";
+"Select one of the DOIs below and try again:" = "Wählen Sie unten einen DOI und versuchen Sie es erneut:";
+"Search" = "Suchen";
+"%@ \n\nIf you wish to search the above at core.ac.uk, click the button below" = "%@ \n\nWenn Sie den obigen Text in core.ac.uk suchen möchten, drücken Sie die Schaltfläche unten";
+"Search core.ac.uk" = "Suche in core.ac.uk";
+"No DOI found" = "Kein DOI gefunden";
+"\n\nWe were unable to identify a DOI and thus unable to identify an Open Access version of the document" = "\n\nLeider konnten wir keinen DOI ermitteln und somit können wir keine Open Access Prüfung vornehmen.";
+"No Open Access Found" = "Kein Open Access gefunden";
+"\n\nWe were unable to identify an Open Access Version of this document!" = "\n\n Wir konnten keine Open Access Version dieses Dokumentes finden!";
+"We've encountered an error" = "Ein Fehler ist aufgetreten";
+"We were unable to identify an Open Access Version of this document!" = "Wir konnten keine Open Access Version dieses Dokumentes finden!";
+"Open Access version is available at:\n%@" = "Open Access Version verfügbar unter:\n%@";
+"Go to document now" = "Zum Dokument";
+"We've encountered a problem" = "Ein Problem ist aufgetreten";
+"Open Access of this article should be available, but the URL was empty" = "Eine Open Access Version sollte verfügbar sein, die URL war jedoch leer";
+"We were unable to find an Open Access version of this article. Please click the button below to search for the title of the article in core.ac.uk" = "Wir konnten keine Open Access Version des Artikels finden. Bitte drücken Sie die Schaltfläche unten, um den Artikeltitel bei core.ac.uk zu suchen";
+"No Open Access available" = "Kein Open Access verfügbar";

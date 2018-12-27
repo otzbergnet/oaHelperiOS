@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "OA Helper isn't active by default. To enusre it's there, go to Safari now, and click the share icon.\n\nScroll to the right and click \"more...\" then activate OAHelper and drag it up the list, for easy access.\n\nClick the button below and we'll show you how!"; ObjectID = "Dro-VJ-mVt"; */
+"Dro-VJ-mVt.text" = "OA Helper muss erst aktiviert werden. Stellen Sie sicher, dass OA Helper aktiv ist, indem Sie nun Safari öffnen und dann das Teilen-Icon drücken.\n\nWischen Sie ganz nach rechts und drücken Sie \"mehr...\" und aktivieren Sie OAHelper für schnellen Zugriff.\n\nDer Knopf unten, zeigt, wie es geht!";
+
+/* Class = "UILabel"; text = "Welcome!"; ObjectID = "U1Z-Q0-66y"; */
+"U1Z-Q0-66y.text" = "Willkommen!";
+
+/* Class = "UILabel"; text = "Be ready to share!"; ObjectID = "dNJ-v4-b9x"; */
+"dNJ-v4-b9x.text" = "Seien Sie bereit \"zu teilen\"!";
+
+/* Class = "UILabel"; text = "The main purpose of this app is to give you the action sheet extension, which will help you access all that Open Access goodness. However, if you open Open Access Helper you can send a search to core.ac.uk - the world's largest Open Access aggregator.\n\nIn my books no better place to start an Open Access search...\n\nClick \"Close\" below to get started!"; ObjectID = "dYL-df-faw"; */
+"dYL-df-faw.text" = "Die Hauptaufgabe dieser App ist es eine Action Sheet Extesion zu installieren, die Ihnen helfen wird Open Access Dokumente zu finden. Wenn Sie die App öffnen können Sie eine Suche an core.ac.uk - den weltweit größten Open Access Aggregator - senden.\n\nDrücken Sie \"Beenden\", um loszulegen!";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "lLR-Ad-8Xk"; */
+"lLR-Ad-8Xk.normalTitle" = "Beenden";
+
+/* Class = "UILabel"; text = "There are more than 23 million Open Access documents available via the unpaywall.org API and this app is here to help you use them.\n\nWhenever you reach a publisher's paywall, tap the share icon in Safari and select OA Helper. The App will inspect the page for a DOI and take you to the Open Access copy, if one is available. "; ObjectID = "pjO-AG-Swx"; */
+"pjO-AG-Swx.text" = "Die unpaywall.org API kann Ihnen helfen mehr als 23 Millionen Open Access Dokumente zu finden.\n\Sobald Sie keinen Zugriff auf eine wissenschaftliche Veröffentlichung haben, drücken Sie das Teilen-Icon in Safari und wählen Sie OA Helper. Wir suchen einen DOI in der Seite und dann nach Open Access";
+
+/* Class = "UIButton"; normalTitle = "Open Safari & activate"; ObjectID = "r6v-qV-YFb"; */
+"r6v-qV-YFb.normalTitle" = "Safari öffnen & aktivieren";
+
+/* Class = "UILabel"; text = "About this App"; ObjectID = "ypY-dD-ifw"; */
+"ypY-dD-ifw.text" = "Über diese App";
