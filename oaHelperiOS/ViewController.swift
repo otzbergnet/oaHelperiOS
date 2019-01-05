@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         searchButton.layer.cornerRadius = 10
         self.textField.delegate = self
-        
+        self.title = NSLocalizedString("Search", comment: "Search shown in navbar on first view controller")
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
     }

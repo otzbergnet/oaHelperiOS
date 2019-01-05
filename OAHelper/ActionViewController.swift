@@ -40,6 +40,10 @@ class ActionViewController: UIViewController {
         sourceLabel.text = ""
         oaTypeLabel.text = ""
         
+        //this ensurs there is no padding on the UITextView, which otherwise would be painful for alignment
+        textView.textContainerInset = .zero
+        textView.textContainer.lineFragmentPadding = 0
+        
         oaLogo.isHidden = true
 
         guard let extensionItems = extensionContext?.inputItems as? [NSExtensionItem] else {
@@ -210,13 +214,14 @@ class ActionViewController: UIViewController {
                         self.activityIndicator.stopAnimating()
                         self.activityIndicator.isHidden = true
                         if let title = oaData.title {
+                            
                             self.headerLabel.text = title
                         }
                         else{
                             self.headerLabel.text = "Open Access"
                         }
                         self.sourceLabel.text = self.constructSource(data: oaData)
-                        let oaFoundText = String(format: NSLocalizedString("Open Access version is available at:\n%@", comment: "shows when OA was found"), boa.url)
+                        let oaFoundText = String(format: NSLocalizedString("Open Access version is available at:\n\n%@", comment: "shows when OA was found"), boa.url)
                         self.textView.text = oaFoundText
                         self.returnURLString = boa.url
                         let oaFoundButtonText = NSLocalizedString("Go to document now", comment: "Go to document now")
