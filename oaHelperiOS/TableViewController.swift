@@ -43,7 +43,7 @@ class TableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! TableViewCell
         let paper = self.coreRecords[indexPath.row]
         let title = paper.title ?? ""
         let abstract = paper.description ?? ""
@@ -51,8 +51,21 @@ class TableViewController: UITableViewController {
         if let year = paper.datePublished {
             yearAbstract = "(\(year.prefix(4))) \(hc.cleanAbstract(txt: abstract))"
         }
-        cell.textLabel?.text = title
-        cell.detailTextLabel?.text = yearAbstract
+        //sets icon incorrectly, needs to be reviewed
+        if let urls = paper.downloadUrl{
+            if(urls != ""){
+                cell.iconImageView.image = UIImage(named: "pdf_icon")
+            }
+            else{
+                cell.iconImageView.image = UIImage(named: "core_icon")
+            }
+        }
+        else{
+            cell.iconImageView.image = UIImage(named: "core_icon")
+        }
+        
+        cell.titleLabel.text = title
+        cell.detailLabel.text = yearAbstract
         return cell
     }
     

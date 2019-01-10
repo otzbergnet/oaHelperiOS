@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     var searchTerm = ""
     var apiData = Data()
+    var urlScheme = false
     
     let messageFrame = UIView()
     var activityIndicator = UIActivityIndicatorView()
@@ -28,13 +29,47 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //search button should have rounded corners
         searchButton.layer.cornerRadius = 10
-        self.textField.delegate = self
+        
+        //we want to set the title
         self.title = NSLocalizedString("Search", comment: "Search shown in navbar on first view controller")
+        
+        //ensure we can dismiss keyboard, when we tap outside of search field
+        self.textField.delegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
+        
+        //ensure we can get search terms from the AppExtension via the URL Scheme oahelper://
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
+    //handles the data from the URLscheme
+    @objc func applicationDidBecomeActive() {
+        if(!urlScheme){
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            if appDelegate.search != "" {
+                //print(appDelegate.search)
+                self.textField.text = appDelegate.search
+                let message = NSLocalizedString("Searchig core.ac.uk for you", comment: "shows as soon as search is submitted")
+                activityIndicator(message)
+                let query = createSearch(search: appDelegate.search)
+                
+                checkCore(search: query)
+                // setting this to true, there was a case, where the search would execute again, if you left the app and opened it again
+                // the search fromt he previuos url scheme would be re-executed
+                urlScheme = true
+            }
+        }
+        
+        
+    }
+    
+
+    deinit {
+        NotificationCenter.default.removeObserver( self, name: UIApplication.didBecomeActiveNotification, object: nil)
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
@@ -105,8 +140,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    
     func checkCore(search: String) {
-        
+        //print("check core")
         // let's get the API key from the git-ignored plist (apikey)
         let apiKey = getAPIKeyFromPlist()
         // if the apiKey is empty show an error, but we can't recover from it
@@ -186,6 +222,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         effectView.contentView.addSubview(activityIndicator)
         effectView.contentView.addSubview(strLabel)
         view.addSubview(effectView)
+        self.view.layoutIfNeeded()
       
         
     }

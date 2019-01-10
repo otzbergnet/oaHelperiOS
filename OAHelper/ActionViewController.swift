@@ -98,12 +98,14 @@ class ActionViewController: UIViewController {
                                             self.sourceLabel.text = ""
                                             let formattedText = String(format: NSLocalizedString("%@ \n\nIf you wish to search the above at core.ac.uk, click the button below", comment: "selected text to be seached"), myText)
                                             self.textView.text = formattedText
-                                            self.returnURLString = "https://core.ac.uk/search?q=%22\(encodedString)%22"
+                                            //self.returnURLString = "https://core.ac.uk/search?q=%22\(encodedString)%22"
+                                            self.returnURLString = "oahelper://\(encodedString)"
                                             let titleTranslation = NSLocalizedString("Search core.ac.uk", comment: "Search core.ac.uk")
                                             self.actionButton.setTitle(titleTranslation, for: .normal)
                                             self.actionButton.isHidden = false
                                             self.dismissButton.isHidden = false
                                             self.urlAction = false
+                                            //self.searchAction()
                                         }
                                         
                                     }
@@ -119,15 +121,17 @@ class ActionViewController: UIViewController {
                                 
                                 if let urlString = results["currentUrl"] as? String {
                                     DispatchQueue.main.async {
+                                        self.headerLabel.text = "Digital Object Identifier"
                                         self.textView.text = urlString
                                         
                                     }
                                 }
                                 if let doiString = results["doi"] as? String {
-                                    print("doiString \(doiString)")
                                     if doiString != "0" {
-                                        //print("checking unpaywall with \(doiString)")
-                                        
+                                        DispatchQueue.main.async {
+                                            self.textView.text += "\n\(doiString)"
+                                            
+                                        }
                                         self.checkUnpaywall(doi: doiString)
                                     }
                                     else{
@@ -282,7 +286,17 @@ class ActionViewController: UIViewController {
             
         }
         catch let jsonError{
-            print("\(jsonError)")
+            //the most likely error here is that the DOI is actually invalid or oadoi API returns another errror
+            DispatchQueue.main.async {
+                print(jsonError)
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.isHidden = true
+                self.headerLabel.text = NSLocalizedString("No Open Access available", comment: "No Open Access available")
+                self.sourceLabel.text = ""
+                self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa available")
+                self.returnURLString = ""
+                self.dismissButton.isHidden = false
+            }
             return
         }
     }
@@ -307,21 +321,7 @@ class ActionViewController: UIViewController {
             self.extensionContext!.completeRequest(returningItems: [extensionItem], completionHandler: nil)
         }
         else{
-            //need a solution
-            
-            var responder: UIResponder? = self as UIResponder
-            let selector = #selector(openURL(_:))
-            while responder != nil {
-                if responder!.responds(to: selector) && responder != self {
-                    responder!.perform(selector, with: URL(string: self.returnURLString)!)
-                    let extensionItem = NSExtensionItem()
-                    let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "returnUrl" : self.returnURLString]]
-                    extensionItem.attachments = [ NSItemProvider(item: jsDict as NSSecureCoding?, typeIdentifier: kUTTypePropertyList as String)]
-                    self.extensionContext!.completeRequest(returningItems: [extensionItem], completionHandler: nil)
-                    return
-                }
-                responder = responder?.next
-            }
+            searchAction()
         }
         
     }
@@ -330,11 +330,26 @@ class ActionViewController: UIViewController {
         return
     }
     
+    func searchAction(){
+        var responder: UIResponder? = self as UIResponder
+        let selector = #selector(openURL(_:))
+        while responder != nil {
+            if responder!.responds(to: selector) && responder != self {
+                responder!.perform(selector, with: URL(string: self.returnURLString)!)
+                let extensionItem = NSExtensionItem()
+                let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "returnUrl" : self.returnURLString]]
+                extensionItem.attachments = [ NSItemProvider(item: jsDict as NSSecureCoding?, typeIdentifier: kUTTypePropertyList as String)]
+                self.extensionContext!.completeRequest(returningItems: [extensionItem], completionHandler: nil)
+                return
+            }
+            responder = responder?.next
+        }
+    }
+    
     func regexMatches(for regex: String, in text: String) -> [String] {
         do {
             let regex = try NSRegularExpression(pattern: regex, options: .caseInsensitive)
-            let results = regex.matches(in: text,
-                                        range: NSRange(text.startIndex..., in: text))
+            let results = regex.matches(in: text, range: NSRange(text.startIndex..., in: text))
             return results.map {
                 String(text[Range($0.range, in: text)!])
             }

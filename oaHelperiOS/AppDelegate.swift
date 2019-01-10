@@ -12,11 +12,30 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var search = String()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
+        // Easy ay to determine whether we are going to show the onboarding or main user experience
+        // at the end of onboarding the UserDefaults value for onBoarding will be set to true
+        
+        determineView()
+        
+        return true
+    }
+    
+    // below function is used to receive data via URLscheme oahelper://
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        if let message = url.host?.removingPercentEncoding{
+            self.search = message
+        }
+        determineView()
+        return true
+    }
+    
+    func determineView(){
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let onboardingStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
         
@@ -33,8 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = mainStoryBoardVC
             self.window?.makeKeyAndVisible()
         }
-        
-        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -58,6 +75,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+
+
 
 
 }

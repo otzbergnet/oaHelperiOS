@@ -41,5 +41,16 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>oahelper</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>net.otzberg.oaHelperiOS</string>
+		</dict>
+	</array>
 </dict>
 </plist>
