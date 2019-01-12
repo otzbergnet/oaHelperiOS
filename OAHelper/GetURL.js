@@ -32,17 +32,25 @@ function findDoi(){
     var option = ['citation_doi', 'doi', 'dc.doi', 'dc.identifier', 'dc.identifier.doi', 'bepress_citation_doi', 'rft_id', 'dcsext.wt_doi', 'DC.identifier'];
     var doi = "0";
     var doi1 = "0";
+    var doi2 = "0";
     for(i = 0; i < option.length; i++){
         doi = getMeta(option[i]);
         if(doi != "0"){
             break;
         }
     }
+    
+    // here we are a bit more specifc about what we are looking for
     if(doi == "0"){
         var doi1 = getMetaScheme('dc.Identifier', 'doi');
     }
     
-    if(doi != "0" && doi1 == "0"){
+    //on this one I am rather desperate and start scraping specific elements
+    if(doi1 == "0"){
+        doi2 = scrapePage();
+    }
+    
+    if(doi != "0" && doi1 == "0" && doi2 == "0"){
         var cleanedDOI = cleanDOI(doi);
         if(isDOI(cleanedDOI)){
             return cleanedDOI;
@@ -51,7 +59,7 @@ function findDoi(){
             return "0";
         }
     }
-    else if(doi1 != "0" && doi == "0"){
+    else if(doi1 != "0" && doi == "0" && doi2 == "0"){
         var cleanedDOI = cleanDOI(doi1);
         if(isDOI(cleanedDOI)){
             return cleanedDOI;
@@ -60,9 +68,18 @@ function findDoi(){
             return "0";
         }
     }
+    else if(doi2 != "0" && doi == "0" && doi1 == "0"){
+        if(isDOI(doi2)){
+            return doi2;
+        }
+        else{
+            return "0";
+        }
+    }
     else{
         return "0";
     }
+    
 }
 
 function cleanDOI(doi){
@@ -132,4 +149,56 @@ function isDOI(doi){
     else {
         return false;
     }
+}
+
+function scrapePage(){
+    //selectors[0] = PubMed
+    //selectors[1] = IEEE
+    var selectors = ['p[class=\"j\"]', 'a[class=\"ng-isolate-scope\"]'];
+    
+    var doi = ""
+    for(i = 0; i < selectors.length; i++){
+        doi = getFromSelector(selectors[i]);
+        if(doi != ""){
+            break;
+        }
+    }
+    if(doi != ""){
+        return doi;
+    }
+    else{
+        return "0"
+    }
+}
+
+function getFromSelector(selector){
+    // allow for more complex CSS selectors, these are likely more unreliable
+    const elements = document.querySelectorAll(selector);
+    
+    for (let i = 0; i < elements.length; i++) {
+        // make sure we test what we find to be a proper DOI
+        var match = matchAgainstRegex(elements[i].innerHTML)
+        if(isDOI(match)){
+            return match;
+        }
+    }
+    
+    return '';
+}
+
+function matchAgainstRegex(data){
+    var doiRegex = ["10.\\d{4,9}/[-._;()/:A-Z0-9]+", "10.1002/[^\\s]+", "10.\\d{4}/\\d+-\\d+X?(\\d+)\\d+<[\\d\\w]+:[\\d\\w]*>\\d+.\\d+.\\w+;\\d", "10.1021/\\w\\w\\d+", "10.1207/[\\w\\d]+&\\d+_\\d+"];
+    for(i = 0; i < doiRegex.length; i++){
+        var regex = new RegExp(doiRegex[i], "i");
+        var match = data.match(regex);
+        if(match != null && match.length > 0){
+            for(i = 0; i < match.length; i++){
+                if(isDOI(match[i].replace(/\.$/, ""))){
+                    return match[i].replace(/\.$/, "");
+                }
+            }
+        }
+    }
+    
+    return '';
 }

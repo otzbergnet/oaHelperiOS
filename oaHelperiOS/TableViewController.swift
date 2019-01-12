@@ -17,6 +17,7 @@ class TableViewController: UITableViewController {
     var coreRecords = [Items]()
     var hits = ""
     
+    var hc = HelperClass()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,45 +43,37 @@ class TableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! TableViewCell
         let paper = self.coreRecords[indexPath.row]
         let title = paper.title ?? ""
         let abstract = paper.description ?? ""
-        var yearAbstract = "\(abstract)"
+        var yearAbstract = "\(hc.cleanAbstract(txt: abstract))"
         if let year = paper.datePublished {
-            yearAbstract = "(\(year.prefix(4))) \(abstract)"
+            yearAbstract = "(\(year.prefix(4))) \(hc.cleanAbstract(txt: abstract))"
         }
-        cell.textLabel?.text = title
-        cell.detailTextLabel?.text = yearAbstract
+        //sets icon incorrectly, needs to be reviewed
+        if let urls = paper.downloadUrl{
+            if(urls != ""){
+                cell.iconImageView.image = UIImage(named: "pdf_icon")
+            }
+            else{
+                cell.iconImageView.image = UIImage(named: "core_icon")
+            }
+        }
+        else{
+            cell.iconImageView.image = UIImage(named: "core_icon")
+        }
+        
+        cell.titleLabel.text = title
+        cell.detailLabel.text = yearAbstract
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let detailData = DetailData()
-        detailData.title = self.coreRecords[indexPath.row].title ?? ""
-        detailData.author = self.coreRecords[indexPath.row].authors ?? []
-        detailData.abstract = self.coreRecords[indexPath.row].description ?? ""
         
-        if let urls = self.coreRecords[indexPath.row].downloadUrl{
-            if(urls != ""){
-                detailData.url = urls
-                detailData.buttonLabel = NSLocalizedString("Access Full Text", comment: "button, access full text")
-            }
-            else{
-                if let id = self.coreRecords[indexPath.row].id{
-                    detailData.url = "https://core.ac.uk/display/\(id)"
-                    detailData.buttonLabel = NSLocalizedString("View Record at core.ac.uk", comment: "button, core.ac.uk document")
-                }
-                else{
-                    detailData.url = ""
-                }
-                
-            }
-        }
-        
-        self.performSegue(withIdentifier: "detailView", sender: detailData)
+        self.performSegue(withIdentifier: "detailView", sender: indexPath.row)
     }
     
     
@@ -139,10 +132,11 @@ class TableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.title = NSLocalizedString("Search Results", comment: "Search Results String used as back-button")
-        let detailData = sender as! DetailData
+        let detailData = sender as! Int
         if segue.identifier == "detailView" {
             if let nextViewController = segue.destination as? DetailViewController {
-                nextViewController.coreRecord = detailData
+                nextViewController.coreRecords = coreRecords
+                nextViewController.num = detailData
             }
         }
     }

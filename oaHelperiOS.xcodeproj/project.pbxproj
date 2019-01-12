@@ -12,6 +12,7 @@
 		2D06546321D383AA009586B3 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D06546521D383AA009586B3 /* Onboarding.storyboard */; };
 		2D06546C21D3DF50009586B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D06546E21D3DF50009586B3 /* Localizable.strings */; };
 		2D06546F21D3DF60009586B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D06547121D3DF60009586B3 /* Localizable.strings */; };
+		2D15F9A421E0C5A300FF8B46 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D15F9A321E0C5A300FF8B46 /* Helper.swift */; };
 		2D1BE15D21CAB1250063B691 /* OnboardingTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */; };
 		2D1BE15F21CAB1440063B691 /* OnboardingThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */; };
 		2D240DF121BC5A8F000BB29B /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D240DF021BC5A8F000BB29B /* ActionViewController.swift */; };
@@ -22,11 +23,13 @@
 		2D240E0321BCE6E7000BB29B /* oadoiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD08CFB21BC350800D0B3C0 /* oadoiStruct.swift */; };
 		2D28376D21C55AB1008D6C89 /* coreStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D28376C21C55AB1008D6C89 /* coreStruct.swift */; };
 		2D28376F21C61821008D6C89 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D28376E21C61821008D6C89 /* DetailViewController.swift */; };
+		2D30FC5D21E4715F00C4060D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30FC5C21E4715F00C4060D /* TableViewCell.swift */; };
 		2DD08CEA21BC31ED00D0B3C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD08CE921BC31ED00D0B3C0 /* AppDelegate.swift */; };
 		2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD08CEB21BC31ED00D0B3C0 /* ViewController.swift */; };
 		2DD08CEF21BC31ED00D0B3C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DD08CED21BC31ED00D0B3C0 /* Main.storyboard */; };
 		2DD08CF421BC31EF00D0B3C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DD08CF221BC31EF00D0B3C0 /* LaunchScreen.storyboard */; };
 		2DD08CFC21BC350800D0B3C0 /* oadoiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD08CFB21BC350800D0B3C0 /* oadoiStruct.swift */; };
+		2DE0701B21E08B8700D39D99 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */; };
 		2DE8114921C962180052698C /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE8114821C962180052698C /* OnboardingController.swift */; };
 		2DE8114B21CA05AD0052698C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DE8114A21CA05AC0052698C /* Assets.xcassets */; };
 		2DE8114C21CA05AD0052698C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DE8114A21CA05AC0052698C /* Assets.xcassets */; };
@@ -67,6 +70,7 @@
 		2D06546721D383B9009586B3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Onboarding.strings; sourceTree = "<group>"; };
 		2D06546D21D3DF50009586B3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D06547021D3DF60009586B3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2D15F9A321E0C5A300FF8B46 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTwo.swift; sourceTree = "<group>"; };
 		2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingThree.swift; sourceTree = "<group>"; };
 		2D240DEC21BC5A8F000BB29B /* OAHelper.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OAHelper.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +83,7 @@
 		2D240E0121BCDFA3000BB29B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D28376C21C55AB1008D6C89 /* coreStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreStruct.swift; sourceTree = "<group>"; };
 		2D28376E21C61821008D6C89 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2D30FC5C21E4715F00C4060D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		2DD08CE621BC31ED00D0B3C0 /* oaHelperiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oaHelperiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD08CE921BC31ED00D0B3C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DD08CEB21BC31ED00D0B3C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +91,7 @@
 		2DD08CF321BC31EF00D0B3C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DD08CF521BC31EF00D0B3C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DD08CFB21BC350800D0B3C0 /* oadoiStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oadoiStruct.swift; sourceTree = "<group>"; };
+		2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		2DE8114821C962180052698C /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		2DE8114A21CA05AC0052698C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DFF67B821C2ED6F00120363 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -161,8 +167,11 @@
 				2DE8114821C962180052698C /* OnboardingController.swift */,
 				2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */,
 				2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */,
+				2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */,
 				2D06545D21D357BB009586B3 /* apikey.plist */,
 				2D06546E21D3DF50009586B3 /* Localizable.strings */,
+				2D15F9A321E0C5A300FF8B46 /* Helper.swift */,
+				2D30FC5C21E4715F00C4060D /* TableViewCell.swift */,
 			);
 			path = oaHelperiOS;
 			sourceTree = "<group>";
@@ -297,16 +306,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D30FC5D21E4715F00C4060D /* TableViewCell.swift in Sources */,
 				2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */,
 				2DFF67BB21C2F30A00120363 /* dessimStruct.swift in Sources */,
 				2DD08CEA21BC31ED00D0B3C0 /* AppDelegate.swift in Sources */,
 				2D1BE15F21CAB1440063B691 /* OnboardingThree.swift in Sources */,
 				2D1BE15D21CAB1250063B691 /* OnboardingTwo.swift in Sources */,
+				2DE0701B21E08B8700D39D99 /* CopyableLabel.swift in Sources */,
 				2DD08CFC21BC350800D0B3C0 /* oadoiStruct.swift in Sources */,
 				2DE8114921C962180052698C /* OnboardingController.swift in Sources */,
 				2DFF67B921C2ED6F00120363 /* TableViewController.swift in Sources */,
 				2D28376D21C55AB1008D6C89 /* coreStruct.swift in Sources */,
 				2D28376F21C61821008D6C89 /* DetailViewController.swift in Sources */,
+				2D15F9A421E0C5A300FF8B46 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

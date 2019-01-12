@@ -15,7 +15,7 @@
 "lLR-Ad-8Xk.normalTitle" = "Beenden";
 
 /* Class = "UILabel"; text = "There are more than 23 million Open Access documents available via the unpaywall.org API and this app is here to help you use them.\n\nWhenever you reach a publisher's paywall, tap the share icon in Safari and select OA Helper. The App will inspect the page for a DOI and take you to the Open Access copy, if one is available. "; ObjectID = "pjO-AG-Swx"; */
-"pjO-AG-Swx.text" = "Die unpaywall.org API kann Ihnen helfen mehr als 23 Millionen Open Access Dokumente zu finden.\n\Sobald Sie keinen Zugriff auf eine wissenschaftliche Veröffentlichung haben, drücken Sie das Teilen-Icon in Safari und wählen Sie OA Helper. Wir suchen einen DOI in der Seite und dann nach Open Access";
+"pjO-AG-Swx.text" = "Die unpaywall.org API kann Ihnen helfen mehr als 23 Millionen Open Access Dokumente zu finden.\n\Sobald Sie keinen Zugriff auf eine wissenschaftliche Veröffentlichung haben, drücken Sie das Teilen-Icon in Safari und wählen Sie OA Helper. Wir suchen einen DOI in der Seite und dann nach einer Open Access Kopie.\n\nStreichen Sie nach links, um mehr zu erfahren.";
 
 /* Class = "UIButton"; normalTitle = "Open Safari & activate"; ObjectID = "r6v-qV-YFb"; */
 "r6v-qV-YFb.normalTitle" = "Safari öffnen & aktivieren";

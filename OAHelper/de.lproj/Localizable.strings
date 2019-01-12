@@ -18,7 +18,7 @@
 "\n\nWe were unable to identify an Open Access Version of this document!" = "\n\n Wir konnten keine Open Access Version dieses Dokumentes finden!";
 "We've encountered an error" = "Ein Fehler ist aufgetreten";
 "We were unable to identify an Open Access Version of this document!" = "Wir konnten keine Open Access Version dieses Dokumentes finden!";
-"Open Access version is available at:\n%@" = "Open Access Version verfügbar unter:\n%@";
+"Open Access version is available at:\n\n%@" = "Open Access Version verfügbar unter:\n\n%@";
 "Go to document now" = "Zum Dokument";
 "We've encountered a problem" = "Ein Problem ist aufgetreten";
 "Open Access of this article should be available, but the URL was empty" = "Eine Open Access Version sollte verfügbar sein, die URL war jedoch leer";
