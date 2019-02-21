@@ -33,6 +33,10 @@
 		2DE8114921C962180052698C /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE8114821C962180052698C /* OnboardingController.swift */; };
 		2DE8114B21CA05AD0052698C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DE8114A21CA05AC0052698C /* Assets.xcassets */; };
 		2DE8114C21CA05AD0052698C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DE8114A21CA05AC0052698C /* Assets.xcassets */; };
+		2DF95CE0221DC9CE00F11220 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DF95CDF221DC9CE00F11220 /* Settings.bundle */; };
+		2DF95CE1221DC9CE00F11220 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DF95CDF221DC9CE00F11220 /* Settings.bundle */; };
+		2DF95CE3221DD41800F11220 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */; };
+		2DF95CE4221DD41800F11220 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */; };
 		2DFF67B921C2ED6F00120363 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF67B821C2ED6F00120363 /* TableViewController.swift */; };
 		2DFF67BB21C2F30A00120363 /* dessimStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF67BA21C2F30A00120363 /* dessimStruct.swift */; };
 /* End PBXBuildFile section */
@@ -94,6 +98,8 @@
 		2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		2DE8114821C962180052698C /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		2DE8114A21CA05AC0052698C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2DF95CDF221DC9CE00F11220 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		2DFF67B821C2ED6F00120363 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		2DFF67BA21C2F30A00120363 /* dessimStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dessimStruct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +178,8 @@
 				2D06546E21D3DF50009586B3 /* Localizable.strings */,
 				2D15F9A321E0C5A300FF8B46 /* Helper.swift */,
 				2D30FC5C21E4715F00C4060D /* TableViewCell.swift */,
+				2DF95CDF221DC9CE00F11220 /* Settings.bundle */,
+				2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */,
 			);
 			path = oaHelperiOS;
 			sourceTree = "<group>";
@@ -274,6 +282,7 @@
 				2DE8114C21CA05AD0052698C /* Assets.xcassets in Resources */,
 				2D240E0021BC738E000BB29B /* GetURL.js in Resources */,
 				2D06545F21D357BB009586B3 /* apikey.plist in Resources */,
+				2DF95CE1221DC9CE00F11220 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +296,7 @@
 				2DD08CEF21BC31ED00D0B3C0 /* Main.storyboard in Resources */,
 				2D06546321D383AA009586B3 /* Onboarding.storyboard in Resources */,
 				2D06545E21D357BB009586B3 /* apikey.plist in Resources */,
+				2DF95CE0221DC9CE00F11220 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D240DF121BC5A8F000BB29B /* ActionViewController.swift in Sources */,
+				2DF95CE4221DD41800F11220 /* SettingsBundleHelper.swift in Sources */,
 				2D240E0321BCE6E7000BB29B /* oadoiStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +319,7 @@
 			files = (
 				2D30FC5D21E4715F00C4060D /* TableViewCell.swift in Sources */,
 				2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */,
+				2DF95CE3221DD41800F11220 /* SettingsBundleHelper.swift in Sources */,
 				2DFF67BB21C2F30A00120363 /* dessimStruct.swift in Sources */,
 				2DD08CEA21BC31ED00D0B3C0 /* AppDelegate.swift in Sources */,
 				2D1BE15F21CAB1440063B691 /* OnboardingThree.swift in Sources */,
@@ -394,6 +406,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Extension";
 				CODE_SIGN_ENTITLEMENTS = OAHelper/OAHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = OAHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -406,6 +419,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -415,6 +429,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Extension";
 				CODE_SIGN_ENTITLEMENTS = OAHelper/OAHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = OAHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -427,6 +442,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -555,6 +571,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = oaHelperiOS/oaHelperiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = oaHelperiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -565,6 +582,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -575,6 +593,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = oaHelperiOS/oaHelperiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = oaHelperiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -585,6 +604,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

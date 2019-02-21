@@ -39,8 +39,10 @@ class DetailViewController: UIViewController {
     var coreRecords = [Items]()
     var num : Int = 0
     var url : String = ""
+    var pdf : Bool = false
     
     var hc = HelperClass()
+    let settings = SettingsBundleHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,13 +118,16 @@ class DetailViewController: UIViewController {
             accessButton.backgroundColor = blueColor
             pdfButton.backgroundColor = blueColor
             pdfButton.setTitle("core.ac.uk", for: .normal)
+            self.pdf = false
         }
         else{
             accessButton.backgroundColor = greenColor
             pdfButton.backgroundColor = greenColor
             pdfButton.setTitle("PDF", for: .normal)
+            self.pdf = true
         }
         if(coreRecord.url == "" ){
+            self.pdf = false
             accessButton.isHidden = true
         }
         
@@ -142,6 +147,9 @@ class DetailViewController: UIViewController {
     func goToDocument(){
         if(self.url != ""){
             //print(coreRecord.url)
+            if(self.pdf){
+                self.settings.incrementOAFoundCount()
+            }
             let url = URL(string: self.url.trimmingCharacters(in: .whitespacesAndNewlines))
             let vc = SFSafariViewController(url: url!)
             self.present(vc, animated: true, completion: nil)

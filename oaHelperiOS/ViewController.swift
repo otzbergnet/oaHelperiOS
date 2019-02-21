@@ -26,6 +26,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     
+    let settings = SettingsBundleHelper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -142,6 +144,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     func checkCore(search: String) {
+        self.settings.incrementOASearchCount()
         //print("check core")
         // let's get the API key from the git-ignored plist (apikey)
         let apiKey = getAPIKeyFromPlist()

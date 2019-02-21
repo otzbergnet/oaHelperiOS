@@ -24,6 +24,8 @@ class ActionViewController: UIViewController {
     var urlAction = false
     var selectAction = false
     
+    let settings = SettingsBundleHelper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -228,6 +230,7 @@ class ActionViewController: UIViewController {
                         let oaFoundText = String(format: NSLocalizedString("Open Access version is available at:\n\n%@", comment: "shows when OA was found"), boa.url)
                         self.textView.text = oaFoundText
                         self.returnURLString = boa.url
+                        self.settings.incrementOAFoundCount()
                         let oaFoundButtonText = NSLocalizedString("Go to document now", comment: "Go to document now")
                         self.actionButton.setTitle(oaFoundButtonText, for: .normal)
                         self.actionButton.isHidden = false
@@ -424,6 +427,7 @@ class ActionViewController: UIViewController {
         
         return color
     }
+    
 }
 
 
