@@ -148,14 +148,15 @@ class DetailViewController: UIViewController {
         if(self.url != ""){
             //print(coreRecord.url)
             if(self.pdf){
-                self.settings.incrementOAFoundCount()
+                
+                self.settings.incrementOACount(key : "core_pdf")
             }
             let url = URL(string: self.url.trimmingCharacters(in: .whitespacesAndNewlines))
             let vc = SFSafariViewController(url: url!)
             self.present(vc, animated: true, completion: nil)
         }
         else{
-            print("accss Tapped failed somehow - empty?")
+            print("access Tapped failed somehow - empty?")
         }
     }
     

@@ -32,6 +32,40 @@
 			<key>DefaultValue</key>
 			<string>0</string>
 		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>core.ac.uk PDF</string>
+			<key>Key</key>
+			<string>core_pdf</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Share Statistics</string>
+			<key>Key</key>
+			<string>share_stats</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
+			<false/>
+			<key>DefaultValue</key>
+			<string>NO</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Last Shared</string>
+			<key>Key</key>
+			<string>share_date</string>
+			<key>DefaultValue</key>
+			<string>-</string>
+		</dict>
 	</array>
 </dict>
 </plist>

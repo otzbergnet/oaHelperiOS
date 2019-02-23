@@ -12,25 +12,34 @@ class SettingsBundleHelper {
     let defaults: UserDefaults
     
     init(){
-         self.defaults = UserDefaults(suiteName: "group.net.otzberg.oaHelper")!
+        self.defaults = UserDefaults(suiteName: "group.net.otzberg.oaHelper")!
     }
     
-    func incrementOAFoundCount(){
-        var oaCount : Int = self.defaults.integer(forKey: "oa_found")
+    // oa_found, oa_search, core_pdf
+    
+    func incrementOACount(key : String){
+        var oaCount : Int = self.defaults.integer(forKey: key)
         oaCount += 1;
-        self.defaults.set("\(oaCount)", forKey: "oa_found")
-    }
-
-    func incrementOASearchCount(){
-        var oaCount : Int = self.defaults.integer(forKey: "oa_search")
-        oaCount += 1;
-        self.defaults.set("\(oaCount)", forKey: "oa_search")
+        self.defaults.set("\(oaCount)", forKey: key)
     }
     
-    func getOACount() -> String{
-        let oaCount : Int = self.defaults.integer(forKey: "oa_search")
-        
-        return "\(oaCount)"
+    func getOACount(key : String) -> Int{
+        let oaCount : Int = self.defaults.integer(forKey: key)
+        return oaCount
     }
+    
+    func getSubmitStatsValue() -> Bool{
+        let value : Bool = self.defaults.bool(forKey: "share_stats")
+        return value
+    }
+    
+    func setSubmitStatsValue(value : Bool){
+        self.defaults.set(value, forKey: "share_stats")
+    }
+    
+    func setDate(date : String){
+        self.defaults.set(date, forKey: "share_date")
+    }
+    
     
 }

@@ -12,6 +12,9 @@
 		2D06546321D383AA009586B3 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D06546521D383AA009586B3 /* Onboarding.storyboard */; };
 		2D06546C21D3DF50009586B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D06546E21D3DF50009586B3 /* Localizable.strings */; };
 		2D06546F21D3DF60009586B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D06547121D3DF60009586B3 /* Localizable.strings */; };
+		2D11771722207A7000859B08 /* StatisticSubmit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11771622207A7000859B08 /* StatisticSubmit.swift */; };
+		2D1177182221329500859B08 /* StatisticSubmit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11771622207A7000859B08 /* StatisticSubmit.swift */; };
+		2D11771A222182C800859B08 /* OnboardingFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D117719222182C800859B08 /* OnboardingFour.swift */; };
 		2D15F9A421E0C5A300FF8B46 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D15F9A321E0C5A300FF8B46 /* Helper.swift */; };
 		2D1BE15D21CAB1250063B691 /* OnboardingTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */; };
 		2D1BE15F21CAB1440063B691 /* OnboardingThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */; };
@@ -74,6 +77,8 @@
 		2D06546721D383B9009586B3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Onboarding.strings; sourceTree = "<group>"; };
 		2D06546D21D3DF50009586B3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D06547021D3DF60009586B3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2D11771622207A7000859B08 /* StatisticSubmit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticSubmit.swift; sourceTree = "<group>"; };
+		2D117719222182C800859B08 /* OnboardingFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingFour.swift; sourceTree = "<group>"; };
 		2D15F9A321E0C5A300FF8B46 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTwo.swift; sourceTree = "<group>"; };
 		2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingThree.swift; sourceTree = "<group>"; };
@@ -173,6 +178,7 @@
 				2DE8114821C962180052698C /* OnboardingController.swift */,
 				2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */,
 				2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */,
+				2D117719222182C800859B08 /* OnboardingFour.swift */,
 				2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */,
 				2D06545D21D357BB009586B3 /* apikey.plist */,
 				2D06546E21D3DF50009586B3 /* Localizable.strings */,
@@ -180,6 +186,7 @@
 				2D30FC5C21E4715F00C4060D /* TableViewCell.swift */,
 				2DF95CDF221DC9CE00F11220 /* Settings.bundle */,
 				2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */,
+				2D11771622207A7000859B08 /* StatisticSubmit.swift */,
 			);
 			path = oaHelperiOS;
 			sourceTree = "<group>";
@@ -307,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D1177182221329500859B08 /* StatisticSubmit.swift in Sources */,
 				2D240DF121BC5A8F000BB29B /* ActionViewController.swift in Sources */,
 				2DF95CE4221DD41800F11220 /* SettingsBundleHelper.swift in Sources */,
 				2D240E0321BCE6E7000BB29B /* oadoiStruct.swift in Sources */,
@@ -318,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D30FC5D21E4715F00C4060D /* TableViewCell.swift in Sources */,
+				2D11771722207A7000859B08 /* StatisticSubmit.swift in Sources */,
 				2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */,
 				2DF95CE3221DD41800F11220 /* SettingsBundleHelper.swift in Sources */,
 				2DFF67BB21C2F30A00120363 /* dessimStruct.swift in Sources */,
@@ -330,6 +339,7 @@
 				2DFF67B921C2ED6F00120363 /* TableViewController.swift in Sources */,
 				2D28376D21C55AB1008D6C89 /* coreStruct.swift in Sources */,
 				2D28376F21C61821008D6C89 /* DetailViewController.swift in Sources */,
+				2D11771A222182C800859B08 /* OnboardingFour.swift in Sources */,
 				2D15F9A421E0C5A300FF8B46 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

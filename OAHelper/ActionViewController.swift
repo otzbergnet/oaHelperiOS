@@ -25,6 +25,7 @@ class ActionViewController: UIViewController {
     var selectAction = false
     
     let settings = SettingsBundleHelper()
+    let stats = StatisticSubmit()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,8 @@ class ActionViewController: UIViewController {
         textView.textContainer.lineFragmentPadding = 0
         
         oaLogo.isHidden = true
+        
+        self.stats.submitStats()
 
         guard let extensionItems = extensionContext?.inputItems as? [NSExtensionItem] else {
             return
@@ -230,7 +233,7 @@ class ActionViewController: UIViewController {
                         let oaFoundText = String(format: NSLocalizedString("Open Access version is available at:\n\n%@", comment: "shows when OA was found"), boa.url)
                         self.textView.text = oaFoundText
                         self.returnURLString = boa.url
-                        self.settings.incrementOAFoundCount()
+                        self.settings.incrementOACount(key: "oa_found")
                         let oaFoundButtonText = NSLocalizedString("Go to document now", comment: "Go to document now")
                         self.actionButton.setTitle(oaFoundButtonText, for: .normal)
                         self.actionButton.isHidden = false

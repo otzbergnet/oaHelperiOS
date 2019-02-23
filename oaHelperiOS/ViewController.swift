@@ -27,6 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     
     let settings = SettingsBundleHelper()
+    let stats = StatisticSubmit()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //ensure we can get search terms from the AppExtension via the URL Scheme oahelper://
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        
+        self.stats.submitStats()
+        
     }
 
     //handles the data from the URLscheme
@@ -144,7 +148,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     func checkCore(search: String) {
-        self.settings.incrementOASearchCount()
+        //oa_search
+        self.settings.incrementOACount(key: "oa_search")
         //print("check core")
         // let's get the API key from the git-ignored plist (apikey)
         let apiKey = getAPIKeyFromPlist()

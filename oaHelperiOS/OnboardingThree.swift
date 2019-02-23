@@ -12,30 +12,61 @@ class OnboardingThree: UIViewController {
     
     let defaults = UserDefaults.standard
     var window: UIWindow?
+    let settings = SettingsBundleHelper()
     
-    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var dataShare: UISwitch!
+    @IBOutlet weak var openSettingsButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doneButton.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
+        openSettingsButton.layer.cornerRadius = 10
+        if(self.settings.getSubmitStatsValue()){
+            dataShare.isOn = true
+        }
+        else{
+            dataShare.isOn = false
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(OnboardingThree.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if(self.settings.getSubmitStatsValue()){
+            dataShare.isOn = true
+        }
+        else{
+            dataShare.isOn = false
+        }
+    }
+    
+    @objc func defaultsChanged(){
+        if settings.getSubmitStatsValue() {
+            dataShare.isOn = true
+            
+        }
+        else {
+            dataShare.isOn = false
+        }
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func dataShareSwitched(_ sender: Any) {
+        if(self.dataShare.isOn){
+            self.settings.setSubmitStatsValue(value: true)
+        }
+        else{
+            self.settings.setSubmitStatsValue(value: false)
+        }
     }
-    */
-    @IBAction func doneButtonTapped(_ sender: Any) {
-        defaults.set(true, forKey: "onBoarding")
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = mainStoryboard.instantiateInitialViewController()!
-        self.present(controller, animated: true, completion: nil)
+    
+    @IBAction func openSettingsTapped(_ sender: Any) {
+        if let url = URL(string:UIApplication.openSettingsURLString) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
     }
+    
     
 }

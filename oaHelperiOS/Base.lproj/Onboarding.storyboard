@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oa_ob" translatesAutoresizingMaskIntoConstraints="NO" id="7Q4-UL-A0v">
-                                <rect key="frame" x="105" y="65" width="110" height="50"/>
+                                <rect key="frame" x="105" y="45" width="110" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="JXY-TT-ddx">
                                         <variation key="heightClass=regular-widthClass=compact" constant="50"/>
@@ -36,19 +36,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1Z-Q0-66y">
-                                <rect key="frame" x="20" y="145" width="280" height="35"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
+                                <rect key="frame" x="20" y="125" width="280" height="31.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjO-AG-Swx">
-                                <rect key="frame" x="20" y="195" width="280" height="302"/>
-                                <string key="text">There are more than 23 million Open Access documents available via the unpaywall.org API and this app is here to help you use them.
+                                <rect key="frame" x="20" y="171.5" width="280" height="246"/>
+                                <string key="text">There are more than 22 million Open Access documents available via the unpaywall.org API and this app is here to help you use them.
 
 Whenever you reach a publisher's paywall, tap the share icon in Safari and select OA Helper. The App will inspect the page for a DOI and take you to the Open Access copy, if one is available.
 
 Swipe left to learn more.</string>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -63,7 +63,7 @@ Swipe left to learn more.</string>
                             <constraint firstItem="7Q4-UL-A0v" firstAttribute="centerX" secondItem="p0B-gs-641" secondAttribute="centerX" id="Mbo-cZ-RdB"/>
                             <constraint firstItem="03B-Q0-N5b" firstAttribute="trailing" secondItem="U1Z-Q0-66y" secondAttribute="trailing" constant="20" id="cIZ-8D-Sgj"/>
                             <constraint firstItem="U1Z-Q0-66y" firstAttribute="top" secondItem="7Q4-UL-A0v" secondAttribute="bottom" constant="30" id="nBH-qX-deN"/>
-                            <constraint firstItem="7Q4-UL-A0v" firstAttribute="top" secondItem="03B-Q0-N5b" secondAttribute="top" constant="45" id="oxe-gN-cW5"/>
+                            <constraint firstItem="7Q4-UL-A0v" firstAttribute="top" secondItem="03B-Q0-N5b" secondAttribute="top" constant="25" id="oxe-gN-cW5"/>
                             <constraint firstItem="pjO-AG-Swx" firstAttribute="leading" secondItem="03B-Q0-N5b" secondAttribute="leading" constant="20" id="tH0-Rq-2Sa">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
@@ -84,7 +84,7 @@ Swipe left to learn more.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share_ob" translatesAutoresizingMaskIntoConstraints="NO" id="Q7h-4Q-89d">
-                                <rect key="frame" x="105" y="65" width="110" height="50"/>
+                                <rect key="frame" x="105" y="45" width="110" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="8eW-s8-hsz">
                                         <variation key="heightClass=regular-widthClass=compact" constant="50"/>
@@ -93,24 +93,24 @@ Swipe left to learn more.</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be ready to share!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNJ-v4-b9x">
-                                <rect key="frame" x="20" y="145" width="280" height="35"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
+                                <rect key="frame" x="20" y="125" width="280" height="31.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dro-VJ-mVt">
-                                <rect key="frame" x="20" y="195" width="280" height="232.5"/>
-                                <string key="text">OA Helper isn't active by default. To enusre it's there, go to Safari now, and click the share icon.
+                                <rect key="frame" x="20" y="171.5" width="280" height="205"/>
+                                <string key="text">OA Helper isn't active by default. To ensure it's there, go to Safari now, and click the share icon.
 
 Scroll to the right and click "more..." then activate OAHelper and drag it up the list, for easy access.
 
 Click the button below and we'll show you how!</string>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6v-qV-YFb">
-                                <rect key="frame" x="20" y="443" width="280" height="50"/>
+                                <rect key="frame" x="20" y="468" width="280" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Cu5-cx-2GZ"/>
@@ -126,7 +126,7 @@ Click the button below and we'll show you how!</string>
                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GoW-sz-j4Z" firstAttribute="trailing" secondItem="dNJ-v4-b9x" secondAttribute="trailing" constant="20" id="8XU-1J-RYw"/>
-                            <constraint firstItem="GoW-sz-j4Z" firstAttribute="bottom" secondItem="r6v-qV-YFb" secondAttribute="bottom" constant="75" id="8ra-hj-aiC"/>
+                            <constraint firstItem="GoW-sz-j4Z" firstAttribute="bottom" secondItem="r6v-qV-YFb" secondAttribute="bottom" constant="50" id="8ra-hj-aiC"/>
                             <constraint firstItem="dNJ-v4-b9x" firstAttribute="leading" secondItem="GoW-sz-j4Z" secondAttribute="leading" constant="20" id="GRZ-it-XLC"/>
                             <constraint firstItem="r6v-qV-YFb" firstAttribute="leading" secondItem="GoW-sz-j4Z" secondAttribute="leading" constant="20" id="JOj-M4-LIS">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
@@ -135,8 +135,8 @@ Click the button below and we'll show you how!</string>
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
                             <constraint firstItem="Dro-VJ-mVt" firstAttribute="top" secondItem="dNJ-v4-b9x" secondAttribute="bottom" constant="15" id="br6-Og-o3e"/>
-                            <constraint firstItem="Q7h-4Q-89d" firstAttribute="top" secondItem="GoW-sz-j4Z" secondAttribute="top" constant="45" id="eWH-G3-QdC"/>
-                            <constraint firstItem="Q7h-4Q-89d" firstAttribute="top" secondItem="GoW-sz-j4Z" secondAttribute="top" constant="45" id="jhc-cg-TJr"/>
+                            <constraint firstItem="Q7h-4Q-89d" firstAttribute="top" secondItem="GoW-sz-j4Z" secondAttribute="top" constant="25" id="eWH-G3-QdC"/>
+                            <constraint firstItem="Q7h-4Q-89d" firstAttribute="top" secondItem="GoW-sz-j4Z" secondAttribute="top" constant="25" id="jhc-cg-TJr"/>
                             <constraint firstItem="Q7h-4Q-89d" firstAttribute="centerX" secondItem="kLk-R9-6h4" secondAttribute="centerX" id="pdM-kc-NIf"/>
                             <constraint firstItem="GoW-sz-j4Z" firstAttribute="trailing" secondItem="Dro-VJ-mVt" secondAttribute="trailing" constant="20" id="qF2-W1-TzK">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
@@ -156,16 +156,16 @@ Click the button below and we'll show you how!</string>
             </objects>
             <point key="canvasLocation" x="1591" y="-531"/>
         </scene>
-        <!--Onboarding Three-->
+        <!--Onboarding Four-->
         <scene sceneID="soe-Be-mCa">
             <objects>
-                <viewController storyboardIdentifier="obThird" id="DiV-zX-Aaj" customClass="OnboardingThree" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="obFourth" id="DiV-zX-Aaj" customClass="OnboardingFour" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h0K-s5-Tpy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_oa" translatesAutoresizingMaskIntoConstraints="NO" id="QLH-gV-0VU">
-                                <rect key="frame" x="105" y="65" width="110" height="50"/>
+                                <rect key="frame" x="105" y="45" width="110" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="GnJ-xk-VBi">
                                         <variation key="heightClass=regular-widthClass=compact" constant="50"/>
@@ -174,22 +174,22 @@ Click the button below and we'll show you how!</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About this App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypY-dD-ifw">
-                                <rect key="frame" x="20" y="145" width="280" height="35"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
+                                <rect key="frame" x="20" y="125" width="280" height="31.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYL-df-faw">
-                                <rect key="frame" x="20" y="195" width="280" height="232.5"/>
+                                <rect key="frame" x="20" y="171.5" width="280" height="184.5"/>
                                 <string key="text">The main purpose of this app is to give you the action sheet extension, which will help you access all that Open Access goodness. However, if you open Open Access Helper you can send a search to core.ac.uk - the world's largest Open Access aggregator.
 
 Click "Close" below to get started!</string>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLR-Ad-8Xk">
-                                <rect key="frame" x="20" y="443" width="280" height="50"/>
+                                <rect key="frame" x="20" y="468" width="280" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="XTf-Ju-9fk"/>
@@ -217,12 +217,12 @@ Click "Close" below to get started!</string>
                             <constraint firstItem="dYL-df-faw" firstAttribute="leading" secondItem="56x-PR-3Ss" secondAttribute="leading" constant="20" id="TYl-l8-bDF">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
-                            <constraint firstItem="QLH-gV-0VU" firstAttribute="top" secondItem="56x-PR-3Ss" secondAttribute="top" constant="45" id="Tud-xY-GvR"/>
+                            <constraint firstItem="QLH-gV-0VU" firstAttribute="top" secondItem="56x-PR-3Ss" secondAttribute="top" constant="25" id="Tud-xY-GvR"/>
                             <constraint firstItem="56x-PR-3Ss" firstAttribute="trailing" secondItem="dYL-df-faw" secondAttribute="trailing" constant="20" id="dBV-8j-ARs">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
                             <constraint firstItem="QLH-gV-0VU" firstAttribute="centerX" secondItem="h0K-s5-Tpy" secondAttribute="centerX" id="gf8-AK-Qr6"/>
-                            <constraint firstItem="56x-PR-3Ss" firstAttribute="bottom" secondItem="lLR-Ad-8Xk" secondAttribute="bottom" constant="75" id="rne-8g-JvK"/>
+                            <constraint firstItem="56x-PR-3Ss" firstAttribute="bottom" secondItem="lLR-Ad-8Xk" secondAttribute="bottom" constant="50" id="rne-8g-JvK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="56x-PR-3Ss"/>
                     </view>
@@ -232,12 +232,107 @@ Click "Close" below to get started!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxf-Er-oci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2279" y="-531"/>
+            <point key="canvasLocation" x="2949" y="-531"/>
+        </scene>
+        <!--Onboarding Three-->
+        <scene sceneID="tVt-Fp-dC7">
+            <objects>
+                <viewController storyboardIdentifier="obThird" id="PlM-lj-avT" customClass="OnboardingThree" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lxu-2j-J2K">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stats" translatesAutoresizingMaskIntoConstraints="NO" id="FHr-2L-sxe">
+                                <rect key="frame" x="105" y="45" width="110" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="9HB-Xi-AmE"/>
+                                    <constraint firstAttribute="height" constant="110" id="yF2-mB-U4S">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                                    </constraint>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistics?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hme-JW-BbB">
+                                <rect key="frame" x="20" y="125" width="280" height="31.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fet-ty-oQM">
+                                <rect key="frame" x="20" y="171.5" width="280" height="225.5"/>
+                                <string key="text">Developing an app with next to no information on how it is used is hard.
+
+You can opt-in to help out, by sharing some usage indicators once a month, which provide no details about you personally. The exact values and when they were shared last, are visible in the Settings App.
+
+Thank you for helping out...</string>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G3i-rb-cEh">
+                                <rect key="frame" x="20" y="412" width="51" height="31"/>
+                                <connections>
+                                    <action selector="dataShareSwitched:" destination="PlM-lj-avT" eventType="valueChanged" id="OhU-q0-6hN"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share once a month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XS4-fc-ccN">
+                                <rect key="frame" x="78" y="420" width="188" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7e-u9-etC">
+                                <rect key="frame" x="20" y="468" width="280" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="uwt-Ke-eWz"/>
+                                </constraints>
+                                <state key="normal" title="Open Settings">
+                                    <color key="titleColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openSettingsTapped:" destination="PlM-lj-avT" eventType="touchUpInside" id="gmp-bg-cPa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="p7e-u9-etC" firstAttribute="leading" secondItem="eh5-nF-o9w" secondAttribute="leading" constant="20" id="12U-2O-sWg"/>
+                            <constraint firstItem="G3i-rb-cEh" firstAttribute="leading" secondItem="eh5-nF-o9w" secondAttribute="leading" constant="20" id="8i7-KC-HSb"/>
+                            <constraint firstItem="Hme-JW-BbB" firstAttribute="top" secondItem="FHr-2L-sxe" secondAttribute="bottom" constant="30" id="AmB-YW-FFV"/>
+                            <constraint firstItem="eh5-nF-o9w" firstAttribute="trailing" secondItem="fet-ty-oQM" secondAttribute="trailing" constant="20" id="GJc-Ck-RlT">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="fet-ty-oQM" firstAttribute="leading" secondItem="eh5-nF-o9w" secondAttribute="leading" constant="20" id="GKJ-fl-eqX">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="eh5-nF-o9w" firstAttribute="trailing" secondItem="p7e-u9-etC" secondAttribute="trailing" constant="20" id="HkV-G6-cGi"/>
+                            <constraint firstItem="eh5-nF-o9w" firstAttribute="bottom" secondItem="p7e-u9-etC" secondAttribute="bottom" constant="50" id="I39-9M-d5O"/>
+                            <constraint firstItem="eh5-nF-o9w" firstAttribute="trailing" secondItem="XS4-fc-ccN" secondAttribute="trailing" constant="54" id="KQa-Yb-Uj1"/>
+                            <constraint firstItem="XS4-fc-ccN" firstAttribute="leading" secondItem="G3i-rb-cEh" secondAttribute="trailing" constant="9" id="LM2-Jc-sUa"/>
+                            <constraint firstItem="Hme-JW-BbB" firstAttribute="leading" secondItem="eh5-nF-o9w" secondAttribute="leading" constant="20" id="PA9-BZ-CSX"/>
+                            <constraint firstItem="p7e-u9-etC" firstAttribute="top" secondItem="G3i-rb-cEh" secondAttribute="bottom" constant="25" id="Tes-0C-cZv"/>
+                            <constraint firstItem="eh5-nF-o9w" firstAttribute="trailing" secondItem="Hme-JW-BbB" secondAttribute="trailing" constant="20" id="Wdr-CN-epj"/>
+                            <constraint firstItem="FHr-2L-sxe" firstAttribute="centerX" secondItem="Lxu-2j-J2K" secondAttribute="centerX" id="XCh-PQ-bb9"/>
+                            <constraint firstItem="p7e-u9-etC" firstAttribute="top" secondItem="XS4-fc-ccN" secondAttribute="bottom" constant="30" id="Zks-lN-FJb"/>
+                            <constraint firstItem="fet-ty-oQM" firstAttribute="top" secondItem="Hme-JW-BbB" secondAttribute="bottom" constant="15" id="hey-Hm-bpj"/>
+                            <constraint firstItem="FHr-2L-sxe" firstAttribute="top" secondItem="eh5-nF-o9w" secondAttribute="top" constant="25" id="jSx-Lu-8BB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eh5-nF-o9w"/>
+                    </view>
+                    <connections>
+                        <outlet property="dataShare" destination="G3i-rb-cEh" id="m96-w9-eqP"/>
+                        <outlet property="openSettingsButton" destination="p7e-u9-etC" id="mwV-vz-4Z7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9M8-m2-Jnt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2273" y="-531"/>
         </scene>
     </scenes>
     <resources>
         <image name="oa_ob" width="220" height="220"/>
         <image name="search_oa" width="440" height="440"/>
         <image name="share_ob" width="440" height="440"/>
+        <image name="stats" width="200" height="200"/>
     </resources>
 </document>
