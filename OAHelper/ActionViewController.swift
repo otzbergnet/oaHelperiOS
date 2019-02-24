@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import MobileCoreServices
 
 class ActionViewController: UIViewController {
@@ -19,6 +20,7 @@ class ActionViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var oaLogo: UIImageView!
     @IBOutlet weak var oaTypeLabel: UILabel!
+    @IBOutlet weak var addBookMarkButton: UIButton!
     
     var returnURLString = ""
     var urlAction = false
@@ -27,27 +29,13 @@ class ActionViewController: UIViewController {
     let settings = SettingsBundleHelper()
     let stats = StatisticSubmit()
     
+    let bookMark = BookMarkObject()
+    let bookMarkData = BookMarkData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-       
-        actionButton.isHidden = true
-        actionButton.layer.cornerRadius = 10
         
-        dismissButton.isHidden = true
-        dismissButton.layer.cornerRadius = 10
-        
-        activityIndicator.startAnimating()
-        
-        headerLabel.text = ""
-        sourceLabel.text = ""
-        oaTypeLabel.text = ""
-        
-        //this ensurs there is no padding on the UITextView, which otherwise would be painful for alignment
-        textView.textContainerInset = .zero
-        textView.textContainer.lineFragmentPadding = 0
-        
-        oaLogo.isHidden = true
+        setupEmptyView()
         
         self.stats.submitStats()
 
@@ -74,8 +62,7 @@ class ActionViewController: UIViewController {
                                             self.checkUnpaywall(doi: "\(doi[0])")
                                         }
                                         else{
-                                            self.activityIndicator.stopAnimating()
-                                            self.activityIndicator.isHidden = true
+                                            self.stopActivity()
                                             self.headerLabel.text = NSLocalizedString("Multiple DOIs detected", comment: "Multiple DOIs detected")
                                             self.sourceLabel.text = NSLocalizedString("Select one of the DOIs below and try again:", comment: "Select one of the DOIs below and try again:")
                                             self.textView.text = ""
@@ -97,8 +84,7 @@ class ActionViewController: UIViewController {
                                 else{
                                     DispatchQueue.main.async {
                                         if let encodedString = myText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
-                                            self.activityIndicator.stopAnimating()
-                                            self.activityIndicator.isHidden = true
+                                            self.stopActivity()
                                             self.headerLabel.text = NSLocalizedString("Search", comment: "Search")
                                             self.sourceLabel.text = ""
                                             let formattedText = String(format: NSLocalizedString("%@ \n\nIf you wish to search the above at core.ac.uk, click the button below", comment: "selected text to be seached"), myText)
@@ -128,11 +114,15 @@ class ActionViewController: UIViewController {
                                     DispatchQueue.main.async {
                                         self.headerLabel.text = "Digital Object Identifier"
                                         self.textView.text = urlString
-                                        
+                                        self.bookMark.url = urlString
                                     }
+                                }
+                                if let titleString = results["docTitle"] as? String{
+                                    self.bookMark.title = titleString
                                 }
                                 if let doiString = results["doi"] as? String {
                                     if doiString != "0" {
+                                        self.bookMark.doi = doiString
                                         DispatchQueue.main.async {
                                             self.textView.text += "\n\(doiString)"
                                             
@@ -142,13 +132,13 @@ class ActionViewController: UIViewController {
                                     else{
                                         //print("DOI was 0 so we are here")
                                         DispatchQueue.main.async {
-                                            self.activityIndicator.stopAnimating()
-                                            self.activityIndicator.isHidden = true
+                                            self.stopActivity()
                                             self.headerLabel.text = NSLocalizedString("No DOI found", comment: "No DOI found")
                                             self.sourceLabel.text = ""
                                             self.textView.text += NSLocalizedString("\n\nWe were unable to identify a DOI and thus unable to identify an Open Access version of the document", comment: "no doi, no search")
                                             self.returnURLString = ""
                                             self.dismissButton.isHidden = false
+                                            self.addBookMarkButton.isHidden = false
                                         }
                                         
                                     }
@@ -163,6 +153,7 @@ class ActionViewController: UIViewController {
                                         self.textView.text += NSLocalizedString("\n\nWe were unable to identify an Open Access Version of this document!", comment: "longer text about no open access found")
                                         self.returnURLString = ""
                                         self.dismissButton.isHidden = false
+                                        self.addBookMarkButton.isHidden = false
                                     }
                                 }
                                 
@@ -179,6 +170,7 @@ class ActionViewController: UIViewController {
 
     
     func checkUnpaywall(doi: String) {
+        self.bookMark.doi = doi
         let jsonUrlString = "https://api.unpaywall.org/v2/\(doi)?email=oahelper@otzberg.net"
         let url = URL(string: jsonUrlString)
         
@@ -205,6 +197,7 @@ class ActionViewController: UIViewController {
                 self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa text")
                 self.returnURLString = ""
                 self.dismissButton.isHidden = false
+                self.addBookMarkButton.isHidden = false
             }
             
         }
@@ -225,6 +218,7 @@ class ActionViewController: UIViewController {
                         if let title = oaData.title {
                             
                             self.headerLabel.text = title
+                            self.bookMark.title = title
                         }
                         else{
                             self.headerLabel.text = "Open Access"
@@ -233,10 +227,12 @@ class ActionViewController: UIViewController {
                         let oaFoundText = String(format: NSLocalizedString("Open Access version is available at:\n\n%@", comment: "shows when OA was found"), boa.url)
                         self.textView.text = oaFoundText
                         self.returnURLString = boa.url
+                        self.bookMark.pdf = boa.url
                         self.settings.incrementOACount(key: "oa_found")
                         let oaFoundButtonText = NSLocalizedString("Go to document now", comment: "Go to document now")
                         self.actionButton.setTitle(oaFoundButtonText, for: .normal)
                         self.actionButton.isHidden = false
+                        self.addBookMarkButton.isHidden = false
                         self.dismissButton.isHidden = false
                         self.urlAction = true
                         
@@ -275,6 +271,7 @@ class ActionViewController: UIViewController {
                             self.actionButton.setTitle(titleTranslation, for: .normal)
                             self.actionButton.isHidden = false
                             self.dismissButton.isHidden = false
+                            self.addBookMarkButton.isHidden = false
                             self.urlAction = true
                             self.selectAction = false
                         }
@@ -285,6 +282,7 @@ class ActionViewController: UIViewController {
                         self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa available")
                         self.returnURLString = ""
                         self.dismissButton.isHidden = false
+                        self.addBookMarkButton.isHidden = false
                     }
                 }
             }
@@ -302,6 +300,7 @@ class ActionViewController: UIViewController {
                 self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa available")
                 self.returnURLString = ""
                 self.dismissButton.isHidden = false
+                self.addBookMarkButton.isHidden = false
             }
             return
         }
@@ -310,14 +309,18 @@ class ActionViewController: UIViewController {
 
     @IBAction func done() {
 
-        let extensionItem = NSExtensionItem()
-        let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "action" : "dismiss"]]
-        extensionItem.attachments = [ NSItemProvider(item: jsDict as NSSecureCoding?, typeIdentifier: kUTTypePropertyList as String)]
-        
-        self.extensionContext!.completeRequest(returningItems: [extensionItem], completionHandler: nil)
+        executeCancel(action: "dismiss")
         
     }
 
+    func executeCancel(action: String){
+        let extensionItem = NSExtensionItem()
+        let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "action" : action]]
+        extensionItem.attachments = [ NSItemProvider(item: jsDict as NSSecureCoding?, typeIdentifier: kUTTypePropertyList as String)]
+        
+        self.extensionContext!.completeRequest(returningItems: [extensionItem], completionHandler: nil)
+    }
+    
     @IBAction func actionButtonTapped(_ sender: Any) {
         if(self.urlAction && self.selectAction == false){
             let extensionItem = NSExtensionItem()
@@ -331,6 +334,13 @@ class ActionViewController: UIViewController {
         }
         
     }
+    
+    
+    @IBAction func addBookMarkTapped(_ sender: Any) {
+        self.bookMarkData.saveBookMark(bookmark: self.bookMark)
+        executeCancel(action: "bookmarked")
+    }
+    
     
     @objc func openURL(_ url: URL) {
         return
@@ -429,6 +439,37 @@ class ActionViewController: UIViewController {
         }
         
         return color
+    }
+    
+    func setupEmptyView(){
+        actionButton.isHidden = true
+        actionButton.layer.cornerRadius = 10
+        
+        addBookMarkButton.isHidden = true
+        addBookMarkButton.layer.cornerRadius = 10
+        
+        dismissButton.isHidden = true
+        dismissButton.layer.cornerRadius = 10
+        
+        activityIndicator.startAnimating()
+        
+        headerLabel.text = ""
+        sourceLabel.text = ""
+        oaTypeLabel.text = ""
+        
+        //this ensurs there is no padding on the UITextView, which otherwise would be painful for alignment
+        textView.textContainerInset = .zero
+        textView.textContainer.lineFragmentPadding = 0
+        
+        oaLogo.isHidden = true
+        
+        let addBookmarkButtonText = NSLocalizedString("Add Bookmark", comment: "Add bookmark")
+        self.addBookMarkButton.setTitle(addBookmarkButtonText, for: .normal)
+    }
+    
+    func stopActivity(){
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.isHidden = true
     }
     
 }

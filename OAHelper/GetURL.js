@@ -3,20 +3,22 @@ var GetURL = function() {};
 GetURL.prototype = {
 
 run: function(arguments) {
-    arguments.completionFunction({ "currentUrl" : document.URL, "doi" : findDoi() });
+    arguments.completionFunction({ "currentUrl" : document.URL, "docTitle" : document.title, "doi" : findDoi() });
 },
     
 finalize: function(arguments) {
-    var message = arguments["returnUrl"];
-    if (message) {
-        if(message.substring(0,4) == "http"){
+    var message = arguments;
+    if (message["returnUrl"]) {
+        if(message["returnUrl"].substring(0,4) == "http"){
             //alert(message)
             window.location.href = message
         }
-        else if(message != ""){
-            alert(message)
+        else if(message["returnUrl"] != ""){
+            alert(message);
         }
-        
+    }
+    else if(message["action"] && message["action"] == "bookmarked"){
+        alert("bookmark successful");
     }
 }
     

@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var enterSearchLabel: UILabel!
+    @IBOutlet weak var bookmarkButton: UIButton!
     
     
     var searchTerm = ""
@@ -28,12 +29,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     let settings = SettingsBundleHelper()
     let stats = StatisticSubmit()
+    var bookMarkData = BookMarkData()
+    var bookMarkList : [BookMark] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //search button should have rounded corners
         searchButton.layer.cornerRadius = 10
+        bookmarkButton.layer.cornerRadius = 10
+        bookmarkButton.isHidden = true
         
         //we want to set the title
         self.title = NSLocalizedString("Search", comment: "Search shown in navbar on first view controller")
@@ -48,6 +53,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         self.stats.submitStats()
         
+        
+    }
+
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.bookMarkCheck()
     }
 
     //handles the data from the URLscheme
@@ -101,6 +112,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == "searchSegue" {
             if let nextViewController = segue.destination as? TableViewController {
                 nextViewController.apiData = self.apiData
+            }
+        }
+        else if segue.identifier == "bookmarkSegue" {
+            if let nextViewController = segue.destination as? BookmarkTableViewController {
+                nextViewController.bookMarkList = self.bookMarkList
             }
         }
     }
@@ -258,6 +274,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return ""
     }
     
+    func bookMarkCheck(){
+        bookMarkList = self.bookMarkData.getAllBookMarks()
+        if bookMarkList.count > 0{
+            bookmarkButton.isHidden = false
+        }
+    }
+    
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         self.textField.resignFirstResponder()
     }
@@ -266,6 +289,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let mainStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
         let controller = mainStoryboard.instantiateInitialViewController()!
         self.present(controller, animated: true, completion: nil)
+    }
+    
+    @IBAction func viewBookmarksTapped(_ sender: Any) {
+        //view bookmarks was tapped
+        self.performSegue(withIdentifier: "bookmarkSegue", sender: nil)
     }
     
 }
