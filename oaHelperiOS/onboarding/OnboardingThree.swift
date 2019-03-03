@@ -22,7 +22,7 @@ class OnboardingThree: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         openSettingsButton.layer.cornerRadius = 10
-        if(self.settings.getSubmitStatsValue()){
+        if(self.settings.getSettingsValue(key: "share_stats")){
             dataShare.isOn = true
         }
         else{
@@ -31,8 +31,13 @@ class OnboardingThree: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(OnboardingThree.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
     }
     
+    
+    deinit {
+        NotificationCenter.default.removeObserver( self, name: UserDefaults.didChangeNotification, object: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
-        if(self.settings.getSubmitStatsValue()){
+        if(self.settings.getSettingsValue(key: "share_stats")){
             dataShare.isOn = true
         }
         else{
@@ -41,22 +46,25 @@ class OnboardingThree: UIViewController {
     }
     
     @objc func defaultsChanged(){
-        if settings.getSubmitStatsValue() {
-            dataShare.isOn = true
-            
+        if settings.getSettingsValue(key: "share_stats") {
+            DispatchQueue.main.async {
+                self.dataShare.isOn = true
+            }
         }
         else {
-            dataShare.isOn = false
+            DispatchQueue.main.async {
+                self.dataShare.isOn = false
+            }
         }
     }
     
 
     @IBAction func dataShareSwitched(_ sender: Any) {
         if(self.dataShare.isOn){
-            self.settings.setSubmitStatsValue(value: true)
+            self.settings.setSettingsValue(value: true, key: "share_stats")
         }
         else{
-            self.settings.setSubmitStatsValue(value: false)
+            self.settings.setSettingsValue(value: false, key: "share_stats")
         }
     }
     

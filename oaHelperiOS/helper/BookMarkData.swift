@@ -8,14 +8,18 @@
 
 import UIKit
 import CoreData
+import CloudKit
+import CommonCrypto
 
 class BookMarkObject {
     var date : Date = Date()
     var doi : String = ""
     var pdf : String = ""
     var synced : Bool = false
+    var del : Bool = false          //using del rather than deleted, as deleted got me an error
     var title : String = ""
     var url : String = ""
+    var id : String = ""
 }
 
 class NSCustomPersistentContainer: NSPersistentContainer {
@@ -30,10 +34,15 @@ class NSCustomPersistentContainer: NSPersistentContainer {
 
 
 class BookMarkData : UIViewController{
+    
+    //helper class
+    //var helper = HelperClass()
+    var dataSync = DataSync()
+    
     var singleBookMark : [BookMark] = []
     var allBookMarks : [BookMark] = []
     
-    func saveBookMark(bookmark: BookMarkObject){
+    func saveBookMark(bookmark: BookMarkObject, isFromCloud: Bool = false){
         
         if(doesBookMarkExist(url: bookmark.url)){
             return
@@ -45,21 +54,35 @@ class BookMarkData : UIViewController{
         bookMarkItem.date = Date()
         bookMarkItem.doi = bookmark.doi
         bookMarkItem.pdf = bookmark.pdf
-        bookMarkItem.synced = false
+        bookMarkItem.synced = isFromCloud
+        bookMarkItem.del = false
         bookMarkItem.title = bookmark.title
         bookMarkItem.url = bookmark.url
+        bookMarkItem.id = md5("\(bookmark.url)\(String(describing: bookMarkItem.date))")
         
-        saveContext()
+        if saveContext() && !isFromCloud{
+            self.dataSync.saveBookmark(bookMark: bookMarkItem){ (testValue) in
+                if testValue {
+                    bookMarkItem.synced = true
+                    _ = self.saveContext()
+                }
+            }
+            
+        }
         
     }
     
     func getAllBookMarks() -> [BookMark]{
+        //temporary
+        self.syncCloudChanges()
+        //
         let context = self.persistentContainer.viewContext
-        let entityName = String(describing: BookMark.self)
-        let request = NSFetchRequest<BookMark>(entityName: entityName)
-        if let coreDataStuff = try? context.fetch(request) as [BookMark] {
-            let coreDataItems = coreDataStuff
-            allBookMarks = coreDataItems
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "BookMark")
+        request.predicate = NSPredicate(format: "del == FALSE")
+        if let coreDataStuff = try? context.fetch(request) as? [BookMark] {
+            if let coreDataItems = coreDataStuff {
+               allBookMarks = coreDataItems
+            }
         }
         return allBookMarks
     }
@@ -75,7 +98,7 @@ class BookMarkData : UIViewController{
                 }
             }
         }
-        saveContext()
+        _ = saveContext()
         return false
     }
     
@@ -86,13 +109,80 @@ class BookMarkData : UIViewController{
         if let coreDataStuff = try? context.fetch(request) as? [BookMark] {
             if let coreDataItems = coreDataStuff {
                 for item in coreDataItems{
-                    context.delete(item)
+                    self.dataSync.deleteBookmark(recordName: item.id!){ (testValue) in
+                        if testValue {
+                            context.delete(item)
+                            _ = self.saveContext()
+                        }
+                        else{
+                            print("delete fail")
+                            item.del = true
+                            _ = self.saveContext()
+                        }
+                    }
+                    
                 }
             }
         }
-        saveContext()
+        _ = saveContext()
+    }
+    
+    func syncDeletedBookmarks(){
+        let context = self.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "BookMark")
+        request.predicate = NSPredicate(format: "(del == %d)", true)
+        if let coreDataStuff = try? context.fetch(request) as? [BookMark] {
+            if let coreDataItems = coreDataStuff {
+                for item in coreDataItems{
+                    self.dataSync.deleteBookmark(recordName: item.id!){ (testValue) in
+                        if testValue {
+                            context.delete(item)
+                            _ = self.saveContext()
+                        }
+                        else{
+                            print("delete fail waiting for next time")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func deleteBookmarkByName(recordName : String){
+        let context = self.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "BookMark")
+        request.predicate = NSPredicate(format: "(id == %@)", recordName)
+        if let coreDataStuff = try? context.fetch(request) as? [BookMark] {
+            if let coreDataItems = coreDataStuff {
+                for item in coreDataItems{
+                    context.delete(item)
+                    _ = self.saveContext()
+                }
+                    
+            }
+        }
+        _ = saveContext()
         
     }
+    
+    func saveBookMarkByName(recordId: CKRecord.ID, isFromCloud: Bool = true){
+        self.dataSync.fetchBookMarksByName(recordId: recordId){ (test) in
+            self.saveBookMark(bookmark: test, isFromCloud: isFromCloud)
+        }
+    }
+    
+    func syncCloudChanges(){
+        self.dataSync.queryChanges() { (type : String, id : CKRecord.ID) in
+            if(type == "deleted"){
+                self.deleteBookmarkByName(recordName: "\(id.recordName)")
+            }
+            else if(type == "changed"){
+                self.saveBookMarkByName(recordId: id, isFromCloud: true)
+            }
+        }
+        self.syncDeletedBookmarks()
+    }
+    
     
     
     // MARK: - Core Data stack
@@ -129,17 +219,50 @@ class BookMarkData : UIViewController{
     
     // MARK: - Core Data Saving support
     
-    func saveContext() {
+    func saveContext() -> Bool {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                return true
+                
+            }
+            catch {
+                return false
+            }
+        }
+        else{
+            return false
+        }
+    }
+    
+    public func syncAllBookmarks(){
+        let coreBookmarks = getAllBookMarks()
+        for cBookmark in coreBookmarks{
+            self.dataSync.saveBookmark(bookMark: cBookmark){ (testValue) in
+                if testValue {
+                    cBookmark.synced = true
+                    _ = self.saveContext()
+                }
             }
         }
     }
+
+    // MARK: - MD5 function, in combination with CommonCrypto
+    
+    func md5(_ string: String) -> String? {
+        let length = Int(CC_MD5_DIGEST_LENGTH)
+        var digest = [UInt8](repeating: 0, count: length)
+        
+        if let d = string.data(using: String.Encoding.utf8) {
+            _ = d.withUnsafeBytes { (body: UnsafePointer<UInt8>) in
+                CC_MD5(body, CC_LONG(d.count), &digest)
+            }
+        }
+        
+        return (0..<length).reduce("") {
+            $0 + String(format: "%02x", digest[$1])
+        }
+    }
+    
 }

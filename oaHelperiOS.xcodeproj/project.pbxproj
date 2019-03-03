@@ -12,6 +12,10 @@
 		2D06546321D383AA009586B3 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D06546521D383AA009586B3 /* Onboarding.storyboard */; };
 		2D06546C21D3DF50009586B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D06546E21D3DF50009586B3 /* Localizable.strings */; };
 		2D06546F21D3DF60009586B3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D06547121D3DF60009586B3 /* Localizable.strings */; };
+		2D08FE242229AF8E0066949C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D08FE232229AF8E0066949C /* CloudKit.framework */; };
+		2D08FE252229AFD30066949C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D08FE232229AF8E0066949C /* CloudKit.framework */; };
+		2D08FE272229B3290066949C /* DataSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08FE262229B3290066949C /* DataSync.swift */; };
+		2D08FE282229B3290066949C /* DataSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08FE262229B3290066949C /* DataSync.swift */; };
 		2D11771722207A7000859B08 /* StatisticSubmit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11771622207A7000859B08 /* StatisticSubmit.swift */; };
 		2D1177182221329500859B08 /* StatisticSubmit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11771622207A7000859B08 /* StatisticSubmit.swift */; };
 		2D11771A222182C800859B08 /* OnboardingFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D117719222182C800859B08 /* OnboardingFour.swift */; };
@@ -30,6 +34,7 @@
 		2D28376F21C61821008D6C89 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D28376E21C61821008D6C89 /* DetailViewController.swift */; };
 		2D30FC5D21E4715F00C4060D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30FC5C21E4715F00C4060D /* TableViewCell.swift */; };
 		2D5F91812222582F00D493BE /* BookMarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F91802222582F00D493BE /* BookMarkData.swift */; };
+		2DA7887A222C0A680025CB13 /* OnboardingFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78879222C0A680025CB13 /* OnboardingFive.swift */; };
 		2DD08CEA21BC31ED00D0B3C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD08CE921BC31ED00D0B3C0 /* AppDelegate.swift */; };
 		2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD08CEB21BC31ED00D0B3C0 /* ViewController.swift */; };
 		2DD08CEF21BC31ED00D0B3C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DD08CED21BC31ED00D0B3C0 /* Main.storyboard */; };
@@ -84,6 +89,8 @@
 		2D06546721D383B9009586B3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Onboarding.strings; sourceTree = "<group>"; };
 		2D06546D21D3DF50009586B3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D06547021D3DF60009586B3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2D08FE232229AF8E0066949C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		2D08FE262229B3290066949C /* DataSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSync.swift; sourceTree = "<group>"; };
 		2D11771622207A7000859B08 /* StatisticSubmit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticSubmit.swift; sourceTree = "<group>"; };
 		2D117719222182C800859B08 /* OnboardingFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingFour.swift; sourceTree = "<group>"; };
 		2D15F9A321E0C5A300FF8B46 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -101,7 +108,8 @@
 		2D28376C21C55AB1008D6C89 /* coreStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreStruct.swift; sourceTree = "<group>"; };
 		2D28376E21C61821008D6C89 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2D30FC5C21E4715F00C4060D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		2D5F91802222582F00D493BE /* BookMarkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookMarkData.swift; path = helper/BookMarkData.swift; sourceTree = "<group>"; };
+		2D5F91802222582F00D493BE /* BookMarkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkData.swift; sourceTree = "<group>"; };
+		2DA78879222C0A680025CB13 /* OnboardingFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFive.swift; sourceTree = "<group>"; };
 		2DD08CE621BC31ED00D0B3C0 /* oaHelperiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oaHelperiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD08CE921BC31ED00D0B3C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DD08CEB21BC31ED00D0B3C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D08FE252229AFD30066949C /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,12 +140,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D08FE242229AF8E0066949C /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D08FE222229AF8E0066949C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D08FE232229AF8E0066949C /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2D240DED21BC5A8F000BB29B /* OAHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +175,7 @@
 				2DD08CE821BC31ED00D0B3C0 /* oaHelperiOS */,
 				2D240DED21BC5A8F000BB29B /* OAHelper */,
 				2DD08CE721BC31ED00D0B3C0 /* Products */,
+				2D08FE222229AF8E0066949C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,7 +196,6 @@
 				2DE8F35D2221D035000B27A1 /* onboarding */,
 				2D240DFD21BC6136000BB29B /* oaHelperiOS.entitlements */,
 				2DE8F3592221D022000B27A1 /* Model.xcdatamodeld */,
-				2D5F91802222582F00D493BE /* BookMarkData.swift */,
 				2DD08CE921BC31ED00D0B3C0 /* AppDelegate.swift */,
 				2DD08CEB21BC31ED00D0B3C0 /* ViewController.swift */,
 				2DFF67B821C2ED6F00120363 /* TableViewController.swift */,
@@ -202,6 +220,7 @@
 				2DE8114821C962180052698C /* OnboardingController.swift */,
 				2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */,
 				2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */,
+				2DA78879222C0A680025CB13 /* OnboardingFive.swift */,
 				2D117719222182C800859B08 /* OnboardingFour.swift */,
 			);
 			path = onboarding;
@@ -210,6 +229,8 @@
 		2DE8F35E2221D05E000B27A1 /* helper */ = {
 			isa = PBXGroup;
 			children = (
+				2D5F91802222582F00D493BE /* BookMarkData.swift */,
+				2D08FE262229B3290066949C /* DataSync.swift */,
 				2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */,
 				2D11771622207A7000859B08 /* StatisticSubmit.swift */,
 				2D15F9A321E0C5A300FF8B46 /* Helper.swift */,
@@ -283,12 +304,24 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
 						};
 					};
 					2DD08CE521BC31ED00D0B3C0 = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -359,6 +392,7 @@
 				2D24C280222267DB0012B8E1 /* BookMarkData.swift in Sources */,
 				2D240E0321BCE6E7000BB29B /* oadoiStruct.swift in Sources */,
 				2DE8F35F2221D076000B27A1 /* Helper.swift in Sources */,
+				2D08FE282229B3290066949C /* DataSync.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +416,8 @@
 				2DE8114921C962180052698C /* OnboardingController.swift in Sources */,
 				2DFF67B921C2ED6F00120363 /* TableViewController.swift in Sources */,
 				2D28376D21C55AB1008D6C89 /* coreStruct.swift in Sources */,
+				2DA7887A222C0A680025CB13 /* OnboardingFive.swift in Sources */,
+				2D08FE272229B3290066949C /* DataSync.swift in Sources */,
 				2D28376F21C61821008D6C89 /* DetailViewController.swift in Sources */,
 				2D11771A222182C800859B08 /* OnboardingFour.swift in Sources */,
 				2D15F9A421E0C5A300FF8B46 /* Helper.swift in Sources */,

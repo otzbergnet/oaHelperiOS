@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Foundation
 import SafariServices
 
 class BookmarkTableViewController: UITableViewController {
 
     var bookMarkList : [BookMark] = []
     var bookMarkData = BookMarkData()
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,19 @@ class BookmarkTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.title = "Bookmarks"
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
+    }
+    
+    @objc func refreshData(refreshControl: UIRefreshControl) {
+        self.bookMarkList = self.bookMarkData.getAllBookMarks()
+        tableView.reloadData()
+        // somewhere in your code you might need to call:
+        self.bookMarkData.syncAllBookmarks()
+        refreshControl.endRefreshing()
     }
     
     // MARK: - Table view data source
@@ -40,7 +56,9 @@ class BookmarkTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookMarkCell", for: indexPath)
-
+        if (!self.bookMarkList[indexPath.row].synced){
+            print("this record: \(String(describing: self.bookMarkList[indexPath.row].title)) needs to be synced")
+        }
         if(self.bookMarkList[indexPath.row].title != ""){
            cell.textLabel?.text = self.bookMarkList[indexPath.row].title
         }
@@ -131,5 +149,7 @@ class BookmarkTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+
 
 }

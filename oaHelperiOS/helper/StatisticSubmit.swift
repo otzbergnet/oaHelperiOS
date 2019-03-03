@@ -20,7 +20,7 @@ class StatisticSubmit {
     
     func submitStats(){
         
-        let submit = self.settings.getSubmitStatsValue()
+        let submit = self.settings.getSettingsValue(key: "share_stats")
         let stringDate = self.getDate()
         
         if(submit == false){

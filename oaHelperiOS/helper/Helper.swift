@@ -28,7 +28,7 @@ class HelperClass {
         
         return mytxt
     }
-
+    
 }
 
 

@@ -11,11 +11,12 @@ import SafariServices
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
+    // MARK: Properties
+    
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var enterSearchLabel: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
-    
     
     var searchTerm = ""
     var apiData = Data()
@@ -32,6 +33,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var bookMarkData = BookMarkData()
     var bookMarkList : [BookMark] = []
     
+    // MARK: View Did Load
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,21 +46,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //we want to set the title
         self.title = NSLocalizedString("Search", comment: "Search shown in navbar on first view controller")
         
-        //ensure we can dismiss keyboard, when we tap outside of search field
+        //dismiss keyboard, when we tap outside of search field
         self.textField.delegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
         
-        //ensure we can get search terms from the AppExtension via the URL Scheme oahelper://
+        //get search terms from the AppExtension via the URL Scheme oahelper://
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+
+        //do the bookMarkCheck
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
         
+        //only do when the view truly did load, we don't want to do this too often
+        //the function also checks to ensure it only happens once a month
         self.stats.submitStats()
-        
         
     }
 
+    // MARK:  NotificationCenter Observer Functions
     
-    override func viewWillAppear(_ animated: Bool) {
+    @objc func didBecomeActive() {
         self.bookMarkCheck()
     }
 
@@ -275,8 +283,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func bookMarkCheck(){
-        bookMarkList = self.bookMarkData.getAllBookMarks()
-        if bookMarkList.count > 0{
+        self.bookMarkList = self.bookMarkData.getAllBookMarks()
+        if self.bookMarkList.count > 0{
             bookmarkButton.isHidden = false
         }
     }
@@ -293,6 +301,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func viewBookmarksTapped(_ sender: Any) {
         //view bookmarks was tapped
+        self.bookMarkList = self.bookMarkData.getAllBookMarks()
         self.performSegue(withIdentifier: "bookmarkSegue", sender: nil)
     }
     

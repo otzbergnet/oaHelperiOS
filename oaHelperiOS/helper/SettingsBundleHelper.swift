@@ -28,13 +28,13 @@ class SettingsBundleHelper {
         return oaCount
     }
     
-    func getSubmitStatsValue() -> Bool{
-        let value : Bool = self.defaults.bool(forKey: "share_stats")
+    func getSettingsValue(key: String) -> Bool{
+        let value : Bool = self.defaults.bool(forKey: key)
         return value
     }
     
-    func setSubmitStatsValue(value : Bool){
-        self.defaults.set(value, forKey: "share_stats")
+    func setSettingsValue(value: Bool, key: String){
+        self.defaults.set(value, forKey: key)
     }
     
     func setDate(date : String){
