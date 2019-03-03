@@ -38,9 +38,12 @@ class BookMarkData : UIViewController{
     //helper class
     //var helper = HelperClass()
     var dataSync = DataSync()
+    let settings = SettingsBundleHelper()
     
     var singleBookMark : [BookMark] = []
     var allBookMarks : [BookMark] = []
+    
+    
     
     func saveBookMark(bookmark: BookMarkObject, isFromCloud: Bool = false){
         
@@ -60,7 +63,7 @@ class BookMarkData : UIViewController{
         bookMarkItem.url = bookmark.url
         bookMarkItem.id = md5("\(bookmark.url)\(String(describing: bookMarkItem.date))")
         
-        if saveContext() && !isFromCloud{
+        if saveContext() && !isFromCloud && self.settings.getSettingsValue(key: "bookmarks_icloud"){
             self.dataSync.saveBookmark(bookMark: bookMarkItem){ (testValue) in
                 if testValue {
                     bookMarkItem.synced = true
@@ -109,18 +112,24 @@ class BookMarkData : UIViewController{
         if let coreDataStuff = try? context.fetch(request) as? [BookMark] {
             if let coreDataItems = coreDataStuff {
                 for item in coreDataItems{
-                    self.dataSync.deleteBookmark(recordName: item.id!){ (testValue) in
-                        if testValue {
-                            context.delete(item)
-                            _ = self.saveContext()
-                        }
-                        else{
-                            print("delete fail")
-                            item.del = true
-                            _ = self.saveContext()
+                    if(!self.settings.getSettingsValue(key: "bookmarks_icloud")){
+                        item.del = true
+                        _ = self.saveContext()
+                    }
+                    else{
+                        self.dataSync.deleteBookmark(recordName: item.id!){ (testValue) in
+                            if testValue {
+                                context.delete(item)
+                                _ = self.saveContext()
+                            }
+                            else{
+                                print("delete fail")
+                                item.del = true
+                                _ = self.saveContext()
+                            }
                         }
                     }
-                    
+
                 }
             }
         }
@@ -128,6 +137,9 @@ class BookMarkData : UIViewController{
     }
     
     func syncDeletedBookmarks(){
+        if(!self.settings.getSettingsValue(key: "bookmarks_icloud")){
+            return
+        }
         let context = self.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "BookMark")
         request.predicate = NSPredicate(format: "(del == %d)", true)
@@ -166,12 +178,18 @@ class BookMarkData : UIViewController{
     }
     
     func saveBookMarkByName(recordId: CKRecord.ID, isFromCloud: Bool = true){
+        if(!self.settings.getSettingsValue(key: "bookmarks_icloud")){
+            return
+        }
         self.dataSync.fetchBookMarksByName(recordId: recordId){ (test) in
             self.saveBookMark(bookmark: test, isFromCloud: isFromCloud)
         }
     }
     
     func syncCloudChanges(){
+        if(!self.settings.getSettingsValue(key: "bookmarks_icloud")){
+            return
+        }
         self.dataSync.queryChanges() { (type : String, id : CKRecord.ID) in
             if(type == "deleted"){
                 self.deleteBookmarkByName(recordName: "\(id.recordName)")

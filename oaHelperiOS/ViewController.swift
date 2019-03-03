@@ -33,6 +33,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var bookMarkData = BookMarkData()
     var bookMarkList : [BookMark] = []
     
+    var showBookMarkButton = true
+    
     // MARK: View Did Load
     
     override func viewDidLoad() {
@@ -61,12 +63,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //the function also checks to ensure it only happens once a month
         self.stats.submitStats()
         
+        self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
+        
     }
 
     // MARK:  NotificationCenter Observer Functions
     
     @objc func didBecomeActive() {
-        self.bookMarkCheck()
+        self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
+        if(self.showBookMarkButton){
+           self.bookMarkCheck()
+        }
+        
     }
 
     //handles the data from the URLscheme
@@ -283,10 +291,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func bookMarkCheck(){
-        self.bookMarkList = self.bookMarkData.getAllBookMarks()
-        if self.bookMarkList.count > 0{
-            bookmarkButton.isHidden = false
+        if (self.showBookMarkButton){
+            self.bookMarkList = self.bookMarkData.getAllBookMarks()
+            if self.bookMarkList.count > 0{
+                bookmarkButton.isHidden = false
+            }
         }
+        
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {

@@ -25,6 +25,7 @@ class ActionViewController: UIViewController {
     var returnURLString = ""
     var urlAction = false
     var selectAction = false
+    var showBookMarkButton = true
     
     let settings = SettingsBundleHelper()
     let stats = StatisticSubmit()
@@ -32,12 +33,14 @@ class ActionViewController: UIViewController {
     let bookMark = BookMarkObject()
     let bookMarkData = BookMarkData()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupEmptyView()
         
         self.stats.submitStats()
+        self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
 
         guard let extensionItems = extensionContext?.inputItems as? [NSExtensionItem] else {
             return
@@ -138,7 +141,10 @@ class ActionViewController: UIViewController {
                                             self.textView.text += NSLocalizedString("\n\nWe were unable to identify a DOI and thus unable to identify an Open Access version of the document", comment: "no doi, no search")
                                             self.returnURLString = ""
                                             self.dismissButton.isHidden = false
-                                            self.addBookMarkButton.isHidden = false
+                                            if(self.showBookMarkButton){
+                                                self.addBookMarkButton.isHidden = false
+                                            }
+                                            
                                         }
                                         
                                     }
@@ -153,7 +159,9 @@ class ActionViewController: UIViewController {
                                         self.textView.text += NSLocalizedString("\n\nWe were unable to identify an Open Access Version of this document!", comment: "longer text about no open access found")
                                         self.returnURLString = ""
                                         self.dismissButton.isHidden = false
-                                        self.addBookMarkButton.isHidden = false
+                                        if(self.showBookMarkButton){
+                                            self.addBookMarkButton.isHidden = false
+                                        }
                                     }
                                 }
                                 
@@ -197,7 +205,9 @@ class ActionViewController: UIViewController {
                 self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa text")
                 self.returnURLString = ""
                 self.dismissButton.isHidden = false
-                self.addBookMarkButton.isHidden = false
+                if(self.showBookMarkButton){
+                    self.addBookMarkButton.isHidden = false
+                }
             }
             
         }
@@ -232,7 +242,9 @@ class ActionViewController: UIViewController {
                         let oaFoundButtonText = NSLocalizedString("Go to document now", comment: "Go to document now")
                         self.actionButton.setTitle(oaFoundButtonText, for: .normal)
                         self.actionButton.isHidden = false
-                        self.addBookMarkButton.isHidden = false
+                        if(self.showBookMarkButton){
+                            self.addBookMarkButton.isHidden = false
+                        }
                         self.dismissButton.isHidden = false
                         self.urlAction = true
                         
@@ -271,7 +283,9 @@ class ActionViewController: UIViewController {
                             self.actionButton.setTitle(titleTranslation, for: .normal)
                             self.actionButton.isHidden = false
                             self.dismissButton.isHidden = false
-                            self.addBookMarkButton.isHidden = false
+                            if(self.showBookMarkButton){
+                                self.addBookMarkButton.isHidden = false
+                            }
                             self.urlAction = true
                             self.selectAction = false
                         }
@@ -282,7 +296,9 @@ class ActionViewController: UIViewController {
                         self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa available")
                         self.returnURLString = ""
                         self.dismissButton.isHidden = false
-                        self.addBookMarkButton.isHidden = false
+                        if(self.showBookMarkButton){
+                            self.addBookMarkButton.isHidden = false
+                        }
                     }
                 }
             }
@@ -300,7 +316,9 @@ class ActionViewController: UIViewController {
                 self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa available")
                 self.returnURLString = ""
                 self.dismissButton.isHidden = false
-                self.addBookMarkButton.isHidden = false
+                if(self.showBookMarkButton){
+                    self.addBookMarkButton.isHidden = false
+                }
             }
             return
         }
