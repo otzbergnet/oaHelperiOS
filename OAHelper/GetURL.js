@@ -18,7 +18,13 @@ finalize: function(arguments) {
         }
     }
     else if(message["action"] && message["action"] == "bookmarked"){
-        alert("bookmark successful");
+        if(window.navigator.language.indexOf("de") == 0){
+            alert("Bookmark hinzugefügt!");
+        }
+        else{
+           alert("Bookmark added!");
+        }
+        
     }
 }
     
