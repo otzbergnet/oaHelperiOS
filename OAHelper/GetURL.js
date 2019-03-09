@@ -19,10 +19,10 @@ finalize: function(arguments) {
     }
     else if(message["action"] && message["action"] == "bookmarked"){
         if(window.navigator.language.indexOf("de") == 0){
-            alert("Bookmark hinzugefügt!");
+            insertConfirmation("Bookmark hinzugefügt!");
         }
         else{
-           alert("Bookmark added!");
+            insertConfirmation("Bookmark added!");
         }
         
     }
@@ -209,4 +209,16 @@ function matchAgainstRegex(data){
     }
     
     return '';
+}
+
+function insertConfirmation(message){
+    var el = document.querySelector('body');
+    var newEl = document.createElement('div');
+    newEl.appendChild(document.createTextNode(message));
+    newEl.setAttribute("style", "background-color:#FF9300 !important;width: 100%;color:#FFFFFF;height:3em;text-align:center;text-align: center;display: flex;justify-content:center;align-content:center;flex-direction:column;z-index: 99999 !important;position:fixed;");
+    newEl.setAttribute("id", "oahelper_bookmark_confirmation");
+    el.appendChild(newEl);
+    el.insertBefore(newEl, null);
+    el.insertBefore(newEl, el.childNodes[0] || null);
+    setTimeout(function(){ document.getElementById("oahelper_bookmark_confirmation").outerHTML = ""; }, 2000);
 }

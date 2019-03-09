@@ -37,8 +37,8 @@ class BookmarkTableViewController: UITableViewController {
         self.bookMarkList = self.bookMarkData.getAllBookMarks()
         tableView.reloadData()
         // somewhere in your code you might need to call:
-        self.bookMarkData.syncAllBookmarks()
         refreshControl.endRefreshing()
+        self.bookMarkData.syncAllBookmarks()
     }
     
     // MARK: - Table view data source
@@ -56,6 +56,8 @@ class BookmarkTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookMarkCell", for: indexPath)
+        /*print(self.bookMarkList[indexPath.row].id)
+        print(self.bookMarkList[indexPath.row].title)*/
         if (!self.bookMarkList[indexPath.row].synced){
             print("this record: \(String(describing: self.bookMarkList[indexPath.row].title)) needs to be synced")
         }
@@ -67,10 +69,10 @@ class BookmarkTableViewController: UITableViewController {
         }
         
         if(self.bookMarkList[indexPath.row].pdf != ""){
-           cell.detailTextLabel?.text = self.bookMarkList[indexPath.row].pdf
+           cell.detailTextLabel?.text = "\(String(describing: self.bookMarkList[indexPath.row].id)) _ \(String(describing: self.bookMarkList[indexPath.row].pdf))"
         }
         else{
-            cell.detailTextLabel?.text = self.bookMarkList[indexPath.row].url
+            cell.detailTextLabel?.text = "\(String(describing: self.bookMarkList[indexPath.row].id)) _ \(String(describing: self.bookMarkList[indexPath.row].url))"
         }
         
         return cell

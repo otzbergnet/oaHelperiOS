@@ -61,7 +61,8 @@ class BookMarkData : UIViewController{
         bookMarkItem.del = false
         bookMarkItem.title = bookmark.title
         bookMarkItem.url = bookmark.url
-        bookMarkItem.id = md5("\(bookmark.url)\(String(describing: bookMarkItem.date))")
+        //bookMarkItem.id = md5("\(bookmark.url)\(String(describing: bookMarkItem.date))")
+        bookMarkItem.id = md5("\(bookmark.url))")
         
         if saveContext() && !isFromCloud && self.settings.getSettingsValue(key: "bookmarks_icloud"){
             self.dataSync.saveBookmark(bookMark: bookMarkItem){ (testValue) in
@@ -76,17 +77,18 @@ class BookMarkData : UIViewController{
     }
     
     func getAllBookMarks() -> [BookMark]{
-        //temporary
-        self.syncCloudChanges()
-        //
         let context = self.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "BookMark")
-        request.predicate = NSPredicate(format: "del == FALSE")
+        //request.predicate = NSPredicate(format: "del == FALSE")
+        let sort = NSSortDescriptor(key: "title", ascending: true)
+        request.sortDescriptors = [sort]
+        
         if let coreDataStuff = try? context.fetch(request) as? [BookMark] {
             if let coreDataItems = coreDataStuff {
                allBookMarks = coreDataItems
             }
         }
+        
         return allBookMarks
     }
     
@@ -119,11 +121,10 @@ class BookMarkData : UIViewController{
                     else{
                         self.dataSync.deleteBookmark(recordName: item.id!){ (testValue) in
                             if testValue {
-                                context.delete(item)
-                                _ = self.saveContext()
+                               context.delete(item)
+                               _ = self.saveContext()
                             }
                             else{
-                                print("delete fail")
                                 item.del = true
                                 _ = self.saveContext()
                             }
@@ -167,6 +168,7 @@ class BookMarkData : UIViewController{
         if let coreDataStuff = try? context.fetch(request) as? [BookMark] {
             if let coreDataItems = coreDataStuff {
                 for item in coreDataItems{
+                    //print("deleted deleted")
                     context.delete(item)
                     _ = self.saveContext()
                 }
@@ -191,10 +193,13 @@ class BookMarkData : UIViewController{
             return
         }
         self.dataSync.queryChanges() { (type : String, id : CKRecord.ID) in
+            //print(id)
             if(type == "deleted"){
+                //print("deleted")
                 self.deleteBookmarkByName(recordName: "\(id.recordName)")
             }
             else if(type == "changed"){
+                //print("changed")
                 self.saveBookMarkByName(recordId: id, isFromCloud: true)
             }
         }
@@ -206,29 +211,12 @@ class BookMarkData : UIViewController{
     // MARK: - Core Data stack
     
     lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-         */
-        // Change from NSPersistentContainer to your custom class
         let container = NSCustomPersistentContainer(name: "Model")
         
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
-                fatalError("Unresolved error \(error), \(error.userInfo)")
+               //fatalError("Unresolved error \(error), \(error.userInfo)")
+                print("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
@@ -242,14 +230,17 @@ class BookMarkData : UIViewController{
         if context.hasChanges {
             do {
                 try context.save()
+                //print("coredata save true")
                 return true
                 
             }
             catch {
+                //print("coredata save false1")
                 return false
             }
         }
         else{
+            //print("coredata save false2")
             return false
         }
     }

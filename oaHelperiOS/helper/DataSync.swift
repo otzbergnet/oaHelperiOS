@@ -16,11 +16,13 @@ class DataSync: UIViewController {
     var newBookMark: Bool = true
     var bookMarkList : [BookMark] = []
     
+    //support for settings
+    var settings = SettingsBundleHelper()
+    
     //CloudKit DB & ZONE
     let defaultContainer = CKContainer(identifier: "iCloud.net.otzberg.oaHelper")
     let privateDatabase = CKContainer(identifier: "iCloud.net.otzberg.oaHelper").privateCloudDatabase
     let customZone = CKRecordZone(zoneName: "bookMarkZone")
-    let serverChangeTokenKey = "icloudServerToken"
 
     public func fetchUserRecordID() {
         
@@ -114,6 +116,7 @@ class DataSync: UIViewController {
         let title = bookMark.title! as __CKRecordObjCValue
         let doi = bookMark.doi! as __CKRecordObjCValue
         let date = bookMark.date!  as __CKRecordObjCValue
+        let id = bookMark.id! as __CKRecordObjCValue
         let recordName = bookMark.id!
         
         
@@ -125,6 +128,7 @@ class DataSync: UIViewController {
         bookMark.setObject(doi , forKey: "doi")
         bookMark.setObject(title, forKey: "title")
         bookMark.setObject(date , forKey: "date")
+        bookMark.setObject(id, forKey: "id")
         
         // Save Record
         self.privateDatabase.save(bookMark) { (record, error) -> Void in
@@ -155,12 +159,14 @@ class DataSync: UIViewController {
     }
     
     public func deleteBookmark(recordName : String, completion: @escaping (Bool) -> ()){
-        
+        print("recordName: \(recordName)")
         self.privateDatabase.delete(withRecordID: CKRecord.ID(recordName: recordName, zoneID: self.customZone.zoneID)) { (recordId, error) in
             if recordId != nil{
+                //print("did delete")
                 completion(true)
             }
             if error != nil{
+                //print("did not delete")
                 completion(false)
             }
         }
@@ -193,16 +199,16 @@ class DataSync: UIViewController {
         
         //keep changeToken in User Defaults
         
-        var changeToken: CKServerChangeToken? = nil
-        let changeTokenData = UserDefaults.standard.data(forKey: self.serverChangeTokenKey)
+        //ensure we use the correct user defaults
+        //move this to settingsbundlehelper && find a way that this doesn't sync
+        var changeToken : CKServerChangeToken? = nil
         
-        if changeTokenData != nil {
-            if let unarchivedToken = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(changeTokenData!) as? CKServerChangeToken {
-                changeToken = unarchivedToken
-            }
+        if let myChangeToken: CKServerChangeToken = self.settings.getChangeToken() as? CKServerChangeToken{
+            changeToken = myChangeToken
         }
-        //changeToken = nil
-        
+        else{
+            changeToken = nil
+        }
         // setup options
         
         let options = CKFetchRecordZoneChangesOperation.ZoneConfiguration()
@@ -217,25 +223,32 @@ class DataSync: UIViewController {
         //callbacks for operation
         
         operation.recordChangedBlock = {(record) in
+            /*print("====recordChangeBlock")
+            print(record.object(forKey: "id"))
+            print(record.recordID)
+            print("====end recordChangeBlock")*/
             completion("changed", record.recordID)
         }
+        
         operation.recordZoneChangeTokensUpdatedBlock = { (zoneId, token, data) in
             //if you have a lot of changes, you might get a new token
             //extremely unlikely for this project
             guard let changeToken = changeToken else {
                 return
             }
-            
-            if let changeTokenData =  try? NSKeyedArchiver.archivedData(withRootObject: changeToken, requiringSecureCoding: false) {
-              UserDefaults.standard.set(changeTokenData, forKey: self.serverChangeTokenKey)
-            }
+            self.settings.setChangeTokenData(changeToken: changeToken)
         }
         operation.recordWithIDWasDeletedBlock = { recordId, recordType in
+            /*print("====recordDeleted")
+            print(recordId)
+            print("====end recordDeleted")*/
+            
             completion("deleted", recordId)
         }
         operation.fetchRecordZoneChangesCompletionBlock = { error in
             //potentially problematic
             guard error == nil else {
+                print("error in changeToken: \(String(describing: error) )")
                 return
             }
         }
@@ -243,14 +256,13 @@ class DataSync: UIViewController {
             //at end of operation, unless there was an error, we should get a new token
             //by returning early, we could "replay" this operation next time
             guard error == nil else {
+                print("error in changeToken: \(String(describing: error) )")
                 return
             }
             guard let changeToken = changeToken else {
                 return
             }
-            if let changeTokenData =  try? NSKeyedArchiver.archivedData(withRootObject: changeToken, requiringSecureCoding: false) {
-                UserDefaults.standard.set(changeTokenData, forKey: self.serverChangeTokenKey)
-            }
+            self.settings.setChangeTokenData(changeToken : changeToken)
             
         }
 

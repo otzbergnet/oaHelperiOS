@@ -7,12 +7,16 @@
 //
 
 import Foundation
+import UIKit
+import CloudKit
 
 class SettingsBundleHelper {
     let defaults: UserDefaults
+    let serverChangeTokenKey : String
     
     init(){
         self.defaults = UserDefaults(suiteName: "group.net.otzberg.oaHelper")!
+        self.serverChangeTokenKey = "icloudServerToken"
     }
     
     // oa_found, oa_search, core_pdf
@@ -41,5 +45,35 @@ class SettingsBundleHelper {
         self.defaults.set(date, forKey: "share_date")
     }
     
+    func getChangeToken() -> Any{
+        var changeToken : CKServerChangeToken? = nil
+        let changeTokenData = self.defaults.data(forKey: self.serverChangeTokenKey)
+        
+        if changeTokenData != nil {
+            if let unarchivedToken = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(changeTokenData!) as? CKServerChangeToken {
+                changeToken = unarchivedToken
+            }
+        }
+        
+        if let myChangeToken = changeToken {
+          return myChangeToken
+        }
+        else{
+            return changeToken as Any
+        }
+        
+    }
     
+    func setChangeTokenData(changeToken : CKServerChangeToken){
+        print(changeToken)
+        if let changeTokenData =  try? NSKeyedArchiver.archivedData(withRootObject: changeToken, requiringSecureCoding: false) {
+            self.defaults.set(changeTokenData, forKey: self.serverChangeTokenKey)
+        }
+        else{
+            print("saving tokenupdateblock failed")
+        }
+        
+        
+        print(getChangeToken())
+    }
 }

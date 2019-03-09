@@ -295,6 +295,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.bookMarkList = self.bookMarkData.getAllBookMarks()
             if self.bookMarkList.count > 0{
                 bookmarkButton.isHidden = false
+                self.bookMarkData.syncCloudChanges()
             }
         }
         
@@ -316,5 +317,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.performSegue(withIdentifier: "bookmarkSegue", sender: nil)
     }
     
+    @IBAction func syncNowTapped(_ sender: Any) {
+        print("tapped")
+        self.bookMarkData.syncCloudChanges()
+    }
 }
 
