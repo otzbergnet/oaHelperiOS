@@ -159,7 +159,7 @@ class DataSync: UIViewController {
     }
     
     public func deleteBookmark(recordName : String, completion: @escaping (Bool) -> ()){
-        print("recordName: \(recordName)")
+        //print("recordName: \(recordName)")
         self.privateDatabase.delete(withRecordID: CKRecord.ID(recordName: recordName, zoneID: self.customZone.zoneID)) { (recordId, error) in
             if recordId != nil{
                 //print("did delete")
@@ -210,6 +210,7 @@ class DataSync: UIViewController {
             changeToken = nil
         }
         // setup options
+        //changeToken = nil
         
         let options = CKFetchRecordZoneChangesOperation.ZoneConfiguration()
         options.previousServerChangeToken = changeToken
@@ -223,10 +224,6 @@ class DataSync: UIViewController {
         //callbacks for operation
         
         operation.recordChangedBlock = {(record) in
-            /*print("====recordChangeBlock")
-            print(record.object(forKey: "id"))
-            print(record.recordID)
-            print("====end recordChangeBlock")*/
             completion("changed", record.recordID)
         }
         
@@ -239,10 +236,6 @@ class DataSync: UIViewController {
             self.settings.setChangeTokenData(changeToken: changeToken)
         }
         operation.recordWithIDWasDeletedBlock = { recordId, recordType in
-            /*print("====recordDeleted")
-            print(recordId)
-            print("====end recordDeleted")*/
-            
             completion("deleted", recordId)
         }
         operation.fetchRecordZoneChangesCompletionBlock = { error in
@@ -263,7 +256,7 @@ class DataSync: UIViewController {
                 return
             }
             self.settings.setChangeTokenData(changeToken : changeToken)
-            
+            completion("done", CKRecord.ID())
         }
 
         self.privateDatabase.add(operation)

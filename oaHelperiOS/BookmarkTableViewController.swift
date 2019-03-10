@@ -27,18 +27,38 @@ class BookmarkTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.title = "Bookmarks"
         
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        tableView.refreshControl = refreshControl
+        //removing refreshControl for now
+        //let refreshControl = UIRefreshControl()
+        //refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        //tableView.refreshControl = refreshControl
         
     }
     
     @objc func refreshData(refreshControl: UIRefreshControl) {
         self.bookMarkList = self.bookMarkData.getAllBookMarks()
-        tableView.reloadData()
-        // somewhere in your code you might need to call:
-        refreshControl.endRefreshing()
-        self.bookMarkData.syncAllBookmarks()
+        self.bookMarkData.syncAllBookmarks(){ (type: String) in
+            if(type == "done"){
+               print("syncAllBookMarks done")
+               DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    // somewhere in your code you might need to call:
+                    refreshControl.endRefreshing()
+               }
+                /*self.bookMarkData.syncCloudChanges(){ (type : String) in
+                    if(type == "done"){
+                        print("done syncCloudChanges() - refreshData")
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                            // somewhere in your code you might need to call:
+                            refreshControl.endRefreshing()
+                        }
+                    }
+                }*/
+            }
+            
+        }
+        
+        
     }
     
     // MARK: - Table view data source
@@ -69,10 +89,10 @@ class BookmarkTableViewController: UITableViewController {
         }
         
         if(self.bookMarkList[indexPath.row].pdf != ""){
-           cell.detailTextLabel?.text = "\(String(describing: self.bookMarkList[indexPath.row].id)) _ \(String(describing: self.bookMarkList[indexPath.row].pdf))"
+            cell.detailTextLabel?.text = "\(String(describing: self.bookMarkList[indexPath.row].pdf!))"
         }
         else{
-            cell.detailTextLabel?.text = "\(String(describing: self.bookMarkList[indexPath.row].id)) _ \(String(describing: self.bookMarkList[indexPath.row].url))"
+            cell.detailTextLabel?.text = "\(String(describing: self.bookMarkList[indexPath.row].url!))"
         }
         
         return cell

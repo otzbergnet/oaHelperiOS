@@ -160,6 +160,7 @@
                         <outlet property="bookmarkButton" destination="06u-j8-OkT" id="wht-Wi-uPV"/>
                         <outlet property="enterSearchLabel" destination="aEM-QZ-eEg" id="5TY-l6-XMG"/>
                         <outlet property="searchButton" destination="JJr-Ge-nca" id="x60-xD-WfN"/>
+                        <outlet property="syncButton" destination="Hcq-Ig-bBk" id="xGu-lA-juN"/>
                         <outlet property="textField" destination="He3-yf-kv9" id="18E-Ge-1YB"/>
                         <segue destination="PDw-ar-iKr" kind="show" identifier="searchSegue" id="QaW-6b-mlT"/>
                         <segue destination="nS1-8K-6N6" kind="show" identifier="bookmarkSegue" id="cwk-wU-D44"/>
@@ -208,10 +209,6 @@
                             <outlet property="delegate" destination="nS1-8K-6N6" id="kKj-0N-SQ0"/>
                         </connections>
                     </tableView>
-                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="71g-Hv-fAw">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7h7-ut-DA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

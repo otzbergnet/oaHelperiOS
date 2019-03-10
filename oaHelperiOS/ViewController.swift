@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var enterSearchLabel: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
+    @IBOutlet weak var syncButton: UIButton!
     
     var searchTerm = ""
     var apiData = Data()
@@ -44,6 +45,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         searchButton.layer.cornerRadius = 10
         bookmarkButton.layer.cornerRadius = 10
         bookmarkButton.isHidden = true
+        syncButton.isHidden = true
         
         //we want to set the title
         self.title = NSLocalizedString("Search", comment: "Search shown in navbar on first view controller")
@@ -72,7 +74,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @objc func didBecomeActive() {
         self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
         if(self.showBookMarkButton){
-           self.bookMarkCheck()
+            if(self.settings.getSettingsValue(key: "bookmarks_icloud")){
+               self.syncButton.isHidden = false
+            }
+            self.bookMarkCheck(){ (type: String) in
+                if(type == "done"){
+                    print("didBecomeActive bookmarkcheck finished and done")
+                }
+            }
         }
         
     }
@@ -290,15 +299,35 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return ""
     }
     
-    func bookMarkCheck(){
+    func bookMarkCheck(completion : @escaping (_ type : String) -> ()){
         if (self.showBookMarkButton){
             self.bookMarkList = self.bookMarkData.getAllBookMarks()
             if self.bookMarkList.count > 0{
-                bookmarkButton.isHidden = false
-                self.bookMarkData.syncCloudChanges()
+                DispatchQueue.main.async {
+                    self.bookmarkButton.isHidden = false
+                }
+            }
+            if(self.settings.getSettingsValue(key: "bookmarks_icloud")){
+                showCloudSyncMessage()
+                self.bookMarkData.syncCloudChanges(){ (type : String) in
+                    if(type == "done"){
+                        DispatchQueue.main.async {
+                            self.effectView.removeFromSuperview()
+                        }
+                        completion("done")
+                    }
+                }
+            }
+            else{
+                completion("done")
             }
         }
         
+    }
+    
+    func showCloudSyncMessage(){
+        let message = NSLocalizedString("Updating iCloud Bookmarks", comment: "iCloud Bookmark Sync - shows as tapped")
+        activityIndicator(message)
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
@@ -318,8 +347,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func syncNowTapped(_ sender: Any) {
-        print("tapped")
-        self.bookMarkData.syncCloudChanges()
+        showCloudSyncMessage()
+        self.bookMarkData.syncCloudChanges(){ (type : String) in
+            if(type == "done"){
+                DispatchQueue.main.async {
+                    self.bookMarkCheck(){ (type: String) in
+                        if(type == "done"){
+                            DispatchQueue.main.async {
+                                self.effectView.removeFromSuperview()
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -188,7 +188,7 @@ class BookMarkData : UIViewController{
         }
     }
     
-    func syncCloudChanges(){
+    func syncCloudChanges(completion : @escaping (_ message : String) -> ()){
         if(!self.settings.getSettingsValue(key: "bookmarks_icloud")){
             return
         }
@@ -201,6 +201,9 @@ class BookMarkData : UIViewController{
             else if(type == "changed"){
                 //print("changed")
                 self.saveBookMarkByName(recordId: id, isFromCloud: true)
+            }
+            else if(type == "done"){
+                completion("done")
             }
         }
         self.syncDeletedBookmarks()
@@ -245,7 +248,7 @@ class BookMarkData : UIViewController{
         }
     }
     
-    public func syncAllBookmarks(){
+    public func syncAllBookmarks(completion : @escaping (_ type : String) -> ()){
         let coreBookmarks = getAllBookMarks()
         for cBookmark in coreBookmarks{
             self.dataSync.saveBookmark(bookMark: cBookmark){ (testValue) in
@@ -255,6 +258,7 @@ class BookMarkData : UIViewController{
                 }
             }
         }
+        completion("done")
     }
 
     // MARK: - MD5 function, in combination with CommonCrypto

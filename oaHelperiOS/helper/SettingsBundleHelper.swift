@@ -16,7 +16,15 @@ class SettingsBundleHelper {
     
     init(){
         self.defaults = UserDefaults(suiteName: "group.net.otzberg.oaHelper")!
-        self.serverChangeTokenKey = "icloudServerToken"
+        
+        if let uuid = UIDevice.current.identifierForVendor?.uuidString{
+            self.serverChangeTokenKey = "\(uuid)"
+        }
+        else{
+           self.serverChangeTokenKey = "icloudServerToken"
+        }
+        
+        
     }
     
     // oa_found, oa_search, core_pdf
@@ -56,7 +64,9 @@ class SettingsBundleHelper {
         }
         
         if let myChangeToken = changeToken {
-          return myChangeToken
+            //print("current Token")
+            //print(myChangeToken)
+            return myChangeToken
         }
         else{
             return changeToken as Any
@@ -65,7 +75,8 @@ class SettingsBundleHelper {
     }
     
     func setChangeTokenData(changeToken : CKServerChangeToken){
-        print(changeToken)
+        //print("new token")
+        //print(changeToken)
         if let changeTokenData =  try? NSKeyedArchiver.archivedData(withRootObject: changeToken, requiringSecureCoding: false) {
             self.defaults.set(changeTokenData, forKey: self.serverChangeTokenKey)
         }
@@ -73,7 +84,7 @@ class SettingsBundleHelper {
             print("saving tokenupdateblock failed")
         }
         
-        
-        print(getChangeToken())
+        //print("checking")
+        //print(getChangeToken())
     }
 }
