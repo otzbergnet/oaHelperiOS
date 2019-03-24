@@ -35,6 +35,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var bookMarkList : [BookMark] = []
     
     var showBookMarkButton = true
+    var activeBookMarkCheck = false
     
     // MARK: View Did Load
     
@@ -68,18 +69,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
+        if(self.showBookMarkButton){
+            if(self.settings.getSettingsValue(key: "bookmarks_icloud")){
+                self.syncButton.isHidden = false
+            }
+            self.bookMarkList = self.bookMarkData.getAllBookMarks()
+            if self.bookMarkList.count > 0{
+                DispatchQueue.main.async {
+                    self.bookmarkButton.isHidden = false
+                }
+            }
+        }
+    }
 
     // MARK:  NotificationCenter Observer Functions
     
     @objc func didBecomeActive() {
         self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
         if(self.showBookMarkButton){
-            if(self.settings.getSettingsValue(key: "bookmarks_icloud")){
-               self.syncButton.isHidden = false
-            }
             self.bookMarkCheck(){ (type: String) in
                 if(type == "done"){
-                    print("didBecomeActive bookmarkcheck finished and done")
+                    //print("didBecomeActive bookmarkcheck finished and done")
+                    self.activeBookMarkCheck = false;
+                }
+                else if(type == "active"){
+                    print("active check, didn't bother");
                 }
             }
         }
@@ -300,29 +317,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func bookMarkCheck(completion : @escaping (_ type : String) -> ()){
-        if (self.showBookMarkButton){
-            self.bookMarkList = self.bookMarkData.getAllBookMarks()
-            if self.bookMarkList.count > 0{
-                DispatchQueue.main.async {
-                    self.bookmarkButton.isHidden = false
-                }
-            }
-            if(self.settings.getSettingsValue(key: "bookmarks_icloud")){
-                showCloudSyncMessage()
-                self.bookMarkData.syncCloudChanges(){ (type : String) in
-                    if(type == "done"){
-                        DispatchQueue.main.async {
-                            self.effectView.removeFromSuperview()
-                        }
-                        completion("done")
+        if self.activeBookMarkCheck{
+            completion("active")
+        }
+        else{
+            self.activeBookMarkCheck = true
+            if (self.showBookMarkButton){
+                self.bookMarkList = self.bookMarkData.getAllBookMarks()
+                if self.bookMarkList.count > 0{
+                    DispatchQueue.main.async {
+                        self.bookmarkButton.isHidden = false
                     }
                 }
-            }
-            else{
-                completion("done")
+                if(self.settings.getSettingsValue(key: "bookmarks_icloud")){
+                    showCloudSyncMessage()
+                    self.bookMarkData.syncCloudChanges(){ (type : String) in
+                        if(type == "done"){
+                            DispatchQueue.main.async {
+                                self.effectView.removeFromSuperview()
+                            }
+                            completion("done")
+                        }
+                    }
+                }
+                else{
+                    completion("done")
+                }
             }
         }
-        
     }
     
     func showCloudSyncMessage(){
@@ -348,6 +370,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func syncNowTapped(_ sender: Any) {
         showCloudSyncMessage()
+        self.activeBookMarkCheck = false
         self.bookMarkData.syncCloudChanges(){ (type : String) in
             if(type == "done"){
                 DispatchQueue.main.async {
