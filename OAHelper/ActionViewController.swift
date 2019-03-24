@@ -96,6 +96,7 @@ class ActionViewController: UIViewController {
                                             self.returnURLString = "oahelper://\(encodedString)"
                                             let titleTranslation = NSLocalizedString("Search core.ac.uk", comment: "Search core.ac.uk")
                                             self.actionButton.setTitle(titleTranslation, for: .normal)
+                                            self.actionButton.backgroundColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
                                             self.actionButton.isHidden = false
                                             self.dismissButton.isHidden = false
                                             self.urlAction = false
@@ -281,6 +282,7 @@ class ActionViewController: UIViewController {
                             self.returnURLString = "https://core.ac.uk/search?q=%22\(encodedString)%22"
                             let titleTranslation = NSLocalizedString("Search core.ac.uk", comment: "Search core.ac.uk")
                             self.actionButton.setTitle(titleTranslation, for: .normal)
+                            self.actionButton.backgroundColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
                             self.actionButton.isHidden = false
                             self.dismissButton.isHidden = false
                             if(self.showBookMarkButton){
