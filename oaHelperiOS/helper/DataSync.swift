@@ -246,11 +246,53 @@ class DataSync: UIViewController {
                 return
             }
         }
+        
+        /*operation.fetchRecordZoneChangesCompletionBlock = { error in
+            //potentially problematic
+            guard error == nil else {
+                var errorType = "generalError"
+                completion("\(errorType)", nil)
+                if let ckerror = error as? CKError {
+                    if ckerror.code == CKError.requestRateLimited {
+                        errorType = "requestRateLimit"
+                    }
+                    else if ckerror.code == CKError.zoneBusy {
+                        errorType = "zoneBusy"
+                    }
+                    else if ckerror.code == CKError.limitExceeded {
+                        errorType = "limitExceeded"
+                    }
+                    else if ckerror.code == CKError.notAuthenticated {
+                        errorType = "notAuthenticated"
+                    }
+                    else if ckerror.code == CKError.networkFailure {
+                        errorType = "networkFailure"
+                    }
+                    else if ckerror.code == CKError.networkUnavailable {
+                        errorType = "networkUnavailable"
+                    }
+                    else if ckerror.code == CKError.quotaExceeded {
+                        errorType = "quotaExceeded"
+                    }
+                    else if ckerror.code == CKError.partialFailure {
+                        errorType = "partialFailure"
+                    }
+                    else if (ckerror.code == CKError.internalError || ckerror.code == CKError.serviceUnavailable) {
+                        errorType = "serviceUnavailable"
+                    }
+                }
+    
+                print("ckerror 1 \(errorType)")
+                completion("\(errorType)", nil)
+                return
+   
+            }
+        }*/
         operation.recordZoneFetchCompletionBlock = {zoneID, changeToken, data, more, error in
             //at end of operation, unless there was an error, we should get a new token
             //by returning early, we could "replay" this operation next time
             guard error == nil else {
-                print("error in changeToken 2: \(String(describing: error) )")
+                print("error in changeToken 2: \(String(describing: error.debugDescription) )")
                 return
             }
             guard let changeToken = changeToken else {

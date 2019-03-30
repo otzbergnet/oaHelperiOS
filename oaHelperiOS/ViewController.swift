@@ -416,6 +416,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     self.showChangeTokenErrorAlert()
                 }
             }
+            else{
+                DispatchQueue.main.async {
+                    self.effectView.removeFromSuperview()
+                }
+            }
         }
     }
 }
