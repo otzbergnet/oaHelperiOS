@@ -338,10 +338,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             }
                             completion("done")
                         }
-                        else if(type == "changeTokenError"){
-                            DispatchQueue.main.async {
-                                self.effectView.removeFromSuperview()
-                                self.showChangeTokenErrorAlert()
+                        else{
+                            DispatchQueue.main.async{
+                                self.handleCloudSyncCompletionError(type: type)
                             }
                             completion("done")
                         }
@@ -351,6 +350,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     completion("done")
                 }
             }
+        }
+    }
+    
+    func handleCloudSyncCompletionError(type : String){
+        if(type == "changeTokenError"){
+            self.effectView.removeFromSuperview()
+            self.showChangeTokenErrorAlert()
         }
     }
     
@@ -410,15 +416,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     }
                 }
             }
-            else if(type == "changeTokenError"){
-                DispatchQueue.main.async {
-                    self.effectView.removeFromSuperview()
-                    self.showChangeTokenErrorAlert()
-                }
-            }
             else{
-                DispatchQueue.main.async {
-                    self.effectView.removeFromSuperview()
+                DispatchQueue.main.async{
+                    self.handleCloudSyncCompletionError(type: type)
                 }
             }
         }
