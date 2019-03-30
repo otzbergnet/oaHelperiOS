@@ -279,7 +279,8 @@ class ActionViewController: UIViewController {
                         if let encodedString = title.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
                             self.sourceLabel.text = self.constructSource(data: oaData)
                             self.textView.text = NSLocalizedString("We were unable to find an Open Access version of this article. Please click the button below to search for the title of the article in core.ac.uk", comment: "unable to find OA")
-                            self.returnURLString = "https://core.ac.uk/search?q=%22\(encodedString)%22"
+                            //self.returnURLString = "https://core.ac.uk/search?q=%22\(encodedString)%22"
+                            self.returnURLString = "oahelper://\(encodedString)"
                             let titleTranslation = NSLocalizedString("Search core.ac.uk", comment: "Search core.ac.uk")
                             self.actionButton.setTitle(titleTranslation, for: .normal)
                             self.actionButton.backgroundColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
@@ -288,7 +289,7 @@ class ActionViewController: UIViewController {
                             if(self.showBookMarkButton){
                                 self.addBookMarkButton.isHidden = false
                             }
-                            self.urlAction = true
+                            self.urlAction = false
                             self.selectAction = false
                         }
                     }
