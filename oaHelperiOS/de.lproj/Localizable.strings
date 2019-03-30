@@ -23,3 +23,7 @@
 "Search" = "Suche";
 "View Record at arXiv.org" = "Bei arXiv.org ansehen";
 "Updating iCloud Bookmarks" = "iCloud Bookmarks werden aktualisiert";
+"iCloud Sync Error" = "iCloud Sync Fehler";
+"This error usually indicates that you are not logged into iCloud right now. Would you like to disable iCloud Sync?" = "Dieser Fehler tritt meist auf, wenn Sie nicht in iCloud angemeldet sind. Möchten Sie iCloud Sync deaktiviere?";
+"Yes" = "Ja";
+"No" = "Nein";

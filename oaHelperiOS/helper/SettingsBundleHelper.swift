@@ -58,7 +58,7 @@ class SettingsBundleHelper {
         let changeTokenData = self.defaults.data(forKey: self.serverChangeTokenKey)
         
         if changeTokenData != nil {
-            if let unarchivedToken = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(changeTokenData!) as? CKServerChangeToken {
+            if let unarchivedToken = ((try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(changeTokenData!) as? CKServerChangeToken) as CKServerChangeToken??) {
                 changeToken = unarchivedToken
             }
         }

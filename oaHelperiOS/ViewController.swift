@@ -338,6 +338,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             }
                             completion("done")
                         }
+                        else if(type == "changeTokenError"){
+                            DispatchQueue.main.async {
+                                self.effectView.removeFromSuperview()
+                                self.showChangeTokenErrorAlert()
+                            }
+                            completion("done")
+                        }
                     }
                 }
                 else{
@@ -345,6 +352,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+    }
+    
+    func showChangeTokenErrorAlert(){
+        let alertTitle = NSLocalizedString("iCloud Sync Error", comment: "iCloud Sync Error - most likely caused by invalid change token")
+        let alertMessage = NSLocalizedString("This error usually indicates that you are not logged into iCloud right now. Would you like to disable iCloud Sync?", comment: "iCloud Sync Error - most likely caused by invalid change token")
+        let okButton = NSLocalizedString("Yes", comment: "yes")
+        let cancelButton = NSLocalizedString("No", comment: "No")
+        
+        
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: okButton, style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
+            print("I will disable iCoud Syning now")
+            self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
+            self.syncButton.isHidden = true
+            
+        }))
+        alert.addAction(UIAlertAction(title: cancelButton, style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
+            print("you have pressed the Cancel button")
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func showCloudSyncMessage(){
@@ -381,6 +408,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             }
                         }
                     }
+                }
+            }
+            else if(type == "changeTokenError"){
+                DispatchQueue.main.async {
+                    self.effectView.removeFromSuperview()
+                    self.showChangeTokenErrorAlert()
                 }
             }
         }

@@ -194,7 +194,7 @@ class DataSync: UIViewController {
         }
     }
 
-    func queryChanges(completion : @escaping (_ type : String, _ id : CKRecord.ID) -> ()){
+    func queryChanges(completion : @escaping (_ type : String, _ id : CKRecord.ID?) -> ()){
         let zoneId = self.customZone.zoneID
         
         //keep changeToken in User Defaults
@@ -241,7 +241,8 @@ class DataSync: UIViewController {
         operation.fetchRecordZoneChangesCompletionBlock = { error in
             //potentially problematic
             guard error == nil else {
-                print("error in changeToken: \(String(describing: error) )")
+                print("error in changeToken 1: \(String(describing: error) )")
+                completion("changeTokenError", nil)
                 return
             }
         }
@@ -249,7 +250,7 @@ class DataSync: UIViewController {
             //at end of operation, unless there was an error, we should get a new token
             //by returning early, we could "replay" this operation next time
             guard error == nil else {
-                print("error in changeToken: \(String(describing: error) )")
+                print("error in changeToken 2: \(String(describing: error) )")
                 return
             }
             guard let changeToken = changeToken else {

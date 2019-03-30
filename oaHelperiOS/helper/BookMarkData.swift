@@ -83,7 +83,7 @@ class BookMarkData : UIViewController{
         let sort = NSSortDescriptor(key: "title", ascending: true)
         request.sortDescriptors = [sort]
         
-        if let coreDataStuff = try? context.fetch(request) as? [BookMark] {
+        if let coreDataStuff = ((try? context.fetch(request) as? [BookMark]) as [BookMark]??) {
             if let coreDataItems = coreDataStuff {
                allBookMarks = coreDataItems
             }
@@ -96,7 +96,7 @@ class BookMarkData : UIViewController{
         let context = self.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "BookMark")
         request.predicate = NSPredicate(format: "(url == %@)", url)
-        if let coreDataStuff = try? context.fetch(request) as? [BookMark] {
+        if let coreDataStuff = ((try? context.fetch(request) as? [BookMark]) as [BookMark]??) {
             if let coreDataItems = coreDataStuff {
                 if(coreDataItems.count > 0){
                     return true
@@ -111,7 +111,7 @@ class BookMarkData : UIViewController{
         let context = self.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "BookMark")
         request.predicate = NSPredicate(format: "(url == %@)", url)
-        if let coreDataStuff = try? context.fetch(request) as? [BookMark] {
+        if let coreDataStuff = ((try? context.fetch(request) as? [BookMark]) as [BookMark]??) {
             if let coreDataItems = coreDataStuff {
                 for item in coreDataItems{
                     if(!self.settings.getSettingsValue(key: "bookmarks_icloud")){
@@ -144,7 +144,7 @@ class BookMarkData : UIViewController{
         let context = self.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "BookMark")
         request.predicate = NSPredicate(format: "(del == %d)", true)
-        if let coreDataStuff = try? context.fetch(request) as? [BookMark] {
+        if let coreDataStuff = ((try? context.fetch(request) as? [BookMark]) as [BookMark]??) {
             if let coreDataItems = coreDataStuff {
                 for item in coreDataItems{
                     self.dataSync.deleteBookmark(recordName: item.id!){ (testValue) in
@@ -165,7 +165,7 @@ class BookMarkData : UIViewController{
         let context = self.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "BookMark")
         request.predicate = NSPredicate(format: "(id == %@)", recordName)
-        if let coreDataStuff = try? context.fetch(request) as? [BookMark] {
+        if let coreDataStuff = ((try? context.fetch(request) as? [BookMark]) as [BookMark]??) {
             if let coreDataItems = coreDataStuff {
                 for item in coreDataItems{
                     //print("deleted deleted")
@@ -192,19 +192,27 @@ class BookMarkData : UIViewController{
         if(!self.settings.getSettingsValue(key: "bookmarks_icloud")){
             return
         }
-        self.dataSync.queryChanges() { (type : String, id : CKRecord.ID) in
+        self.dataSync.queryChanges() { (type : String, id : CKRecord.ID?) in
             //print(id)
-            if(type == "deleted"){
-                //print("deleted")
-                self.deleteBookmarkByName(recordName: "\(id.recordName)")
+            if let myId = id {
+                if(type == "deleted"){
+                    //print("deleted")
+                    self.deleteBookmarkByName(recordName: "\(myId)")
+                }
+                else if(type == "changed"){
+                    //print("changed")
+                    self.saveBookMarkByName(recordId: myId, isFromCloud: true)
+                }
+                else if(type == "done"){
+                    completion("done")
+                }
             }
-            else if(type == "changed"){
-                //print("changed")
-                self.saveBookMarkByName(recordId: id, isFromCloud: true)
+            else{
+                if(type == "changeTokenError"){
+                    completion("changeTokenError")
+                }
             }
-            else if(type == "done"){
-                completion("done")
-            }
+   
         }
         self.syncDeletedBookmarks()
     }

@@ -153,8 +153,8 @@ class TableViewController: UITableViewController {
                 
             case .destructive:
                 print("destructive")
-                
-                
+            @unknown default:
+                print("fatal error")
             }}))
         self.present(alert, animated: true, completion: nil)
     }
