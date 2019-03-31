@@ -23,7 +23,10 @@
 "Search" = "Suche";
 "View Record at arXiv.org" = "Bei arXiv.org ansehen";
 "Updating iCloud Bookmarks" = "iCloud Bookmarks werden aktualisiert";
-"iCloud Sync Error" = "iCloud Sync Fehler";
-"This error usually indicates that you are not logged into iCloud right now. Would you like to disable iCloud Sync?" = "Dieser Fehler tritt meist auf, wenn Sie nicht in iCloud angemeldet sind. Möchten Sie iCloud Sync deaktiviere?";
+"OK" = "OK";
 "Yes" = "Ja";
 "No" = "Nein";
+"iCloud Required" = "iCloud Zugriff wird benötigt";
+"Network Failure" = "Netzwerk Fehler";
+"You are not logged into iCloud or removed iCloud priviledges for OAHelper. Would you like to disable iCloud Sync?" = "Sie sind nicht bei iCloud angemeldet, oder haben OAHelper die iCloud Rechte entzogen. Soll iCloud Sync deaktiviert werden?";
+"The app is unable to connect to the internet and thus won't be able to function correctly. Please ensure appropriate connectivity" = "Die App kann sich nicht mit dem Internet verbinden und kann daher nicht richtig funktionieren. Bitte stellen Sie sicher, dass Sie verbunden sind";

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="br6-Tl-f2N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="br6-Tl-f2N">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -103,6 +103,12 @@
                                     <action selector="syncNowTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iRb-7B-iCR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3S3-po-hYW">
+                                <rect key="frame" x="171" y="71" width="33" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -111,6 +117,7 @@
                             </constraint>
                             <constraint firstItem="i0s-Th-Qsb" firstAttribute="top" secondItem="qiK-UU-Nxp" secondAttribute="bottom" constant="4" id="9pG-fi-Ylv"/>
                             <constraint firstItem="qiK-UU-Nxp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kd6-Yz-aip"/>
+                            <constraint firstItem="3S3-po-hYW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KuB-P4-HfA"/>
                             <constraint firstItem="U0W-S4-Hpn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="MJf-sD-1lV"/>
                             <constraint firstItem="JJr-Ge-nca" firstAttribute="top" secondItem="He3-yf-kv9" secondAttribute="bottom" constant="20" id="N8p-hS-TaA"/>
                             <constraint firstItem="0EK-mq-2BI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="323" id="SDh-Bu-Qww"/>
@@ -118,6 +125,7 @@
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
                             <constraint firstItem="i0s-Th-Qsb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ydc-UQ-uh2"/>
+                            <constraint firstItem="3S3-po-hYW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="7" id="aL4-NC-VfT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0EK-mq-2BI" secondAttribute="trailing" constant="20" id="c6k-A4-2xs"/>
                             <constraint firstItem="aEM-QZ-eEg" firstAttribute="top" secondItem="U0W-S4-Hpn" secondAttribute="bottom" constant="20" id="dRD-0B-tLu"/>
                             <constraint firstItem="oHP-zt-CAG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="fNL-Uj-7gG">
@@ -159,6 +167,7 @@
                     <connections>
                         <outlet property="bookmarkButton" destination="06u-j8-OkT" id="wht-Wi-uPV"/>
                         <outlet property="enterSearchLabel" destination="aEM-QZ-eEg" id="5TY-l6-XMG"/>
+                        <outlet property="offlineLabel" destination="3S3-po-hYW" id="u2P-iv-abg"/>
                         <outlet property="searchButton" destination="JJr-Ge-nca" id="x60-xD-WfN"/>
                         <outlet property="syncButton" destination="Hcq-Ig-bBk" id="xGu-lA-juN"/>
                         <outlet property="textField" destination="He3-yf-kv9" id="18E-Ge-1YB"/>
@@ -480,6 +489,6 @@
     <resources>
         <image name="core_ac_uk" width="171" height="95"/>
         <image name="core_icon" width="221" height="300"/>
-        <image name="icona_64" width="128" height="128"/>
+        <image name="icona_64" width="64" height="64"/>
     </resources>
 </document>

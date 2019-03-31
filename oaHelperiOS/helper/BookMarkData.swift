@@ -208,9 +208,7 @@ class BookMarkData : UIViewController{
                 }
             }
             else{
-                if(type == "changeTokenError"){
-                    completion("changeTokenError")
-                }
+                completion("\(type)")
             }
    
         }

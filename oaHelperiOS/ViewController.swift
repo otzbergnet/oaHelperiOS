@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import Network
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
@@ -18,6 +19,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var enterSearchLabel: UILabel!
     @IBOutlet weak var bookmarkButton: UIButton!
     @IBOutlet weak var syncButton: UIButton!
+    @IBOutlet weak var offlineLabel: UILabel!
     
     var searchTerm = ""
     var apiData = Data()
@@ -36,6 +38,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     var showBookMarkButton = true
     var activeBookMarkCheck = false
+    var isOnline = true
     
     // MARK: View Did Load
     
@@ -47,6 +50,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         bookmarkButton.layer.cornerRadius = 10
         bookmarkButton.isHidden = true
         syncButton.isHidden = true
+        
+        offlineLabel.text = ""
         
         //we want to set the title
         self.title = NSLocalizedString("Search", comment: "Search shown in navbar on first view controller")
@@ -67,7 +72,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.stats.submitStats()
         
         self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
-        
+        self.networkAvailable()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -137,7 +142,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func checkTapped(_ sender: Any) {
-        doSearch()
+        if(!self.isOnline){
+            let alertTitle = NSLocalizedString("Network Unavailable", comment: "iCloud Sync Error - most likely caused by a network being unavailable")
+            let alertMessage = NSLocalizedString("The app is unable to connect to the internet and thus won't be able to function correctly. Please ensure appropriate connectivity", comment: "iCloud Sync Error - most likely caused by wifi or mobile data being unavailable")
+            let okButton = "OK"
+            self.showErrorAlert(alertTitle : alertTitle, alertMessage : alertMessage, okButton : okButton)
+        }
+        else{
+           doSearch()
+        }
+        
     }
     
     func doSearch(){
@@ -330,6 +344,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     }
                 }
                 if(self.settings.getSettingsValue(key: "bookmarks_icloud")){
+                    if(!self.isOnline){
+                        DispatchQueue.main.async {
+                            self.effectView.removeFromSuperview()
+                        }
+                        completion("done")
+                    }
                     showCloudSyncMessage()
                     self.bookMarkData.syncCloudChanges(){ (type : String) in
                         if(type == "done"){
@@ -354,15 +374,31 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func handleCloudSyncCompletionError(type : String){
-        if(type == "changeTokenError"){
-            self.effectView.removeFromSuperview()
+        self.effectView.removeFromSuperview()
+        if(type == "notAuthenticated"){
             self.showChangeTokenErrorAlert()
+        }
+        else if(type == "networkUnavailable"){
+            let alertTitle = NSLocalizedString("Network Unavailable", comment: "iCloud Sync Error - most likely caused by a network being unavailable")
+            let alertMessage = NSLocalizedString("The app is unable to connect to the internet and thus won't be able to function correctly. Please ensure appropriate connectivity", comment: "iCloud Sync Error - most likely caused by wifi or mobile data being unavailable")
+            let okButton = NSLocalizedString("OK", comment: "OK")
+            self.showErrorAlert(alertTitle : alertTitle, alertMessage : alertMessage, okButton : okButton)
+        }
+        else if(type == "networkFailure"){
+            let alertTitle = NSLocalizedString("Network Failure", comment: "iCloud Sync Error - most likely caused by a network failure")
+            let alertMessage = NSLocalizedString("The app is unable to connect to the internet and thus won't be able to function correctly. Please ensure appropriate connectivity", comment: "iCloud Sync Error - most likely caused by wifi or mobile data being unavailable")
+            let okButton = NSLocalizedString("OK", comment: "OK")
+            self.showErrorAlert(alertTitle : alertTitle, alertMessage : alertMessage, okButton : okButton)
+        }
+        else{
+            print("unhandled cloud sync completion error \(type)")
         }
     }
     
     func showChangeTokenErrorAlert(){
-        let alertTitle = NSLocalizedString("iCloud Sync Error", comment: "iCloud Sync Error - most likely caused by invalid change token")
-        let alertMessage = NSLocalizedString("This error usually indicates that you are not logged into iCloud right now. Would you like to disable iCloud Sync?", comment: "iCloud Sync Error - most likely caused by invalid change token")
+        let alertTitle = NSLocalizedString("iCloud Required", comment: "iCloud Sync Error - most likely caused by invalid change token")
+        let alertMessage = NSLocalizedString("You are not logged into iCloud or removed iCloud priviledges for OAHelper. Would you like to disable iCloud Sync?", comment: "iCloud Sync Error - most likely caused by invalid change token")
+        
         let okButton = NSLocalizedString("Yes", comment: "yes")
         let cancelButton = NSLocalizedString("No", comment: "No")
         
@@ -376,6 +412,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }))
         alert.addAction(UIAlertAction(title: cancelButton, style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
             print("you have pressed the Cancel button")
+            self.syncButton.isHidden = true
+            self.activeBookMarkCheck = true
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showErrorAlert(alertTitle : String, alertMessage : String, okButton : String){
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: okButton, style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
+            self.syncButton.isHidden = true
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -383,6 +429,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func showCloudSyncMessage(){
         let message = NSLocalizedString("Updating iCloud Bookmarks", comment: "iCloud Bookmark Sync - shows as tapped")
         activityIndicator(message)
+    }
+    
+    func networkAvailable(){
+        let monitor = NWPathMonitor()
+        
+        monitor.pathUpdateHandler = { path in
+            if path.availableInterfaces.count == 0 {
+                DispatchQueue.main.async {
+                    self.isOnline = false
+                    self.offlineLabel.text = "offline"
+                }
+            }
+            else{
+                DispatchQueue.main.async {
+                    self.isOnline = true
+                    self.offlineLabel.text = ""
+                    if(self.settings.getSettingsValue(key: "bookmarks_icloud")){
+                        self.syncButton.isHidden = false
+                    }
+                }
+                
+            }
+        }
+        
+        let queue = DispatchQueue.global(qos: .background)
+        monitor.start(queue: queue)
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
@@ -402,6 +474,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func syncNowTapped(_ sender: Any) {
+        if(!self.isOnline){
+            let alertTitle = NSLocalizedString("Network Unavailable", comment: "iCloud Sync Error - most likely caused by a network being unavailable")
+            let alertMessage = NSLocalizedString("The app is unable to connect to the internet and thus won't be able to function correctly. Please ensure appropriate connectivity", comment: "iCloud Sync Error - most likely caused by wifi or mobile data being unavailable")
+            let okButton = "OK"
+            self.showErrorAlert(alertTitle : alertTitle, alertMessage : alertMessage, okButton : okButton)
+            return
+        }
         showCloudSyncMessage()
         self.activeBookMarkCheck = false
         self.bookMarkData.syncCloudChanges(){ (type : String) in

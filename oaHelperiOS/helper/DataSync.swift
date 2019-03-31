@@ -195,6 +195,7 @@ class DataSync: UIViewController {
     }
 
     func queryChanges(completion : @escaping (_ type : String, _ id : CKRecord.ID?) -> ()){
+        
         let zoneId = self.customZone.zoneID
         
         //keep changeToken in User Defaults
@@ -238,20 +239,11 @@ class DataSync: UIViewController {
         operation.recordWithIDWasDeletedBlock = { recordId, recordType in
             completion("deleted", recordId)
         }
+        
         operation.fetchRecordZoneChangesCompletionBlock = { error in
             //potentially problematic
             guard error == nil else {
-                print("error in changeToken 1: \(String(describing: error) )")
-                completion("changeTokenError", nil)
-                return
-            }
-        }
-        
-        /*operation.fetchRecordZoneChangesCompletionBlock = { error in
-            //potentially problematic
-            guard error == nil else {
                 var errorType = "generalError"
-                completion("\(errorType)", nil)
                 if let ckerror = error as? CKError {
                     if ckerror.code == CKError.requestRateLimited {
                         errorType = "requestRateLimit"
@@ -282,12 +274,12 @@ class DataSync: UIViewController {
                     }
                 }
     
-                print("ckerror 1 \(errorType)")
-                completion("\(errorType)", nil)
+                let myCompletionReturn = "\(errorType)"
+                completion(myCompletionReturn, nil)
                 return
    
             }
-        }*/
+        }
         operation.recordZoneFetchCompletionBlock = {zoneID, changeToken, data, more, error in
             //at end of operation, unless there was an error, we should get a new token
             //by returning early, we could "replay" this operation next time
@@ -306,6 +298,6 @@ class DataSync: UIViewController {
 
     }
     
-    
+   
     
 }
