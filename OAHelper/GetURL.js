@@ -10,11 +10,10 @@ finalize: function(arguments) {
     var message = arguments;
     if (message["returnUrl"]) {
         if(message["returnUrl"].substring(0,4) == "http"){
-            //alert(message)
-            window.location.href = message
+            window.location.href = message["returnUrl"]
         }
         else if(message["returnUrl"] != ""){
-            //alert(message);
+            alert(message);
         }
     }
     else if(message["action"] && message["action"] == "bookmarked"){
