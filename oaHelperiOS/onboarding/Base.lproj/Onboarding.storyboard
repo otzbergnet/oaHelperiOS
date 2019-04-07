@@ -299,8 +299,12 @@ Thank you for helping out...</string>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.57647058823529407" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="p7e-u9-etC" firstAttribute="leading" secondItem="eh5-nF-o9w" secondAttribute="leading" constant="20" id="12U-2O-sWg"/>
-                            <constraint firstItem="G3i-rb-cEh" firstAttribute="leading" secondItem="eh5-nF-o9w" secondAttribute="leading" constant="20" id="8i7-KC-HSb"/>
+                            <constraint firstItem="p7e-u9-etC" firstAttribute="leading" secondItem="eh5-nF-o9w" secondAttribute="leading" constant="20" id="12U-2O-sWg">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="G3i-rb-cEh" firstAttribute="leading" secondItem="eh5-nF-o9w" secondAttribute="leading" constant="20" id="8i7-KC-HSb">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="Hme-JW-BbB" firstAttribute="top" secondItem="FHr-2L-sxe" secondAttribute="bottom" constant="30" id="AmB-YW-FFV"/>
                             <constraint firstItem="eh5-nF-o9w" firstAttribute="trailing" secondItem="fet-ty-oQM" secondAttribute="trailing" constant="20" id="GJc-Ck-RlT">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
@@ -308,7 +312,9 @@ Thank you for helping out...</string>
                             <constraint firstItem="fet-ty-oQM" firstAttribute="leading" secondItem="eh5-nF-o9w" secondAttribute="leading" constant="20" id="GKJ-fl-eqX">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
-                            <constraint firstItem="eh5-nF-o9w" firstAttribute="trailing" secondItem="p7e-u9-etC" secondAttribute="trailing" constant="20" id="HkV-G6-cGi"/>
+                            <constraint firstItem="eh5-nF-o9w" firstAttribute="trailing" secondItem="p7e-u9-etC" secondAttribute="trailing" constant="20" id="HkV-G6-cGi">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="eh5-nF-o9w" firstAttribute="bottom" secondItem="p7e-u9-etC" secondAttribute="bottom" constant="50" id="I39-9M-d5O"/>
                             <constraint firstItem="eh5-nF-o9w" firstAttribute="trailing" secondItem="XS4-fc-ccN" secondAttribute="trailing" constant="54" id="KQa-Yb-Uj1"/>
                             <constraint firstItem="XS4-fc-ccN" firstAttribute="leading" secondItem="G3i-rb-cEh" secondAttribute="trailing" constant="9" id="LM2-Jc-sUa"/>
@@ -411,15 +417,23 @@ Syncing is somewhat hard - so this is a beta feature for now...</string>
                         <color key="backgroundColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xwc-XU-Ie2" firstAttribute="leading" secondItem="XO9-oE-WV4" secondAttribute="trailing" constant="9" id="42d-Xi-qZM"/>
-                            <constraint firstItem="XO9-oE-WV4" firstAttribute="leading" secondItem="BOY-ds-cCM" secondAttribute="leading" constant="20" id="4Dw-qu-DGC"/>
-                            <constraint firstItem="BOY-ds-cCM" firstAttribute="trailing" secondItem="xwc-XU-Ie2" secondAttribute="trailing" constant="25" id="AlT-oU-ukj"/>
+                            <constraint firstItem="XO9-oE-WV4" firstAttribute="leading" secondItem="BOY-ds-cCM" secondAttribute="leading" constant="20" id="4Dw-qu-DGC">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="BOY-ds-cCM" firstAttribute="trailing" secondItem="xwc-XU-Ie2" secondAttribute="trailing" constant="25" id="AlT-oU-ukj">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="HaA-at-RLi" firstAttribute="top" secondItem="XO9-oE-WV4" secondAttribute="bottom" constant="25" id="DnA-pP-oWv"/>
-                            <constraint firstItem="HaA-at-RLi" firstAttribute="leading" secondItem="BOY-ds-cCM" secondAttribute="leading" constant="20" id="Ndo-ff-dQS"/>
+                            <constraint firstItem="HaA-at-RLi" firstAttribute="leading" secondItem="BOY-ds-cCM" secondAttribute="leading" constant="20" id="Ndo-ff-dQS">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="Zh9-dz-nK5" firstAttribute="leading" secondItem="BOY-ds-cCM" secondAttribute="leading" constant="20" id="QIh-R1-RgR">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
                             <constraint firstItem="RhQ-yr-ZOJ" firstAttribute="leading" secondItem="BOY-ds-cCM" secondAttribute="leading" constant="20" id="TBe-U3-xxL"/>
-                            <constraint firstItem="BOY-ds-cCM" firstAttribute="trailing" secondItem="HaA-at-RLi" secondAttribute="trailing" constant="20" id="WO8-zS-xXM"/>
+                            <constraint firstItem="BOY-ds-cCM" firstAttribute="trailing" secondItem="HaA-at-RLi" secondAttribute="trailing" constant="20" id="WO8-zS-xXM">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="XO9-oE-WV4" firstAttribute="top" secondItem="Mbe-Ny-seI" secondAttribute="bottom" constant="8" id="Wwr-n7-vzu"/>
                             <constraint firstItem="HaA-at-RLi" firstAttribute="top" secondItem="xwc-XU-Ie2" secondAttribute="bottom" constant="30" id="Y2r-Ne-lfv"/>
                             <constraint firstItem="BOY-ds-cCM" firstAttribute="trailing" secondItem="qA9-OA-CGD" secondAttribute="trailing" constant="20" id="dGs-xL-qHg">
@@ -431,13 +445,17 @@ Syncing is somewhat hard - so this is a beta feature for now...</string>
                             <constraint firstItem="LDf-vH-mkr" firstAttribute="centerX" secondItem="to2-jX-iXO" secondAttribute="centerX" id="ejj-2o-WXS"/>
                             <constraint firstItem="brv-EB-6Mr" firstAttribute="leading" secondItem="Mbe-Ny-seI" secondAttribute="trailing" constant="9" id="gFa-Jw-V4O"/>
                             <constraint firstItem="LDf-vH-mkr" firstAttribute="top" secondItem="BOY-ds-cCM" secondAttribute="top" constant="25" id="hZ0-uJ-pIi"/>
-                            <constraint firstItem="BOY-ds-cCM" firstAttribute="trailing" secondItem="brv-EB-6Mr" secondAttribute="trailing" constant="25" id="iAf-HX-dtE"/>
+                            <constraint firstItem="BOY-ds-cCM" firstAttribute="trailing" secondItem="brv-EB-6Mr" secondAttribute="trailing" constant="25" id="iAf-HX-dtE">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="RhQ-yr-ZOJ" firstAttribute="top" secondItem="LDf-vH-mkr" secondAttribute="bottom" constant="30" id="iWl-ld-CGh"/>
                             <constraint firstItem="BOY-ds-cCM" firstAttribute="bottom" secondItem="HaA-at-RLi" secondAttribute="bottom" constant="50" id="ihA-bf-ech"/>
                             <constraint firstItem="BOY-ds-cCM" firstAttribute="trailing" secondItem="RhQ-yr-ZOJ" secondAttribute="trailing" constant="20" id="m9C-Wj-jpA"/>
                             <constraint firstItem="Zh9-dz-nK5" firstAttribute="top" secondItem="RhQ-yr-ZOJ" secondAttribute="bottom" constant="15" id="nuR-pn-sHx"/>
                             <constraint firstItem="qA9-OA-CGD" firstAttribute="top" secondItem="Zh9-dz-nK5" secondAttribute="bottom" constant="10" id="oq8-Iz-pnL"/>
-                            <constraint firstItem="Mbe-Ny-seI" firstAttribute="leading" secondItem="BOY-ds-cCM" secondAttribute="leading" constant="20" id="sNL-z7-bNR"/>
+                            <constraint firstItem="Mbe-Ny-seI" firstAttribute="leading" secondItem="BOY-ds-cCM" secondAttribute="leading" constant="20" id="sNL-z7-bNR">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="qA9-OA-CGD" firstAttribute="leading" secondItem="BOY-ds-cCM" secondAttribute="leading" constant="20" id="vbt-Ey-18U">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
