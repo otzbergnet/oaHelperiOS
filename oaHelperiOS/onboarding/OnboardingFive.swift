@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class OnboardingFive: UIViewController {
     
@@ -17,6 +18,7 @@ class OnboardingFive: UIViewController {
     @IBOutlet weak var bookMarkSwitch: UISwitch!
     @IBOutlet weak var iCloudSwitch: UISwitch!
     @IBOutlet weak var openSettingsButton: UIButton!
+    @IBOutlet weak var iCloudStatusLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -36,6 +38,8 @@ class OnboardingFive: UIViewController {
             iCloudSwitch.isOn = false
         }
         NotificationCenter.default.addObserver(self, selector: #selector(OnboardingFive.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
+        
+        iCloudStatus()
     }
     
     deinit {
@@ -80,7 +84,37 @@ class OnboardingFive: UIViewController {
         }
     }
     
-    
+    func iCloudStatus(){
+        CKContainer.default().accountStatus { (accountStatus, error) in
+            switch accountStatus {
+                case .available:
+                    DispatchQueue.main.async {
+                        self.iCloudStatusLabel.text = "iCloud Available"
+                    }
+                
+                case .noAccount:
+                    DispatchQueue.main.async {
+                        self.iCloudStatusLabel.text = "No iCloud account"
+                        self.iCloudSwitch.isOn = false
+                        self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
+                    }
+                case .restricted:
+                    DispatchQueue.main.async {
+                        self.iCloudStatusLabel.text = "iCloud restricted"
+                        self.iCloudSwitch.isOn = false
+                        self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
+                    }
+                case .couldNotDetermine:
+                    DispatchQueue.main.async {
+                        self.iCloudStatusLabel.text = "Unable to determine iCloud status"
+                        self.iCloudSwitch.isOn = false
+                        self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
+                    }
+                @unknown default:
+                    print("unknown default")
+            }
+        }
+    }
     
     
     @IBAction func bookMarksSwitched(_ sender: Any) {
