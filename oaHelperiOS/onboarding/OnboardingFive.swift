@@ -89,24 +89,25 @@ class OnboardingFive: UIViewController {
             switch accountStatus {
                 case .available:
                     DispatchQueue.main.async {
-                        self.iCloudStatusLabel.text = "iCloud Available"
+                        self.iCloudStatusLabel.text = NSLocalizedString("iCloud Available", comment: "iCloud Available")
                     }
                 
                 case .noAccount:
                     DispatchQueue.main.async {
-                        self.iCloudStatusLabel.text = "No iCloud account"
+                        self.iCloudStatusLabel.text = NSLocalizedString("No iCloud account", comment: "No iCloud account")
+                        //
                         self.iCloudSwitch.isOn = false
                         self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
                     }
                 case .restricted:
                     DispatchQueue.main.async {
-                        self.iCloudStatusLabel.text = "iCloud restricted"
+                        self.iCloudStatusLabel.text = NSLocalizedString("iCloud restricted", comment: "iCloud restricted")
                         self.iCloudSwitch.isOn = false
                         self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
                     }
                 case .couldNotDetermine:
                     DispatchQueue.main.async {
-                        self.iCloudStatusLabel.text = "Unable to determine iCloud status"
+                        self.iCloudStatusLabel.text = NSLocalizedString("Unable to determine iCloud status", comment: "Unable to determine iCloud status")
                         self.iCloudSwitch.isOn = false
                         self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
                     }

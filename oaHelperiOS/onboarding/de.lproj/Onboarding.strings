@@ -32,3 +32,8 @@
 "brv-EB-6Mr.text" = "Bookmarks";
 "xwc-XU-Ie2" = "iCloud Sync";
 "HaA-at-RLi.normalTitle" = "Einstellungen öffnen";
+
+"iCloud Available" = "iCloud verfügbar";
+"No iCloud account" = "iCloud Konto nicht verfügbar";
+"iCloud restricted" = "iCloud eingeschränkt";
+"Unable to determine iCloud status" = "Der iCloud Status konnte nicht ermittelt werden";
