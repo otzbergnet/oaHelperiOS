@@ -115,7 +115,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             if appDelegate.search != "" {
                 //print(appDelegate.search)
                 self.textField.text = appDelegate.search
-                let message = NSLocalizedString("Searchig core.ac.uk for you", comment: "shows as soon as search is submitted")
+                let message = NSLocalizedString("Searching core.ac.uk for you", comment: "shows as soon as search is submitted")
                 activityIndicator(message)
                 let query = createSearch(search: appDelegate.search)
                 
@@ -157,7 +157,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func doSearch(){
         self.textField.resignFirstResponder()
         if let search = textField.text {
-            let message = NSLocalizedString("Searchig core.ac.uk for you", comment: "shows as soon as search is submitted")
+            let message = NSLocalizedString("Searching core.ac.uk for you", comment: "shows as soon as search is submitted")
             activityIndicator(message)
             let query = createSearch(search: search)
             checkCore(search: query)
