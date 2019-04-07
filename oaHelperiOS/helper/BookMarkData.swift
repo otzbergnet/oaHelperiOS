@@ -25,7 +25,7 @@ class BookMarkObject {
 class NSCustomPersistentContainer: NSPersistentContainer {
     
     override open class func defaultDirectoryURL() -> URL {
-        let storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.net.otzberg.oaHelper1")
+        let storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.net.otzberg.oaHelper")
         //storeURL = storeURL?.appendingPathComponent("Model.sqlite")
         return storeURL!
     }

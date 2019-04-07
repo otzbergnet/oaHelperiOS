@@ -11,11 +11,11 @@ import UIKit
 import CloudKit
 
 class SettingsBundleHelper {
-    let defaults: UserDefaults
-    let serverChangeTokenKey : String
+    var defaults: UserDefaults
+    var serverChangeTokenKey : String
     
     init(){
-        self.defaults = UserDefaults(suiteName: "group.net.otzberg.oaHelper1")!
+        self.defaults = UserDefaults(suiteName: "group.net.otzberg.oaHelper")!
         
         if let uuid = UIDevice.current.identifierForVendor?.uuidString{
             self.serverChangeTokenKey = "\(uuid)"
@@ -33,6 +33,7 @@ class SettingsBundleHelper {
         var oaCount : Int = self.defaults.integer(forKey: key)
         oaCount += 1;
         self.defaults.set("\(oaCount)", forKey: key)
+        self.defaults.synchronize()
     }
     
     func getOACount(key : String) -> Int{
@@ -41,16 +42,17 @@ class SettingsBundleHelper {
     }
     
     func getSettingsValue(key: String) -> Bool{
-        let value : Bool = self.defaults.bool(forKey: key)
-        return value
+        return self.defaults.bool(forKey: key)
     }
     
     func setSettingsValue(value: Bool, key: String){
         self.defaults.set(value, forKey: key)
+        self.defaults.synchronize()
     }
     
     func setDate(date : String){
         self.defaults.set(date, forKey: "share_date")
+        self.defaults.synchronize()
     }
     
     func getChangeToken() -> Any{
@@ -79,6 +81,7 @@ class SettingsBundleHelper {
         //print(changeToken)
         if let changeTokenData =  try? NSKeyedArchiver.archivedData(withRootObject: changeToken, requiringSecureCoding: false) {
             self.defaults.set(changeTokenData, forKey: self.serverChangeTokenKey)
+            self.defaults.synchronize()
         }
         else{
             print("saving tokenupdateblock failed")

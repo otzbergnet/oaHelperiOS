@@ -17,7 +17,6 @@
 	<key>com.apple.security.application-groups</key>
 	<array>
 		<string>group.net.otzberg.oaHelper</string>
-		<string>group.net.otzberg.oaHelper1</string>
 	</array>
 </dict>
 </plist>

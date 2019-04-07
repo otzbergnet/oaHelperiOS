@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>ApplicationGroupContainerIdentifier</key>
-	<string>group.net.otzberg.oaHelper1</string>
+	<string>group.net.otzberg.oaHelper</string>
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
