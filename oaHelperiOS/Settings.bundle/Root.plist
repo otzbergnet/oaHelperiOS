@@ -84,7 +84,7 @@
 			<key>FalseValue</key>
 			<false/>
 			<key>DefaultValue</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -98,7 +98,7 @@
 			<key>FalseValue</key>
 			<false/>
 			<key>DefaultValue</key>
-			<true/>
+			<false/>
 		</dict>
 	</array>
 </dict>
