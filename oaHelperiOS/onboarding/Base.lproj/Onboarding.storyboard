@@ -401,10 +401,10 @@ Syncing is somewhat hard - so this is a beta feature for now...</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qA9-OA-CGD">
-                                <rect key="frame" x="20" y="342.5" width="335" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qA9-OA-CGD">
+                                <rect key="frame" x="20" y="347.5" width="335" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -422,7 +422,9 @@ Syncing is somewhat hard - so this is a beta feature for now...</string>
                             <constraint firstItem="BOY-ds-cCM" firstAttribute="trailing" secondItem="HaA-at-RLi" secondAttribute="trailing" constant="20" id="WO8-zS-xXM"/>
                             <constraint firstItem="XO9-oE-WV4" firstAttribute="top" secondItem="Mbe-Ny-seI" secondAttribute="bottom" constant="8" id="Wwr-n7-vzu"/>
                             <constraint firstItem="HaA-at-RLi" firstAttribute="top" secondItem="xwc-XU-Ie2" secondAttribute="bottom" constant="30" id="Y2r-Ne-lfv"/>
-                            <constraint firstItem="BOY-ds-cCM" firstAttribute="trailing" secondItem="qA9-OA-CGD" secondAttribute="trailing" constant="20" id="dGs-xL-qHg"/>
+                            <constraint firstItem="BOY-ds-cCM" firstAttribute="trailing" secondItem="qA9-OA-CGD" secondAttribute="trailing" constant="20" id="dGs-xL-qHg">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="BOY-ds-cCM" firstAttribute="trailing" secondItem="Zh9-dz-nK5" secondAttribute="trailing" constant="20" id="diu-gh-uxn">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
@@ -434,9 +436,11 @@ Syncing is somewhat hard - so this is a beta feature for now...</string>
                             <constraint firstItem="BOY-ds-cCM" firstAttribute="bottom" secondItem="HaA-at-RLi" secondAttribute="bottom" constant="50" id="ihA-bf-ech"/>
                             <constraint firstItem="BOY-ds-cCM" firstAttribute="trailing" secondItem="RhQ-yr-ZOJ" secondAttribute="trailing" constant="20" id="m9C-Wj-jpA"/>
                             <constraint firstItem="Zh9-dz-nK5" firstAttribute="top" secondItem="RhQ-yr-ZOJ" secondAttribute="bottom" constant="15" id="nuR-pn-sHx"/>
-                            <constraint firstItem="qA9-OA-CGD" firstAttribute="top" secondItem="Zh9-dz-nK5" secondAttribute="bottom" constant="5" id="oq8-Iz-pnL"/>
+                            <constraint firstItem="qA9-OA-CGD" firstAttribute="top" secondItem="Zh9-dz-nK5" secondAttribute="bottom" constant="10" id="oq8-Iz-pnL"/>
                             <constraint firstItem="Mbe-Ny-seI" firstAttribute="leading" secondItem="BOY-ds-cCM" secondAttribute="leading" constant="20" id="sNL-z7-bNR"/>
-                            <constraint firstItem="qA9-OA-CGD" firstAttribute="leading" secondItem="BOY-ds-cCM" secondAttribute="leading" constant="20" id="vbt-Ey-18U"/>
+                            <constraint firstItem="qA9-OA-CGD" firstAttribute="leading" secondItem="BOY-ds-cCM" secondAttribute="leading" constant="20" id="vbt-Ey-18U">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="XO9-oE-WV4" firstAttribute="top" secondItem="brv-EB-6Mr" secondAttribute="bottom" constant="15" id="wGm-Qe-owa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BOY-ds-cCM"/>
