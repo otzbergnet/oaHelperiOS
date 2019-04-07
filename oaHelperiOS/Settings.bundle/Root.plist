@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>ApplicationGroupContainerIdentifier</key>
-	<string>group.net.otzberg.oaHelper</string>
+	<string>group.net.otzberg.oaHelper1</string>
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
@@ -66,40 +66,40 @@
 			<key>DefaultValue</key>
 			<string>-</string>
 		</dict>
-        <dict>
-            <key>Type</key>
-            <string>PSGroupSpecifier</string>
-            <key>Title</key>
-            <string>Bookmark Support</string>
-        </dict>
-        <dict>
-            <key>Type</key>
-            <string>PSToggleSwitchSpecifier</string>
-            <key>Title</key>
-            <string>Bookmark Support</string>
-            <key>Key</key>
-            <string>bookmarks</string>
-            <key>TrueValue</key>
-            <true/>
-            <key>FalseValue</key>
-            <false/>
-            <key>DefaultValue</key>
-            <true/>
-        </dict>
-        <dict>
-            <key>Type</key>
-            <string>PSToggleSwitchSpecifier</string>
-            <key>Title</key>
-            <string>Bookmark Sync (iCloud)</string>
-            <key>Key</key>
-            <string>bookmarks_icloud</string>
-            <key>TrueValue</key>
-            <true/>
-            <key>FalseValue</key>
-            <false/>
-            <key>DefaultValue</key>
-            <true/>
-        </dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Bookmark Support</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Bookmark Support</string>
+			<key>Key</key>
+			<string>bookmarks</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
+			<false/>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Bookmark Sync (iCloud)</string>
+			<key>Key</key>
+			<string>bookmarks_icloud</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
+			<false/>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
 	</array>
 </dict>
 </plist>

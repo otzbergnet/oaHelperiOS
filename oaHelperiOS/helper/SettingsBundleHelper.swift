@@ -15,7 +15,7 @@ class SettingsBundleHelper {
     let serverChangeTokenKey : String
     
     init(){
-        self.defaults = UserDefaults(suiteName: "group.net.otzberg.oaHelper")!
+        self.defaults = UserDefaults(suiteName: "group.net.otzberg.oaHelper1")!
         
         if let uuid = UIDevice.current.identifierForVendor?.uuidString{
             self.serverChangeTokenKey = "\(uuid)"
