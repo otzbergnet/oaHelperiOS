@@ -6,7 +6,7 @@
   Copyright © 2018 Claus Wolf. All rights reserved.
 */
 
-"Searchig core.ac.uk for you" = "Suche in core.ac.uk gestartet";
+"Searching core.ac.uk for you" = "Suche in core.ac.uk gestartet";
 "Sorry, we encountered a problem" = "Sorry, ein Problem ist aufgetreten";
 "Enter your search:" = "Ihre Suche:";
 "core.ac.uk API key missing - please quit app" = "core.ac.uk API Key fehlt - bitte beenden Sie die App";
