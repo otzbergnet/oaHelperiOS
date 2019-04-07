@@ -61,8 +61,7 @@ class BookMarkData : UIViewController{
         bookMarkItem.del = false
         bookMarkItem.title = bookmark.title
         bookMarkItem.url = bookmark.url
-        //bookMarkItem.id = md5("\(bookmark.url)\(String(describing: bookMarkItem.date))")
-        bookMarkItem.id = md5("\(bookmark.url))")
+        bookMarkItem.id = ("\(bookmark.url)").md5Value
         
         if saveContext() && !isFromCloud && self.settings.getSettingsValue(key: "bookmarks_icloud"){
             self.dataSync.saveBookmark(bookMark: bookMarkItem){ (testValue) in
@@ -162,6 +161,7 @@ class BookMarkData : UIViewController{
     }
     
     func deleteBookmarkByName(recordName : String){
+        print("recordId to Delete: \(recordName)")
         let context = self.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "BookMark")
         request.predicate = NSPredicate(format: "(id == %@)", recordName)
@@ -197,7 +197,7 @@ class BookMarkData : UIViewController{
             if let myId = id {
                 if(type == "deleted"){
                     //print("deleted")
-                    self.deleteBookmarkByName(recordName: "\(myId)")
+                    self.deleteBookmarkByName(recordName: "\(myId.recordName)")
                 }
                 else if(type == "changed"){
                     //print("changed")
@@ -266,22 +266,24 @@ class BookMarkData : UIViewController{
         }
         completion("done")
     }
+   
+}
 
-    // MARK: - MD5 function, in combination with CommonCrypto
-    
-    func md5(_ string: String) -> String? {
+extension String {
+    var md5Value: String {
         let length = Int(CC_MD5_DIGEST_LENGTH)
         var digest = [UInt8](repeating: 0, count: length)
         
-        if let d = string.data(using: String.Encoding.utf8) {
-            _ = d.withUnsafeBytes { (body: UnsafePointer<UInt8>) in
-                CC_MD5(body, CC_LONG(d.count), &digest)
+        if let d = self.data(using: .utf8) {
+            _ = d.withUnsafeBytes { body -> String in
+                CC_MD5(body.baseAddress, CC_LONG(d.count), &digest)
+                
+                return ""
             }
         }
         
-        return (0..<length).reduce("") {
+        return (0 ..< length).reduce("") {
             $0 + String(format: "%02x", digest[$1])
         }
     }
-    
 }

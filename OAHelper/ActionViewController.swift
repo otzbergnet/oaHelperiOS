@@ -138,6 +138,7 @@ class ActionViewController: UIViewController {
                                         DispatchQueue.main.async {
                                             self.stopActivity()
                                             self.headerLabel.text = NSLocalizedString("No DOI found", comment: "No DOI found")
+                                            
                                             self.sourceLabel.text = ""
                                             self.textView.text += NSLocalizedString("\n\nWe were unable to identify a DOI and thus unable to identify an Open Access version of the document", comment: "no doi, no search")
                                             self.returnURLString = ""
