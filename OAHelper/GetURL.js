@@ -161,7 +161,7 @@ function isDOI(doi){
 function scrapePage(){
     //selectors[0] = PubMed
     //selectors[1] = IEEE
-    var selectors = ['p[class=\"j\"]', 'a[class=\"ng-isolate-scope\"]', 'a[ref=\"aid_type=doi\"]'];
+    var selectors = ['p[class=\"j\"]', 'a[class=\"ng-isolate-scope\"]', 'a[ref=\"aid_type=doi\"]', 'div.stats-document-abstract-doi>a'];
     
     var doi = ""
     for(i = 0; i < selectors.length; i++){
