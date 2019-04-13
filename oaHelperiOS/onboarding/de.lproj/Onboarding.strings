@@ -24,7 +24,7 @@
 "ypY-dD-ifw.text" = "Über diese App";
 
 "Hme-JW-BbB.text" = "Statistiken";
-"fet-ty-oQM.text" = "Eine App ganz ohne Nutzungsdaten zu entwickeln ist eher schwer.\n\nSie können helfen, indem Sie zustimmen einmal im Monat Nutzungsindikatoren zu teilen, die keine Rückschlüsse auf Sie als Nutzer geben. Die exakten Werte, und wann diese zum letzten Mal geteilt wurden, erhalten Sie in den Einstellungen zur App.\n\nDanke, dass Sie helfen wollen...";
+"fet-ty-oQM.text" = "Eine App ganz ohne Nutzungsdaten zu entwickeln ist richtig schwer.\n\nSie können helfen, indem Sie zustimmen einmal im Monat Nutzungsindikatoren zu teilen, die keine Rückschlüsse auf Sie als Nutzer geben. Die exakten Werte, und wann diese zum letzten Mal geteilt wurden, erhalten Sie in den Einstellungen zur App.\n\nDanke, dass Sie helfen wollen...";
 "XS4-fc-ccN.text" = "Daten monatlich teilen";
 "p7e-u9-etC.normalTitle" = "Einstellungen öffnen";
 "RhQ-yr-ZOJ.text" = "Bookmarks?";
@@ -34,6 +34,6 @@
 "HaA-at-RLi.normalTitle" = "Einstellungen öffnen";
 
 "iCloud Available" = "iCloud verfügbar";
-"No iCloud account" = "iCloud Konto nicht verfügbar";
-"iCloud restricted" = "iCloud eingeschränkt";
-"Unable to determine iCloud status" = "Der iCloud Status konnte nicht ermittelt werden";
+"Sadly, your iCloud account seems unavailable. We've disabled the iCloud option for you." = "Leider, scheint kein iCloud Konto verfügbar. Die iCloud Option wurde für Sie deaktiviert.";
+"iOS reports iCloud status as restricted. We've disabled the iCloud option for you." = "Ihr iCloud Konto wird von iOS als eingeschränkt gemeldet. Die iCloud Option wurde für Sie deaktiviert.";
+"Unable to determine iCloud status. We've disabled the iCloud option for you." = "Der iCloud Status konnte nicht ermittelt werden. Die iCloud Option wurde für Sie deaktiviert.";

@@ -13,10 +13,12 @@ class OnboardingThree: UIViewController {
     let defaults = UserDefaults.standard
     var window: UIWindow?
     let settings = SettingsBundleHelper()
+    let helper = HelperClass()
     
     @IBOutlet weak var dataShare: UISwitch!
     @IBOutlet weak var openSettingsButton: UIButton!
-    
+    @IBOutlet weak var shareSwitch: UISwitch!
+    @IBOutlet weak var shareSwitchLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,10 @@ class OnboardingThree: UIViewController {
             dataShare.isOn = false
         }
         NotificationCenter.default.addObserver(self, selector: #selector(OnboardingThree.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
+        if(self.helper.isSE()){
+            shareSwitch.isHidden = true
+            shareSwitchLabel.isHidden = true
+        }
     }
     
     

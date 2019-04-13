@@ -14,11 +14,14 @@ class OnboardingFive: UIViewController {
     let defaults = UserDefaults.standard
     var window: UIWindow?
     let settings = SettingsBundleHelper()
+    let helper = HelperClass()
 
     @IBOutlet weak var bookMarkSwitch: UISwitch!
     @IBOutlet weak var iCloudSwitch: UISwitch!
+    @IBOutlet weak var iCloudSwitchLabel: UILabel!
     @IBOutlet weak var openSettingsButton: UIButton!
     @IBOutlet weak var iCloudStatusLabel: UILabel!
+    @IBOutlet weak var bookMarkSwitchLabel1: UILabel!
     
     
     override func viewDidLoad() {
@@ -40,6 +43,13 @@ class OnboardingFive: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(OnboardingFive.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
         
         iCloudStatus()
+        
+        if(self.helper.isSE()){
+            iCloudSwitch.isHidden = true
+            iCloudSwitchLabel.isHidden = true
+            bookMarkSwitch.isHidden = true
+            bookMarkSwitchLabel1.isHidden = true
+        }
     }
     
     deinit {
@@ -89,32 +99,35 @@ class OnboardingFive: UIViewController {
             switch accountStatus {
                 case .available:
                     DispatchQueue.main.async {
-                        self.iCloudStatusLabel.text = NSLocalizedString("iCloud Available", comment: "iCloud Available")
+                        self.iCloudStatusLabel.text = ""
                     }
                 
                 case .noAccount:
                     DispatchQueue.main.async {
-                        self.iCloudStatusLabel.text = NSLocalizedString("No iCloud account", comment: "No iCloud account")
-                        //
-                        self.iCloudSwitch.isOn = false
-                        self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
+                        self.iCloudStatusLabel.text = NSLocalizedString("Sadly, your iCloud account seems unavailable. We've disabled the iCloud option for you.", comment: "No iCloud account")
+                        self.hideiCloudRelatedContent()
                     }
                 case .restricted:
                     DispatchQueue.main.async {
-                        self.iCloudStatusLabel.text = NSLocalizedString("iCloud restricted", comment: "iCloud restricted")
-                        self.iCloudSwitch.isOn = false
-                        self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
+                        self.iCloudStatusLabel.text = NSLocalizedString("iOS reports iCloud status as restricted. We've disabled the iCloud option for you.", comment: "iCloud restricted")
+                        self.hideiCloudRelatedContent()
                     }
                 case .couldNotDetermine:
                     DispatchQueue.main.async {
-                        self.iCloudStatusLabel.text = NSLocalizedString("Unable to determine iCloud status", comment: "Unable to determine iCloud status")
-                        self.iCloudSwitch.isOn = false
-                        self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
+                        self.iCloudStatusLabel.text = NSLocalizedString("Unable to determine iCloud status. We've disabled the iCloud option for you.", comment: "Unable to determine iCloud status")
+                        self.hideiCloudRelatedContent()
                     }
                 @unknown default:
                     print("unknown default")
             }
         }
+    }
+    
+    func hideiCloudRelatedContent(){
+        self.iCloudSwitch.isOn = false
+        self.iCloudSwitch.isHidden = true
+        self.iCloudSwitchLabel.isHidden = true
+        self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
     }
     
     
