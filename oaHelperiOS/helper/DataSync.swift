@@ -90,7 +90,7 @@ class DataSync: UIViewController {
             else {
                 if let record = record {
                     let bookMark = BookMarkObject()
-                    bookMark.id = "\(record.recordID)"
+                    bookMark.id = record.value(forKey: "id") as? String ?? ""
                     bookMark.date = record.value(forKey: "date") as? Date ?? Date()
                     bookMark.doi = record.value(forKey: "doi") as? String ?? ""
                     bookMark.url = record.value(forKey: "url") as? String ?? ""
@@ -162,11 +162,9 @@ class DataSync: UIViewController {
         //print("recordName: \(recordName)")
         self.privateDatabase.delete(withRecordID: CKRecord.ID(recordName: recordName, zoneID: self.customZone.zoneID)) { (recordId, error) in
             if recordId != nil{
-                //print("did delete")
                 completion(true)
             }
             if error != nil{
-                //print("did not delete")
                 completion(false)
             }
         }
@@ -279,6 +277,7 @@ class DataSync: UIViewController {
                 return
    
             }
+            
         }
         operation.recordZoneFetchCompletionBlock = {zoneID, changeToken, data, more, error in
             //at end of operation, unless there was an error, we should get a new token

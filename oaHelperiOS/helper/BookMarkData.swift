@@ -43,11 +43,12 @@ class BookMarkData : UIViewController{
     var singleBookMark : [BookMark] = []
     var allBookMarks : [BookMark] = []
     
+    var changed = 0
     
     
-    func saveBookMark(bookmark: BookMarkObject, isFromCloud: Bool = false){
-        print("saving a bookmark")
+    func saveBookMark(bookmark: BookMarkObject, isFromCloud: Bool = false, completion: @escaping (Bool) -> ()){
         if(doesBookMarkExist(url: bookmark.url)){
+            completion(true)
             return
         }
         
@@ -67,10 +68,14 @@ class BookMarkData : UIViewController{
             self.dataSync.saveBookmark(bookMark: bookMarkItem){ (testValue) in
                 if testValue {
                     bookMarkItem.synced = true
+                    completion(true)
                     _ = self.saveContext()
                 }
             }
             
+        }
+        else{
+            completion(true)
         }
         
     }
@@ -161,7 +166,7 @@ class BookMarkData : UIViewController{
     }
     
     func deleteBookmarkByName(recordName : String){
-        //print("recordId to Delete: \(recordName)")
+        print("recordId to Delete: \(recordName)")
         let context = self.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "BookMark")
         request.predicate = NSPredicate(format: "(id == %@)", recordName)
@@ -172,19 +177,22 @@ class BookMarkData : UIViewController{
                     context.delete(item)
                     _ = self.saveContext()
                 }
-                    
             }
         }
         _ = saveContext()
-        
     }
     
-    func saveBookMarkByName(recordId: CKRecord.ID, isFromCloud: Bool = true){
+    func saveBookMarkByName(recordId: CKRecord.ID, isFromCloud: Bool = true, completion: @escaping (Bool) -> ()){
         if(!self.settings.getSettingsValue(key: "bookmarks_icloud")){
+            print("not icloud bookmark")
+            completion(true)
             return
         }
         self.dataSync.fetchBookMarksByName(recordId: recordId){ (test) in
-            self.saveBookMark(bookmark: test, isFromCloud: isFromCloud)
+            self.saveBookMark(bookmark: test, isFromCloud: isFromCloud){ (success: Bool) in
+                //print("success saveBookMark")
+                completion(true)
+            }
         }
     }
     
@@ -201,11 +209,21 @@ class BookMarkData : UIViewController{
                 }
                 else if(type == "changed"){
                     //print("changed")
-                    self.saveBookMarkByName(recordId: myId, isFromCloud: true)
+                    self.changed += 1
+                    self.saveBookMarkByName(recordId: myId, isFromCloud: true){ (success: Bool) in
+                        //print(success)
+                        if(success){
+                            self.changed -= 1
+                            if(self.reallyDone()){
+                                completion("done")
+                            }
+                        }
+                    }
                 }
-                else if(type == "done"){
+                else if(type == "done" && self.reallyDone()){
                     completion("done")
                 }
+                
             }
             else{
                 completion("\(type)")
@@ -215,6 +233,14 @@ class BookMarkData : UIViewController{
         self.syncDeletedBookmarks()
     }
     
+    public func reallyDone() -> Bool{
+        if (self.changed == 0){
+            return true
+        }
+        else{
+            return false
+        }
+    }
     
     
     // MARK: - Core Data stack

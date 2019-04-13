@@ -359,7 +359,9 @@ class ActionViewController: UIViewController {
     
     
     @IBAction func addBookMarkTapped(_ sender: Any) {
-        self.bookMarkData.saveBookMark(bookmark: self.bookMark)
+        self.bookMarkData.saveBookMark(bookmark: self.bookMark){ (success: Bool) in
+            print("saved")
+        }
         executeCancel(action: "bookmarked")
     }
     
