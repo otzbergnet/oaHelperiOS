@@ -46,7 +46,7 @@ class BookMarkData : UIViewController{
     
     
     func saveBookMark(bookmark: BookMarkObject, isFromCloud: Bool = false){
-        
+        print("saving a bookmark")
         if(doesBookMarkExist(url: bookmark.url)){
             return
         }
@@ -265,6 +265,24 @@ class BookMarkData : UIViewController{
             }
         }
         completion("done")
+    }
+    
+    public func deleteAllBookmarks(completion: @escaping(_ returned: Bool) ->()) {
+        let context = self.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+        fetchRequest.entity = NSEntityDescription.entity(forEntityName: "BookMark", in: context)
+        fetchRequest.includesPropertyValues = false
+        do {
+            let results = try context.fetch(fetchRequest) as! [NSManagedObject]
+            for result in results {
+                context.delete(result)
+            }
+            try context.save()
+            completion(true)
+        } catch {
+            completion(false)
+            print("fetch error -\(error.localizedDescription)")
+        }
     }
    
 }

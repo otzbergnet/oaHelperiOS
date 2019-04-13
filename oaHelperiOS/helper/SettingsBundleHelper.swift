@@ -90,4 +90,10 @@ class SettingsBundleHelper {
         //print("checking")
         //print(getChangeToken())
     }
+    
+    func setEmptyChangeTokenData(){
+        self.defaults.set(nil, forKey: self.serverChangeTokenKey)
+        self.defaults.synchronize()
+    }
+    
 }

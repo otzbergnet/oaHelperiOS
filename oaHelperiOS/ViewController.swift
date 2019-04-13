@@ -481,6 +481,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.showErrorAlert(alertTitle : alertTitle, alertMessage : alertMessage, okButton : okButton)
             return
         }
+        
+        if(self.settings.getSettingsValue(key: "reset_bookmarks_icloud")){
+            self.bookMarkData.deleteAllBookmarks { (success : Bool) in
+                if(success){
+                    self.settings.setEmptyChangeTokenData()
+                    self.bookMarkSyncProcess()
+                    self.settings.setSettingsValue(value: false, key: "reset_bookmarks_icloud")
+                }
+                else{
+                    print("error that needs handling")
+                }
+            }
+        }
+        else{
+            bookMarkSyncProcess()
+        }
+        
+    }
+    
+    func bookMarkSyncProcess(){
         showCloudSyncMessage()
         self.activeBookMarkCheck = false
         self.bookMarkData.syncCloudChanges(){ (type : String) in
