@@ -83,6 +83,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             self.bookMarkList = self.bookMarkData.getAllBookMarks()
             if self.bookMarkList.count > 0{
+                self.settings.setBookMarkCount(bookMarkCount : self.bookMarkList.count)
                 DispatchQueue.main.async {
                     self.bookmarkButton.isHidden = false
                 }

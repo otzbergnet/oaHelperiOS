@@ -55,6 +55,11 @@ class SettingsBundleHelper {
         self.defaults.synchronize()
     }
     
+    func setBookMarkCount(bookMarkCount : Int){
+        self.defaults.set("\(bookMarkCount)", forKey: "bookmark_count")
+        self.defaults.synchronize()
+    }
+    
     func getChangeToken() -> Any{
         var changeToken : CKServerChangeToken? = nil
         let changeTokenData = self.defaults.data(forKey: self.serverChangeTokenKey)

@@ -36,6 +36,7 @@ class StatisticSubmit {
         let oa_found = replaceZeroWithUndersore(value: self.settings.getOACount(key: "oa_found"))
         let oa_search = replaceZeroWithUndersore(value: self.settings.getOACount(key: "oa_search"))
         let core_pdf = replaceZeroWithUndersore(value: self.settings.getOACount(key: "core_pdf"))
+        let bookmark_count = replaceZeroWithUndersore(value: self.settings.getOACount(key: "bookmark_count"))
         
         if(oa_found == "_" && oa_search == "_" && core_pdf == "_"){
             //print("nothing to share")
@@ -43,7 +44,7 @@ class StatisticSubmit {
         }
         
         
-        let urlString = "https://www.otzberg.net/oahelper/stat.php?oa_search=\(oa_search)&oa_found=\(oa_found)&core_pdf=\(core_pdf)&uid=\(self.uid)"
+        let urlString = "https://www.otzberg.net/oahelper/stat.php?oa_search=\(oa_search)&oa_found=\(oa_found)&core_pdf=\(core_pdf)&bookmark_count=\(bookmark_count)&uid=\(self.uid)"
         guard let url = URL(string: urlString) else {
             return
         }
