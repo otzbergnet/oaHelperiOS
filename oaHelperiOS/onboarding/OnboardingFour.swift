@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OnboardingThree: UIViewController {
+class OnboardingFour: UIViewController {
     
     let defaults = UserDefaults.standard
     var window: UIWindow?

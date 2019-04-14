@@ -11,10 +11,11 @@ import UIKit
 class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
     lazy var orderedViewControllers : [UIViewController] = {
-        return [self.newVc(viewController: "obFirst"), self.newVc(viewController: "obSecond"), self.newVc(viewController: "obThird")]
+        return [self.newVc(viewController: "obFirst"), self.newVc(viewController: "obSecond"), self.newVc(viewController: "obThird"), self.newVc(viewController: "obFive"), self.newVc(viewController: "obFourth")]
     }()
     
     var pageControl = UIPageControl()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         let pageContentViewController = pageViewController.viewControllers![0]
-        self.pageControl.currentPage = orderedViewControllers.index(of: pageContentViewController)!
+        self.pageControl.currentPage = orderedViewControllers.firstIndex(of: pageContentViewController)!
     }
     
     func configurePageControl(){
@@ -47,7 +48,7 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else{
+        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else{
             return nil
         }
         
@@ -66,7 +67,7 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else{
+        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else{
             return nil
         }
         

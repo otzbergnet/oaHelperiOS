@@ -3,18 +3,25 @@ var GetURL = function() {};
 GetURL.prototype = {
 
 run: function(arguments) {
-    arguments.completionFunction({ "currentUrl" : document.URL, "doi" : findDoi() });
+    arguments.completionFunction({ "currentUrl" : document.URL, "docTitle" : document.title, "doi" : findDoi() });
 },
     
 finalize: function(arguments) {
-    var message = arguments["returnUrl"];
-    if (message) {
-        if(message.substring(0,4) == "http"){
-            //alert(message)
-            window.location.href = message
+    var message = arguments;
+    if (message["returnUrl"]) {
+        if(message["returnUrl"].substring(0,4) == "http"){
+            window.location.href = message["returnUrl"]
         }
-        else if(message != ""){
-            alert(message)
+        else if(message["returnUrl"] != ""){
+            alert(message);
+        }
+    }
+    else if(message["action"] && message["action"] == "bookmarked"){
+        if(window.navigator.language.indexOf("de") == 0){
+            insertConfirmation("Bookmark hinzugefügt!");
+        }
+        else{
+            insertConfirmation("Bookmark added!");
         }
         
     }
@@ -154,7 +161,7 @@ function isDOI(doi){
 function scrapePage(){
     //selectors[0] = PubMed
     //selectors[1] = IEEE
-    var selectors = ['p[class=\"j\"]', 'a[class=\"ng-isolate-scope\"]'];
+    var selectors = ['p[class=\"j\"]', 'a[class=\"ng-isolate-scope\"]', 'a[ref=\"aid_type=doi\"]', 'div.stats-document-abstract-doi>a'];
     
     var doi = ""
     for(i = 0; i < selectors.length; i++){
@@ -201,4 +208,16 @@ function matchAgainstRegex(data){
     }
     
     return '';
+}
+
+function insertConfirmation(message){
+    var el = document.querySelector('body');
+    var newEl = document.createElement('div');
+    newEl.appendChild(document.createTextNode(message));
+    newEl.setAttribute("style", "background-color:#FF9300 !important;width: 100%;color:#FFFFFF;height:3em;text-align:center;text-align: center;display: flex;justify-content:center;align-content:center;flex-direction:column;z-index: 99999 !important;position:fixed;");
+    newEl.setAttribute("id", "oahelper_bookmark_confirmation");
+    el.appendChild(newEl);
+    el.insertBefore(newEl, null);
+    el.insertBefore(newEl, el.childNodes[0] || null);
+    setTimeout(function(){ document.getElementById("oahelper_bookmark_confirmation").outerHTML = ""; }, 2000);
 }

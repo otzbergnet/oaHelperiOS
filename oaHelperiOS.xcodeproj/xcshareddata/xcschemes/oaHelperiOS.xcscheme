@@ -28,6 +28,36 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2D7A6C15221C713200D1226B"
+               BuildableName = "FastlaneSnapshot.xctest"
+               BlueprintName = "FastlaneSnapshot"
+               ReferencedContainer = "container:oaHelperiOS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2D7A6C2A221C7AF900D1226B"
+               BuildableName = "FastLane.xctest"
+               BlueprintName = "FastLane"
+               ReferencedContainer = "container:oaHelperiOS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2D81BD6B221C91C20003295A"
+               BuildableName = "FastLaneSnapshots.xctest"
+               BlueprintName = "FastLaneSnapshots"
+               ReferencedContainer = "container:oaHelperiOS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
@@ -49,6 +79,7 @@
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      stopOnEveryMainThreadCheckerIssue = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable

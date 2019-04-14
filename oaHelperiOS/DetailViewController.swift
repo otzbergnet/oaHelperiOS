@@ -35,12 +35,15 @@ class DetailViewController: UIViewController {
     var blueColor = UIColor(displayP3Red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
     var greenColor = UIColor(displayP3Red: 0, green: 143/255, blue: 0, alpha: 1.00)
     var orangeColor = UIColor(displayP3Red: 252/255, green: 156/255, blue: 44/255, alpha: 1.00) // wrong
+    var redColor = UIColor(displayP3Red: 177/255, green: 30/255, blue: 34/255, alpha: 1.00)
     
     var coreRecords = [Items]()
     var num : Int = 0
     var url : String = ""
+    var pdf : Bool = false
     
     var hc = HelperClass()
+    let settings = SettingsBundleHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +74,19 @@ class DetailViewController: UIViewController {
                 detailData.buttonLabel = NSLocalizedString("Access Full Text", comment: "button, access full text")
             }
             else{
-                if let id = self.coreRecords[num].id{
+                var arxivLink = ""
+                if let arxiv = self.coreRecords[num].oai {
+                    if arxiv.contains("oai:arXiv.org:"){
+                        arxivLink = arxiv.replacingOccurrences(of: "oai:arXiv.org:", with: "https://arxiv.org/abs/")
+                    }
+                }
+                
+                if(arxivLink != ""){
+                    detailData.url = arxivLink
+                    self.url = detailData.url
+                    detailData.buttonLabel = NSLocalizedString("View Record at arXiv.org", comment: "button, arXiv.org document")
+                }
+                else if let id = self.coreRecords[num].id{
                     detailData.url = "https://core.ac.uk/display/\(id)"
                     self.url = detailData.url
                     detailData.buttonLabel = NSLocalizedString("View Record at core.ac.uk", comment: "button, core.ac.uk document")
@@ -116,13 +131,22 @@ class DetailViewController: UIViewController {
             accessButton.backgroundColor = blueColor
             pdfButton.backgroundColor = blueColor
             pdfButton.setTitle("core.ac.uk", for: .normal)
+            self.pdf = false
+        }
+        else if (coreRecord.buttonLabel.contains("arXiv.org")){
+            accessButton.backgroundColor = redColor
+            pdfButton.backgroundColor = greenColor
+            pdfButton.setTitle("arXiv.org", for: .normal)
+            self.pdf = false
         }
         else{
             accessButton.backgroundColor = greenColor
             pdfButton.backgroundColor = greenColor
             pdfButton.setTitle("PDF", for: .normal)
+            self.pdf = true
         }
         if(coreRecord.url == "" ){
+            self.pdf = false
             accessButton.isHidden = true
         }
         
@@ -142,12 +166,16 @@ class DetailViewController: UIViewController {
     func goToDocument(){
         if(self.url != ""){
             //print(coreRecord.url)
+            if(self.pdf){
+                
+                self.settings.incrementOACount(key : "core_pdf")
+            }
             let url = URL(string: self.url.trimmingCharacters(in: .whitespacesAndNewlines))
             let vc = SFSafariViewController(url: url!)
             self.present(vc, animated: true, completion: nil)
         }
         else{
-            print("accss Tapped failed somehow - empty?")
+            print("access Tapped failed somehow - empty?")
         }
     }
     
