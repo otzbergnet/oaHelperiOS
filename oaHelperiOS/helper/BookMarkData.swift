@@ -166,7 +166,7 @@ class BookMarkData : UIViewController{
     }
     
     func deleteBookmarkByName(recordName : String){
-        print("recordId to Delete: \(recordName)")
+        //print("recordId to Delete: \(recordName)")
         let context = self.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "BookMark")
         request.predicate = NSPredicate(format: "(id == %@)", recordName)
