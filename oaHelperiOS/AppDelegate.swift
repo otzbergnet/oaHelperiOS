@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // at the end of onboarding the UserDefaults value for onBoarding will be set to true
         
         determineView()
-        
+        registerDefaultsFromSettingsBundle()
         return true
     }
     
@@ -76,7 +77,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func registerDefaultsFromSettingsBundle(){
+        guard let settingsBundle = Bundle.main.path(forResource: "Settings", ofType: "bundle") else {
+            print("Could not locate Settings.bundle")
+            return
+        }
+        
+        guard let settings = NSDictionary(contentsOfFile: settingsBundle+"/Root.plist") else {
+            print("Could not read Root.plist")
+            return
+        }
+        
+        let preferences = settings["PreferenceSpecifiers"] as! NSArray
+        var defaultsToRegister = [String: AnyObject]()
+        for prefSpecification in preferences {
+            if let post = prefSpecification as? [String: AnyObject] {
+                guard let key = post["Key"] as? String,
+                    let defaultValue = post["DefaultValue"] else {
+                        continue
+                }
+                defaultsToRegister[key] = defaultValue
+            }
+        }
+        UserDefaults.standard.register(defaults: defaultsToRegister)
+    }
 
 
 }

@@ -43,13 +43,43 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2D7A6C15221C713200D1226B"
+               BuildableName = "FastlaneSnapshot.xctest"
+               BlueprintName = "FastlaneSnapshot"
+               ReferencedContainer = "container:oaHelperiOS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2D7A6C2A221C7AF900D1226B"
+               BuildableName = "FastLane.xctest"
+               BlueprintName = "FastLane"
+               ReferencedContainer = "container:oaHelperiOS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2D81BD6B221C91C20003295A"
+               BuildableName = "FastLaneSnapshots.xctest"
+               BlueprintName = "FastLaneSnapshots"
+               ReferencedContainer = "container:oaHelperiOS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D240DEB21BC5A8F000BB29B"
-            BuildableName = "OAHelper.appex"
-            BlueprintName = "OAHelper"
+            BlueprintIdentifier = "2DD08CE521BC31ED00D0B3C0"
+            BuildableName = "oaHelperiOS.app"
+            BlueprintName = "oaHelperiOS"
             ReferencedContainer = "container:oaHelperiOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

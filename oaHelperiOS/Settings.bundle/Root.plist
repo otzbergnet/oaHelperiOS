@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ApplicationGroupContainerIdentifier</key>
+	<string>group.net.otzberg.oaHelper</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Statistics</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>OA Searches</string>
+			<key>Key</key>
+			<string>oa_search</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>OA Found</string>
+			<key>Key</key>
+			<string>oa_found</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>core.ac.uk PDF</string>
+			<key>Key</key>
+			<string>core_pdf</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+		</dict>
+        <dict>
+            <key>Type</key>
+            <string>PSTitleValueSpecifier</string>
+            <key>Title</key>
+            <string>Bookmark Count</string>
+            <key>Key</key>
+            <string>bookmark_count</string>
+            <key>DefaultValue</key>
+            <string>0</string>
+        </dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Share Statistics</string>
+			<key>Key</key>
+			<string>share_stats</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
+			<false/>
+			<key>DefaultValue</key>
+			<string>NO</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Last Shared</string>
+			<key>Key</key>
+			<string>share_date</string>
+			<key>DefaultValue</key>
+			<string>-</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Bookmark Support</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Bookmark Support</string>
+			<key>Key</key>
+			<string>bookmarks</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
+			<false/>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Bookmark Sync (iCloud)</string>
+			<key>Key</key>
+			<string>bookmarks_icloud</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
+			<false/>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+        <dict>
+            <key>Type</key>
+            <string>PSToggleSwitchSpecifier</string>
+            <key>Title</key>
+            <string>Reset Bookmarks from iCloud</string>
+            <key>Key</key>
+            <string>reset_bookmarks_icloud</string>
+            <key>TrueValue</key>
+            <true/>
+            <key>FalseValue</key>
+            <false/>
+            <key>DefaultValue</key>
+            <false/>
+        </dict>
+	</array>
+</dict>
+</plist>
