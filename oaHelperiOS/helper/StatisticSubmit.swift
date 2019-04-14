@@ -22,13 +22,14 @@ class StatisticSubmit {
         
         let submit = self.settings.getSettingsValue(key: "share_stats")
         let stringDate = self.getDate()
+        let lastDate = self.settings.getShareDate()
         
         if(submit == false){
             //print("submit is false")
             return
         }
         
-        if(recentUpdate(lastDate: stringDate)){
+        if(recentUpdate(lastDate: lastDate)){
             //print("recently updatd")
             return
         }
@@ -38,8 +39,8 @@ class StatisticSubmit {
         let core_pdf = replaceZeroWithUndersore(value: self.settings.getOACount(key: "core_pdf"))
         let bookmark_count = replaceZeroWithUndersore(value: self.settings.getOACount(key: "bookmark_count"))
         
-        if(oa_found == "_" && oa_search == "_" && core_pdf == "_"){
-            //print("nothing to share")
+        if(oa_found == "_" && oa_search == "_" && core_pdf == "_" && bookmark_count == "_"){
+            print("nothing to share")
             return
         }
         
@@ -106,6 +107,9 @@ class StatisticSubmit {
     }
     
     func recentUpdate(lastDate: String) -> Bool{
+        if(lastDate == "0"){
+            return false
+        }
         var returnValue = false
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

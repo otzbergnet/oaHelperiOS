@@ -55,6 +55,10 @@ class SettingsBundleHelper {
         self.defaults.synchronize()
     }
     
+    func getShareDate() -> String{
+        return self.defaults.string(forKey: "share_date") ?? "0"
+    }
+    
     func setBookMarkCount(bookMarkCount : Int){
         self.defaults.set("\(bookMarkCount)", forKey: "bookmark_count")
         self.defaults.synchronize()
