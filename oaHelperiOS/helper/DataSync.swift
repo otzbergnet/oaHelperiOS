@@ -201,13 +201,14 @@ class DataSync: UIViewController {
         //ensure we use the correct user defaults
         //move this to settingsbundlehelper && find a way that this doesn't sync
         var changeToken : CKServerChangeToken? = nil
-        
-        if let myChangeToken: CKServerChangeToken = self.settings.getChangeToken() as? CKServerChangeToken{
-            changeToken = myChangeToken
+        let myStoredChangeToken = self.settings.getChangeToken()
+        if let myChangeToken: CKServerChangeToken = myStoredChangeToken as? CKServerChangeToken{
+           changeToken = myChangeToken
         }
         else{
-            changeToken = nil
+           changeToken = nil
         }
+        
         // setup options
         //changeToken = nil
         
