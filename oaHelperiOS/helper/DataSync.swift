@@ -25,7 +25,9 @@ class DataSync: UIViewController {
     let customZone = CKRecordZone(zoneName: "bookMarkZone")
 
     public func fetchUserRecordID() {
-        
+        if(!self.hasCustomZone()){
+            NSLog("I don't have custom zone and could not create")
+        }
         // Fetch User Record
         self.defaultContainer.fetchUserRecordID { (recordID, error) -> Void in
             if let responseError = error {
@@ -40,7 +42,9 @@ class DataSync: UIViewController {
     }
     
     private func fetchUserRecord(recordID: CKRecord.ID) {
-        
+        if(!self.hasCustomZone()){
+            NSLog("I don't have custom zone and could not create")
+        }
         // Fetch User Record
         self.privateDatabase.fetch(withRecordID: recordID) { (record, error) -> Void in
             if let responseError = error {
@@ -53,7 +57,9 @@ class DataSync: UIViewController {
     }
 
     private func fetchBookMarks() {
-        
+        if(!self.hasCustomZone()){
+            NSLog("I don't have custom zone and could not create")
+        }
         // Initialize Query
         let query = CKQuery(recordType: "Bookmarks", predicate: NSPredicate(value: true))
         
@@ -105,7 +111,9 @@ class DataSync: UIViewController {
     }
     
     public func saveBookmark(bookMark : BookMark, isFromCloud : Bool = false, completion: @escaping (Bool) -> ()){
-       
+        if(!self.hasCustomZone()){
+            NSLog("I don't have custom zone and could not create")
+        }
         if(bookMark.synced){
             completion(true)
             return
@@ -298,6 +306,32 @@ class DataSync: UIViewController {
 
     }
     
-   
+    public func hasCustomZone() -> Bool{
+        var myReturn = false
+        if(self.settings.getSettingsValue(key: "hasCustomZone")){
+            myReturn = true
+        }
+        else{
+            self.createZone(){ (test) in
+                myReturn = test
+            }
+        }
+        return myReturn
+    }
+    
+    public func createZone(completion: @escaping (Bool) -> Void) {
+        let operation = CKModifyRecordZonesOperation(recordZonesToSave: [self.customZone], recordZoneIDsToDelete: [])
+        operation.modifyRecordZonesCompletionBlock = { _, _, error in
+            guard error == nil else {
+                completion(false)
+                return
+            }
+            completion(true)
+        }
+        operation.qualityOfService = .utility
+        let container = CKContainer.default()
+        let db = container.privateCloudDatabase
+        db.add(operation)
+    }
     
 }
