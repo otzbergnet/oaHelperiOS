@@ -56,7 +56,13 @@ class SettingsBundleHelper {
     }
     
     func getShareDate() -> String{
-        return self.defaults.string(forKey: "share_date") ?? "0"
+        var date = "0"
+        if let share_date = self.defaults.string(forKey: "share_date"){
+            if share_date != "-"{
+                date = share_date
+            }
+        }
+        return date
     }
     
     func setBookMarkCount(bookMarkCount : Int){
@@ -67,20 +73,19 @@ class SettingsBundleHelper {
     func getChangeToken() -> Any{
         var changeToken : CKServerChangeToken? = nil
         let changeTokenData = self.defaults.data(forKey: self.serverChangeTokenKey)
-        
-        if changeTokenData != nil {
+        let changeTokenTestString = self.defaults.string(forKey: self.serverChangeTokenKey)
+        if (changeTokenData != nil && changeTokenTestString != "_"){
             if let unarchivedToken = ((try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(changeTokenData!) as? CKServerChangeToken) as CKServerChangeToken??) {
                 changeToken = unarchivedToken
             }
         }
         
         if let myChangeToken = changeToken {
-            //print("current Token")
-            //print(myChangeToken)
             return myChangeToken
         }
         else{
-            return changeToken as Any
+            //print("server changeToken this was empty")
+            return "no" as Any
         }
         
     }

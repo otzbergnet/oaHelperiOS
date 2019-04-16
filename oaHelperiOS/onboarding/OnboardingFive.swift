@@ -15,6 +15,7 @@ class OnboardingFive: UIViewController {
     var window: UIWindow?
     let settings = SettingsBundleHelper()
     let helper = HelperClass()
+    let dataSync = DataSync()
 
     @IBOutlet weak var bookMarkSwitch: UISwitch!
     @IBOutlet weak var iCloudSwitch: UISwitch!
@@ -145,6 +146,12 @@ class OnboardingFive: UIViewController {
         if(self.iCloudSwitch.isOn){
             self.settings.setSettingsValue(value: true, key: "bookmarks_icloud")
             self.settings.setSettingsValue(value: true, key: "bookmarks")
+            self.dataSync.hasCustomZone(){ (test) in
+                if(!test){
+                    //NSLOG("I don't have custom zone and could not create")
+                    print("I don't have custom zone and could not create")
+                }
+            }
         }
         else{
             self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")

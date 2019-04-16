@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 
 class DataSync: UIViewController {
-
+    
     
     //var bookMark: CKRecord?
     var newBookMark: Bool = true
@@ -23,13 +23,14 @@ class DataSync: UIViewController {
     let defaultContainer = CKContainer(identifier: "iCloud.net.otzberg.oaHelper")
     let privateDatabase = CKContainer(identifier: "iCloud.net.otzberg.oaHelper").privateCloudDatabase
     let customZone = CKRecordZone(zoneName: "bookMarkZone")
-
+    
     public func fetchUserRecordID() {
         
         // Fetch User Record
         self.defaultContainer.fetchUserRecordID { (recordID, error) -> Void in
             if let responseError = error {
-                print(responseError)
+                print(responseError.localizedDescription)
+                //NSLOG("\(responseError.localizedDescription)")
                 
             } else if let userRecordID = recordID {
                 DispatchQueue.main.sync {
@@ -37,21 +38,22 @@ class DataSync: UIViewController {
                 }
             }
         }
+        
     }
     
     private func fetchUserRecord(recordID: CKRecord.ID) {
-        
         // Fetch User Record
         self.privateDatabase.fetch(withRecordID: recordID) { (record, error) -> Void in
             if let responseError = error {
-                print(responseError)
+                print(responseError.localizedDescription)
+                //NSLOG("\(responseError.localizedDescription)")
                 
             } else if record != nil {
                 self.fetchBookMarks()
             }
         }
     }
-
+    
     private func fetchBookMarks() {
         
         // Initialize Query
@@ -64,16 +66,19 @@ class DataSync: UIViewController {
         self.privateDatabase.perform(query, inZoneWith: self.customZone.zoneID) { (records, error) in
             if let responseError = error{
                 print(responseError.localizedDescription as Any)
+                //NSLOG("\(responseError.localizedDescription)")
             }
             else {
                 records?.forEach({ (record) in
                     
                     guard error == nil else{
-                        print(error?.localizedDescription as Any)
+                        //print(error?.localizedDescription as Any)
+                        //NSLOG("\(error?.localizedDescription)")
                         return
                     }
                     
-                    print(record.value(forKey: "url") ?? "")
+                    //print(record.value(forKey: "url") ?? "")
+                    //NSLOG("\(record.value(forKey: "url") ?? "")")
                 })
             }
             
@@ -86,6 +91,7 @@ class DataSync: UIViewController {
         self.privateDatabase.fetch(withRecordID: recordId){ (record, error) in
             if let responseError = error{
                 print(responseError.localizedDescription as Any)
+                //NSLOG(responseError.localizedDescription)
             }
             else {
                 if let record = record {
@@ -99,13 +105,19 @@ class DataSync: UIViewController {
                     bookMark.title = record.value(forKey: "title") as? String ?? ""
                     completion(bookMark)
                 }
-
+                
             }
         }
     }
     
     public func saveBookmark(bookMark : BookMark, isFromCloud : Bool = false, completion: @escaping (Bool) -> ()){
-       
+        self.hasCustomZone(){ (test) in
+            if(!test){
+                //NSLOG("I don't have custom zone and could not create")
+                //print("I don't have custom zone and could not create")
+            }
+        }
+        
         if(bookMark.synced){
             completion(true)
             return
@@ -187,12 +199,19 @@ class DataSync: UIViewController {
             return true
         }
         else {
-            print(message)
+            //print(message)
+            //NSLOG(message)
             return false
         }
     }
-
+    
     func queryChanges(completion : @escaping (_ type : String, _ id : CKRecord.ID?) -> ()){
+        self.hasCustomZone(){ (test) in
+            if(!test){
+                //NSLOG("I don't have custom zone and could not create")
+                //print("I don't have custom zone and could not create")
+            }
+        }
         
         let zoneId = self.customZone.zoneID
         
@@ -201,13 +220,14 @@ class DataSync: UIViewController {
         //ensure we use the correct user defaults
         //move this to settingsbundlehelper && find a way that this doesn't sync
         var changeToken : CKServerChangeToken? = nil
-        
-        if let myChangeToken: CKServerChangeToken = self.settings.getChangeToken() as? CKServerChangeToken{
+        let myStoredChangeToken = self.settings.getChangeToken()
+        if let myChangeToken: CKServerChangeToken = myStoredChangeToken as? CKServerChangeToken{
             changeToken = myChangeToken
         }
         else{
             changeToken = nil
         }
+        
         // setup options
         //changeToken = nil
         
@@ -271,11 +291,11 @@ class DataSync: UIViewController {
                         errorType = "serviceUnavailable"
                     }
                 }
-    
+                
                 let myCompletionReturn = "\(errorType)"
                 completion(myCompletionReturn, nil)
                 return
-   
+                
             }
             
         }
@@ -283,7 +303,8 @@ class DataSync: UIViewController {
             //at end of operation, unless there was an error, we should get a new token
             //by returning early, we could "replay" this operation next time
             guard error == nil else {
-                print("error in changeToken 2: \(String(describing: error.debugDescription) )")
+                //print("error in changeToken 2: \(String(describing: error.debugDescription) )")
+                //NSLOG(("error in changeToken 2: \(String(describing: error.debugDescription) )"))
                 return
             }
             guard let changeToken = changeToken else {
@@ -292,11 +313,41 @@ class DataSync: UIViewController {
             self.settings.setChangeTokenData(changeToken : changeToken)
             completion("done", CKRecord.ID())
         }
-
+        
         self.privateDatabase.add(operation)
-
+        
     }
     
-   
+    public func hasCustomZone(completion: @escaping (Bool) -> Void){
+        if(self.settings.getSettingsValue(key: "hasCustomZone")){
+            completion(true)
+        }
+        else{
+            self.createZone(){ (test) in
+                if(test){
+                    self.settings.setSettingsValue(value: true, key: "hasCustomZone")
+                    completion(true)
+                }
+                else{
+                    completion(false)
+                }
+            }
+        }
+    }
+    
+    public func createZone(completion: @escaping (Bool) -> Void) {
+        //print("create custom zone")
+        //NSLOG("create custom zone")
+        let operation = CKModifyRecordZonesOperation(recordZonesToSave: [self.customZone], recordZoneIDsToDelete: [])
+        operation.modifyRecordZonesCompletionBlock = { _, _, error in
+            guard error == nil else {
+                completion(false)
+                return
+            }
+            completion(true)
+        }
+        operation.qualityOfService = .utility
+        self.privateDatabase.add(operation)
+    }
     
 }
