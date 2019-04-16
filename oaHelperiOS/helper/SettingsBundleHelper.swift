@@ -84,7 +84,7 @@ class SettingsBundleHelper {
             return myChangeToken
         }
         else{
-            print("server changeToken this was empty")
+            //print("server changeToken this was empty")
             return "no" as Any
         }
         

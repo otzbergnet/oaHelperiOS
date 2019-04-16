@@ -29,6 +29,7 @@ class DataSync: UIViewController {
         // Fetch User Record
         self.defaultContainer.fetchUserRecordID { (recordID, error) -> Void in
             if let responseError = error {
+                NSLog("\(responseError.localizedDescription)")
                 print(responseError)
                 
             } else if let userRecordID = recordID {
@@ -44,6 +45,7 @@ class DataSync: UIViewController {
         // Fetch User Record
         self.privateDatabase.fetch(withRecordID: recordID) { (record, error) -> Void in
             if let responseError = error {
+                NSLog("\(responseError.localizedDescription)")
                 print(responseError)
                 
             } else if record != nil {
@@ -63,12 +65,14 @@ class DataSync: UIViewController {
         // Perform Query
         self.privateDatabase.perform(query, inZoneWith: self.customZone.zoneID) { (records, error) in
             if let responseError = error{
+                NSLog("\(responseError.localizedDescription)")
                 print(responseError.localizedDescription as Any)
             }
             else {
                 records?.forEach({ (record) in
                     
                     guard error == nil else{
+                        NSLog("\(error?.localizedDescription)")
                         print(error?.localizedDescription as Any)
                         return
                     }
@@ -85,6 +89,7 @@ class DataSync: UIViewController {
         
         self.privateDatabase.fetch(withRecordID: recordId){ (record, error) in
             if let responseError = error{
+                NSLog("\(responseError.localizedDescription)")
                 print(responseError.localizedDescription as Any)
             }
             else {
@@ -140,6 +145,7 @@ class DataSync: UIViewController {
                 }
                 else{
                     if let error = error as? CKError{
+                        NSLog("\(error.errorCode)")
                         if(error.errorCode == 14){
                             completion(true)
                         }
@@ -244,6 +250,7 @@ class DataSync: UIViewController {
             guard error == nil else {
                 var errorType = "generalError"
                 if let ckerror = error as? CKError {
+                    NSLog("\(ckerror.errorCode)")
                     if ckerror.code == CKError.requestRateLimited {
                         errorType = "requestRateLimit"
                     }
@@ -285,6 +292,7 @@ class DataSync: UIViewController {
             //by returning early, we could "replay" this operation next time
             guard error == nil else {
                 print("error in changeToken 2: \(String(describing: error.debugDescription) )")
+                NSLog("\(String(describing: error.debugDescription))")
                 return
             }
             guard let changeToken = changeToken else {
