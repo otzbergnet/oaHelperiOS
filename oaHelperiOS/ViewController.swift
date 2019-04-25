@@ -17,8 +17,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var enterSearchLabel: UILabel!
-    @IBOutlet weak var bookmarkButton: UIButton!
-    @IBOutlet weak var syncButton: UIButton!
+    //@IBOutlet weak var bookmarkButton: UIButton!
+    //@IBOutlet weak var syncButton: UIButton!
     @IBOutlet weak var offlineLabel: UILabel!
     
     var searchTerm = ""
@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let settings = SettingsBundleHelper()
     let stats = StatisticSubmit()
     var bookMarkData = BookMarkData()
-    var bookMarkList : [BookMark] = []
+    //var bookMarkList : [BookMark] = []
     
     var showBookMarkButton = true
     var activeBookMarkCheck = false
@@ -47,9 +47,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //search button should have rounded corners
         searchButton.layer.cornerRadius = 10
-        bookmarkButton.layer.cornerRadius = 10
-        bookmarkButton.isHidden = true
-        syncButton.isHidden = true
+        //bookmarkButton.layer.cornerRadius = 10
+        //bookmarkButton.isHidden = true
+        //syncButton.isHidden = true
         
         offlineLabel.text = ""
         
@@ -71,12 +71,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //the function also checks to ensure it only happens once a month
         self.stats.submitStats()
         
-        self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
+        //self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
         self.networkAvailable()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
+        /*self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
         if(self.showBookMarkButton){
             if(self.settings.getSettingsValue(key: "bookmarks_icloud")){
                 self.syncButton.isHidden = false
@@ -88,13 +88,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     self.bookmarkButton.isHidden = false
                 }
             }
-        }
+        }*/
     }
 
     // MARK:  NotificationCenter Observer Functions
     
     @objc func didBecomeActive() {
-        self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
+        /*self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
         if(self.showBookMarkButton){
             self.bookMarkCheck(){ (type: String) in
                 if(type == "done"){
@@ -105,7 +105,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     print("active check, didn't bother");
                 }
             }
-        }
+        }*/
         
     }
 
@@ -171,54 +171,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 nextViewController.apiData = self.apiData
             }
         }
-        else if segue.identifier == "bookmarkSegue" {
+        /*else if segue.identifier == "bookmarkSegue" {
             if let nextViewController = segue.destination as? BookmarkTableViewController {
                 nextViewController.bookMarkList = self.bookMarkList
             }
-        }
+        }*/
     }
     
-
-    func checkDissem(search: String) {
-        
-        if let encodedString = search.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
-            let jsonUrlString = "https://dissem.in/api/search/?q=\(encodedString)"
-            let url = URL(string: jsonUrlString)
-            
-            let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-                if let error = error{
-                    //we got an error, let's tell the user
-                    DispatchQueue.main.async {
-                        self.effectView.removeFromSuperview()
-                        self.enterSearchLabel.text = NSLocalizedString("Sorry, we encountered a problem", comment: "problem with search")
-                        self.enterSearchLabel.textColor = UIColor.red
-                        print(error)
-                    }
-                }
-                if let data = data {
-                    DispatchQueue.main.async {
-                        self.apiData = data
-                        self.effectView.removeFromSuperview()
-                        self.enterSearchLabel.text = NSLocalizedString("Enter your search:", comment: "above the search field")
-                        self.enterSearchLabel.textColor = UIColor.black
-                        self.performSegue(withIdentifier: "searchSegue", sender: nil)
-                    }
-                }
-                else{
-                    DispatchQueue.main.async {
-                        self.effectView.removeFromSuperview()
-                        self.enterSearchLabel.text = NSLocalizedString("Sorry, we encountered a problem", comment: "problem with search")
-                        self.enterSearchLabel.textColor = UIColor.red
-                    }
-                    return
-                }
-                
-            }
-            task.resume()
-        }
-        
-    }
-    
+   
     
     func checkCore(search: String) {
         //oa_search
@@ -331,106 +291,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return ""
     }
     
-    func bookMarkCheck(completion : @escaping (_ type : String) -> ()){
-        if self.activeBookMarkCheck{
-            completion("active")
-        }
-        else{
-            self.activeBookMarkCheck = true
-            if (self.showBookMarkButton){
-                self.bookMarkList = self.bookMarkData.getAllBookMarks()
-                if self.bookMarkList.count > 0{
-                    DispatchQueue.main.async {
-                        self.bookmarkButton.isHidden = false
-                    }
-                }
-                if(self.settings.getSettingsValue(key: "bookmarks_icloud")){
-                    if(!self.isOnline){
-                        DispatchQueue.main.async {
-                            self.effectView.removeFromSuperview()
-                        }
-                        completion("done")
-                    }
-                    showCloudSyncMessage()
-                    self.bookMarkData.syncCloudChanges(){ (type : String) in
-                        if(type == "done"){
-                            DispatchQueue.main.async {
-                                self.effectView.removeFromSuperview()
-                            }
-                            completion("done")
-                        }
-                        else{
-                            DispatchQueue.main.async{
-                                self.handleCloudSyncCompletionError(type: type)
-                            }
-                            completion("done")
-                        }
-                    }
-                }
-                else{
-                    completion("done")
-                }
-            }
-        }
-    }
-    
-    func handleCloudSyncCompletionError(type : String){
-        self.effectView.removeFromSuperview()
-        if(type == "notAuthenticated"){
-            self.showChangeTokenErrorAlert()
-        }
-        else if(type == "networkUnavailable"){
-            let alertTitle = NSLocalizedString("Network Unavailable", comment: "iCloud Sync Error - most likely caused by a network being unavailable")
-            let alertMessage = NSLocalizedString("The app is unable to connect to the internet and thus won't be able to function correctly. Please ensure appropriate connectivity", comment: "iCloud Sync Error - most likely caused by wifi or mobile data being unavailable")
-            let okButton = NSLocalizedString("OK", comment: "OK")
-            self.showErrorAlert(alertTitle : alertTitle, alertMessage : alertMessage, okButton : okButton)
-        }
-        else if(type == "networkFailure"){
-            let alertTitle = NSLocalizedString("Network Failure", comment: "iCloud Sync Error - most likely caused by a network failure")
-            let alertMessage = NSLocalizedString("The app is unable to connect to the internet and thus won't be able to function correctly. Please ensure appropriate connectivity", comment: "iCloud Sync Error - most likely caused by wifi or mobile data being unavailable")
-            let okButton = NSLocalizedString("OK", comment: "OK")
-            self.showErrorAlert(alertTitle : alertTitle, alertMessage : alertMessage, okButton : okButton)
-        }
-        else{
-            print("unhandled cloud sync completion error \(type)")
-        }
-    }
-    
-    func showChangeTokenErrorAlert(){
-        let alertTitle = NSLocalizedString("iCloud Required", comment: "iCloud Sync Error - most likely caused by invalid change token")
-        let alertMessage = NSLocalizedString("You are not logged into iCloud or removed iCloud priviledges for OAHelper. Would you like to disable iCloud Sync?", comment: "iCloud Sync Error - most likely caused by invalid change token")
-        
-        let okButton = NSLocalizedString("Yes", comment: "yes")
-        let cancelButton = NSLocalizedString("No", comment: "No")
-        
-        
-        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: okButton, style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
-            print("I will disable iCoud Syning now")
-            self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
-            self.syncButton.isHidden = true
-            
-        }))
-        alert.addAction(UIAlertAction(title: cancelButton, style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
-            print("you have pressed the Cancel button")
-            self.syncButton.isHidden = true
-            self.activeBookMarkCheck = true
-        }))
-        self.present(alert, animated: true, completion: nil)
-    }
     
     func showErrorAlert(alertTitle : String, alertMessage : String, okButton : String){
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: okButton, style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
-            self.syncButton.isHidden = true
+            //self.syncButton.isHidden = true
         }))
         self.present(alert, animated: true, completion: nil)
     }
     
-    func showCloudSyncMessage(){
-        let message = NSLocalizedString("Updating iCloud Bookmarks", comment: "iCloud Bookmark Sync - shows as tapped")
-        activityIndicator(message)
-    }
     
     func networkAvailable(){
         let monitor = NWPathMonitor()
@@ -447,7 +316,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     self.isOnline = true
                     self.offlineLabel.text = ""
                     if(self.settings.getSettingsValue(key: "bookmarks_icloud")){
-                        self.syncButton.isHidden = false
+                        //self.syncButton.isHidden = false
                     }
                 }
                 
@@ -468,9 +337,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.present(controller, animated: true, completion: nil)
     }
     
+    /*
     @IBAction func viewBookmarksTapped(_ sender: Any) {
         //view bookmarks was tapped
-        self.bookMarkList = self.bookMarkData.getAllBookMarks()
+        //self.bookMarkList = self.bookMarkData.getAllBookMarks()
         self.performSegue(withIdentifier: "bookmarkSegue", sender: nil)
     }
     
@@ -487,7 +357,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.bookMarkData.deleteAllBookmarks { (success : Bool) in
                 if(success){
                     self.settings.setEmptyChangeTokenData()
-                    self.bookMarkSyncProcess()
+                    //self.bookMarkSyncProcess()
                     self.settings.setSettingsValue(value: false, key: "reset_bookmarks_icloud")
                 }
                 else{
@@ -496,12 +366,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
         else{
-            bookMarkSyncProcess()
+            //bookMarkSyncProcess()
         }
         
-    }
+    }*/
     
-    func bookMarkSyncProcess(){
+    /*func bookMarkSyncProcess(){
         showCloudSyncMessage()
         self.activeBookMarkCheck = false
         self.bookMarkData.syncCloudChanges(){ (type : String) in
@@ -522,6 +392,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-    }
+    }*/
 }
 

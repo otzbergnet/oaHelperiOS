@@ -35,6 +35,8 @@
 		2D30FC5D21E4715F00C4060D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30FC5C21E4715F00C4060D /* TableViewCell.swift */; };
 		2D5F91812222582F00D493BE /* BookMarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F91802222582F00D493BE /* BookMarkData.swift */; };
 		2DA7887A222C0A680025CB13 /* OnboardingFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78879222C0A680025CB13 /* OnboardingFive.swift */; };
+		2DBF96FA2270E59D005C182D /* NoBookMarkSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */; };
+		2DBF96FC2271689B005C182D /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */; };
 		2DD08CEA21BC31ED00D0B3C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD08CE921BC31ED00D0B3C0 /* AppDelegate.swift */; };
 		2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD08CEB21BC31ED00D0B3C0 /* ViewController.swift */; };
 		2DD08CEF21BC31ED00D0B3C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DD08CED21BC31ED00D0B3C0 /* Main.storyboard */; };
@@ -110,6 +112,8 @@
 		2D30FC5C21E4715F00C4060D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		2D5F91802222582F00D493BE /* BookMarkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkData.swift; sourceTree = "<group>"; };
 		2DA78879222C0A680025CB13 /* OnboardingFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFive.swift; sourceTree = "<group>"; };
+		2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBookMarkSupportViewController.swift; sourceTree = "<group>"; };
+		2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
 		2DD08CE621BC31ED00D0B3C0 /* oaHelperiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oaHelperiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD08CE921BC31ED00D0B3C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DD08CEB21BC31ED00D0B3C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 				2D30FC5C21E4715F00C4060D /* TableViewCell.swift */,
 				2D28376E21C61821008D6C89 /* DetailViewController.swift */,
 				2D24C2812222A3BF0012B8E1 /* BookmarkTableViewController.swift */,
+				2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */,
+				2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */,
 				2DE8114A21CA05AC0052698C /* Assets.xcassets */,
 				2DD08CED21BC31ED00D0B3C0 /* Main.storyboard */,
 				2DD08CF221BC31EF00D0B3C0 /* LaunchScreen.storyboard */,
@@ -457,6 +463,7 @@
 				2DD08CFC21BC350800D0B3C0 /* oadoiStruct.swift in Sources */,
 				2D5F91812222582F00D493BE /* BookMarkData.swift in Sources */,
 				2DE8114921C962180052698C /* OnboardingController.swift in Sources */,
+				2DBF96FC2271689B005C182D /* SettingsTabViewController.swift in Sources */,
 				2DFF67B921C2ED6F00120363 /* TableViewController.swift in Sources */,
 				2D28376D21C55AB1008D6C89 /* coreStruct.swift in Sources */,
 				2DA7887A222C0A680025CB13 /* OnboardingFive.swift in Sources */,
@@ -464,6 +471,7 @@
 				2D28376F21C61821008D6C89 /* DetailViewController.swift in Sources */,
 				2D11771A222182C800859B08 /* OnboardingFour.swift in Sources */,
 				2D15F9A421E0C5A300FF8B46 /* Helper.swift in Sources */,
+				2DBF96FA2270E59D005C182D /* NoBookMarkSupportViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
