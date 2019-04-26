@@ -144,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1134.375" y="261.97183098591552"/>
+            <point key="canvasLocation" x="990" y="262"/>
         </scene>
         <!--Settings-->
         <scene sceneID="eob-ig-Att">
@@ -272,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J3r-ei-pOe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-178.125" y="1700.7042253521126"/>
+            <point key="canvasLocation" x="-1275" y="2595"/>
         </scene>
         <!--News & Info-->
         <scene sceneID="QOq-2F-0ck">
@@ -288,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00X-fb-gjm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1215" y="1856"/>
+            <point key="canvasLocation" x="-236" y="2595"/>
         </scene>
         <!--Bookmarks-->
         <scene sceneID="Bc2-Sy-v9R">
@@ -305,7 +305,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qTn-MU-sWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1134" y="1054"/>
+            <point key="canvasLocation" x="137" y="1042"/>
         </scene>
         <!--Item-->
         <scene sceneID="WHj-c5-Rcp">
@@ -361,7 +361,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7h7-ut-DA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2548" y="1077"/>
+            <point key="canvasLocation" x="990" y="1042"/>
         </scene>
         <!--Bookmarks-->
         <scene sceneID="Rnj-kc-JiK">
@@ -460,7 +460,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LeB-27-HOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3321" y="1076"/>
+            <point key="canvasLocation" x="1862" y="1042"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="nG4-Yn-h2F">
@@ -710,8 +710,9 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                     <connections>
                         <segue destination="g5z-3U-3YA" kind="relationship" relationship="viewControllers" id="N3b-CV-iva"/>
                         <segue destination="Qtf-T2-qOr" kind="relationship" relationship="viewControllers" id="mvc-4i-GTo"/>
-                        <segue destination="CDK-jS-vba" kind="relationship" relationship="viewControllers" id="VmC-R9-PuZ"/>
+                        <segue destination="9yt-jW-Std" kind="relationship" relationship="viewControllers" id="GzS-Q0-3sd"/>
                         <segue destination="e1N-mw-G5W" kind="relationship" relationship="viewControllers" id="1Mr-hy-j5P"/>
+                        <segue destination="CDK-jS-vba" kind="relationship" relationship="viewControllers" id="VmC-R9-PuZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zrm-SN-dhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -737,6 +738,110 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
             </objects>
             <point key="canvasLocation" x="136.875" y="261.97183098591552"/>
         </scene>
+        <!--Statistics-->
+        <scene sceneID="SWO-fh-tSN">
+            <objects>
+                <navigationController id="9yt-jW-Std" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Statistics" image="icons8-statistics-75" id="O82-Bh-Fyw"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fok-h4-5so">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="XyU-0e-gHe" kind="relationship" relationship="rootViewController" id="UAm-e8-k37"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ghn-mV-EXP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2229" y="1814"/>
+        </scene>
+        <!--Statistics-->
+        <scene sceneID="QR4-nl-Zft">
+            <objects>
+                <viewController id="XyU-0e-gHe" customClass="StatisticsViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ppk-tN-NRR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WIG-We-XkY">
+                                <rect key="frame" x="0.0" y="64" width="320" height="275"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="275" id="6fa-jM-4ZX"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="statCell" textLabel="Qi2-nE-LNB" detailTextLabel="jP7-FY-WVl" style="IBUITableViewCellStyleValue1" id="0vj-Au-pr8">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0vj-Au-pr8" id="zll-If-CBe">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qi2-nE-LNB">
+                                                    <rect key="frame" x="15" y="12" width="30" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jP7-FY-WVl">
+                                                    <rect key="frame" x="267" y="13" width="38" height="19.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcN-Y1-Zub">
+                                <rect key="frame" x="0.0" y="340" width="320" height="179"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select a row above for an explanation of the values" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vq8-9p-PLi">
+                                <rect key="frame" x="56" y="354" width="239" height="41"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-info-75" translatesAutoresizingMaskIntoConstraints="NO" id="TQj-yH-PUP">
+                                <rect key="frame" x="16" y="354" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="1Fa-vg-Gew"/>
+                                    <constraint firstAttribute="width" constant="25" id="oS7-fz-e9K"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="U6B-yj-2ee" firstAttribute="trailing" secondItem="WIG-We-XkY" secondAttribute="trailing" id="2tE-vc-qln"/>
+                            <constraint firstItem="U6B-yj-2ee" firstAttribute="trailing" secondItem="vq8-9p-PLi" secondAttribute="trailing" constant="25" id="5HE-NS-hSN"/>
+                            <constraint firstItem="U6B-yj-2ee" firstAttribute="bottom" secondItem="NcN-Y1-Zub" secondAttribute="bottom" id="E0d-d8-Kzw"/>
+                            <constraint firstItem="vq8-9p-PLi" firstAttribute="top" secondItem="WIG-We-XkY" secondAttribute="bottom" constant="15" id="Gtg-uB-OK0"/>
+                            <constraint firstItem="WIG-We-XkY" firstAttribute="leading" secondItem="U6B-yj-2ee" secondAttribute="leading" id="IW5-zG-qzc"/>
+                            <constraint firstItem="TQj-yH-PUP" firstAttribute="top" secondItem="WIG-We-XkY" secondAttribute="bottom" constant="15" id="LHf-zz-HCw"/>
+                            <constraint firstItem="TQj-yH-PUP" firstAttribute="leading" secondItem="U6B-yj-2ee" secondAttribute="leading" constant="16" id="Mp3-hS-zDP"/>
+                            <constraint firstItem="NcN-Y1-Zub" firstAttribute="top" secondItem="WIG-We-XkY" secondAttribute="bottom" constant="1" id="T95-si-Xw2"/>
+                            <constraint firstItem="WIG-We-XkY" firstAttribute="top" secondItem="U6B-yj-2ee" secondAttribute="top" id="XHc-xx-vtz"/>
+                            <constraint firstItem="NcN-Y1-Zub" firstAttribute="leading" secondItem="U6B-yj-2ee" secondAttribute="leading" id="c2V-Q1-z5e"/>
+                            <constraint firstItem="U6B-yj-2ee" firstAttribute="trailing" secondItem="NcN-Y1-Zub" secondAttribute="trailing" id="fvg-dK-yvT"/>
+                            <constraint firstItem="vq8-9p-PLi" firstAttribute="leading" secondItem="TQj-yH-PUP" secondAttribute="trailing" constant="15" id="hS7-xd-LHt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="U6B-yj-2ee"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Statistics" id="sut-FN-B9K"/>
+                    <connections>
+                        <outlet property="explainerLabel" destination="vq8-9p-PLi" id="9tB-IA-ngJ"/>
+                        <outlet property="myView" destination="NcN-Y1-Zub" id="U4H-hc-B73"/>
+                        <outlet property="tableView" destination="WIG-We-XkY" id="uVM-Zm-ZGz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3eE-83-RKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2231.25" y="2583.8028169014083"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="lPR-JN-Ipj">
             <objects>
@@ -754,7 +859,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L9i-cY-HQF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1175.625" y="1700.7042253521126"/>
+            <point key="canvasLocation" x="-1275" y="1815"/>
         </scene>
         <!--News-->
         <scene sceneID="r7O-yr-3SE">
@@ -773,7 +878,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJh-Rl-3oE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="531" y="1856"/>
+            <point key="canvasLocation" x="-236" y="1815"/>
         </scene>
     </scenes>
     <resources>
@@ -783,7 +888,9 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
         <image name="icons8-bookmark-75" width="25" height="25"/>
         <image name="icons8-cloud-sync-75" width="25" height="25"/>
         <image name="icons8-for-you-75" width="25" height="25"/>
+        <image name="icons8-info-75" width="25" height="25"/>
         <image name="icons8-search-75" width="25" height="25"/>
         <image name="icons8-settings-75" width="25" height="25"/>
+        <image name="icons8-statistics-75" width="25" height="25"/>
     </resources>
 </document>

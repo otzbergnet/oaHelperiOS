@@ -16,6 +16,7 @@ class BookmarkTableViewController: UITableViewController {
     var bookMarkList : [BookMark] = []
     var bookMarkData = BookMarkData()
     let settings = SettingsBundleHelper()
+    let helper = HelperClass()
     
     var activeBookMarkCheck = false
     let messageFrame = UIView()
@@ -36,9 +37,6 @@ class BookmarkTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.title = "Bookmarks"
-        
-        self.bookMarkList = self.bookMarkData.getAllBookMarks()
-        self.settings.setBookMarkCount(bookMarkCount : self.bookMarkList.count)
 
         let refreshControl = UIRefreshControl()
         let title = "Syncing Changes with iCloud"
@@ -46,7 +44,11 @@ class BookmarkTableViewController: UITableViewController {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         tableView.refreshControl = refreshControl
         
-        self.networkAvailable()
+        //self.initiateSync()
+        self.bookMarkList = self.bookMarkData.getAllBookMarks()
+        self.settings.setBookMarkCount(bookMarkCount : self.bookMarkList.count)
+        
+        
         
     }
     
@@ -54,6 +56,11 @@ class BookmarkTableViewController: UITableViewController {
         if(self.settings.getSettingsValue(key: "bookmarks") == false){
             performSegue(withIdentifier: "noBookMarkPopover", sender: self)
         }
+        self.networkAvailable()
+        self.bookMarkList = self.bookMarkData.getAllBookMarks()
+        self.settings.setBookMarkCount(bookMarkCount : self.bookMarkList.count)
+        self.tableView.reloadData()
+        self.initiateSync()
     }
     
     @objc func refreshData(refreshControl: UIRefreshControl) {
@@ -145,6 +152,12 @@ class BookmarkTableViewController: UITableViewController {
         }
     }
     
+    func initiateSync(){
+        let date = settings.getSyncDate()
+        if(!helper.recentSynced(lastDate: date)){
+            cloudSync(isRefresh: false)
+        }
+    }
     /*
      // Override to support rearranging the table view.
      override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -344,6 +357,7 @@ class BookmarkTableViewController: UITableViewController {
                                 //print("removeFromSuperView")
                                 self.bookMarkList = self.bookMarkData.getAllBookMarks()
                                 self.tableView.reloadData()
+                                self.settings.setSyncDate()
                                 //print("tableView.reloadData")
                                 if(isRefresh){
                                     self.tableView.refreshControl?.endRefreshing()

@@ -34,6 +34,7 @@
 		2D28376F21C61821008D6C89 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D28376E21C61821008D6C89 /* DetailViewController.swift */; };
 		2D30FC5D21E4715F00C4060D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30FC5C21E4715F00C4060D /* TableViewCell.swift */; };
 		2D5F91812222582F00D493BE /* BookMarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F91802222582F00D493BE /* BookMarkData.swift */; };
+		2D652B1B2272BC6500A46F37 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D652B1A2272BC6500A46F37 /* StatisticsViewController.swift */; };
 		2DA7887A222C0A680025CB13 /* OnboardingFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78879222C0A680025CB13 /* OnboardingFive.swift */; };
 		2DBF96FA2270E59D005C182D /* NoBookMarkSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */; };
 		2DBF96FC2271689B005C182D /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */; };
@@ -111,6 +112,7 @@
 		2D28376E21C61821008D6C89 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2D30FC5C21E4715F00C4060D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		2D5F91802222582F00D493BE /* BookMarkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkData.swift; sourceTree = "<group>"; };
+		2D652B1A2272BC6500A46F37 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		2DA78879222C0A680025CB13 /* OnboardingFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFive.swift; sourceTree = "<group>"; };
 		2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBookMarkSupportViewController.swift; sourceTree = "<group>"; };
 		2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				2D24C2812222A3BF0012B8E1 /* BookmarkTableViewController.swift */,
 				2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */,
 				2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */,
+				2D652B1A2272BC6500A46F37 /* StatisticsViewController.swift */,
 				2DE8114A21CA05AC0052698C /* Assets.xcassets */,
 				2DD08CED21BC31ED00D0B3C0 /* Main.storyboard */,
 				2DD08CF221BC31EF00D0B3C0 /* LaunchScreen.storyboard */,
@@ -452,6 +455,7 @@
 				2D30FC5D21E4715F00C4060D /* TableViewCell.swift in Sources */,
 				2D11771722207A7000859B08 /* StatisticSubmit.swift in Sources */,
 				2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */,
+				2D652B1B2272BC6500A46F37 /* StatisticsViewController.swift in Sources */,
 				2DF95CE3221DD41800F11220 /* SettingsBundleHelper.swift in Sources */,
 				2DFF67BB21C2F30A00120363 /* dessimStruct.swift in Sources */,
 				2DD08CEA21BC31ED00D0B3C0 /* AppDelegate.swift in Sources */,

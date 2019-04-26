@@ -71,24 +71,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //the function also checks to ensure it only happens once a month
         self.stats.submitStats()
         
-        //self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
-        self.networkAvailable()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        /*self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
-        if(self.showBookMarkButton){
-            if(self.settings.getSettingsValue(key: "bookmarks_icloud")){
-                self.syncButton.isHidden = false
-            }
-            self.bookMarkList = self.bookMarkData.getAllBookMarks()
-            if self.bookMarkList.count > 0{
-                self.settings.setBookMarkCount(bookMarkCount : self.bookMarkList.count)
-                DispatchQueue.main.async {
-                    self.bookmarkButton.isHidden = false
-                }
-            }
-        }*/
+        self.networkAvailable()
     }
 
     // MARK:  NotificationCenter Observer Functions

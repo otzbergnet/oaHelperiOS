@@ -47,6 +47,35 @@ class HelperClass {
         }
     }
     
+    func recentSynced(lastDate: String) -> Bool{
+        if(lastDate == "0"){
+            return false
+        }
+        var returnValue = false
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        if let oldDate = dateFormatter.date(from: lastDate) {
+            let newDate = Date()
+            if let diffInHours = Calendar.current.dateComponents([.hour], from: oldDate, to: newDate).hour {
+                if(diffInHours < 2){
+                    returnValue = true
+                }
+            }
+        }
+        return returnValue
+    }
+ 
+    func replaceZeroWithUndersore(value : Int) -> String {
+        var returnValue = ""
+        if(value == 0){
+            returnValue = "_"
+        }
+        else{
+            returnValue = "\(value)"
+        }
+        return returnValue
+    }
 }
 
 
