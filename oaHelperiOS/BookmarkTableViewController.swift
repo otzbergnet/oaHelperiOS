@@ -324,7 +324,7 @@ class BookmarkTableViewController: UITableViewController {
         strLabel.textColor = UIColor(white: 0.9, alpha: 0.7)
         strLabel.textAlignment = .center;
         
-        effectView.frame = CGRect(x: view.frame.midX - CGFloat(width/2), y: view.frame.midY - CGFloat(height/2) , width: CGFloat(width), height: CGFloat(height2))
+        effectView.frame = CGRect(x: view.frame.midX - CGFloat(width/2), y: view.frame.midY - CGFloat(height*2) , width: CGFloat(width), height: CGFloat(height2))
         effectView.layer.cornerRadius = 15
         effectView.layer.masksToBounds = true
         
