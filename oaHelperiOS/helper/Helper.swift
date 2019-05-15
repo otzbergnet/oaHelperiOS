@@ -65,6 +65,25 @@ class HelperClass {
         }
         return returnValue
     }
+    
+    func recentNewsSynced(lastDate: String) -> Bool{
+        if(lastDate == "0"){
+            return false
+        }
+        var returnValue = false
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        if let oldDate = dateFormatter.date(from: lastDate) {
+            let newDate = Date()
+            if let diffInDays = Calendar.current.dateComponents([.hour], from: oldDate, to: newDate).day {
+                if(diffInDays < 5){
+                    returnValue = true
+                }
+            }
+        }
+        return returnValue
+    }
  
     func replaceZeroWithUndersore(value : Int) -> String {
         var returnValue = ""

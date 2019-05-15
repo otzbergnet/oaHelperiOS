@@ -30,3 +30,18 @@
 "Network Failure" = "Netzwerk Fehler";
 "You are not logged into iCloud or removed iCloud priviledges for OAHelper. Would you like to disable iCloud Sync?" = "Sie sind nicht bei iCloud angemeldet, oder haben OAHelper die iCloud Rechte entzogen. Soll iCloud Sync deaktiviert werden?";
 "The app is unable to connect to the internet and thus won't be able to function correctly. Please ensure appropriate connectivity" = "Die App kann sich nicht mit dem Internet verbinden und kann daher nicht richtig funktionieren. Bitte stellen Sie sicher, dass Sie verbunden sind";
+"Please select an entry above for an explanation of the value." = "Bitte wählen Sie einen Eintrag, um hier eine Erklärung des Wertes zu sehen";
+"Open Access Searches" = "Open Access Suchen";
+"The number of Open Access searches conducted within, or by sending text to, the app. Search API is kindly provided by core.ac.uk!" = "Die Anzahl der Open Access Suchen, die innerhalb dieser App durchgeführt worden, entweder, da die Suche hier begonnen oder ausgewählter Text übergeben wurde";
+"Number of core.ac.uk PDFs" = "Anzahl der core.ac.uk PDFs";
+"Number of PDF documents accessed from core.ac.uk through this app. This would be a direct result of an Open Access Search." = "Die Anzahl der PDF Dokumente von core.ac.uk die in dieser App als Ergebnis einer Open Access Suche abgerufen wurden";
+"Unpaywall.org Found" = "Unpaywall.org Alternativen";
+"Number of paywalls avoided, thanks to unpaywall.org. This value gets incremented, when you use the Safari Action Extension and an Open Access Alternative is found, whether you clicked it, or not." = "Anzahl der Paywalls, die Sie dank unpaywall.org umgehen konnten. Dieser Wert wird erhöht, sobald in der Safari Action Extension eine Open Access Alternative gezeigt wird, gleich ob diese angezeigt wird";
+"Number of Bookmarks" = "Anzahl der Bookmarks";
+"Number of bookmarks currently in your bookmarks database." = "Anzahl der Bookmarks, die sich gerade in der Datenbank befinden";
+"Last iCloud Sync Date" = "Letzte iCloud Aktualisierung";
+"Never" = "Nie";
+"The date, we have last synced your bookmarks with iCloud. Please note that we will only sync once every two hours, unless you manually initiate a sync. See Settings to change your iCloud Sync preference." = "Das Datum andem Ihr Bookmarks zum letzten Mal mit iCloud synchronisiert wurden. Bitte beachten Sie, dass wir nur alle zwei Stunden aktualisieren, es sei denn Sie initieren die Synchornisation manuell. Ihr iCloud Präferenz können Sie in den Einstellungen anpassen";
+"Last Statstics Share Date" = "Letzten Statistikübermittlung";
+"The date, these statistics have last been shared with the app developer. See Settings to change your sharing preference." = "Das Datum, an dem Ihre Statistiken zum letzten Mal mit dem Entwickler geteilt wurden. Sie können diese Option in den Einstellungen anpassen";
+

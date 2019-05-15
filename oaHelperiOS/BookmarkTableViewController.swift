@@ -153,7 +153,7 @@ class BookmarkTableViewController: UITableViewController {
     }
     
     func initiateSync(){
-        let date = settings.getSyncDate()
+        let date = settings.getSyncDate(type: "sync_date")
         if(!helper.recentSynced(lastDate: date)){
             cloudSync(isRefresh: false)
         }
@@ -357,7 +357,7 @@ class BookmarkTableViewController: UITableViewController {
                                 //print("removeFromSuperView")
                                 self.bookMarkList = self.bookMarkData.getAllBookMarks()
                                 self.tableView.reloadData()
-                                self.settings.setSyncDate()
+                                self.settings.setSyncDate(type: "sync_date")
                                 //print("tableView.reloadData")
                                 if(isRefresh){
                                     self.tableView.refreshControl?.endRefreshing()
