@@ -36,7 +36,7 @@ class NewsTableViewController: UITableViewController {
         }
         
         let refreshControl = UIRefreshControl()
-        let title = "Updating News Items"
+        let title = NSLocalizedString("Updating News Items", comment: "RefreshControl")
         refreshControl.attributedTitle = NSAttributedString(string: title)
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         tableView.refreshControl = refreshControl
