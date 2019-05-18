@@ -10,7 +10,8 @@ import UIKit
 
 class DetailNewsViewController: UIViewController {
 
-    var newsItem : NewsItemObj? 
+    var newsItem : NewsItemObj?
+    let newsData = NewsItemData()
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -25,6 +26,10 @@ class DetailNewsViewController: UIViewController {
             titleLabel.text = myNewsItem.title
             dateLabel.text = myNewsItem.date
             bodyText.text = myNewsItem.body
+            
+            if(!myNewsItem.read){
+                self.newsData.markRead(requestId: myNewsItem.id)
+            }
         }
         
     }

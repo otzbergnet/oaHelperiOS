@@ -181,6 +181,7 @@ class NewsItemData: UIViewController {
         singleNewsItem.date = newsItem.date
         singleNewsItem.title = newsItem.title
         singleNewsItem.body = newsItem.body
+        singleNewsItem.read = false
         
         if saveContext() {
             completion(true)
@@ -191,7 +192,35 @@ class NewsItemData: UIViewController {
         
     }
     
+    func getUnreadCount() -> Int{
+        var count = 0
+        let context = self.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NewsItemObj")
+        request.predicate = NSPredicate(format: "(read = %d)", false)
+        if let coreDataStuff = ((try? context.fetch(request) as? [NewsItemObj]) as [NewsItemObj]??) {
+            if let coreDataItems = coreDataStuff {
+                count = coreDataItems.count
+            }
+        }
+        return count
+    }
     
+    func markRead(requestId: Int16){
+        let context = self.persistentContainer.viewContext
+        let request1 = NSFetchRequest<NSFetchRequestResult>(entityName: "NewsItemObj")
+        let sort = NSSortDescriptor(key: "id", ascending: false)
+        request1.predicate = NSPredicate(format: "(id == %d)", requestId)
+        request1.sortDescriptors = [sort]
+        request1.fetchLimit = 1
+        if let coreDataStuff = ((try? context.fetch(request1) as? [NewsItemObj]) as [NewsItemObj]??) {
+            if let coreDataItems = coreDataStuff {
+                for item in coreDataItems{
+                    item.read = true
+                    _ = self.saveContext()
+                }
+            }
+        }
+    }
 
     
     // MARK: - Core Data stack

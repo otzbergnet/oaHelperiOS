@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HelperClass {
+class HelperClass :UIViewController{
   
     
     func cleanAbstract(txt: String) -> String{
@@ -94,6 +94,21 @@ class HelperClass {
             returnValue = "\(value)"
         }
         return returnValue
+    }
+    
+    
+    func updateTabBar(tabBarController: UITabBarController, value: String){
+        if let tabItems = tabBarController.tabBar.items{
+            let tabItem = tabItems[3]
+            tabItem.badgeColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
+            if(value == "0"){
+                tabItem.badgeValue = nil
+            }
+            else{
+                tabItem.badgeValue = value
+            }
+            
+        }
     }
 }
 

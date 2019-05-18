@@ -12,6 +12,7 @@ class NewsTableViewController: UITableViewController {
     
     var newsItemsToShow : [NewsItemObj] = []
     let newsItemData = NewsItemData()
+    let helper = HelperClass()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class NewsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         newsItemsToShow = newsItemData.getAllNewsItems()
+        self.updateUnreadCount();
         
         newsItemData.getNews(forced: false) { ( res) in
             switch res {
@@ -29,6 +31,7 @@ class NewsTableViewController: UITableViewController {
                 DispatchQueue.main.async {
                     self.newsItemsToShow = self.newsItemData.getAllNewsItems()
                     self.tableView.reloadData()
+                    self.updateUnreadCount();
                 }
             case .failure(let error):
                 print("failed to fetch newsItems:", error)
@@ -41,6 +44,8 @@ class NewsTableViewController: UITableViewController {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         tableView.refreshControl = refreshControl
         
+        
+        
     }
     
     @objc func refreshData(refreshControl: UIRefreshControl) {
@@ -51,6 +56,7 @@ class NewsTableViewController: UITableViewController {
                     self.newsItemsToShow = self.newsItemData.getAllNewsItems()
                     self.tableView.refreshControl?.endRefreshing()
                     self.tableView.reloadData()
+                    self.updateUnreadCount();
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
@@ -161,8 +167,12 @@ class NewsTableViewController: UITableViewController {
      }
      */
     
-    
-    
+    func updateUnreadCount(){
+        let unreadCount = self.newsItemData.getUnreadCount();
+        if let tabBar = self.tabBarController{
+            self.helper.updateTabBar(tabBarController: tabBar, value: "\(unreadCount)")
+        }
+    }
     
     
     

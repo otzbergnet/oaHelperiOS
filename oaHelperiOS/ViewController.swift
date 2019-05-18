@@ -34,7 +34,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let settings = SettingsBundleHelper()
     let stats = StatisticSubmit()
     var bookMarkData = BookMarkData()
+    let helper = HelperClass()
+    let newsItemData = NewsItemData()
     //var bookMarkList : [BookMark] = []
+
     
     var showBookMarkButton = true
     var activeBookMarkCheck = false
@@ -71,6 +74,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //the function also checks to ensure it only happens once a month
         self.stats.submitStats()
         
+        //self.setNewsTabBarItemBadge(value: "3")
+        let unreadCount = self.newsItemData.getUnreadCount();
+        if let tabBar = self.tabBarController{
+            self.helper.updateTabBar(tabBarController: tabBar, value: "\(unreadCount)")
+        }
         
     }
     
@@ -378,6 +386,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     self.handleCloudSyncCompletionError(type: type)
                 }
             }
+        }
+    }*/
+    
+    /*func setNewsTabBarItemBadge(value: String){
+        if let tabItems = self.tabBarController?.tabBar.items{
+            let tabItem = tabItems[3]
+            tabItem.badgeColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
+            tabItem.badgeValue = value
         }
     }*/
 }
