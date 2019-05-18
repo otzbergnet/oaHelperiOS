@@ -49,7 +49,6 @@ class NewsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear")
         newsItemsToShow = newsItemData.getAllNewsItems()
         self.tableView.reloadData()
         self.updateUnreadCount();

@@ -49,6 +49,7 @@ class BookmarkTableViewController: UITableViewController {
         self.settings.setBookMarkCount(bookMarkCount : self.bookMarkList.count)
         
         
+        self.showCloudSyncButton()
         
     }
     
@@ -61,10 +62,20 @@ class BookmarkTableViewController: UITableViewController {
         self.settings.setBookMarkCount(bookMarkCount : self.bookMarkList.count)
         self.tableView.reloadData()
         self.initiateSync()
+        self.showCloudSyncButton()
     }
     
     @objc func refreshData(refreshControl: UIRefreshControl) {
-        cloudSync(isRefresh: true)
+        if(self.settings.getSettingsValue(key: "bookmarks_icloud")){
+          cloudSync(isRefresh: true)
+        }
+        else{
+            self.bookMarkList = self.bookMarkData.getAllBookMarks()
+            self.settings.setBookMarkCount(bookMarkCount : self.bookMarkList.count)
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
+        }
+        
     }
     
     // MARK: - Table view data source
@@ -376,6 +387,10 @@ class BookmarkTableViewController: UITableViewController {
     }
     
     func cloudSync(isRefresh: Bool){
+        if(!self.settings.getSettingsValue(key: "bookmarks_icloud")){
+            print("not supposed to iCloud sync")
+            return
+        }
         if(!self.isOnline){
             let alertTitle = NSLocalizedString("Network Unavailable", comment: "iCloud Sync Error - most likely caused by a network being unavailable")
             let alertMessage = NSLocalizedString("The app is unable to connect to the internet and thus won't be able to function correctly. Please ensure appropriate connectivity", comment: "iCloud Sync Error - most likely caused by wifi or mobile data being unavailable")
@@ -399,6 +414,15 @@ class BookmarkTableViewController: UITableViewController {
         }
         else{
             bookMarkSyncProcess(isRefresh: isRefresh)
+        }
+    }
+    
+    func showCloudSyncButton(){
+        if(!self.settings.getSettingsValue(key: "bookmarks_icloud")){
+            self.cloudSyncButton.tintColor = UIColor(red: 0.988, green: 0.631, blue: 0.216, alpha: 1.00);
+        }
+        else{
+            self.cloudSyncButton.tintColor = UIColor.black
         }
     }
     
