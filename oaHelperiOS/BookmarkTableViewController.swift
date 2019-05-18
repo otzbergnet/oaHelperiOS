@@ -13,7 +13,7 @@ import Network
 
 class BookmarkTableViewController: UITableViewController {
     
-    var bookMarkList : [BookMark] = []
+    var bookMarkList : [BookMarkObj] = []
     var bookMarkData = BookMarkData()
     let settings = SettingsBundleHelper()
     let helper = HelperClass()
@@ -383,7 +383,6 @@ class BookmarkTableViewController: UITableViewController {
             self.showErrorAlert(alertTitle : alertTitle, alertMessage : alertMessage, okButton : okButton)
             return
         }
-        
         if(self.settings.getSettingsValue(key: "reset_bookmarks_icloud")){
             self.bookMarkData.deleteAllBookmarks { (success : Bool) in
                 if(success){

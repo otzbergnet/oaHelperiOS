@@ -14,7 +14,7 @@ class DataSync: UIViewController {
     
     //var bookMark: CKRecord?
     var newBookMark: Bool = true
-    var bookMarkList : [BookMark] = []
+    var bookMarkList : [BookMarkObj] = []
     
     //support for settings
     var settings = SettingsBundleHelper()
@@ -123,13 +123,13 @@ class DataSync: UIViewController {
             return
         }
         
-        let url = bookMark.url! as __CKRecordObjCValue
-        let pdf = bookMark.pdf! as __CKRecordObjCValue
-        let title = bookMark.title! as __CKRecordObjCValue
-        let doi = bookMark.doi! as __CKRecordObjCValue
-        let date = bookMark.date!  as __CKRecordObjCValue
-        let id = bookMark.id! as __CKRecordObjCValue
-        let recordName = bookMark.id!
+        let url = bookMark.url as __CKRecordObjCValue
+        let pdf = bookMark.pdf as __CKRecordObjCValue
+        let title = bookMark.title as __CKRecordObjCValue
+        let doi = bookMark.doi as __CKRecordObjCValue
+        let date = bookMark.date  as __CKRecordObjCValue
+        let id = bookMark.id as __CKRecordObjCValue
+        let recordName = bookMark.id
         
         
         let bookMark = CKRecord(recordType: "Bookmarks", recordID: CKRecord.ID(recordName: recordName, zoneID: self.customZone.zoneID))
