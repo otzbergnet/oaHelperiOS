@@ -19,5 +19,14 @@ struct NewsItem : Decodable {
     var date : String
     var title : String
     var body : String
-    
+}
+
+struct NewsItemItem : Decodable {
+    var id : Int16 = 0
+    var update : Bool = false
+    var delete : Bool = false
+    var read : Bool = false
+    var date : String = "\(Date())"
+    var title : String = ""
+    var body : String = ""
 }

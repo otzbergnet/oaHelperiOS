@@ -14,7 +14,7 @@ class NewsItemData: UIViewController {
     let settings = SettingsBundleHelper()
     let helper = HelperClass()
     
-    var allNewsItems : [NewsItemObj] = []
+    var allNewsItems : [NewsItemItem] = []
     var count = 0
     
     func getNews(forced: Bool, completion: @escaping (Result<News, Error>) -> ()){
@@ -73,24 +73,29 @@ class NewsItemData: UIViewController {
             }.resume()
     }
     
-    func getAllNewsItems() -> [NewsItemObj]{
+    func getAllNewsItems() -> [NewsItemItem]{
+        self.allNewsItems = []
         let context = self.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NewsItemObj")
-        //request.predicate = NSPredicate(format: "del == FALSE")
         let sort = NSSortDescriptor(key: "id", ascending: false)
         request.sortDescriptors = [sort]
         
         if let coreDataStuff = ((try? context.fetch(request) as? [NewsItemObj]) as [NewsItemObj]??) {
             if let coreDataItems = coreDataStuff {
-                allNewsItems = coreDataItems
-                
-                 //uncommented the following can delete all records // keep during dev only
-                 /*for item in coreDataItems{
-                    context.delete(item)
-                    _ = self.saveContext()
-                 }*/
- 
-                
+                for item in coreDataItems{
+                    var tmp = NewsItemItem()
+                    tmp.id = item.id
+                    tmp.title = item.title ?? ""
+                    tmp.delete = item.delete
+                    tmp.update = item.update
+                    tmp.read = item.read
+                    tmp.title = item.title ?? ""
+                    tmp.body = item.body ?? ""
+                    allNewsItems.append(tmp)
+                    //uncommented the following can delete all records // keep during dev only
+                    //context.delete(item)
+                    //_ = self.saveContext()
+                }
             }
         }
         
@@ -174,14 +179,13 @@ class NewsItemData: UIViewController {
             return
         }
         
-        let context = self.persistentContainer.viewContext
-        let singleNewsItem = NewsItemObj(entity: NewsItemObj.entity(), insertInto: context)
-        
-        singleNewsItem.id = newsItem.id
-        singleNewsItem.date = newsItem.date
-        singleNewsItem.title = newsItem.title
-        singleNewsItem.body = newsItem.body
-        singleNewsItem.read = false
+        let entity = NSEntityDescription.entity(forEntityName: "NewsItemObj", in: self.persistentContainer.viewContext)
+        let singleNewsItem = NSManagedObject(entity: entity!, insertInto: self.persistentContainer.viewContext)
+        singleNewsItem.setValue(newsItem.id, forKey: "id")
+        singleNewsItem.setValue(newsItem.date, forKey: "date")
+        singleNewsItem.setValue(newsItem.title, forKey: "title")
+        singleNewsItem.setValue(newsItem.body, forKey: "body")
+        singleNewsItem.setValue(false, forKey: "read")
         
         if saveContext() {
             completion(true)

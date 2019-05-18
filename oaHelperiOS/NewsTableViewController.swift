@@ -10,7 +10,7 @@ import UIKit
 
 class NewsTableViewController: UITableViewController {
     
-    var newsItemsToShow : [NewsItemObj] = []
+    var newsItemsToShow : [NewsItemItem] = []
     let newsItemData = NewsItemData()
     let helper = HelperClass()
     
@@ -47,6 +47,14 @@ class NewsTableViewController: UITableViewController {
         
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+        newsItemsToShow = newsItemData.getAllNewsItems()
+        self.tableView.reloadData()
+        self.updateUnreadCount();
+    }
+    
     
     @objc func refreshData(refreshControl: UIRefreshControl) {
         newsItemData.getNews(forced: true) { ( res) in
@@ -85,7 +93,20 @@ class NewsTableViewController: UITableViewController {
          let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath)
          // Configure the cell...
             //print(self.newsItemsToShow[indexPath.row].title)
-        cell.textLabel!.text = self.newsItemsToShow[indexPath.row].title
+        var indicator = ""
+        if(!self.newsItemsToShow[indexPath.row].read){
+            indicator = "⭒ "
+        }
+        let title = self.newsItemsToShow[indexPath.row].title
+        
+        if (title != ""){
+            cell.textLabel!.text = indicator + title
+        }
+        else{
+            cell.textLabel!.text = indicator + "-"
+        }
+        
+        cell.detailTextLabel!.text = self.newsItemsToShow[indexPath.row].body
          return cell
      }
     
@@ -108,14 +129,14 @@ class NewsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let myNewsItem : NewsItemObj = self.newsItemsToShow[indexPath.row]
+        let myNewsItem : NewsItemItem = self.newsItemsToShow[indexPath.row]
         self.performSegue(withIdentifier: "detailNewsSegue", sender: myNewsItem)
     }
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "detailNewsSegue" {
-            let myNewsItem = sender as? NewsItemObj
+            let myNewsItem = sender as? NewsItemItem
             if let nextViewController = segue.destination as? DetailNewsViewController {
                 nextViewController.newsItem = myNewsItem
             }

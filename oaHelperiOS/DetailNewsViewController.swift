@@ -10,7 +10,7 @@ import UIKit
 
 class DetailNewsViewController: UIViewController {
 
-    var newsItem : NewsItemObj?
+    var newsItem : NewsItemItem?
     let newsData = NewsItemData()
 
     @IBOutlet weak var titleLabel: UILabel!
