@@ -92,6 +92,7 @@ class NewsItemData: UIViewController {
                     tmp.delete = item.delete
                     tmp.update = item.update
                     tmp.read = item.read
+                    tmp.date = item.date ?? ""
                     tmp.title = item.title ?? ""
                     tmp.body = item.body ?? ""
                     allNewsItems.append(tmp)

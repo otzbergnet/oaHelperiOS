@@ -27,7 +27,7 @@ struct NewsItemItem : Decodable {
     var update : Bool = false
     var delete : Bool = false
     var read : Bool = false
-    var date : String = "\(Date())"
+    var date : String = ""
     var title : String = ""
     var body : String = ""
 }
