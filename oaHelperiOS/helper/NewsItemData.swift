@@ -49,6 +49,9 @@ class NewsItemData: UIViewController {
             do {
                 
                 let newsItems = try JSONDecoder().decode(News.self, from: data!)
+                if(newsItems.restart){
+                    self.deleteAll()
+                }
                 let testCount = newsItems.item.count
                 self.count = 0
                 for item in newsItems.item{
@@ -140,6 +143,19 @@ class NewsItemData: UIViewController {
         request.predicate = NSPredicate(format: "(id == %@)", id)
         request.sortDescriptors = [sort]
         request.fetchLimit = 1
+        if let coreDataStuff = ((try? context.fetch(request) as? [NewsItemObj]) as [NewsItemObj]??) {
+            if let coreDataItems = coreDataStuff {
+                for item in coreDataItems{
+                    context.delete(item)
+                    _ = self.saveContext()
+                }
+            }
+        }
+    }
+
+    func deleteAll(){
+        let context = self.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NewsItemObj")
         if let coreDataStuff = ((try? context.fetch(request) as? [NewsItemObj]) as [NewsItemObj]??) {
             if let coreDataItems = coreDataStuff {
                 for item in coreDataItems{

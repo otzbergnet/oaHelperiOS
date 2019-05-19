@@ -9,6 +9,7 @@
 import Foundation
 
 struct News : Decodable{
+    let restart : Bool
     let item : [NewsItem]
 }
 
