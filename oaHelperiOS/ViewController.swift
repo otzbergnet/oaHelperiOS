@@ -75,11 +75,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //the function also checks to ensure it only happens once a month
         self.stats.submitStats()
         
-        //self.setNewsTabBarItemBadge(value: "3")
-        let unreadCount = self.newsItemData.getUnreadCount();
-        if let tabBar = self.tabBarController{
-            self.helper.updateTabBar(tabBarController: tabBar, value: "\(unreadCount)")
-        }
+        self.checkNews()
+        self.updateUnreadCount()
         
     }
     
@@ -322,6 +319,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let queue = DispatchQueue.global(qos: .background)
         monitor.start(queue: queue)
+    }
+    
+    func checkNews(){
+        self.newsItemData.getNews(forced: false) { ( res) in
+            switch res {
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.updateUnreadCount();
+                }
+            case .failure(let error):
+                print("failed to fetch newsItems:", error)
+            }
+        }
+    }
+    
+    func updateUnreadCount(){
+        let unreadCount = self.newsItemData.getUnreadCount();
+        if let tabBar = self.tabBarController{
+            self.helper.updateTabBar(tabBarController: tabBar, value: "\(unreadCount)")
+        }
     }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {

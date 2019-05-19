@@ -18,7 +18,6 @@ class NewsItemData: UIViewController {
     var count = 0
     
     func getNews(forced: Bool, completion: @escaping (Result<News, Error>) -> ()){
-        
         if(!forced){
             let lastSynced = settings.getSyncDate(type: "news_sync")
             if(helper.recentSynced(lastDate: lastSynced)){
