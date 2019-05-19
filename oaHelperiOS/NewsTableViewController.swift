@@ -94,7 +94,7 @@ class NewsTableViewController: UITableViewController {
             //print(self.newsItemsToShow[indexPath.row].title)
         var indicator = ""
         if(!self.newsItemsToShow[indexPath.row].read){
-            indicator = "⭒ "
+            indicator = "★ "
         }
         let title = self.newsItemsToShow[indexPath.row].title
         
