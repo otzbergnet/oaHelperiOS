@@ -38,6 +38,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let newsItemData = NewsItemData()
     //var bookMarkList : [BookMark] = []
 
+    let selection = UISelectionFeedbackGenerator()
     
     var showBookMarkButton = true
     var activeBookMarkCheck = false
@@ -138,6 +139,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func checkTapped(_ sender: Any) {
+        selection.selectionChanged()
         if(!self.isOnline){
             let alertTitle = NSLocalizedString("Network Unavailable", comment: "iCloud Sync Error - most likely caused by a network being unavailable")
             let alertMessage = NSLocalizedString("The app is unable to connect to the internet and thus won't be able to function correctly. Please ensure appropriate connectivity", comment: "iCloud Sync Error - most likely caused by wifi or mobile data being unavailable")

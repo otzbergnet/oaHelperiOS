@@ -31,6 +31,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var pdfButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
+    let selection = UISelectionFeedbackGenerator()
+    let impact = UIImpactFeedbackGenerator()
     
     var blueColor = UIColor(displayP3Red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
     var greenColor = UIColor(displayP3Red: 0, green: 143/255, blue: 0, alpha: 1.00)
@@ -219,18 +221,22 @@ class DetailViewController: UIViewController {
 
 
     @IBAction func accessTapped(_ sender: Any) {
+        impact.impactOccurred()
         goToDocument()
     }
     
     @IBAction func previousTapped(_ sender: Any) {
+        selection.selectionChanged()
         goPrevious()
     }
     
     @IBAction func nextTapped(_ sender: Any) {
+        selection.selectionChanged()
         goNext()
     }
     
     @IBAction func pdfTapped(_ sender: Any) {
+        impact.impactOccurred()
         goToDocument()
     }
     
