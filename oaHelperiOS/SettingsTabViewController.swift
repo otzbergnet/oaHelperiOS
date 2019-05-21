@@ -21,6 +21,7 @@ class SettingsTabViewController: UIViewController {
     
     let settings = SettingsBundleHelper()
     let dataSync = DataSync()
+    let selection = UISelectionFeedbackGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -195,6 +196,7 @@ class SettingsTabViewController: UIViewController {
     }
     
     @IBAction func openSettingsTapped(_ sender: Any) {
+        selection.selectionChanged()
         if let url = URL(string:UIApplication.openSettingsURLString) {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
