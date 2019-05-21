@@ -44,6 +44,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var activeBookMarkCheck = false
     var isOnline = true
     
+    
     // MARK: View Did Load
     
     override func viewDidLoad() {
@@ -136,7 +137,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func checkTapped(_ sender: Any) {
-        selection.selectionChanged()
         if(!self.isOnline){
             let alertTitle = NSLocalizedString("Network Unavailable", comment: "iCloud Sync Error - most likely caused by a network being unavailable")
             let alertMessage = NSLocalizedString("The app is unable to connect to the internet and thus won't be able to function correctly. Please ensure appropriate connectivity", comment: "iCloud Sync Error - most likely caused by wifi or mobile data being unavailable")
@@ -150,6 +150,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func doSearch(){
+        selection.selectionChanged()
         self.textField.resignFirstResponder()
         if let search = textField.text {
             let message = NSLocalizedString("Searching core.ac.uk for you", comment: "shows as soon as search is submitted")
