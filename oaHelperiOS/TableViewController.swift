@@ -18,6 +18,7 @@ class TableViewController: UITableViewController {
     var hits = ""
     
     var hc = HelperClass()
+    let notification = UINotificationFeedbackGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,6 +117,7 @@ class TableViewController: UITableViewController {
             else{
                 let title = NSLocalizedString("😢 No Results", comment: "No results message")
                 let message = NSLocalizedString("Sadly there were no results for your search. Please check your search terms or rephrase your query and try again.", comment: "message for no hits")
+                notification.notificationOccurred(.warning)
                 showErrorAlert(title: title, message: message)
                 return []
             }
@@ -124,6 +126,7 @@ class TableViewController: UITableViewController {
         catch let jsonError{
             let title = NSLocalizedString("❗This wasn't meant to happen", comment: "unforseen error at data decoding")
             let message = NSLocalizedString("We encountered an error, which we thought you'd never see. Sorry about that. Please try again!", comment: "body for alert, when there was an error")
+            notification.notificationOccurred(.error)
             showErrorAlert(title: title, message: message)
             print(jsonError)
             return []
