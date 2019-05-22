@@ -76,6 +76,16 @@
 			<key>DefaultValue</key>
 			<string>-</string>
 		</dict>
+        <dict>
+            <key>Type</key>
+            <string>PSTitleValueSpecifier</string>
+            <key>Title</key>
+            <string>Last Synced</string>
+            <key>Key</key>
+            <string>sync_date</string>
+            <key>DefaultValue</key>
+            <string>-</string>
+        </dict>
 		<dict>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>

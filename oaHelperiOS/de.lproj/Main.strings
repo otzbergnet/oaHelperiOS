@@ -38,3 +38,22 @@
 "ryL-RR-chJ.normalTitle" = "Weiter";
 
 "06u-j8-OkT.normalTitle" = "Bookmarks anzeigen";
+
+/* TabBarItems*/
+"O82-Bh-Fyw.title" = "Statistiken";
+"OFZ-wQ-cqx.title" = "Einstellungen";
+"WJ7-yu-DEz.title" = "Nachrichten";
+
+/*Title for View Controllers*/
+"sut-FN-B9K.title" = "Statistiken";
+"Tan-j2-6UR.title" = "Einstellungen";
+"5d6-3G-nJ9.title" = "Nachrichten & Infos";
+
+/* SettingsTabView*/
+
+"SRu-U1-Sp5.text" = "Sie können hier die wichtigsten Einstellungen für diese App anpassen.";
+"xIv-r5-Rvh.text" = "Nutzung monatlich teilen";
+"34Y-wY-K30.text" = "Bookmarks aktivieren";
+"cD5-Oy-m8y.text" = "Bookmarks über iCloud synchronisieren";
+"4nL-4z-9Nt.text" = "Bookmarks löschen & aus iCoud laden";
+"E8z-S7-jDc.normalTitle" = "Einstellungen öffnen";

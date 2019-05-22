@@ -62,7 +62,7 @@ class StatisticSubmit {
                     do{
                         let myData = try JSONDecoder().decode(Status.self, from: data)
                         if myData.status == 200 {
-                            print("success")
+                            //print("success")
                             self.settings.setDate(date : stringDate)
                         }
                         else{

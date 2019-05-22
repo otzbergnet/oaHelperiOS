@@ -65,6 +65,30 @@ class SettingsBundleHelper {
         return date
     }
     
+    func setSyncDate(type: String){
+       
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss +zzzz" // This formate is input formated .
+        
+        let formateDate = dateFormatter.date(from: "\(Date())")!
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Output Formated
+        
+        let date = dateFormatter.string(from: formateDate)
+        
+        self.defaults.set(date, forKey: type)
+        self.defaults.synchronize()
+    }
+    
+    func getSyncDate(type: String) -> String{
+        var date = "0"
+        if let share_date = self.defaults.string(forKey: type){
+            if share_date != "-"{
+                date = share_date
+            }
+        }
+        return date
+    }
+    
     func setBookMarkCount(bookMarkCount : Int){
         self.defaults.set("\(bookMarkCount)", forKey: "bookmark_count")
         self.defaults.synchronize()

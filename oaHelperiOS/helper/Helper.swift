@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HelperClass {
+class HelperClass :UIViewController{
   
     
     func cleanAbstract(txt: String) -> String{
@@ -47,6 +47,69 @@ class HelperClass {
         }
     }
     
+    func recentSynced(lastDate: String) -> Bool{
+        if(lastDate == "0"){
+            return false
+        }
+        var returnValue = false
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        if let oldDate = dateFormatter.date(from: lastDate) {
+            let newDate = Date()
+            if let diffInHours = Calendar.current.dateComponents([.hour], from: oldDate, to: newDate).hour {
+                if(diffInHours < 2){
+                    returnValue = true
+                }
+            }
+        }
+        return returnValue
+    }
+    
+    func recentNewsSynced(lastDate: String) -> Bool{
+        if(lastDate == "0"){
+            return false
+        }
+        var returnValue = false
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        if let oldDate = dateFormatter.date(from: lastDate) {
+            let newDate = Date()
+            if let diffInDays = Calendar.current.dateComponents([.hour], from: oldDate, to: newDate).day {
+                if(diffInDays < 5){
+                    returnValue = true
+                }
+            }
+        }
+        return returnValue
+    }
+ 
+    func replaceZeroWithUndersore(value : Int) -> String {
+        var returnValue = ""
+        if(value == 0){
+            returnValue = "_"
+        }
+        else{
+            returnValue = "\(value)"
+        }
+        return returnValue
+    }
+    
+    
+    func updateTabBar(tabBarController: UITabBarController, value: String){
+        if let tabItems = tabBarController.tabBar.items{
+            let tabItem = tabItems[3]
+            tabItem.badgeColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
+            if(value == "0"){
+                tabItem.badgeValue = nil
+            }
+            else{
+                tabItem.badgeValue = value
+            }
+            
+        }
+    }
 }
 
 
