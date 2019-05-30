@@ -173,14 +173,43 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }*/
     }
     
+    func checkCore(search: String){
+        // let's get the API key from the git-ignored plist (apikey)
+        let apiKey = self.helper.getAPIKeyFromPlist()
+        // if the apiKey is empty show an error, but we can't recover from it
+        if(apiKey == ""){
+            self.effectView.removeFromSuperview()
+            let text = NSLocalizedString("core.ac.uk API key missing - please quit app", comment: "missing API key, breaking error")
+            activityIndicator(text)
+            return
+        }
+        // lets get the data via the search
+        self.helper.checkCore(search: search, apiKey: apiKey) { ( res) in
+            switch res {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self.apiData = data
+                    self.effectView.removeFromSuperview()
+                    self.enterSearchLabel.text = NSLocalizedString("Enter your search:", comment: "above the search field")
+                    self.enterSearchLabel.textColor = UIColor.black
+                    self.performSegue(withIdentifier: "searchSegue", sender: nil)
+                }
+            case .failure(let error):
+                self.effectView.removeFromSuperview()
+                self.enterSearchLabel.text = NSLocalizedString("Sorry, we encountered a problem", comment: "problem with search")
+                self.enterSearchLabel.textColor = UIColor.red
+                print(error)
+            }
+        }
+    }
    
     
-    func checkCore(search: String) {
+    /*func checkCore(search: String) {
         //oa_search
         self.settings.incrementOACount(key: "oa_search")
         //print("check core")
         // let's get the API key from the git-ignored plist (apikey)
-        let apiKey = getAPIKeyFromPlist()
+        let apiKey = self.helper.getAPIKeyFromPlist()
         // if the apiKey is empty show an error, but we can't recover from it
         if(apiKey == ""){
             self.effectView.removeFromSuperview()
@@ -230,7 +259,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             task.resume()
         }
         
-    }
+    }*/
     
     func activityIndicator(_ title: String) {
         
@@ -270,22 +299,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         return query
     }
-    
-    
-    func getAPIKeyFromPlist() -> String{
-        //we are going to read the api key for coar.ac.uk from apikey.plist
-        //this file isn't the github bundle and as such you'll need to create it yourself, it is a simple Object
-        // core : String = API Key from core.ac.uk
-        var nsDictionary: NSDictionary?
-        if let path = Bundle.main.path(forResource: "apikey", ofType: "plist") {
-            nsDictionary = NSDictionary(contentsOfFile: path)
-        }
-        if let core = nsDictionary?["core"]{
-            return "\(core)"
-        }
-        return ""
-    }
-    
     
     func showErrorAlert(alertTitle : String, alertMessage : String, okButton : String){
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
@@ -352,69 +365,5 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.present(controller, animated: true, completion: nil)
     }
     
-    /*
-    @IBAction func viewBookmarksTapped(_ sender: Any) {
-        //view bookmarks was tapped
-        //self.bookMarkList = self.bookMarkData.getAllBookMarks()
-        self.performSegue(withIdentifier: "bookmarkSegue", sender: nil)
-    }
-    
-    @IBAction func syncNowTapped(_ sender: Any) {
-        if(!self.isOnline){
-            let alertTitle = NSLocalizedString("Network Unavailable", comment: "iCloud Sync Error - most likely caused by a network being unavailable")
-            let alertMessage = NSLocalizedString("The app is unable to connect to the internet and thus won't be able to function correctly. Please ensure appropriate connectivity", comment: "iCloud Sync Error - most likely caused by wifi or mobile data being unavailable")
-            let okButton = "OK"
-            self.showErrorAlert(alertTitle : alertTitle, alertMessage : alertMessage, okButton : okButton)
-            return
-        }
-        
-        if(self.settings.getSettingsValue(key: "reset_bookmarks_icloud")){
-            self.bookMarkData.deleteAllBookmarks { (success : Bool) in
-                if(success){
-                    self.settings.setEmptyChangeTokenData()
-                    //self.bookMarkSyncProcess()
-                    self.settings.setSettingsValue(value: false, key: "reset_bookmarks_icloud")
-                }
-                else{
-                    print("error that needs handling")
-                }
-            }
-        }
-        else{
-            //bookMarkSyncProcess()
-        }
-        
-    }*/
-    
-    /*func bookMarkSyncProcess(){
-        showCloudSyncMessage()
-        self.activeBookMarkCheck = false
-        self.bookMarkData.syncCloudChanges(){ (type : String) in
-            if(type == "done"){
-                DispatchQueue.main.async {
-                    self.bookMarkCheck(){ (type: String) in
-                        if(type == "done"){
-                            DispatchQueue.main.async {
-                                self.effectView.removeFromSuperview()
-                            }
-                        }
-                    }
-                }
-            }
-            else{
-                DispatchQueue.main.async{
-                    self.handleCloudSyncCompletionError(type: type)
-                }
-            }
-        }
-    }*/
-    
-    /*func setNewsTabBarItemBadge(value: String){
-        if let tabItems = self.tabBarController?.tabBar.items{
-            let tabItem = tabItems[3]
-            tabItem.badgeColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
-            tabItem.badgeValue = value
-        }
-    }*/
 }
 
