@@ -21,6 +21,7 @@ class ActionViewController: UIViewController {
     @IBOutlet weak var oaLogo: UIImageView!
     @IBOutlet weak var oaTypeLabel: UILabel!
     @IBOutlet weak var addBookMarkButton: UIButton!
+    @IBOutlet weak var paperIcon: UIImageView!
     
     var returnURLString = ""
     var urlAction = false
@@ -61,11 +62,13 @@ class ActionViewController: UIViewController {
                                         if(doi.count == 1){
                                             self.headerLabel.text = NSLocalizedString("DOI detected", comment: "DOI detected")
                                             self.sourceLabel.text = ""
+                                            self.paperIcon.image = UIImage(named: "paper_unknown")
                                             self.textView.text = NSLocalizedString("We found a DOI and are checking the web for an Open Access version", comment: "checking text")
                                             self.checkUnpaywall(doi: "\(doi[0])")
                                         }
                                         else{
                                             self.stopActivity()
+                                            self.paperIcon.image = UIImage(named: "paper_unknown")
                                             self.headerLabel.text = NSLocalizedString("Multiple DOIs detected", comment: "Multiple DOIs detected")
                                             self.sourceLabel.text = NSLocalizedString("Select one of the DOIs below and try again:", comment: "Select one of the DOIs below and try again:")
                                             self.textView.text = ""
@@ -88,6 +91,7 @@ class ActionViewController: UIViewController {
                                     DispatchQueue.main.async {
                                         if let encodedString = myText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
                                             self.stopActivity()
+                                            self.paperIcon.image = UIImage(named: "paper_search")
                                             self.headerLabel.text = NSLocalizedString("Search", comment: "Search")
                                             self.sourceLabel.text = ""
                                             let formattedText = String(format: NSLocalizedString("%@ \n\nIf you wish to search the above at core.ac.uk, click the button below", comment: "selected text to be seached"), myText)
@@ -137,6 +141,7 @@ class ActionViewController: UIViewController {
                                         //print("DOI was 0 so we are here")
                                         DispatchQueue.main.async {
                                             self.stopActivity()
+                                            self.paperIcon.image = UIImage(named: "paper_search")
                                             self.headerLabel.text = NSLocalizedString("No DOI found", comment: "No DOI found")
                                             
                                             self.sourceLabel.text = ""
@@ -156,6 +161,7 @@ class ActionViewController: UIViewController {
                                     DispatchQueue.main.async {
                                         self.activityIndicator.stopAnimating()
                                         self.activityIndicator.isHidden = true
+                                        self.paperIcon.image = UIImage(named: "paper_no")
                                         self.headerLabel.text = NSLocalizedString("No Open Access Found", comment: "No Open Access Found")
                                         self.sourceLabel.text = ""
                                         self.textView.text += NSLocalizedString("\n\nWe were unable to identify an Open Access Version of this document!", comment: "longer text about no open access found")
@@ -189,7 +195,7 @@ class ActionViewController: UIViewController {
                 //we got an error, let's tell the user
                 print(error)
                 self.activityIndicator.stopAnimating()
-                self.activityIndicator.isHidden = true
+                self.paperIcon.image = UIImage(named: "paper_unknown")
                 self.headerLabel.text = NSLocalizedString("We've encountered an error", comment: "We've encountered an error")
                 self.sourceLabel.text = ""
                 self.textView.text = ""
@@ -202,6 +208,7 @@ class ActionViewController: UIViewController {
             else{
                 self.activityIndicator.stopAnimating()
                 self.activityIndicator.isHidden = true
+                self.paperIcon.image = UIImage(named: "paper_no")
                 self.headerLabel.text = NSLocalizedString("No Open Access found", comment: "No Open Access found")
                 self.sourceLabel.text = ""
                 self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa text")
@@ -227,6 +234,7 @@ class ActionViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.activityIndicator.stopAnimating()
                         self.activityIndicator.isHidden = true
+                        self.paperIcon.image = UIImage(named: "paper_ok")
                         if let title = oaData.title {
                             
                             self.headerLabel.text = title
@@ -261,6 +269,7 @@ class ActionViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.activityIndicator.stopAnimating()
                         self.activityIndicator.isHidden = true
+                        self.paperIcon.image = UIImage(named: "paper_unknown")
                         self.headerLabel.text = NSLocalizedString("We've encountered a problem", comment: "We've encountered a problem")
                         self.sourceLabel.text = ""
                         self.textView.text = NSLocalizedString("Open Access of this article should be available, but the URL was empty", comment: "Open Access of this article should be available, but the URL was empty")
@@ -277,6 +286,7 @@ class ActionViewController: UIViewController {
                     self.activityIndicator.isHidden = true
                     if let title = oaData.title{
                         self.headerLabel.text = title
+                        self.paperIcon.image = UIImage(named: "paper_no")
                         if let encodedString = title.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
                             self.sourceLabel.text = self.constructSource(data: oaData)
                             self.textView.text = NSLocalizedString("We were unable to find an Open Access version of this article. Please click the button below to search for the title of the article in core.ac.uk", comment: "unable to find OA")
@@ -295,6 +305,7 @@ class ActionViewController: UIViewController {
                         }
                     }
                     else{
+                        self.paperIcon.image = UIImage(named: "paper_no")
                         self.headerLabel.text = NSLocalizedString("No Open Access available", comment: "No Open Access available")
                         self.sourceLabel.text = ""
                         self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa available")
@@ -315,6 +326,7 @@ class ActionViewController: UIViewController {
                 print(jsonError)
                 self.activityIndicator.stopAnimating()
                 self.activityIndicator.isHidden = true
+                self.paperIcon.image = UIImage(named: "paper_no")
                 self.headerLabel.text = NSLocalizedString("No Open Access available", comment: "No Open Access available")
                 self.sourceLabel.text = ""
                 self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa available")
