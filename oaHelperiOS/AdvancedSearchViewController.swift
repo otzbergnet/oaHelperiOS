@@ -18,15 +18,27 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var searchButton: UIButton!
     
-    var searchStatement : [String] = []
+    let helper = HelperClass()
     
+    var searchStatement : [String] = []
+    var apiData = Data()
+    var stopSearch = false
+ 
+    // variables used for the HUD control
+    let messageFrame = UIView()
+    var activityIndicator = UIActivityIndicatorView()
+    var strLabel = UILabel()
+    let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+    
+    // allow some haptic feedback
+    let selection = UISelectionFeedbackGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         searchButton.layer.cornerRadius = 10
-        errorLabel.text = ""
+        self.clearError()
         
         // dismiss keyboard
         self.articleTitle.delegate = self
@@ -40,11 +52,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
     
 
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
-        
-        self.articleTitle.resignFirstResponder()
-        self.authorLastName.resignFirstResponder()
-        self.publicationYear.resignFirstResponder()
-        self.language.resignFirstResponder()
+        doResignFirstResponder()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -52,6 +60,18 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         doSearch()
         return true
+    }
+    
+    func doResignFirstResponder(){
+        self.articleTitle.resignFirstResponder()
+        self.authorLastName.resignFirstResponder()
+        self.publicationYear.resignFirstResponder()
+        self.language.resignFirstResponder()
+    }
+    
+    func clearError(){
+        self.errorLabel.text = ""
+        self.errorLabel.textColor = .black
     }
     
     func makeSearch() -> String{
@@ -79,48 +99,123 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         let date = Date()
         let calendar = Calendar.current
         let thisYear = Int(calendar.component(.year, from: date))
-        let yearPlusTwo = thisYear + 2
+        let yearPlusSome = thisYear + 3
         if let intYear = Int(self.publicationYear.text ?? ""){
-            if(intYear > 1500 && intYear < yearPlusTwo){
+            if(intYear > 1500 && intYear < yearPlusSome){
                 self.searchStatement.append("year:\(intYear)")
             }
             else{
                 print("year does not meet requirements")
-                self.errorLabel.text = "The year seems invalid, it needs to be between 1500 and \(yearPlusTwo)"
+                self.stopSearch = true
+                self.errorLabel.text = "The year seems invalid, it needs to be between 1500 and \(yearPlusSome)"
+                self.errorLabel.textColor = UIColor.red
             }
         }
         else{
             if(self.publicationYear.text?.count ?? 0 > 0){
                 print("year does not meet requirements")
+                self.stopSearch = true
                 self.errorLabel.text = "Are you sure you entered a year"
+                self.errorLabel.textColor = UIColor.red
             }
             
         }
     }
     
     func doSearch(){
+        self.clearError()
+        self.doResignFirstResponder()
+        let message = NSLocalizedString("Searching core.ac.uk for you", comment: "shows as soon as search is submitted")
+        self.activityIndicator(message)
         let search = self.makeSearch()
-        if(search != ""){
+        if(search != "" && !self.stopSearch){
             print(search)
-            print("valid search")
+            // let's get the API key from the git-ignored plist (apikey)
+            let apiKey = self.helper.getAPIKeyFromPlist()
+            // if the apiKey is empty show an error, but we can't recover from it
+            if(apiKey == ""){
+                self.effectView.removeFromSuperview()
+                print("couldn't get API key")
+                return
+            }
+            // lets get the data via the search
+            self.helper.checkCore(search: search, apiKey: apiKey) { ( res) in
+                switch res {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        self.apiData = data
+                        self.effectView.removeFromSuperview()
+                        self.performSegue(withIdentifier: "advancedSearchResults", sender: nil)
+                    }
+                case .failure(let error):
+                    self.effectView.removeFromSuperview()
+                    print(error)
+                }
+            }
         }
         else{
-            
+            self.effectView.removeFromSuperview()
             print("invalid search")
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    @IBAction func searchButtonTapped(_ sender: Any) {
-        doSearch()
+    func activityIndicator(_ title: String) {
+        
+        strLabel.removeFromSuperview()
+        activityIndicator.removeFromSuperview()
+        effectView.removeFromSuperview()
+        let width = 275
+        let height = 75
+        let height2 = height + (height/3*2)
+        
+        strLabel = UILabel(frame: CGRect(x: 0, y: 35, width: width, height: height))
+        strLabel.text = title
+        strLabel.font = .systemFont(ofSize: 14, weight: .medium)
+        strLabel.textColor = UIColor(white: 0.9, alpha: 0.7)
+        strLabel.textAlignment = .center;
+        
+        effectView.frame = CGRect(x: view.frame.midX - CGFloat(width/2), y: view.frame.midY - CGFloat(height/2) , width: CGFloat(width), height: CGFloat(height2))
+        effectView.layer.cornerRadius = 15
+        effectView.layer.masksToBounds = true
+        
+        activityIndicator = UIActivityIndicatorView(style: .white)
+        activityIndicator.frame = CGRect(x: width/2-23, y: 15, width: 46, height: 46)
+        activityIndicator.startAnimating()
+        
+        effectView.contentView.addSubview(activityIndicator)
+        effectView.contentView.addSubview(strLabel)
+        view.addSubview(effectView)
+        self.view.layoutIfNeeded()
+        
+        
     }
     
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "advancedSearchResults" {
+            if let nextViewController = segue.destination as? TableViewController {
+                nextViewController.apiData = self.apiData
+            }
+        }
+    }
+ 
+    // MARK: buttons
+    
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        self.selection.selectionChanged()
+        self.stopSearch = false
+        self.doSearch()
+    }
+    
+    @IBAction func clearFieldsTapped(_ sender: Any) {
+        self.selection.selectionChanged()
+        self.articleTitle.text = nil
+        self.authorLastName.text = nil
+        self.publicationYear.text = nil
+        self.language.text = nil
+    }
+    
+    
 }
+

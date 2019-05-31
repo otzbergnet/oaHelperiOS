@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HelperClass :UIViewController{
+class HelperClass : UIViewController{
   
     
     func cleanAbstract(txt: String) -> String{
@@ -156,6 +156,9 @@ class HelperClass :UIViewController{
         }
         
     }
+    
+    
+
 }
 
 

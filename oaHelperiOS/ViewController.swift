@@ -25,10 +25,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var apiData = Data()
     var urlScheme = false
     
+    // variables used for the HUD control
     let messageFrame = UIView()
     var activityIndicator = UIActivityIndicatorView()
     var strLabel = UILabel()
-    
     let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     
     let settings = SettingsBundleHelper()
@@ -111,7 +111,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 //print(appDelegate.search)
                 self.textField.text = appDelegate.search
                 let message = NSLocalizedString("Searching core.ac.uk for you", comment: "shows as soon as search is submitted")
-                activityIndicator(message)
+                self.activityIndicator(message)
                 let query = createSearch(search: appDelegate.search)
                 
                 checkCore(search: query)
@@ -154,7 +154,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.textField.resignFirstResponder()
         if let search = textField.text {
             let message = NSLocalizedString("Searching core.ac.uk for you", comment: "shows as soon as search is submitted")
-            activityIndicator(message)
+            self.activityIndicator(message)
             let query = createSearch(search: search)
             checkCore(search: query)
         }
@@ -166,11 +166,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 nextViewController.apiData = self.apiData
             }
         }
-        /*else if segue.identifier == "bookmarkSegue" {
-            if let nextViewController = segue.destination as? BookmarkTableViewController {
-                nextViewController.bookMarkList = self.bookMarkList
-            }
-        }*/
     }
     
     func checkCore(search: String){
@@ -180,7 +175,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if(apiKey == ""){
             self.effectView.removeFromSuperview()
             let text = NSLocalizedString("core.ac.uk API key missing - please quit app", comment: "missing API key, breaking error")
-            activityIndicator(text)
+            self.activityIndicator(text)
             return
         }
         // lets get the data via the search
@@ -203,63 +198,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
    
-    
-    /*func checkCore(search: String) {
-        //oa_search
-        self.settings.incrementOACount(key: "oa_search")
-        //print("check core")
-        // let's get the API key from the git-ignored plist (apikey)
-        let apiKey = self.helper.getAPIKeyFromPlist()
-        // if the apiKey is empty show an error, but we can't recover from it
-        if(apiKey == ""){
-            self.effectView.removeFromSuperview()
-            let text = NSLocalizedString("core.ac.uk API key missing - please quit app", comment: "missing API key, breaking error")
-            activityIndicator(text)
-            return
-        }
-        
-        if let encodedString = search.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
-            
-            let jsonUrlString = "https://core.ac.uk/api-v2/articles/search/\(encodedString)?page=1&pageSize=50&metadata=true&fulltext=false&citations=false&similar=false&duplicate=false&urls=true&faithfulMetadata=false&apiKey=\(apiKey)"
-            guard let url = URL(string: jsonUrlString) else {
-                return
-            }
-            var request = URLRequest(url: url)
-            request.setValue("application/json", forHTTPHeaderField: "Accept")
-            let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
-                if let error = error{
-                    //we got an error, let's tell the user
-                    DispatchQueue.main.async {
-                        self.effectView.removeFromSuperview()
-                        self.enterSearchLabel.text = NSLocalizedString("Sorry, we encountered a problem", comment: "problem with search")
-                        self.enterSearchLabel.textColor = UIColor.red
-                        print(error)
-                    }
-                }
-                if let data = data {
-                    DispatchQueue.main.async {
-                        self.apiData = data
-                        self.effectView.removeFromSuperview()
-                        self.enterSearchLabel.text = NSLocalizedString("Enter your search:", comment: "above the search field")
-                        self.enterSearchLabel.textColor = UIColor.black
-                        self.performSegue(withIdentifier: "searchSegue", sender: nil)
-                        
-                    }
-                }
-                else{
-                    DispatchQueue.main.async {
-                        self.effectView.removeFromSuperview()
-                        self.enterSearchLabel.text = NSLocalizedString("Sorry, we encountered a data problem", comment: "unable to parse data object")
-                        self.enterSearchLabel.textColor = UIColor.red
-                    }
-                    return
-                }
-                
-            }
-            task.resume()
-        }
-        
-    }*/
     
     func activityIndicator(_ title: String) {
         
