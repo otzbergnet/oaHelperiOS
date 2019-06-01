@@ -105,7 +105,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
                 self.searchStatement.append("year:\(intYear)")
             }
             else{
-                print("year does not meet requirements")
+                //print("year does not meet requirements")
                 self.stopSearch = true
                 self.errorLabel.text = "The year seems invalid, it needs to be between 1500 and \(yearPlusSome)"
                 self.errorLabel.textColor = UIColor.red
@@ -113,7 +113,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         }
         else{
             if(self.publicationYear.text?.count ?? 0 > 0){
-                print("year does not meet requirements")
+                //print("year does not meet requirements")
                 self.stopSearch = true
                 self.errorLabel.text = "Are you sure you entered a year"
                 self.errorLabel.textColor = UIColor.red
@@ -129,7 +129,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         self.activityIndicator(message)
         let search = self.makeSearch()
         if(search != "" && !self.stopSearch){
-            print(search)
+            //print(search)
             // let's get the API key from the git-ignored plist (apikey)
             let apiKey = self.helper.getAPIKeyFromPlist()
             // if the apiKey is empty show an error, but we can't recover from it
