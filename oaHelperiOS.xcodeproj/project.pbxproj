@@ -32,6 +32,7 @@
 		2D24C2822222A3BF0012B8E1 /* BookmarkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D24C2812222A3BF0012B8E1 /* BookmarkTableViewController.swift */; };
 		2D28376D21C55AB1008D6C89 /* coreStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D28376C21C55AB1008D6C89 /* coreStruct.swift */; };
 		2D28376F21C61821008D6C89 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D28376E21C61821008D6C89 /* DetailViewController.swift */; };
+		2D2FD3BA22A61FF7003876CE /* AppStoreReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2FD3B922A61FF7003876CE /* AppStoreReviewManager.swift */; };
 		2D30FC5D21E4715F00C4060D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30FC5C21E4715F00C4060D /* TableViewCell.swift */; };
 		2D5F91812222582F00D493BE /* BookMarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F91802222582F00D493BE /* BookMarkData.swift */; };
 		2D652B1B2272BC6500A46F37 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D652B1A2272BC6500A46F37 /* StatisticsViewController.swift */; };
@@ -114,6 +115,7 @@
 		2D24C2812222A3BF0012B8E1 /* BookmarkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewController.swift; sourceTree = "<group>"; };
 		2D28376C21C55AB1008D6C89 /* coreStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreStruct.swift; sourceTree = "<group>"; };
 		2D28376E21C61821008D6C89 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2D2FD3B922A61FF7003876CE /* AppStoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReviewManager.swift; sourceTree = "<group>"; };
 		2D30FC5C21E4715F00C4060D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		2D5F91802222582F00D493BE /* BookMarkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkData.swift; sourceTree = "<group>"; };
 		2D652B1A2272BC6500A46F37 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 		2DE8F35E2221D05E000B27A1 /* helper */ = {
 			isa = PBXGroup;
 			children = (
+				2D2FD3B922A61FF7003876CE /* AppStoreReviewManager.swift */,
 				2D5F91802222582F00D493BE /* BookMarkData.swift */,
 				2D08FE262229B3290066949C /* DataSync.swift */,
 				2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */,
@@ -494,6 +497,7 @@
 				2D15F9A421E0C5A300FF8B46 /* Helper.swift in Sources */,
 				2D652B21227452E300A46F37 /* NewsTableViewController.swift in Sources */,
 				2DBF96FA2270E59D005C182D /* NoBookMarkSupportViewController.swift in Sources */,
+				2D2FD3BA22A61FF7003876CE /* AppStoreReviewManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,6 +27,7 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
         tableView.dataSource = self
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction))
         self.myView.addGestureRecognizer(gesture)
+        AppStoreReviewManager.requestReviewIfAppropriate()
     }
     
     @objc func checkAction(sender : UITapGestureRecognizer) {

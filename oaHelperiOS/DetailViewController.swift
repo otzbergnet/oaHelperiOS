@@ -53,6 +53,7 @@ class DetailViewController: UIViewController {
         accessButton.layer.cornerRadius = 10
         createDetailData(num: self.num)
         self.title = "\(self.num+1)/\(self.coreRecords.count)"
+        AppStoreReviewManager.requestReviewIfAppropriate()
     }
     
 

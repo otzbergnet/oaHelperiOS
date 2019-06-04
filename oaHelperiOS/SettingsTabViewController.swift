@@ -35,6 +35,7 @@ class SettingsTabViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(SettingsTabViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
         
         iCloudStatus()
+        AppStoreReviewManager.requestReviewIfAppropriate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
