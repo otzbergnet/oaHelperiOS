@@ -203,4 +203,33 @@ class SettingsTabViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func leaveReviewTapped(_ sender: Any) {
+        let appId = "1447927317"
+        guard let productURL = URL(string: "https://itunes.apple.com/de/app/id\(appId)") else {
+            return
+        }
+        var components = URLComponents(url: productURL, resolvingAgainstBaseURL: false)
+        
+        components?.queryItems = [
+            URLQueryItem(name: "action", value: "write-review")
+        ]
+        
+        guard let writeReviewURL = components?.url else {
+            return
+        }
+        UIApplication.shared.open(writeReviewURL)
+    }
+  
+    @IBAction func shareAppTapped(_ sender: Any) {
+        let appId = "1447927317"
+        guard let productURL = URL(string: "https://itunes.apple.com/de/app/id\(appId)") else {
+            return
+        }
+        let promoText = NSLocalizedString("Check for Open Access copies of scientific articles with Open Access Helper!", comment: "Promotional String")
+        let items: [Any] = [promoText, productURL]
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
+    }
+    
 }

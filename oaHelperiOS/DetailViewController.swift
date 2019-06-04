@@ -111,13 +111,13 @@ class DetailViewController: UIViewController {
         let byText = NSLocalizedString("By: ", comment: "By is shown just before authors")
         if(coreRecord.author.count > 0){
             if(coreRecord.author.count > 3){
-                authorLabel.text = "\(byText) \(coreRecord.author[0]), \(coreRecord.author[1]), et al."
+                authorLabel.text = "\(byText) \(coreRecord.author[0].replacingOccurrences(of: "\n", with: "")), \(coreRecord.author[1].replacingOccurrences(of: "\n", with: "")), et al."
             }
             else if(coreRecord.author.count > 1){
-                authorLabel.text = "\(byText) \(coreRecord.author[0]), \(coreRecord.author[1])"
+                authorLabel.text = "\(byText) \(coreRecord.author[0].replacingOccurrences(of: "\n", with: "")), \(coreRecord.author[1].replacingOccurrences(of: "\n", with: ""))"
             }
             else{
-                authorLabel.text = "\(byText) \(coreRecord.author[0])"
+                authorLabel.text = "\(byText) \(coreRecord.author[0].replacingOccurrences(of: "\n", with: ""))"
             }
             
         }
