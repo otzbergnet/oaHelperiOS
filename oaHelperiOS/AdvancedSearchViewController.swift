@@ -19,6 +19,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var searchButton: UIButton!
     
     let helper = HelperClass()
+    let settings = SettingsBundleHelper()
     
     var searchStatement : [String] = []
     var apiData = Data()
@@ -155,6 +156,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
                 switch res {
                 case .success(let data):
                     DispatchQueue.main.async {
+                        self.settings.incrementOACount(key : "oa_search")
                         self.apiData = data
                         self.effectView.removeFromSuperview()
                         self.performSegue(withIdentifier: "advancedSearchResults", sender: nil)

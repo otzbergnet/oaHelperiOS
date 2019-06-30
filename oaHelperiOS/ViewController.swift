@@ -183,6 +183,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             switch res {
             case .success(let data):
                 DispatchQueue.main.async {
+                    self.settings.incrementOACount(key : "oa_search")
                     self.apiData = data
                     self.effectView.removeFromSuperview()
                     self.enterSearchLabel.text = NSLocalizedString("Enter your search:", comment: "above the search field")
