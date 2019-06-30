@@ -203,13 +203,17 @@ class DetailViewController: UIViewController {
     }
     
     func changeNavButtonColor(num: Int){
-        if(num == 0){
+        if(num == coreRecords.count-1 && num == 0){
             previousButton.setTitleColor(orangeColor, for: .normal)
-            nextButton.setTitleColor(.white, for: .normal)
+            nextButton.setTitleColor(orangeColor, for: .normal)
         }
         else if(num == coreRecords.count-1){
             previousButton.setTitleColor(.white, for: .normal)
             nextButton.setTitleColor(orangeColor, for: .normal)
+        }
+        else if(num == 0){
+            previousButton.setTitleColor(orangeColor, for: .normal)
+            nextButton.setTitleColor(.white, for: .normal)
         }
         else{
             previousButton.setTitleColor(.white, for: .normal)
