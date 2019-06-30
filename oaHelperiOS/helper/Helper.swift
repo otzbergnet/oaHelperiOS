@@ -130,6 +130,7 @@ class HelperClass : UIViewController{
         if let encodedString = search.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
             
             let jsonUrlString = "https://core.ac.uk/api-v2/articles/search/\(encodedString)?page=1&pageSize=50&metadata=true&fulltext=false&citations=false&similar=false&duplicate=false&urls=true&faithfulMetadata=false&apiKey=\(apiKey)"
+            //print(jsonUrlString)
             guard let url = URL(string: jsonUrlString) else {
                 return
             }

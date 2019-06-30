@@ -13,7 +13,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var articleTitle: UITextField!
     @IBOutlet weak var authorLastName: UITextField!
     @IBOutlet weak var publicationYear: UITextField!
-    @IBOutlet weak var language: UITextField!
+    //@IBOutlet weak var language: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     
     @IBOutlet weak var searchButton: UIButton!
@@ -44,7 +44,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         self.articleTitle.delegate = self
         self.authorLastName.delegate = self
         self.publicationYear.delegate = self
-        self.language.delegate = self
+        //self.language.delegate = self
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
@@ -66,7 +66,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         self.articleTitle.resignFirstResponder()
         self.authorLastName.resignFirstResponder()
         self.publicationYear.resignFirstResponder()
-        self.language.resignFirstResponder()
+        //self.language.resignFirstResponder()
     }
     
     func clearError(){
@@ -79,7 +79,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         makeYear()
         makeTextSearch(prefix: "title", searchString: self.articleTitle.text ?? "")
         makeTextSearch(prefix: "authors", searchString: self.authorLastName.text ?? "")
-        makeTextSearch(prefix: "language.name", searchString: self.language.text ?? "")
+        //makeTextSearch(prefix: "language", searchString: self.language.text ?? "")
         
         let actualSearch = self.searchStatement.joined(separator: " AND ")
         
@@ -87,7 +87,19 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     func makeTextSearch(prefix: String, searchString: String){
-        if(prefix != "language.name" && searchString != ""){
+        if(prefix == "title" && searchString != ""){
+            var treatedSearchString = searchString
+            //trim! - iOS adds white space at the end during auto complete, auto correction and more
+            treatedSearchString = treatedSearchString.trimmingCharacters(in: .whitespacesAndNewlines)
+            //small number of stop words
+            treatedSearchString = treatedSearchString.replacingOccurrences(of: " and ", with: " ")
+            treatedSearchString = treatedSearchString.replacingOccurrences(of: " or ", with: " ")
+            treatedSearchString = treatedSearchString.replacingOccurrences(of: " not ", with: " ")
+            // replace all spaces with a Boolean AND
+            treatedSearchString = treatedSearchString.replacingOccurrences(of: " ", with: " AND ")
+            self.searchStatement.append("\(prefix):(\(treatedSearchString))")
+        }
+        else if(prefix != "language.name" && searchString != ""){
             self.searchStatement.append("\(prefix):\(searchString)")
         }
         else if(prefix == "language.name" && searchString != ""){
@@ -102,7 +114,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         let yearPlusSome = thisYear + 3
         if let intYear = Int(self.publicationYear.text ?? ""){
             if(intYear > 1500 && intYear < yearPlusSome){
-                self.searchStatement.append("year:\(intYear)")
+                self.searchStatement.append("year:[\(intYear) TO \(intYear)]")
             }
             else{
                 //print("year does not meet requirements")
@@ -129,7 +141,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         self.activityIndicator(message)
         let search = self.makeSearch()
         if(search != "" && !self.stopSearch){
-            //print(search)
+            print(search)
             // let's get the API key from the git-ignored plist (apikey)
             let apiKey = self.helper.getAPIKeyFromPlist()
             // if the apiKey is empty show an error, but we can't recover from it
@@ -213,7 +225,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         self.articleTitle.text = nil
         self.authorLastName.text = nil
         self.publicationYear.text = nil
-        self.language.text = nil
+        //self.language.text = nil
     }
     
     

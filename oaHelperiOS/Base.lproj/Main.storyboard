@@ -27,7 +27,7 @@
                                             <constraint firstAttribute="height" constant="40" id="Npl-YN-k7s"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Article Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rxk-ok-JMg">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Article Title" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="rxk-ok-JMg">
                                         <rect key="frame" x="20" y="85" width="280" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="F1p-rb-9b6"/>
@@ -36,7 +36,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Author (Last Name)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NAK-Yy-sdX">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Author (Last Name)" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="NAK-Yy-sdX">
                                         <rect key="frame" x="20" y="150" width="280" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="JHt-3s-pHk"/>
@@ -45,7 +45,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year of Publication" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VQT-jJ-laO">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year of Publication" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="VQT-jJ-laO">
                                         <rect key="frame" x="20" y="215" width="280" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="RL6-D0-Ygg"/>
@@ -53,15 +53,6 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="search"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Language" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ply-Vz-xNm">
-                                        <rect key="frame" x="20" y="280" width="280" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="9yi-yh-NbE"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tl-nX-NTX">
                                         <rect key="frame" x="20" y="345" width="280" height="50"/>
@@ -92,8 +83,6 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Ply-Vz-xNm" firstAttribute="leading" secondItem="4Tl-nX-NTX" secondAttribute="leading" id="0jG-Ap-dGm"/>
-                                    <constraint firstItem="Ply-Vz-xNm" firstAttribute="trailing" secondItem="4Tl-nX-NTX" secondAttribute="trailing" id="1JZ-qG-Itw"/>
                                     <constraint firstItem="rxk-ok-JMg" firstAttribute="trailing" secondItem="NAK-Yy-sdX" secondAttribute="trailing" id="23K-Jh-CzW"/>
                                     <constraint firstItem="oya-jY-1IV" firstAttribute="top" secondItem="1EN-Vx-gQN" secondAttribute="top" constant="25" id="4Er-6U-dU8"/>
                                     <constraint firstAttribute="trailing" secondItem="rxk-ok-JMg" secondAttribute="trailing" constant="20" id="4fo-bg-CZs"/>
@@ -104,17 +93,16 @@
                                     <constraint firstItem="tXL-xz-gc1" firstAttribute="top" secondItem="4Tl-nX-NTX" secondAttribute="bottom" constant="29" id="HPc-A2-pXa"/>
                                     <constraint firstItem="NAK-Yy-sdX" firstAttribute="top" secondItem="rxk-ok-JMg" secondAttribute="bottom" constant="15" id="JM9-k9-3S1"/>
                                     <constraint firstItem="NAK-Yy-sdX" firstAttribute="trailing" secondItem="VQT-jJ-laO" secondAttribute="trailing" id="M8G-DG-FWn"/>
-                                    <constraint firstItem="VQT-jJ-laO" firstAttribute="trailing" secondItem="Ply-Vz-xNm" secondAttribute="trailing" id="QMC-2I-E0u"/>
-                                    <constraint firstItem="VQT-jJ-laO" firstAttribute="leading" secondItem="Ply-Vz-xNm" secondAttribute="leading" id="RHW-2l-dL0"/>
-                                    <constraint firstItem="Ply-Vz-xNm" firstAttribute="top" secondItem="VQT-jJ-laO" secondAttribute="bottom" constant="15" id="XYo-vf-MLl"/>
+                                    <constraint firstItem="4Tl-nX-NTX" firstAttribute="top" secondItem="VQT-jJ-laO" secondAttribute="bottom" constant="80" id="VcY-Hb-pPQ"/>
                                     <constraint firstItem="oya-jY-1IV" firstAttribute="centerX" secondItem="1EN-Vx-gQN" secondAttribute="centerX" id="av1-gH-0f8"/>
                                     <constraint firstItem="oya-jY-1IV" firstAttribute="leading" secondItem="1EN-Vx-gQN" secondAttribute="leading" constant="75" id="c9L-si-jWJ"/>
                                     <constraint firstItem="NAK-Yy-sdX" firstAttribute="leading" secondItem="VQT-jJ-laO" secondAttribute="leading" id="ccx-SR-h3o"/>
-                                    <constraint firstItem="4Tl-nX-NTX" firstAttribute="top" secondItem="Ply-Vz-xNm" secondAttribute="bottom" constant="15" id="mUl-m9-XEZ"/>
                                     <constraint firstItem="rxk-ok-JMg" firstAttribute="leading" secondItem="NAK-Yy-sdX" secondAttribute="leading" id="mp4-xW-Rm8"/>
+                                    <constraint firstAttribute="trailing" secondItem="4Tl-nX-NTX" secondAttribute="trailing" constant="20" id="mr4-fC-YaB"/>
                                     <constraint firstItem="oya-jY-1IV" firstAttribute="centerX" secondItem="rxk-ok-JMg" secondAttribute="centerX" id="q9Q-lS-cXy"/>
                                     <constraint firstItem="VQT-jJ-laO" firstAttribute="top" secondItem="NAK-Yy-sdX" secondAttribute="bottom" constant="15" id="qM7-5B-QPH"/>
                                     <constraint firstItem="rxk-ok-JMg" firstAttribute="top" secondItem="REW-yP-gPI" secondAttribute="bottom" constant="8" id="u88-Fh-QnR"/>
+                                    <constraint firstItem="4Tl-nX-NTX" firstAttribute="leading" secondItem="1EN-Vx-gQN" secondAttribute="leading" constant="20" id="yYF-EX-rsA"/>
                                     <constraint firstAttribute="bottom" secondItem="tXL-xz-gc1" secondAttribute="bottom" constant="300" id="zJh-x6-rd6"/>
                                     <constraint firstItem="rxk-ok-JMg" firstAttribute="leading" secondItem="1EN-Vx-gQN" secondAttribute="leading" constant="20" id="zKj-HN-e7e"/>
                                 </constraints>
@@ -133,7 +121,6 @@
                         <outlet property="articleTitle" destination="rxk-ok-JMg" id="yXx-ny-FBX"/>
                         <outlet property="authorLastName" destination="NAK-Yy-sdX" id="Vge-go-T5h"/>
                         <outlet property="errorLabel" destination="tXL-xz-gc1" id="gx9-NZ-utY"/>
-                        <outlet property="language" destination="Ply-Vz-xNm" id="vYj-J5-5RY"/>
                         <outlet property="publicationYear" destination="VQT-jJ-laO" id="stN-FY-W7E"/>
                         <outlet property="searchButton" destination="4Tl-nX-NTX" id="dBB-LY-eom"/>
                         <segue destination="PDw-ar-iKr" kind="show" identifier="advancedSearchResults" id="Xbo-Rx-qqx"/>
@@ -1219,7 +1206,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
         <image name="icons8-statistics-75" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QaW-6b-mlT"/>
+        <segue reference="Xbo-Rx-qqx"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
