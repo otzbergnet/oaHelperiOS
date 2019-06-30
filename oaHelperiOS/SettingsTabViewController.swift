@@ -206,8 +206,7 @@ class SettingsTabViewController: UIViewController {
     }
     
     @IBAction func leaveReviewTapped(_ sender: Any) {
-        let appId = "1447927317"
-        guard let productURL = URL(string: "https://itunes.apple.com/de/app/id\(appId)") else {
+        guard let productURL = URL(string: "https://apps.apple.com/us/app/open-access-helper/id1447927317?l=de&ls=1") else {
             return
         }
         var components = URLComponents(url: productURL, resolvingAgainstBaseURL: false)
@@ -222,15 +221,19 @@ class SettingsTabViewController: UIViewController {
         UIApplication.shared.open(writeReviewURL)
     }
   
-    @IBAction func shareAppTapped(_ sender: Any) {
-        let appId = "1447927317"
-        guard let productURL = URL(string: "https://itunes.apple.com/de/app/id\(appId)") else {
+    @IBAction func shareAppTapped(_ sender: UIButton) {
+
+        guard let productURL = URL(string: "https://apps.apple.com/us/app/open-access-helper/id1447927317?l=de&ls=1") else {
             return
         }
         let promoText = NSLocalizedString("Check for Open Access copies of scientific articles with Open Access Helper!", comment: "Promotional String")
         let items: [Any] = [promoText, productURL]
         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(activityViewController, animated: true, completion: nil)
+        if let popOver = activityViewController.popoverPresentationController {
+            popOver.sourceView = sender
+            popOver.sourceRect = CGRect(x: 0, y: 0, width: sender.frame.size.width, height: sender.frame.size.height)
+        }
     }
     
 }
