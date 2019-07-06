@@ -12,7 +12,9 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var articleTitle: UITextField!
     @IBOutlet weak var authorLastName: UITextField!
-    @IBOutlet weak var publicationYear: UITextField!
+    @IBOutlet weak var publicationYearFrom: UITextField!
+    @IBOutlet weak var publicationYearTo: UITextField!
+    
     //@IBOutlet weak var language: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     
@@ -44,8 +46,8 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         // dismiss keyboard
         self.articleTitle.delegate = self
         self.authorLastName.delegate = self
-        self.publicationYear.delegate = self
-        //self.language.delegate = self
+        self.publicationYearFrom.delegate = self
+        self.publicationYearTo.delegate = self
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
@@ -66,8 +68,8 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
     func doResignFirstResponder(){
         self.articleTitle.resignFirstResponder()
         self.authorLastName.resignFirstResponder()
-        self.publicationYear.resignFirstResponder()
-        //self.language.resignFirstResponder()
+        self.publicationYearFrom.resignFirstResponder()
+        self.publicationYearTo.resignFirstResponder()
     }
     
     func clearError(){
@@ -113,26 +115,26 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         let calendar = Calendar.current
         let thisYear = Int(calendar.component(.year, from: date))
         let yearPlusSome = thisYear + 3
-        if let intYear = Int(self.publicationYear.text ?? ""){
-            if(intYear > 1500 && intYear < yearPlusSome){
-                self.searchStatement.append("year:[\(intYear) TO \(intYear)]")
-            }
-            else{
-                //print("year does not meet requirements")
-                self.stopSearch = true
-                self.errorLabel.text = "The year seems invalid, it needs to be between 1500 and \(yearPlusSome)"
-                self.errorLabel.textColor = UIColor.red
-            }
+        
+        var fromYear = 1499
+        if let fromYearOne = Int(self.publicationYearFrom.text ?? "") {
+            fromYear = fromYearOne
         }
-        else{
-            if(self.publicationYear.text?.count ?? 0 > 0){
-                //print("year does not meet requirements")
-                self.stopSearch = true
-                self.errorLabel.text = "Are you sure you entered a year"
-                self.errorLabel.textColor = UIColor.red
-            }
-            
+        
+        var toYear = yearPlusSome
+        if let toYearOne = Int(self.publicationYearTo.text ?? "") {
+            toYear = toYearOne
         }
+        
+        if(fromYear < 1500 || toYear < 1500 || fromYear > toYear || fromYear > yearPlusSome){
+            self.stopSearch = true
+            self.errorLabel.text = "The year seems invalid, it needs to be between 1500 and \(yearPlusSome)"
+            self.errorLabel.textColor = UIColor.red
+            return
+        }
+        
+        self.searchStatement.append("year:[\(fromYear) TO \(toYear)]")
+        
     }
     
     func doSearch(){
@@ -226,7 +228,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         self.selection.selectionChanged()
         self.articleTitle.text = nil
         self.authorLastName.text = nil
-        self.publicationYear.text = nil
+        self.publicationYearFrom.text = nil
         //self.language.text = nil
     }
     

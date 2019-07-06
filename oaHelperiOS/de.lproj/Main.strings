@@ -66,5 +66,6 @@
 "4Tl-nX-NTX.normalTitle" = "Erweiterte Suche";
 "rxk-ok-JMg.placeholder" = "Titel";
 "NAK-Yy-sdX.placeholder" = "Autor (Nachname)";
-"VQT-jJ-laO.placeholder" = "Jahr";
+"VQT-jJ-laO.placeholder" = "Jahr (von)";
+"4Su-Au-oDM.placeholder" = "Jahr (bis)";
 "Ply-Vz-xNm.placeholder" = "Sprache (auf Englisch)";
