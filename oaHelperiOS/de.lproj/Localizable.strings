@@ -46,3 +46,5 @@
 "The date, these statistics have last been shared with the app developer. See Settings to change your sharing preference." = "Das Datum, an dem Ihre Statistiken zum letzten Mal mit dem Entwickler geteilt wurden. Sie können diese Option in den Einstellungen anpassen";
 "Updating News Items" = "Nachrichten werden aktualisiert";
 "Check for Open Access copies of scientific articles with Open Access Helper!" = "Prüfen Sie mit Open Access Helper, ob Open Access für einen wissenschaftlichen Artikel verfügbar ist!";
+"A year seems invalid, it needs to be between 1500 and " = "Ein Jahreszahl scheint ungültig. Mögliche Werte zwischen 1500 und ";
+"Within your date range the \"From Year\" is greater than the \"To Year\"" = "Im gewählten Zeitraum ist das \"Von Jahr\" größer als das \"Bis Jahr\"";

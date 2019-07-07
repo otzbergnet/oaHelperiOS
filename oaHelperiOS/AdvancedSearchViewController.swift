@@ -126,9 +126,16 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
             toYear = toYearOne
         }
         
-        if(fromYear < 1500 || toYear < 1500 || fromYear > toYear || fromYear > yearPlusSome){
+        if(fromYear > toYear){
             self.stopSearch = true
-            self.errorLabel.text = "The year seems invalid, it needs to be between 1500 and \(yearPlusSome)"
+            self.errorLabel.text = NSLocalizedString("Within your date range the \"From Year\" is greater than the \"To Year\"", comment: "from year greater to year error")
+            self.errorLabel.textColor = UIColor.red
+            return
+        }
+        
+        if(fromYear < 1500 || toYear < 1500 || fromYear > yearPlusSome || toYear > yearPlusSome){
+            self.stopSearch = true
+            self.errorLabel.text = NSLocalizedString("A year seems invalid, it needs to be between 1500 and ", comment: "year error") + "\(yearPlusSome)"
             self.errorLabel.textColor = UIColor.red
             return
         }
@@ -144,7 +151,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         self.activityIndicator(message)
         let search = self.makeSearch()
         if(search != "" && !self.stopSearch){
-            print(search)
+            //print(search)
             // let's get the API key from the git-ignored plist (apikey)
             let apiKey = self.helper.getAPIKeyFromPlist()
             // if the apiKey is empty show an error, but we can't recover from it
@@ -171,7 +178,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         }
         else{
             self.effectView.removeFromSuperview()
-            print("invalid search")
+            //print("invalid search")
         }
     }
     
