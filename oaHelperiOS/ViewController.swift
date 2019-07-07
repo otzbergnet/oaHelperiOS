@@ -301,7 +301,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func showHelpTapped(_ sender: Any) {
         let mainStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
         let controller = mainStoryboard.instantiateInitialViewController()!
-        self.present(controller, animated: true, completion: nil)
+        UIApplication.shared.keyWindow!.rootViewController = controller
     }
     
 }

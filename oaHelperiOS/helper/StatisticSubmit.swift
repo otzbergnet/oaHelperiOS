@@ -86,13 +86,13 @@ class StatisticSubmit {
     
     func getDate() -> String{
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss +zzzz" // This formate is input formated .
+        let currentDate = Date();
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let newDate = formatter.string(from: currentDate)
         
-        let formateDate = dateFormatter.date(from: "\(Date())")!
-        dateFormatter.dateFormat = "yyyy-MM-dd" // Output Formated
-        
-        return dateFormatter.string(from: formateDate)
+        return newDate
+
     }
     
     func replaceZeroWithUndersore(value : Int) -> String {

@@ -50,6 +50,7 @@
 		2DD08CEF21BC31ED00D0B3C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DD08CED21BC31ED00D0B3C0 /* Main.storyboard */; };
 		2DD08CF421BC31EF00D0B3C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DD08CF221BC31EF00D0B3C0 /* LaunchScreen.storyboard */; };
 		2DD08CFC21BC350800D0B3C0 /* oadoiStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD08CFB21BC350800D0B3C0 /* oadoiStruct.swift */; };
+		2DDCF90D22D2435B00BD63B7 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDCF90C22D2435B00BD63B7 /* DateExtension.swift */; };
 		2DE0701B21E08B8700D39D99 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */; };
 		2DE8114921C962180052698C /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE8114821C962180052698C /* OnboardingController.swift */; };
 		2DE8F35B2221D022000B27A1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DE8F3592221D022000B27A1 /* Model.xcdatamodeld */; };
@@ -135,6 +136,7 @@
 		2DD08CF321BC31EF00D0B3C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DD08CF521BC31EF00D0B3C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DD08CFB21BC350800D0B3C0 /* oadoiStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oadoiStruct.swift; sourceTree = "<group>"; };
+		2DDCF90C22D2435B00BD63B7 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		2DE8114821C962180052698C /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		2DE8F35A2221D022000B27A1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				2D15F9A321E0C5A300FF8B46 /* Helper.swift */,
 				2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */,
 				2DAE4AF4227F46A30037DB69 /* NewsItemData.swift */,
+				2DDCF90C22D2435B00BD63B7 /* DateExtension.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				2D11771722207A7000859B08 /* StatisticSubmit.swift in Sources */,
 				2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */,
 				2D652B1B2272BC6500A46F37 /* StatisticsViewController.swift in Sources */,
+				2DDCF90D22D2435B00BD63B7 /* DateExtension.swift in Sources */,
 				2DF95CE3221DD41800F11220 /* SettingsBundleHelper.swift in Sources */,
 				2DFF67BB21C2F30A00120363 /* dessimStruct.swift in Sources */,
 				2DD08CEA21BC31ED00D0B3C0 /* AppDelegate.swift in Sources */,
