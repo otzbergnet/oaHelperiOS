@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HelperClass :UIViewController{
+class HelperClass : UIViewController{
   
     
     func cleanAbstract(txt: String) -> String{
@@ -110,6 +110,56 @@ class HelperClass :UIViewController{
             
         }
     }
+    
+    func getAPIKeyFromPlist() -> String{
+        //we are going to read the api key for coar.ac.uk from apikey.plist
+        //this file isn't the github bundle and as such you'll need to create it yourself, it is a simple Object
+        // core : String = API Key from core.ac.uk
+        var nsDictionary: NSDictionary?
+        if let path = Bundle.main.path(forResource: "apikey", ofType: "plist") {
+            nsDictionary = NSDictionary(contentsOfFile: path)
+        }
+        if let core = nsDictionary?["core"]{
+            return "\(core)"
+        }
+        return ""
+    }
+    
+    func checkCore(search: String, apiKey: String, completion: @escaping (Result<Data, Error>) -> ()) {
+        
+        if let encodedString = search.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
+            
+            let jsonUrlString = "https://core.ac.uk/api-v2/articles/search/\(encodedString)?page=1&pageSize=50&metadata=true&fulltext=false&citations=false&similar=false&duplicate=false&urls=true&faithfulMetadata=false&apiKey=\(apiKey)"
+            //print(jsonUrlString)
+            guard let url = URL(string: jsonUrlString) else {
+                return
+            }
+            var request = URLRequest(url: url)
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+                if let error = error{
+                    //we got an error, let's tell the user
+                    completion(.failure(error))
+                    print(error)
+                }
+                if let data = data {
+                    //this worked just fine
+                    completion(.success(data))
+                }
+                else{
+                    //another error
+                    completion(.failure(NSError(domain: "", code: 440, userInfo: ["description" : "failed to get data"])))
+                    return
+                }
+                
+            }
+            task.resume()
+        }
+        
+    }
+    
+    
+
 }
 
 

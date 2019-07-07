@@ -53,6 +53,7 @@ class DetailViewController: UIViewController {
         accessButton.layer.cornerRadius = 10
         createDetailData(num: self.num)
         self.title = "\(self.num+1)/\(self.coreRecords.count)"
+        AppStoreReviewManager.requestReviewIfAppropriate()
     }
     
 
@@ -111,13 +112,13 @@ class DetailViewController: UIViewController {
         let byText = NSLocalizedString("By: ", comment: "By is shown just before authors")
         if(coreRecord.author.count > 0){
             if(coreRecord.author.count > 3){
-                authorLabel.text = "\(byText) \(coreRecord.author[0]), \(coreRecord.author[1]), et al."
+                authorLabel.text = "\(byText) \(coreRecord.author[0].replacingOccurrences(of: "\n", with: "")), \(coreRecord.author[1].replacingOccurrences(of: "\n", with: "")), et al."
             }
             else if(coreRecord.author.count > 1){
-                authorLabel.text = "\(byText) \(coreRecord.author[0]), \(coreRecord.author[1])"
+                authorLabel.text = "\(byText) \(coreRecord.author[0].replacingOccurrences(of: "\n", with: "")), \(coreRecord.author[1].replacingOccurrences(of: "\n", with: ""))"
             }
             else{
-                authorLabel.text = "\(byText) \(coreRecord.author[0])"
+                authorLabel.text = "\(byText) \(coreRecord.author[0].replacingOccurrences(of: "\n", with: ""))"
             }
             
         }
@@ -202,13 +203,17 @@ class DetailViewController: UIViewController {
     }
     
     func changeNavButtonColor(num: Int){
-        if(num == 0){
+        if(num == coreRecords.count-1 && num == 0){
             previousButton.setTitleColor(orangeColor, for: .normal)
-            nextButton.setTitleColor(.white, for: .normal)
+            nextButton.setTitleColor(orangeColor, for: .normal)
         }
         else if(num == coreRecords.count-1){
             previousButton.setTitleColor(.white, for: .normal)
             nextButton.setTitleColor(orangeColor, for: .normal)
+        }
+        else if(num == 0){
+            previousButton.setTitleColor(orangeColor, for: .normal)
+            nextButton.setTitleColor(.white, for: .normal)
         }
         else{
             previousButton.setTitleColor(.white, for: .normal)

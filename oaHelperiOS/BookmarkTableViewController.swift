@@ -51,6 +51,7 @@ class BookmarkTableViewController: UITableViewController {
         
         self.showCloudSyncButton()
         
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -167,6 +168,9 @@ class BookmarkTableViewController: UITableViewController {
         let date = settings.getSyncDate(type: "sync_date")
         if(!helper.recentSynced(lastDate: date)){
             cloudSync(isRefresh: false)
+        }
+        else{
+            AppStoreReviewManager.requestReviewIfAppropriate()
         }
     }
     /*
