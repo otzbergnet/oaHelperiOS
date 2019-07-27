@@ -111,7 +111,7 @@ class HelperClass : UIViewController{
         }
     }
     
-    func getAPIKeyFromPlist() -> String{
+    func getAPIKeyFromPlist(key: String) -> String{
         //we are going to read the api key for coar.ac.uk from apikey.plist
         //this file isn't the github bundle and as such you'll need to create it yourself, it is a simple Object
         // core : String = API Key from core.ac.uk
@@ -119,7 +119,7 @@ class HelperClass : UIViewController{
         if let path = Bundle.main.path(forResource: "apikey", ofType: "plist") {
             nsDictionary = NSDictionary(contentsOfFile: path)
         }
-        if let core = nsDictionary?["core"]{
+        if let core = nsDictionary?[key]{
             return "\(core)"
         }
         return ""
