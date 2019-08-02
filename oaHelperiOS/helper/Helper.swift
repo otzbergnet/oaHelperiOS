@@ -125,11 +125,11 @@ class HelperClass : UIViewController{
         return ""
     }
     
-    func checkCore(search: String, apiKey: String, completion: @escaping (Result<Data, Error>) -> ()) {
+    func checkCore(search: String, apiKey: String, page: Int, completion: @escaping (Result<Data, Error>) -> ()) {
         
         if let encodedString = search.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
             
-            let jsonUrlString = "https://core.ac.uk/api-v2/articles/search/\(encodedString)?page=1&pageSize=50&metadata=true&fulltext=false&citations=false&similar=false&duplicate=false&urls=true&faithfulMetadata=false&apiKey=\(apiKey)"
+            let jsonUrlString = "https://core.ac.uk/api-v2/articles/search/\(encodedString)?page=\(page)&pageSize=50&metadata=true&fulltext=false&citations=false&similar=false&duplicate=false&urls=true&faithfulMetadata=false&apiKey=\(apiKey)"
             //print(jsonUrlString)
             guard let url = URL(string: jsonUrlString) else {
                 return
@@ -158,7 +158,13 @@ class HelperClass : UIViewController{
         
     }
     
-    
+    func createSearch(search: String) -> String{
+        //TO DO: need to support AND, OR, NOT
+        let andSearch = search.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " ", with: " AND ")
+        let query = "title:((\(andSearch)) ) OR description:((\(andSearch)) )"
+        
+        return query
+    }
 
 }
 

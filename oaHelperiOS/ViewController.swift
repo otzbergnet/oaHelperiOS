@@ -22,6 +22,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var offlineLabel: UILabel!
     
     var searchTerm = ""
+    var search = ""
     var apiData = Data()
     var urlScheme = false
     
@@ -112,8 +113,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 self.textField.text = appDelegate.search
                 let message = NSLocalizedString("Searching core.ac.uk for you", comment: "shows as soon as search is submitted")
                 self.activityIndicator(message)
-                let query = createSearch(search: appDelegate.search)
-                
+                let query = self.helper.createSearch(search: appDelegate.search)
+                self.search = query
                 checkCore(search: query)
                 // setting this to true, there was a case, where the search would execute again, if you left the app and opened it again
                 // the search fromt he previuos url scheme would be re-executed
@@ -155,7 +156,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if let search = textField.text {
             let message = NSLocalizedString("Searching core.ac.uk for you", comment: "shows as soon as search is submitted")
             self.activityIndicator(message)
-            let query = createSearch(search: search)
+            let query = self.helper.createSearch(search: search)
+            self.search = query
             checkCore(search: query)
         }
     }
@@ -164,6 +166,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == "searchSegue" {
             if let nextViewController = segue.destination as? TableViewController {
                 nextViewController.apiData = self.apiData
+                nextViewController.page = 1
+                nextViewController.search = self.search
+                print("searchTerm:", self.search)
             }
         }
     }
@@ -179,7 +184,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return
         }
         // lets get the data via the search
-        self.helper.checkCore(search: search, apiKey: apiKey) { ( res) in
+        self.helper.checkCore(search: search, apiKey: apiKey, page: 1) { (res) in
             switch res {
             case .success(let data):
                 DispatchQueue.main.async {
@@ -231,13 +236,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func createSearch(search: String) -> String{
-        //TO DO: need to support AND, OR, NOT
-        let andSearch = search.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " ", with: " AND ")
-        let query = "title:((\(andSearch)) ) OR description:((\(andSearch)) )"
-        
-        return query
-    }
+
     
     func showErrorAlert(alertTitle : String, alertMessage : String, okButton : String){
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
