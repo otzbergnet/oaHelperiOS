@@ -67,16 +67,13 @@ class SettingsBundleHelper {
     
     func setSyncDate(type: String){
        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss +zzzz" // This formate is input formated .
-        
-        let formateDate = dateFormatter.date(from: "\(Date())")!
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Output Formated
-        
-        let date = dateFormatter.string(from: formateDate)
-        
-        self.defaults.set(date, forKey: type)
+        let currentDate = Date();
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let newDate = formatter.string(from: currentDate)
+        self.defaults.set(newDate, forKey: type)
         self.defaults.synchronize()
+        
     }
     
     func getSyncDate(type: String) -> String{

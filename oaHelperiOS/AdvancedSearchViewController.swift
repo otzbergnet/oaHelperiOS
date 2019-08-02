@@ -155,7 +155,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         if(search != "" && !self.stopSearch){
             //print(search)
             // let's get the API key from the git-ignored plist (apikey)
-            let apiKey = self.helper.getAPIKeyFromPlist()
+            let apiKey = self.helper.getAPIKeyFromPlist(key: "core")
             // if the apiKey is empty show an error, but we can't recover from it
             if(apiKey == ""){
                 self.effectView.removeFromSuperview()

@@ -29,6 +29,7 @@ class ActionViewController: UIViewController {
     var showBookMarkButton = true
     
     let settings = SettingsBundleHelper()
+    let helper = HelperClass()
     let stats = StatisticSubmit()
     
     let bookMark = BookMarkObject()
@@ -194,29 +195,31 @@ class ActionViewController: UIViewController {
             if let error = error{
                 //we got an error, let's tell the user
                 print(error)
-                self.activityIndicator.stopAnimating()
-                self.paperIcon.image = UIImage(named: "paper_unknown")
-                self.headerLabel.text = NSLocalizedString("We've encountered an error", comment: "We've encountered an error")
-                self.sourceLabel.text = ""
-                self.textView.text = ""
-                self.returnURLString = ""
-                self.dismissButton.isHidden = false
+//                self.activityIndicator.stopAnimating()
+//                self.paperIcon.image = UIImage(named: "paper_unknown")
+//                self.headerLabel.text = NSLocalizedString("We've encountered an error", comment: "We've encountered an error")
+//                self.sourceLabel.text = ""
+//                self.textView.text = ""
+//                self.returnURLString = ""
+//                self.dismissButton.isHidden = false
+                self.checkCore(doi: doi, title: "", sourceLabel: "")
             }
             if let data = data {
-                self.handleData(data: data)
+                self.handleData(data: data, doi: doi)
             }
             else{
-                self.activityIndicator.stopAnimating()
-                self.activityIndicator.isHidden = true
-                self.paperIcon.image = UIImage(named: "paper_no")
-                self.headerLabel.text = NSLocalizedString("No Open Access found", comment: "No Open Access found")
-                self.sourceLabel.text = ""
-                self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa text")
-                self.returnURLString = ""
-                self.dismissButton.isHidden = false
-                if(self.showBookMarkButton){
-                    self.addBookMarkButton.isHidden = false
-                }
+//                self.activityIndicator.stopAnimating()
+//                self.activityIndicator.isHidden = true
+//                self.paperIcon.image = UIImage(named: "paper_no")
+//                self.headerLabel.text = NSLocalizedString("No Open Access found", comment: "No Open Access found")
+//                self.sourceLabel.text = ""
+//                self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa text")
+//                self.returnURLString = ""
+//                self.dismissButton.isHidden = false
+//                if(self.showBookMarkButton){
+//                    self.addBookMarkButton.isHidden = false
+//                }
+                self.checkCore(doi: doi, title: "", sourceLabel: "")
             }
             
         }
@@ -224,7 +227,7 @@ class ActionViewController: UIViewController {
         task.resume()
     }
     
-    func handleData(data: Data){
+    func handleData(data: Data, doi: String){
         //sole purpose is to dispatch the url
         do{
             let oaData = try JSONDecoder().decode(Unpaywall.self, from: data)
@@ -266,6 +269,7 @@ class ActionViewController: UIViewController {
                     }
                 }
                 else{
+                    // we have an empty best open access location - should be pretty much impossible
                     DispatchQueue.main.async {
                         self.activityIndicator.stopAnimating()
                         self.activityIndicator.isHidden = true
@@ -282,39 +286,14 @@ class ActionViewController: UIViewController {
             else {
                 // not oa
                 DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-                    self.activityIndicator.isHidden = true
+                    let mySourceLabel = self.constructSource(data: oaData)
                     if let title = oaData.title{
-                        self.headerLabel.text = title
-                        self.paperIcon.image = UIImage(named: "paper_no")
-                        if let encodedString = title.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
-                            self.sourceLabel.text = self.constructSource(data: oaData)
-                            self.textView.text = NSLocalizedString("We were unable to find an Open Access version of this article. Please click the button below to search for the title of the article in core.ac.uk", comment: "unable to find OA")
-                            //self.returnURLString = "https://core.ac.uk/search?q=%22\(encodedString)%22"
-                            self.returnURLString = "oahelper://\(encodedString)"
-                            let titleTranslation = NSLocalizedString("Search core.ac.uk", comment: "Search core.ac.uk")
-                            self.actionButton.setTitle(titleTranslation, for: .normal)
-                            self.actionButton.backgroundColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
-                            self.actionButton.isHidden = false
-                            self.dismissButton.isHidden = false
-                            if(self.showBookMarkButton){
-                                self.addBookMarkButton.isHidden = false
-                            }
-                            self.urlAction = false
-                            self.selectAction = false
-                        }
+                        self.checkCore(doi: doi, title: title, sourceLabel: mySourceLabel)
                     }
                     else{
-                        self.paperIcon.image = UIImage(named: "paper_no")
-                        self.headerLabel.text = NSLocalizedString("No Open Access available", comment: "No Open Access available")
-                        self.sourceLabel.text = ""
-                        self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa available")
-                        self.returnURLString = ""
-                        self.dismissButton.isHidden = false
-                        if(self.showBookMarkButton){
-                            self.addBookMarkButton.isHidden = false
-                        }
+                        self.checkCore(doi: doi, title: "", sourceLabel: mySourceLabel)
                     }
+                    
                 }
             }
             
@@ -324,8 +303,132 @@ class ActionViewController: UIViewController {
             //the most likely error here is that the DOI is actually invalid or oadoi API returns another errror
             DispatchQueue.main.async {
                 print(jsonError)
-                self.activityIndicator.stopAnimating()
-                self.activityIndicator.isHidden = true
+//                self.activityIndicator.stopAnimating()
+//                self.activityIndicator.isHidden = true
+//                self.paperIcon.image = UIImage(named: "paper_no")
+//                self.headerLabel.text = NSLocalizedString("No Open Access available", comment: "No Open Access available")
+//                self.sourceLabel.text = ""
+//                self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa available")
+//                self.returnURLString = ""
+//                self.dismissButton.isHidden = false
+//                if(self.showBookMarkButton){
+//                    self.addBookMarkButton.isHidden = false
+//                }
+                self.checkCore(doi: doi, title: "", sourceLabel: "")
+            }
+            return
+        }
+    }
+    
+    func checkCore(doi: String, title: String, sourceLabel: String){
+        let apiKey = self.helper.getAPIKeyFromPlist(key: "coreDiscovery")
+        let jsonUrlString = "https://api.core.ac.uk/discovery/discover?doi=\(doi)&apiKey=\(apiKey)"
+        let url = URL(string: jsonUrlString)
+        
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            if let error = error{
+                //we got an error, let's tell the user
+                print(error)
+                self.noOpenAccessFound(title: title, sourceLabel: sourceLabel)
+                
+            }
+            if let data = data {
+                self.handleCoreDiscoveryData(data: data, title: title, sourceLabel: sourceLabel)
+            }
+            else{
+                self.noOpenAccessFound(title: title, sourceLabel: sourceLabel)
+                return
+            }
+            
+        }
+        
+        task.resume()
+        
+    }
+    
+    func handleCoreDiscoveryData(data: Data, title: String, sourceLabel: String){
+        //sole purpose is to dispatch the url
+        do{
+            let coreData = try JSONDecoder().decode(Coredata.self, from: data)
+            if let boa = coreData.fullTextLink {
+                if (boa != "") {
+                    //we have open access
+                    DispatchQueue.main.async {
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.isHidden = true
+                        self.paperIcon.image = UIImage(named: "paper_ok")
+                        if title != "" {
+                            self.headerLabel.text = title
+                            self.bookMark.title = title
+                        }
+                        else{
+                            self.headerLabel.text = "Open Access"
+                        }
+                        self.sourceLabel.text = sourceLabel
+                        let oaFoundText = String(format: NSLocalizedString("Open Access version is available at:\n\n%@", comment: "shows when OA was found"), boa)
+                        self.textView.text = oaFoundText
+                        self.returnURLString = boa
+                        self.bookMark.pdf = boa
+                        self.settings.incrementOACount(key: "oa_found")
+                        let oaFoundButtonText = NSLocalizedString("Go to document now", comment: "Go to document now")
+                        self.actionButton.setTitle(oaFoundButtonText, for: .normal)
+                        self.actionButton.isHidden = false
+                        if(self.showBookMarkButton){
+                            self.addBookMarkButton.isHidden = false
+                        }
+                        self.dismissButton.isHidden = false
+                        self.urlAction = true
+                        
+                        let myOaType = "Core Discovery Result"
+                        let oaTypeImg = "coreDiscovery"
+                        self.oaLogo.image = UIImage(named: oaTypeImg)
+                        self.oaLogo.isHidden = false
+                        self.oaTypeLabel.text = myOaType
+                    }
+                }
+                else{
+                    self.noOpenAccessFound(title: title, sourceLabel: sourceLabel)
+                }
+            }
+            else {
+                self.noOpenAccessFound(title: title, sourceLabel: sourceLabel)
+            }
+            
+            
+        }
+        catch let jsonError{
+            print(jsonError)
+            self.noOpenAccessFound(title: title, sourceLabel: sourceLabel)
+            return
+        }
+    }
+    
+    func noOpenAccessFound(title: String, sourceLabel: String){
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+
+            if title != "" {
+                self.headerLabel.text = title
+                self.paperIcon.image = UIImage(named: "paper_no")
+                if let encodedString = title.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
+                    
+                    self.textView.text = NSLocalizedString("We were unable to find an Open Access version of this article. Please click the button below to search for the title of the article in core.ac.uk", comment: "unable to find OA")
+                    //self.returnURLString = "https://core.ac.uk/search?q=%22\(encodedString)%22"
+                    self.returnURLString = "oahelper://\(encodedString)"
+                    let titleTranslation = NSLocalizedString("Search core.ac.uk", comment: "Search core.ac.uk")
+                    self.actionButton.setTitle(titleTranslation, for: .normal)
+                    self.actionButton.backgroundColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
+                    self.actionButton.isHidden = false
+                    self.dismissButton.isHidden = false
+                    if(self.showBookMarkButton){
+                        self.addBookMarkButton.isHidden = false
+                    }
+                    self.urlAction = false
+                    self.selectAction = false
+                }
+            }
+            else{
                 self.paperIcon.image = UIImage(named: "paper_no")
                 self.headerLabel.text = NSLocalizedString("No Open Access available", comment: "No Open Access available")
                 self.sourceLabel.text = ""
@@ -336,7 +439,6 @@ class ActionViewController: UIViewController {
                     self.addBookMarkButton.isHidden = false
                 }
             }
-            return
         }
     }
     

@@ -175,7 +175,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func checkCore(search: String){
         // let's get the API key from the git-ignored plist (apikey)
-        let apiKey = self.helper.getAPIKeyFromPlist()
+        let apiKey = self.helper.getAPIKeyFromPlist(key: "core")
         // if the apiKey is empty show an error, but we can't recover from it
         if(apiKey == ""){
             self.effectView.removeFromSuperview()
@@ -300,7 +300,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func showHelpTapped(_ sender: Any) {
         let mainStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
         let controller = mainStoryboard.instantiateInitialViewController()!
-        self.present(controller, animated: true, completion: nil)
+        UIApplication.shared.keyWindow!.rootViewController = controller
     }
     
 }

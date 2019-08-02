@@ -35,7 +35,7 @@ class OnboardingFour: UIViewController {
         defaults.set(true, forKey: "onBoarding")
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = mainStoryboard.instantiateInitialViewController()!
-        self.present(controller, animated: true, completion: nil)
+        UIApplication.shared.keyWindow!.rootViewController = controller
     }
     
 }
