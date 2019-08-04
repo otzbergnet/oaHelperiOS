@@ -134,6 +134,7 @@ class HelperClass : UIViewController{
             guard let url = URL(string: jsonUrlString) else {
                 return
             }
+            
             var request = URLRequest(url: url)
             request.setValue("application/json", forHTTPHeaderField: "Accept")
             let task = URLSession.shared.dataTask(with: request) {(data, response, error) in

@@ -18,6 +18,8 @@ class SettingsTabViewController: UIViewController {
     @IBOutlet weak var iCloudStatusLabel: UILabel!
     @IBOutlet weak var iCloudSwitchLabel: UILabel!
     @IBOutlet weak var resetBookMarksSwitch: UISwitch!
+    @IBOutlet weak var onlyUnpaywallSwitch: UISwitch!
+    
     
     let settings = SettingsBundleHelper()
     let dataSync = DataSync()
@@ -77,6 +79,16 @@ class SettingsTabViewController: UIViewController {
                 self.shareSwitch.isOn = false
             }
         }
+        if(self.settings.getSettingsValue(key: "only_unpaywall")){
+            DispatchQueue.main.async {
+                self.onlyUnpaywallSwitch.isOn = true
+            }
+        }
+        else{
+            DispatchQueue.main.async {
+                self.onlyUnpaywallSwitch.isOn = false
+            }
+        }
     }
     
     func readSettingsForSwitches(){
@@ -103,6 +115,12 @@ class SettingsTabViewController: UIViewController {
         }
         else{
             resetBookMarksSwitch.isOn = false
+        }
+        if(self.settings.getSettingsValue(key: "only_unpaywall")){
+            onlyUnpaywallSwitch.isOn = true
+        }
+        else{
+            onlyUnpaywallSwitch.isOn = false
         }
     }
     
@@ -193,6 +211,15 @@ class SettingsTabViewController: UIViewController {
         }
         else{
             self.settings.setSettingsValue(value: false, key: "reset_bookmarks_icloud")
+        }
+    }
+    
+    @IBAction func onlyUnpawayllSwitched(_ sender: Any) {
+        if(self.onlyUnpaywallSwitch.isOn){
+            self.settings.setSettingsValue(value: true, key: "only_unpaywall")
+        }
+        else{
+            self.settings.setSettingsValue(value: false, key: "only_unpaywall")
         }
     }
     

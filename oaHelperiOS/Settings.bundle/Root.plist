@@ -42,16 +42,16 @@
 			<key>DefaultValue</key>
 			<string>0</string>
 		</dict>
-        <dict>
-            <key>Type</key>
-            <string>PSTitleValueSpecifier</string>
-            <key>Title</key>
-            <string>Bookmark Count</string>
-            <key>Key</key>
-            <string>bookmark_count</string>
-            <key>DefaultValue</key>
-            <string>0</string>
-        </dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Bookmark Count</string>
+			<key>Key</key>
+			<string>bookmark_count</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
@@ -76,16 +76,16 @@
 			<key>DefaultValue</key>
 			<string>-</string>
 		</dict>
-        <dict>
-            <key>Type</key>
-            <string>PSTitleValueSpecifier</string>
-            <key>Title</key>
-            <string>Last Synced</string>
-            <key>Key</key>
-            <string>sync_date</string>
-            <key>DefaultValue</key>
-            <string>-</string>
-        </dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Last Synced</string>
+			<key>Key</key>
+			<string>sync_date</string>
+			<key>DefaultValue</key>
+			<string>-</string>
+		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
@@ -120,20 +120,34 @@
 			<key>DefaultValue</key>
 			<false/>
 		</dict>
-        <dict>
-            <key>Type</key>
-            <string>PSToggleSwitchSpecifier</string>
-            <key>Title</key>
-            <string>Reset Bookmarks from iCloud</string>
-            <key>Key</key>
-            <string>reset_bookmarks_icloud</string>
-            <key>TrueValue</key>
-            <true/>
-            <key>FalseValue</key>
-            <false/>
-            <key>DefaultValue</key>
-            <false/>
-        </dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Reset Bookmarks from iCloud</string>
+			<key>Key</key>
+			<string>reset_bookmarks_icloud</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
+			<false/>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Only use unpaywall.org for alternatives</string>
+			<key>Key</key>
+			<string>only_unpaywall</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
+			<false/>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
 	</array>
 </dict>
 </plist>

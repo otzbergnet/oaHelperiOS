@@ -228,6 +228,7 @@ class ActionViewController: UIViewController {
     }
     
     func handleData(data: Data, doi: String){
+        let onlyUnpaywall = self.settings.getSettingsValue(key: "only_unpaywall")
         //sole purpose is to dispatch the url
         do{
             let oaData = try JSONDecoder().decode(Unpaywall.self, from: data)
@@ -288,10 +289,21 @@ class ActionViewController: UIViewController {
                 DispatchQueue.main.async {
                     let mySourceLabel = self.constructSource(data: oaData)
                     if let title = oaData.title{
-                        self.checkCore(doi: doi, title: title, sourceLabel: mySourceLabel)
+                        if(onlyUnpaywall){
+                            self.noOpenAccessFound(title: title, sourceLabel: mySourceLabel)
+                        }
+                        else{
+                            self.checkCore(doi: doi, title: title, sourceLabel: mySourceLabel)
+                        }
+                        
                     }
                     else{
-                        self.checkCore(doi: doi, title: "", sourceLabel: mySourceLabel)
+                        if(onlyUnpaywall){
+                            self.noOpenAccessFound(title: "", sourceLabel: mySourceLabel)
+                        }
+                        else{
+                            self.checkCore(doi: doi, title: "", sourceLabel: mySourceLabel)
+                        }
                     }
                     
                 }
@@ -302,19 +314,14 @@ class ActionViewController: UIViewController {
         catch let jsonError{
             //the most likely error here is that the DOI is actually invalid or oadoi API returns another errror
             DispatchQueue.main.async {
-                print(jsonError)
-//                self.activityIndicator.stopAnimating()
-//                self.activityIndicator.isHidden = true
-//                self.paperIcon.image = UIImage(named: "paper_no")
-//                self.headerLabel.text = NSLocalizedString("No Open Access available", comment: "No Open Access available")
-//                self.sourceLabel.text = ""
-//                self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa available")
-//                self.returnURLString = ""
-//                self.dismissButton.isHidden = false
-//                if(self.showBookMarkButton){
-//                    self.addBookMarkButton.isHidden = false
-//                }
-                self.checkCore(doi: doi, title: "", sourceLabel: "")
+                print(jsonError)                
+                if(onlyUnpaywall){
+                    self.noOpenAccessFound(title: "", sourceLabel: "")
+                }
+                else{
+                    self.checkCore(doi: doi, title: "", sourceLabel: "")
+                }
+                
             }
             return
         }
