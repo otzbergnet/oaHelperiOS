@@ -111,7 +111,8 @@ class TableViewController: UITableViewController {
     }
     
     func checkCore(search: String){
-        print("We are starting a search")
+        //print("We are starting a search")
+        
         self.loadingData = true
         let apiKey = self.hc.getAPIKeyFromPlist(key: "core")
         // if the apiKey is empty show an error, but we can't recover from it
@@ -122,12 +123,16 @@ class TableViewController: UITableViewController {
         
         let nextPage = self.page + 1
         self.page = nextPage
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         // lets get the data via the search
         self.hc.checkCore(search: search, apiKey: apiKey, page: nextPage) { (res) in
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
             self.loadingData = false
             switch res {
             case .success(let data):
-                print("we are done with a search")
+                //print("we are done with a search")
                 DispatchQueue.main.async {
                     
                     let myItems = self.handleCoreData(data: data)

@@ -162,8 +162,12 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
                 print("couldn't get API key")
                 return
             }
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             // lets get the data via the search
             self.helper.checkCore(search: search, apiKey: apiKey, page: 1) { ( res) in
+                DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }
                 switch res {
                 case .success(let data):
                     DispatchQueue.main.async {

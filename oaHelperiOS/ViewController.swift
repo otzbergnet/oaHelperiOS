@@ -184,7 +184,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return
         }
         // lets get the data via the search
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         self.helper.checkCore(search: search, apiKey: apiKey, page: 1) { (res) in
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
             switch res {
             case .success(let data):
                 DispatchQueue.main.async {
