@@ -228,7 +228,6 @@ class ActionViewController: UIViewController {
     }
     
     func handleData(data: Data, doi: String){
-        let onlyUnpaywall = self.settings.getSettingsValue(key: "only_unpaywall")
         //sole purpose is to dispatch the url
         do{
             let oaData = try JSONDecoder().decode(Unpaywall.self, from: data)
@@ -289,21 +288,10 @@ class ActionViewController: UIViewController {
                 DispatchQueue.main.async {
                     let mySourceLabel = self.constructSource(data: oaData)
                     if let title = oaData.title{
-                        if(onlyUnpaywall){
-                            self.noOpenAccessFound(title: title, sourceLabel: mySourceLabel)
-                        }
-                        else{
-                            self.checkCore(doi: doi, title: title, sourceLabel: mySourceLabel)
-                        }
-                        
+                        self.checkCore(doi: doi, title: title, sourceLabel: mySourceLabel)
                     }
                     else{
-                        if(onlyUnpaywall){
-                            self.noOpenAccessFound(title: "", sourceLabel: mySourceLabel)
-                        }
-                        else{
-                            self.checkCore(doi: doi, title: "", sourceLabel: mySourceLabel)
-                        }
+                        self.checkCore(doi: doi, title: "", sourceLabel: mySourceLabel)
                     }
                     
                 }
@@ -314,13 +302,8 @@ class ActionViewController: UIViewController {
         catch let jsonError{
             //the most likely error here is that the DOI is actually invalid or oadoi API returns another errror
             DispatchQueue.main.async {
-                print(jsonError)                
-                if(onlyUnpaywall){
-                    self.noOpenAccessFound(title: "", sourceLabel: "")
-                }
-                else{
-                    self.checkCore(doi: doi, title: "", sourceLabel: "")
-                }
+                print(jsonError)
+                self.checkCore(doi: doi, title: "", sourceLabel: "")
                 
             }
             return
@@ -328,6 +311,11 @@ class ActionViewController: UIViewController {
     }
     
     func checkCore(doi: String, title: String, sourceLabel: String){
+        let onlyUnpaywall = self.settings.getSettingsValue(key: "only_unpaywall")
+        if(onlyUnpaywall){
+            self.noOpenAccessFound(title: "", sourceLabel: "")
+            return
+        }
         let apiKey = self.helper.getAPIKeyFromPlist(key: "coreDiscovery")
         let jsonUrlString = "https://api.core.ac.uk/discovery/discover?doi=\(doi)&apiKey=\(apiKey)"
         let url = URL(string: jsonUrlString)
