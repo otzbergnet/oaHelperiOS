@@ -26,6 +26,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
     var searchStatement : [String] = []
     var apiData = Data()
     var stopSearch = false
+    var search = ""
  
     // variables used for the HUD control
     let messageFrame = UIView()
@@ -150,6 +151,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         let message = NSLocalizedString("Searching core.ac.uk for you", comment: "shows as soon as search is submitted")
         self.activityIndicator(message)
         let search = self.makeSearch()
+        self.search = search
         if(search != "" && !self.stopSearch){
             //print(search)
             // let's get the API key from the git-ignored plist (apikey)
@@ -160,8 +162,12 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
                 print("couldn't get API key")
                 return
             }
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             // lets get the data via the search
-            self.helper.checkCore(search: search, apiKey: apiKey) { ( res) in
+            self.helper.checkCore(search: search, apiKey: apiKey, page: 1) { ( res) in
+                DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }
                 switch res {
                 case .success(let data):
                     DispatchQueue.main.async {
@@ -219,6 +225,8 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == "advancedSearchResults" {
             if let nextViewController = segue.destination as? TableViewController {
                 nextViewController.apiData = self.apiData
+                nextViewController.search = self.search
+                nextViewController.page = 1
             }
         }
     }
