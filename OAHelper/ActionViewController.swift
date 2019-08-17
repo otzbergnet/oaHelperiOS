@@ -27,6 +27,7 @@ class ActionViewController: UIViewController {
     var urlAction = false
     var selectAction = false
     var showBookMarkButton = true
+    var showOpenAccessButton = true
     
     let settings = SettingsBundleHelper()
     let helper = HelperClass()
@@ -43,6 +44,7 @@ class ActionViewController: UIViewController {
         
         self.stats.submitStats()
         self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
+        self.showOpenAccessButton = self.settings.getSettingsValue(key: "open_access_button")
 
         guard let extensionItems = extensionContext?.inputItems as? [NSExtensionItem] else {
             return
@@ -195,30 +197,12 @@ class ActionViewController: UIViewController {
             if let error = error{
                 //we got an error, let's tell the user
                 print(error)
-//                self.activityIndicator.stopAnimating()
-//                self.paperIcon.image = UIImage(named: "paper_unknown")
-//                self.headerLabel.text = NSLocalizedString("We've encountered an error", comment: "We've encountered an error")
-//                self.sourceLabel.text = ""
-//                self.textView.text = ""
-//                self.returnURLString = ""
-//                self.dismissButton.isHidden = false
                 self.checkCore(doi: doi, title: "", sourceLabel: "")
             }
             if let data = data {
                 self.handleData(data: data, doi: doi)
             }
             else{
-//                self.activityIndicator.stopAnimating()
-//                self.activityIndicator.isHidden = true
-//                self.paperIcon.image = UIImage(named: "paper_no")
-//                self.headerLabel.text = NSLocalizedString("No Open Access found", comment: "No Open Access found")
-//                self.sourceLabel.text = ""
-//                self.textView.text = NSLocalizedString("We were unable to identify an Open Access Version of this document!", comment: "longer no oa text")
-//                self.returnURLString = ""
-//                self.dismissButton.isHidden = false
-//                if(self.showBookMarkButton){
-//                    self.addBookMarkButton.isHidden = false
-//                }
                 self.checkCore(doi: doi, title: "", sourceLabel: "")
             }
             
@@ -408,12 +392,34 @@ class ActionViewController: UIViewController {
                 self.paperIcon.image = UIImage(named: "paper_no")
                 if let encodedString = title.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
                     
-                    self.textView.text = NSLocalizedString("We were unable to find an Open Access version of this article. Please click the button below to search for the title of the article in core.ac.uk", comment: "unable to find OA")
-                    //self.returnURLString = "https://core.ac.uk/search?q=%22\(encodedString)%22"
-                    self.returnURLString = "oahelper://\(encodedString)"
-                    let titleTranslation = NSLocalizedString("Search core.ac.uk", comment: "Search core.ac.uk")
-                    self.actionButton.setTitle(titleTranslation, for: .normal)
-                    self.actionButton.backgroundColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
+                    
+                    
+                    if(self.showOpenAccessButton){
+                        let myOabUrl = self.bookMark.url
+                        let mydoi = self.bookMark.doi
+                        if (myOabUrl != ""){
+                            self.textView.text = NSLocalizedString("We were unable to find an Open Access version of this article. You can click the OpenAccessButton below, to try request it from the author.", comment: "unable to find OA")
+                            self.returnURLString = "https://openaccessbutton.org/request?url=\(myOabUrl)&doi=\(mydoi)"
+                            let titleTranslation = NSLocalizedString("Try OpenAccessButton", comment: "Open Access Button")
+                            self.actionButton.setTitle(titleTranslation, for: .normal)
+                            self.actionButton.backgroundColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
+                        }
+                        else{
+                            self.textView.text = NSLocalizedString("We were unable to find an Open Access version of this article. Please click the button below to search for the title of the article in core.ac.uk", comment: "unable to find OA")
+                            self.returnURLString = "oahelper://\(encodedString)"
+                            let titleTranslation = NSLocalizedString("Search core.ac.uk", comment: "Search core.ac.uk")
+                            self.actionButton.setTitle(titleTranslation, for: .normal)
+                            self.actionButton.backgroundColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
+                        }
+                    }
+                    else{
+                        self.textView.text = NSLocalizedString("We were unable to find an Open Access version of this article. Please click the button below to search for the title of the article in core.ac.uk", comment: "unable to find OA")
+                        self.returnURLString = "oahelper://\(encodedString)"
+                        let titleTranslation = NSLocalizedString("Search core.ac.uk", comment: "Search core.ac.uk")
+                        self.actionButton.setTitle(titleTranslation, for: .normal)
+                        self.actionButton.backgroundColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
+                    }
+                    
                     self.actionButton.isHidden = false
                     self.dismissButton.isHidden = false
                     if(self.showBookMarkButton){
