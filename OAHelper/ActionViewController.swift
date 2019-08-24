@@ -398,9 +398,9 @@ class ActionViewController: UIViewController {
                         let myOabUrl = self.bookMark.url
                         let mydoi = self.bookMark.doi
                         if (myOabUrl != ""){
-                            self.textView.text = NSLocalizedString("We were unable to find an Open Access version of this article. You can click the OpenAccessButton below, to try request it from the author.", comment: "unable to find OA")
+                            self.textView.text = NSLocalizedString("We were unable to find an Open Access version of this article. You can click the Open Access Button below, to try request it from the author.", comment: "unable to find OA")
                             self.returnURLString = "https://openaccessbutton.org/request?url=\(myOabUrl)&doi=\(mydoi)"
-                            let titleTranslation = NSLocalizedString("Try OpenAccessButton", comment: "Open Access Button")
+                            let titleTranslation = NSLocalizedString("Try Open Access Button", comment: "Open Access Button")
                             self.actionButton.setTitle(titleTranslation, for: .normal)
                             self.actionButton.backgroundColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
                         }
