@@ -19,6 +19,7 @@ class SettingsTabViewController: UIViewController {
     @IBOutlet weak var iCloudSwitchLabel: UILabel!
     @IBOutlet weak var resetBookMarksSwitch: UISwitch!
     @IBOutlet weak var onlyUnpaywallSwitch: UISwitch!
+    @IBOutlet weak var openAccessButtonSwitch: UISwitch!
     
     
     let settings = SettingsBundleHelper()
@@ -84,6 +85,11 @@ class SettingsTabViewController: UIViewController {
                 self.onlyUnpaywallSwitch.isOn = true
             }
         }
+        if(self.settings.getSettingsValue(key: "open_access_button")){
+            DispatchQueue.main.async {
+                self.openAccessButtonSwitch.isOn = true
+            }
+        }
         else{
             DispatchQueue.main.async {
                 self.onlyUnpaywallSwitch.isOn = false
@@ -121,6 +127,12 @@ class SettingsTabViewController: UIViewController {
         }
         else{
             onlyUnpaywallSwitch.isOn = false
+        }
+        if(self.settings.getSettingsValue(key: "open_access_button")){
+            openAccessButtonSwitch.isOn = true
+        }
+        else{
+            openAccessButtonSwitch.isOn = false
         }
     }
     
@@ -220,6 +232,15 @@ class SettingsTabViewController: UIViewController {
         }
         else{
             self.settings.setSettingsValue(value: false, key: "only_unpaywall")
+        }
+    }
+    
+    @IBAction func openAccessButtonSwitched(_ sender: Any) {
+        if(self.openAccessButtonSwitch.isOn){
+            self.settings.setSettingsValue(value: true, key: "open_access_button")
+        }
+        else{
+            self.settings.setSettingsValue(value: false, key: "open_access_button")
         }
     }
     
