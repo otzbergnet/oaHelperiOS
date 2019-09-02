@@ -783,30 +783,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UEp-7m-ecA">
-                                <rect key="frame" x="16" y="356" width="51" height="31"/>
-                                <connections>
-                                    <action selector="iCloudSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="VB2-MW-QtG"/>
-                                    <action selector="iCloudSwitched:" destination="68n-8o-H12" eventType="valueChanged" id="YW7-6v-3JG"/>
-                                </connections>
-                            </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lGb-Mk-usE">
-                                <rect key="frame" x="16" y="310" width="51" height="31"/>
-                                <connections>
-                                    <action selector="bookMarksSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="Uhe-X9-5Kc"/>
-                                    <action selector="bookMarksSwitched:" destination="68n-8o-H12" eventType="valueChanged" id="i83-88-z0g"/>
-                                </connections>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Sync Bookmarks " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwD-N7-YbI">
-                                <rect key="frame" x="74" y="361" width="230" height="20.5"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDj-8Q-Y1N">
-                                <rect key="frame" x="74" y="315" width="230" height="21"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Zyc-7x-ecY" userLabel="enableBookmarksStack">
+                                <rect key="frame" x="16" y="310" width="288" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDj-8Q-Y1N">
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="31"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lGb-Mk-usE">
+                                        <rect key="frame" x="239" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="bookMarksSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="Uhe-X9-5Kc"/>
+                                            <action selector="bookMarksSwitched:" destination="68n-8o-H12" eventType="valueChanged" id="i83-88-z0g"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="97z-Se-YN7" userLabel="iCloudSyncBookmarksStack">
+                                <rect key="frame" x="16" y="356" width="288" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Sync Bookmarks " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwD-N7-YbI">
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="31"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UEp-7m-ecA">
+                                        <rect key="frame" x="239" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="iCloudSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="VB2-MW-QtG"/>
+                                            <action selector="iCloudSwitched:" destination="68n-8o-H12" eventType="valueChanged" id="YW7-6v-3JG"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AE-wr-UX8">
                                 <rect key="frame" x="16" y="80" width="288" height="205"/>
                                 <string key="text">This feature is currently not enabled.
@@ -842,40 +852,36 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Y24-KQ-war" firstAttribute="trailing" secondItem="IwD-N7-YbI" secondAttribute="trailing" constant="16" id="D9m-9b-axC">
+                            <constraint firstItem="97z-Se-YN7" firstAttribute="leading" secondItem="Y24-KQ-war" secondAttribute="leading" constant="16" id="0L7-kw-010">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
-                            <constraint firstItem="UEp-7m-ecA" firstAttribute="top" secondItem="lGb-Mk-usE" secondAttribute="bottom" constant="15" id="HJO-sf-zrf"/>
+                            <constraint firstItem="Y24-KQ-war" firstAttribute="trailing" secondItem="97z-Se-YN7" secondAttribute="trailing" constant="16" id="0ee-a8-NJa">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="Zyc-7x-ecY" firstAttribute="top" secondItem="6AE-wr-UX8" secondAttribute="bottom" constant="25" id="2fC-Du-Ct1"/>
+                            <constraint firstItem="Y24-KQ-war" firstAttribute="trailing" secondItem="Zyc-7x-ecY" secondAttribute="trailing" constant="16" id="I93-Bm-g2H">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="Y24-KQ-war" firstAttribute="trailing" secondItem="cdj-kF-7Wg" secondAttribute="trailing" constant="16" id="KZm-sN-mxU">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
                             <constraint firstItem="6AE-wr-UX8" firstAttribute="top" secondItem="Y24-KQ-war" secondAttribute="top" constant="16" id="M8C-5v-lTc"/>
-                            <constraint firstItem="lGb-Mk-usE" firstAttribute="leading" secondItem="Y24-KQ-war" secondAttribute="leading" constant="16" id="Osv-T1-92E">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
-                            <constraint firstItem="IwD-N7-YbI" firstAttribute="leading" secondItem="UEp-7m-ecA" secondAttribute="trailing" constant="9" id="Qbw-wC-KV2"/>
                             <constraint firstItem="Y24-KQ-war" firstAttribute="trailing" secondItem="yEY-vv-WBU" secondAttribute="trailing" constant="16" id="UqE-Yl-upN">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
+                            <constraint firstItem="97z-Se-YN7" firstAttribute="top" secondItem="Zyc-7x-ecY" secondAttribute="bottom" constant="15" id="Uzn-o0-OfR"/>
                             <constraint firstItem="Y24-KQ-war" firstAttribute="trailing" secondItem="6AE-wr-UX8" secondAttribute="trailing" constant="16" id="Vpa-i4-HgU">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
                             <constraint firstItem="6AE-wr-UX8" firstAttribute="leading" secondItem="Y24-KQ-war" secondAttribute="leading" constant="16" id="WY5-46-bM7">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
-                            <constraint firstItem="lGb-Mk-usE" firstAttribute="top" secondItem="6AE-wr-UX8" secondAttribute="bottom" constant="25" id="Z0U-FZ-MCe"/>
                             <constraint firstItem="cdj-kF-7Wg" firstAttribute="top" secondItem="yEY-vv-WBU" secondAttribute="bottom" constant="25" id="Znn-G1-Hqu"/>
-                            <constraint firstItem="xDj-8Q-Y1N" firstAttribute="leading" secondItem="lGb-Mk-usE" secondAttribute="trailing" constant="9" id="bhk-go-Rul"/>
-                            <constraint firstItem="IwD-N7-YbI" firstAttribute="top" secondItem="xDj-8Q-Y1N" secondAttribute="bottom" constant="25" id="fHW-tp-nsg"/>
-                            <constraint firstItem="xDj-8Q-Y1N" firstAttribute="top" secondItem="6AE-wr-UX8" secondAttribute="bottom" constant="30" id="rhz-MY-pr7"/>
                             <constraint firstItem="Y24-KQ-war" firstAttribute="bottom" secondItem="cdj-kF-7Wg" secondAttribute="bottom" constant="15" id="rnb-fH-n5T"/>
-                            <constraint firstItem="Y24-KQ-war" firstAttribute="trailing" secondItem="xDj-8Q-Y1N" secondAttribute="trailing" constant="16" id="sSE-PP-ydc">
+                            <constraint firstItem="Zyc-7x-ecY" firstAttribute="leading" secondItem="Y24-KQ-war" secondAttribute="leading" constant="16" id="tMK-6l-V5e">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
                             <constraint firstItem="yEY-vv-WBU" firstAttribute="leading" secondItem="Y24-KQ-war" secondAttribute="leading" constant="16" id="tcL-6W-X5p">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
-                            <constraint firstItem="UEp-7m-ecA" firstAttribute="leading" secondItem="Y24-KQ-war" secondAttribute="leading" constant="16" id="v8c-LQ-b77">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
                             <constraint firstItem="cdj-kF-7Wg" firstAttribute="leading" secondItem="Y24-KQ-war" secondAttribute="leading" constant="16" id="xSR-la-lk7">
