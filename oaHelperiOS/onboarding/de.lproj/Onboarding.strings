@@ -34,6 +34,6 @@
 "HaA-at-RLi.normalTitle" = "Einstellungen öffnen";
 
 "iCloud Available" = "iCloud verfügbar";
-"Sadly, your iCloud account seems unavailable. We've disabled the iCloud option for you." = "Leider, scheint kein iCloud Konto verfügbar. Die iCloud Option wurde für Dich deaktiviert.";
-"iOS reports iCloud status as restricted. We've disabled the iCloud option for you." = "Ihr iCloud Konto wird von iOS als eingeschränkt gemeldet. Die iCloud Option wurde für Dich deaktiviert.";
-"Unable to determine iCloud status. We've disabled the iCloud option for you." = "Der iCloud Status konnte nicht ermittelt werden. Die iCloud Option wurde für Dich deaktiviert.";
+"Sadly, your iCloud account seems unavailable. We've disabled the iCloud option for you." = "Leider, scheint kein iCloud Konto verfügbar. Die iCloud Option wurde für Sie deaktiviert.";
+"iOS reports iCloud status as restricted. We've disabled the iCloud option for you." = "Ihr iCloud Konto wird von iOS als eingeschränkt gemeldet. Die iCloud Option wurde für Sie deaktiviert.";
+"Unable to determine iCloud status. We've disabled the iCloud option for you." = "Der iCloud Status konnte nicht ermittelt werden. Die iCloud Option wurde für Sie deaktiviert.";
