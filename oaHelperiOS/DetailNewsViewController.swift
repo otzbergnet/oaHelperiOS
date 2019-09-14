@@ -38,7 +38,10 @@ class DetailNewsViewController: UIViewController {
         bodyText.setContentOffset(CGPoint.zero, animated: false)
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 

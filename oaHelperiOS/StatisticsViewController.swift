@@ -39,6 +39,7 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
         setExplainerLabelDefault()
         createStatisticsObject()
         tableView.reloadData()
+        
     }
     
     func setExplainerLabelDefault(){

@@ -54,7 +54,10 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         self.view.addGestureRecognizer(tapGesture)
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         doResignFirstResponder()
     }

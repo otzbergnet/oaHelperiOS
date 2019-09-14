@@ -86,6 +86,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.networkAvailable()
     }
 
+
     // MARK:  NotificationCenter Observer Functions
     
     @objc func didBecomeActive() {

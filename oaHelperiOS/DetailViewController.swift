@@ -61,6 +61,10 @@ class DetailViewController: UIViewController {
         //resizeView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
     // MARK: - Data Handling
     
     func createDetailData(num : Int){
