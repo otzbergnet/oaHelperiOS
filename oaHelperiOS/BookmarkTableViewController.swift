@@ -64,6 +64,7 @@ class BookmarkTableViewController: UITableViewController {
         self.tableView.reloadData()
         self.initiateSync()
         self.showCloudSyncButton()
+        
     }
     
     @objc func refreshData(refreshControl: UIRefreshControl) {
@@ -423,7 +424,12 @@ class BookmarkTableViewController: UITableViewController {
     
     func showCloudSyncButton(){
         if(!self.settings.getSettingsValue(key: "bookmarks_icloud")){
-            self.cloudSyncButton.tintColor = UIColor(red: 0.988, green: 0.631, blue: 0.216, alpha: 1.00);
+            if traitCollection.userInterfaceStyle == .light {
+                self.cloudSyncButton.tintColor = UIColor(red: 0.988, green: 0.631, blue: 0.216, alpha: 1.00)
+            } else {
+                self.cloudSyncButton.tintColor = UIColor(red: 0.914, green: 0.557, blue: 0.165, alpha: 1.00)
+            }
+            
         }
         else{
             self.cloudSyncButton.tintColor = UIColor.black

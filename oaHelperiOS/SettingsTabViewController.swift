@@ -45,6 +45,10 @@ class SettingsTabViewController: UIViewController {
         readSettingsForSwitches()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver( self, name: UserDefaults.didChangeNotification, object: nil)
     }

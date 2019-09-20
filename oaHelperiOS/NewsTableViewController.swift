@@ -54,6 +54,9 @@ class NewsTableViewController: UITableViewController {
         self.updateUnreadCount();
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
     
     @objc func refreshData(refreshControl: UIRefreshControl) {
         newsItemData.getNews(forced: true) { ( res) in

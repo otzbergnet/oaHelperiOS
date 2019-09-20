@@ -249,7 +249,8 @@ class ActionViewController: UIViewController {
                         let oaTypeImg = "\(myOaType)_oa"
                         self.oaLogo.image = UIImage(named: oaTypeImg)
                         self.oaLogo.isHidden = false
-                        self.oaTypeLabel.text = "\(myOaType.capitalizingFirstLetter()) Open Access"
+                        let oaVersion = self.getOpenAccessVersion(data: oaData)
+                        self.oaTypeLabel.text = "\(myOaType.capitalizingFirstLetter()) Open Access\(oaVersion)"
                     }
                 }
                 else{
@@ -578,6 +579,23 @@ class ActionViewController: UIViewController {
         }
         
         return color
+    }
+    
+    func getOpenAccessVersion(data: Unpaywall) -> String{
+        if let version = data.best_oa_location?.version{
+            switch version{
+                case "submittedVersion":
+                    return NSLocalizedString(": Submitted Version", comment: "submittedVersion")
+                case "acceptedVersion":
+                    return NSLocalizedString(": Accepted Version", comment: "acceptedVersion")
+                case "publishedVersion":
+                    return NSLocalizedString(": Published Version", comment: "publishedVersion")
+                default:
+                    return ""
+            }
+            
+        }
+        return ""
     }
     
     func setupEmptyView(){

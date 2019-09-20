@@ -36,6 +36,9 @@ class TableViewController: UITableViewController {
         self.title = self.hits
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
     
     // MARK: - Table view data source
     
