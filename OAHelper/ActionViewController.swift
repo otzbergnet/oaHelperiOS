@@ -36,6 +36,7 @@ class ActionViewController: UIViewController {
     let bookMark = BookMarkObject()
     let bookMarkData = BookMarkData()
     
+    var year : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -215,6 +216,12 @@ class ActionViewController: UIViewController {
         //sole purpose is to dispatch the url
         do{
             let oaData = try JSONDecoder().decode(Unpaywall.self, from: data)
+            if let unpaywallYear = oaData.year{
+                self.year = unpaywallYear
+            }
+            else{
+                self.year = 0
+            }
             if let boa = oaData.best_oa_location {
                 if (boa.url != "") {
                     // open acces
@@ -396,9 +403,12 @@ class ActionViewController: UIViewController {
                     
                     
                     if(self.showOpenAccessButton){
+                        
+                        let fiveYearsAgo = self.getFiveYearsAgo();
+                        
                         let myOabUrl = self.bookMark.url
                         let mydoi = self.bookMark.doi
-                        if (myOabUrl != ""){
+                        if (myOabUrl != "" && self.year > fiveYearsAgo){
                             self.textView.text = NSLocalizedString("We were unable to find an Open Access version of this article. You can click the Open Access Button below, to try request it from the author.", comment: "unable to find OA")
                             self.returnURLString = "https://openaccessbutton.org/request?url=\(myOabUrl)&doi=\(mydoi)"
                             let titleTranslation = NSLocalizedString("Try Open Access Button", comment: "Open Access Button")
@@ -627,6 +637,13 @@ class ActionViewController: UIViewController {
     func stopActivity(){
         self.activityIndicator.stopAnimating()
         self.activityIndicator.isHidden = true
+    }
+    
+    func getFiveYearsAgo() -> Int{
+        let date = Date()
+        let calendar = Calendar.current
+        let currentYear = calendar.component(.year, from: date)
+        return currentYear - 6
     }
     
 }
