@@ -52,6 +52,26 @@
 			<key>DefaultValue</key>
 			<string>0</string>
 		</dict>
+        <dict>
+            <key>Type</key>
+            <string>PSTitleValueSpecifier</string>
+            <key>Title</key>
+            <string>Core Recommendations Found</string>
+            <key>Key</key>
+            <string>recommendation_count</string>
+            <key>DefaultValue</key>
+            <string>0</string>
+        </dict>
+        <dict>
+            <key>Type</key>
+            <string>PSTitleValueSpecifier</string>
+            <key>Title</key>
+            <string>Core Recommendations Tapped</string>
+            <key>Key</key>
+            <string>recommendation_view</string>
+            <key>DefaultValue</key>
+            <string>0</string>
+        </dict>
 		<dict>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
@@ -64,7 +84,7 @@
 			<key>FalseValue</key>
 			<false/>
 			<key>DefaultValue</key>
-			<string>NO</string>
+			<false/>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -160,7 +180,21 @@
 			<key>FalseValue</key>
 			<false/>
 			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Show core.ac.uk Recommendations</string>
+			<key>Key</key>
+			<string>recommendation</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
 			<false/>
+			<key>DefaultValue</key>
+			<true/>
 		</dict>
 	</array>
 </dict>

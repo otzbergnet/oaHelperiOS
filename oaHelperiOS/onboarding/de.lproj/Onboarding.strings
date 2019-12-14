@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "OA Helper isn't active by default. To enusre it's there, go to Safari now, and click the share icon.\n\nScroll to the right and click \"more...\" then activate OAHelper and drag it up the list, for easy access.\n\nClick the button below and we'll show you how!"; ObjectID = "Dro-VJ-mVt"; */
-"Dro-VJ-mVt.text" = "OA Helper muss erst aktiviert werden. Stellen Sie sicher, dass OA Helper aktiv ist, indem Sie nun Safari öffnen und dann das Teilen-Icon drücken.\n\nWischen Sie ganz nach rechts, drücken Sie \"mehr...\" und aktivieren Sie OA Helper für schnellen Zugriff.\n\nDer Knopf unten, zeigt, wie es geht!";
+"Dro-VJ-mVt.text" = "OA Helper muss erst aktiviert werden. Stellen Sie sicher, dass OA Helper aktiv ist, indem Sie nun Safari öffnen und dann das Teilen-Icon drücken.\n\nScrollen Sie ganz nach unten, drücken Sie \"mehr...\" und aktivieren Sie OA Helper für schnellen Zugriff.\n\nDer Knopf unten, zeigt, wie es geht!";
 
 /* Class = "UILabel"; text = "Welcome!"; ObjectID = "U1Z-Q0-66y"; */
 "U1Z-Q0-66y.text" = "Willkommen!";

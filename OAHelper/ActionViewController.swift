@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import MobileCoreServices
 
-class ActionViewController: UIViewController {
+class ActionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
@@ -22,12 +22,23 @@ class ActionViewController: UIViewController {
     @IBOutlet weak var oaTypeLabel: UILabel!
     @IBOutlet weak var addBookMarkButton: UIButton!
     @IBOutlet weak var paperIcon: UIImageView!
+    @IBOutlet weak var poweredByLabel: UILabel!
+    @IBOutlet weak var poweredByImage: UIImageView!
+    
+    
+   
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewActivityIndicator: UIActivityIndicatorView!
+
+    @IBOutlet weak var coreRecommenderLabel: UILabel!
+    
     
     var returnURLString = ""
     var urlAction = false
     var selectAction = false
     var showBookMarkButton = true
     var showOpenAccessButton = true
+    var showRecommendations = true
     
     let settings = SettingsBundleHelper()
     let helper = HelperClass()
@@ -36,16 +47,29 @@ class ActionViewController: UIViewController {
     let bookMark = BookMarkObject()
     let bookMarkData = BookMarkData()
     
+    //MARK: Core Recommender Related Variables
+    
+    var recommendations : [CoreRecommendations] = []
+    let recommendationObject = CoreRequestObject()
+    let recommenderHelper = RecommenderHelper()
+    var recommendationText = ""
+
+    
     var year : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         
         setupEmptyView()
+        
+        self.settings.ensureSettingsAreRegistered()
         
         self.stats.submitStats()
         self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
         self.showOpenAccessButton = self.settings.getSettingsValue(key: "open_access_button")
+        self.showRecommendations = self.settings.getSettingsValue(key: "recommendation")
 
         guard let extensionItems = extensionContext?.inputItems as? [NSExtensionItem] else {
             return
@@ -127,17 +151,24 @@ class ActionViewController: UIViewController {
                                         self.headerLabel.text = "Digital Object Identifier"
                                         self.textView.text = urlString
                                         self.bookMark.url = urlString
+                                        self.recommendationObject.referer = urlString
                                     }
                                 }
                                 if let titleString = results["docTitle"] as? String{
                                     self.bookMark.title = titleString
+                                    self.recommendationObject.title = titleString
                                 }
+                                
+                                if let abstractString = results["abstract"] as? String{
+                                    self.recommendationObject.aabstract = abstractString
+                                }
+                                
                                 if let doiString = results["doi"] as? String {
                                     if doiString != "0" {
                                         self.bookMark.doi = doiString
+                                        self.recommendationObject.doi = doiString
                                         DispatchQueue.main.async {
                                             self.textView.text += "\n\(doiString)"
-                                            
                                         }
                                         self.checkUnpaywall(doi: doiString)
                                     }
@@ -154,6 +185,9 @@ class ActionViewController: UIViewController {
                                             self.dismissButton.isHidden = false
                                             if(self.showBookMarkButton){
                                                 self.addBookMarkButton.isHidden = false
+                                            }
+                                            else{
+                                                self.hideBookmarkButtonCompletely()
                                             }
                                             
                                         }
@@ -174,6 +208,9 @@ class ActionViewController: UIViewController {
                                         if(self.showBookMarkButton){
                                             self.addBookMarkButton.isHidden = false
                                         }
+                                        else{
+                                            self.hideBookmarkButtonCompletely()
+                                        }
                                     }
                                 }
                                 
@@ -190,6 +227,7 @@ class ActionViewController: UIViewController {
 
     
     func checkUnpaywall(doi: String) {
+        self.getCoreRecommendations()
         self.bookMark.doi = doi
         let jsonUrlString = "https://api.unpaywall.org/v2/\(doi)?email=oahelper@otzberg.net"
         let url = URL(string: jsonUrlString)
@@ -224,13 +262,14 @@ class ActionViewController: UIViewController {
             }
             if let boa = oaData.best_oa_location {
                 if (boa.url != "") {
+                    self.showRecommendations = false  // there is open access, so lets not show recommendations
+                    self.hideAllRecommenderRelatedStuff()
                     // open acces
                     DispatchQueue.main.async {
                         self.activityIndicator.stopAnimating()
                         self.activityIndicator.isHidden = true
                         self.paperIcon.image = UIImage(named: "paper_ok")
                         if let title = oaData.title {
-                            
                             self.headerLabel.text = title
                             self.bookMark.title = title
                         }
@@ -248,6 +287,9 @@ class ActionViewController: UIViewController {
                         self.actionButton.isHidden = false
                         if(self.showBookMarkButton){
                             self.addBookMarkButton.isHidden = false
+                        }
+                        else{
+                            self.hideBookmarkButtonCompletely()
                         }
                         self.dismissButton.isHidden = false
                         self.urlAction = true
@@ -340,6 +382,8 @@ class ActionViewController: UIViewController {
             if let boa = coreData.fullTextLink {
                 if (boa != "") {
                     //we have open access
+                    self.showRecommendations = false // there was open access so let's not show recommendations
+                    self.hideAllRecommenderRelatedStuff()
                     DispatchQueue.main.async {
                         self.activityIndicator.stopAnimating()
                         self.activityIndicator.isHidden = true
@@ -362,6 +406,9 @@ class ActionViewController: UIViewController {
                         self.actionButton.isHidden = false
                         if(self.showBookMarkButton){
                             self.addBookMarkButton.isHidden = false
+                        }
+                        else{
+                            self.hideBookmarkButtonCompletely()
                         }
                         self.dismissButton.isHidden = false
                         self.urlAction = true
@@ -409,7 +456,11 @@ class ActionViewController: UIViewController {
                         let myOabUrl = self.bookMark.url
                         let mydoi = self.bookMark.doi
                         if (myOabUrl != "" && self.year > fiveYearsAgo){
+                            
                             self.textView.text = NSLocalizedString("We were unable to find an Open Access version of this article. You can click the Open Access Button below, to try request it from the author.", comment: "unable to find OA")
+                            if(self.recommendationText != ""){
+                                self.textView.text += "\n\n\(self.recommendationText)"
+                            }
                             self.returnURLString = "https://openaccessbutton.org/request?url=\(myOabUrl)&doi=\(mydoi)"
                             let titleTranslation = NSLocalizedString("Try Open Access Button", comment: "Open Access Button")
                             self.actionButton.setTitle(titleTranslation, for: .normal)
@@ -417,6 +468,9 @@ class ActionViewController: UIViewController {
                         }
                         else{
                             self.textView.text = NSLocalizedString("We were unable to find an Open Access version of this article. Please click the button below to search for the title of the article in core.ac.uk", comment: "unable to find OA")
+                            if(self.recommendationText != ""){
+                                self.textView.text += "\n\n\(self.recommendationText)"
+                            }
                             self.returnURLString = "oahelper://\(encodedString)"
                             let titleTranslation = NSLocalizedString("Search core.ac.uk", comment: "Search core.ac.uk")
                             self.actionButton.setTitle(titleTranslation, for: .normal)
@@ -425,6 +479,9 @@ class ActionViewController: UIViewController {
                     }
                     else{
                         self.textView.text = NSLocalizedString("We were unable to find an Open Access version of this article. Please click the button below to search for the title of the article in core.ac.uk", comment: "unable to find OA")
+                        if(self.recommendationText != ""){
+                            self.textView.text += "\n\n\(self.recommendationText)"
+                        }
                         self.returnURLString = "oahelper://\(encodedString)"
                         let titleTranslation = NSLocalizedString("Search core.ac.uk", comment: "Search core.ac.uk")
                         self.actionButton.setTitle(titleTranslation, for: .normal)
@@ -435,6 +492,9 @@ class ActionViewController: UIViewController {
                     self.dismissButton.isHidden = false
                     if(self.showBookMarkButton){
                         self.addBookMarkButton.isHidden = false
+                    }
+                    else{
+                        self.hideBookmarkButtonCompletely()
                     }
                     self.urlAction = false
                     self.selectAction = false
@@ -449,6 +509,9 @@ class ActionViewController: UIViewController {
                 self.dismissButton.isHidden = false
                 if(self.showBookMarkButton){
                     self.addBookMarkButton.isHidden = false
+                }
+                else{
+                    self.hideBookmarkButtonCompletely()
                 }
             }
         }
@@ -614,7 +677,7 @@ class ActionViewController: UIViewController {
         
         addBookMarkButton.isHidden = true
         addBookMarkButton.layer.cornerRadius = 10
-        
+                
         dismissButton.isHidden = true
         dismissButton.layer.cornerRadius = 10
         
@@ -632,6 +695,17 @@ class ActionViewController: UIViewController {
         
         let addBookmarkButtonText = NSLocalizedString("Add Bookmark", comment: "Add bookmark")
         self.addBookMarkButton.setTitle(addBookmarkButtonText, for: .normal)
+        
+        tableView.isHidden = true
+        tableViewActivityIndicator.isHidden = true
+        coreRecommenderLabel.isHidden = true
+        self.poweredByImage.isHidden = true
+        self.poweredByLabel.isHidden = true
+    }
+    
+    func hideBookmarkButtonCompletely(){
+        //NSLayoutConstraint(item: self.addBookMarkButton as Any, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.actionButton, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: self.addBookMarkButton as Any, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 0).isActive = true
     }
     
     func stopActivity(){
@@ -644,6 +718,105 @@ class ActionViewController: UIViewController {
         let calendar = Calendar.current
         let currentYear = calendar.component(.year, from: date)
         return currentYear - 6
+    }
+    
+    //MARK: CORE Recommender Related Stuff
+    
+    func getCoreRecommendations(){
+        print("do core recommendations")
+        if(!self.showRecommendations){
+            print("no recommendations desired")
+            return
+        }
+        
+        DispatchQueue.main.async {
+            self.coreRecommenderLabel.isHidden = false
+            self.tableViewActivityIndicator.isHidden = false
+            self.poweredByImage.isHidden = false
+            self.poweredByLabel.isHidden = false
+            self.tableViewActivityIndicator.startAnimating()
+        }
+        self.recommenderHelper.askForRecommendation(metaData: self.recommendationObject) { (res) in
+            switch res{
+            case .success(let coreRecommends):
+                // let's check if there are recommendations and then display
+                
+                if(!self.showRecommendations){
+                    print("if we got here and this is false, then there was open access")
+                    self.hideAllRecommenderRelatedStuff()
+                    return
+                }
+                
+                if(coreRecommends.data.count > 0){
+                    print("there were results")
+                    
+                    DispatchQueue.main.async {
+                        self.recommendationText = NSLocalizedString("Scroll down, we found some Open Access recommendations!", comment: "we found some OA recommendations")
+                        self.textView.text += "\n\n\(self.recommendationText)"
+                        self.settings.incrementOACount(key: "recommendation_count")
+                        self.tableViewActivityIndicator.isHidden = true
+                        self.tableViewActivityIndicator.stopAnimating()
+                        self.tableView.isHidden = false
+                        self.recommendations = coreRecommends.data
+                        self.tableView.reloadData()
+                    }
+                }
+                else{
+                    // there was nothing
+                    print("there were 0 hits")
+                    self.hideAllRecommenderRelatedStuff()
+                }
+                
+            case .failure(let error):
+                //I hate my life right now
+                print("there was an error: \(error)")
+                self.hideAllRecommenderRelatedStuff()
+            }
+        }
+    }
+    
+    func hideAllRecommenderRelatedStuff(){
+        DispatchQueue.main.async {
+            self.coreRecommenderLabel.isHidden = true
+            self.tableViewActivityIndicator.isHidden = true
+            self.tableViewActivityIndicator.stopAnimating()
+            self.poweredByImage.isHidden = true
+            self.poweredByLabel.isHidden = true
+        }
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.recommendations.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recommenderCell", for: indexPath)
+        let recommendation = self.recommendations[indexPath.row]
+        cell.textLabel?.text = recommendation.title
+        cell.detailTextLabel?.text = "\(recommendation.year) \(recommendation.author)"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let thisRecommendation = self.recommendations[indexPath.row]
+        let thisLink = thisRecommendation.link
+        
+        if(thisLink == ""){
+            return
+        }
+        
+        let extensionItem = NSExtensionItem()
+        let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "returnUrl" : thisLink] ]
+        extensionItem.attachments = [ NSItemProvider(item: jsDict as NSSecureCoding?, typeIdentifier: kUTTypePropertyList as String)]
+        self.settings.incrementOACount(key: "recommendation_view")
+        self.extensionContext!.completeRequest(returningItems: [extensionItem], completionHandler: nil)
+        
     }
     
 }

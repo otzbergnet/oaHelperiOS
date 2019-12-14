@@ -3,7 +3,7 @@ var GetURL = function() {};
 GetURL.prototype = {
 
 run: function(arguments) {
-    arguments.completionFunction({ "currentUrl" : document.URL, "docTitle" : document.title, "doi" : findDoi() });
+    arguments.completionFunction({ "currentUrl" : document.URL, "docTitle" : document.title, "doi" : findDoi(), "abstract" : findAbstract() });
 },
     
 finalize: function(arguments) {
@@ -101,6 +101,24 @@ function cleanDOI(doi){
     return doi;
 }
 
+function findAbstract(){
+    var locations = ['DC.description', 'DCTERMS.abstract', 'eprints.abstract', 'description'];
+    var abstract = "0";
+    
+    for(i = 0; i < locations.length; i++){
+        if(abstract == "0"){
+           abstract = getMeta(locations[i]);
+        }
+    }
+    var ogLocation = ['og:description'];
+    for(j = 0; j < ogLocation.length; j++){
+        if(abstract == "0"){
+           abstract = getMetaProperty(ogLocation[j]);
+        }
+    }
+    return abstract;
+}
+
 function getMeta(metaName) {
     // get meta tags and loop through them. Looking for the name attribute and see if it is the metaName
     // we were looking for
@@ -121,6 +139,18 @@ function getMetaScheme(metaName, scheme){
     
     for (let i = 0; i < metas.length; i++) {
         if (metas[i].getAttribute('name') === metaName && metas[i].getAttribute('scheme') === scheme) {
+            return metas[i].getAttribute('content');
+        }
+    }
+    
+    return "0";
+}
+
+function getMetaProperty(metaName){
+    const metas = document.getElementsByTagName('meta');
+    
+    for (let i = 0; i < metas.length; i++) {
+        if (metas[i].getAttribute('property') === metaName) {
             return metas[i].getAttribute('content');
         }
     }
