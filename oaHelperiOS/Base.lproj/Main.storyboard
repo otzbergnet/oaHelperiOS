@@ -259,7 +259,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JJr-Ge-nca" secondAttribute="trailing" constant="20" id="gBg-ZT-p37">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
-                            <constraint firstItem="0EK-mq-2BI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="268" id="lx1-Aw-KY8"/>
+                            <constraint firstItem="0EK-mq-2BI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="268" id="lx1-Aw-KY8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aEM-QZ-eEg" secondAttribute="trailing" constant="20" id="ocU-rY-OCV">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>

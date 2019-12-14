@@ -799,7 +799,14 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "recommenderCell", for: indexPath)
         let recommendation = self.recommendations[indexPath.row]
         cell.textLabel?.text = recommendation.title
-        cell.detailTextLabel?.text = "(\(recommendation.year)) \(recommendation.author)"
+        var sourceLabel = "";
+        if(recommendation.year != ""){
+           sourceLabel = "(\(recommendation.year)) \(recommendation.author)"
+        }
+        else{
+            sourceLabel = "\(recommendation.author)"
+        }
+        cell.detailTextLabel?.text = sourceLabel
         return cell
     }
     
