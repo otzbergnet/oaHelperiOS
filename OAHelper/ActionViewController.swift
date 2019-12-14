@@ -262,7 +262,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             }
             if let boa = oaData.best_oa_location {
                 if (boa.url != "") {
-                    self.showRecommendations = false  // there is open access, so lets not show recommendations
+                    self.showRecommendations = false  // there is open access, show no recommendations, it will recommend the OA version
                     self.hideAllRecommenderRelatedStuff()
                     // open acces
                     DispatchQueue.main.async {
@@ -382,7 +382,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             if let boa = coreData.fullTextLink {
                 if (boa != "") {
                     //we have open access
-                    self.showRecommendations = false // there was open access so let's not show recommendations
+                    self.showRecommendations = false   // there is open access, show no recommendations, it will recommend the OA version
                     self.hideAllRecommenderRelatedStuff()
                     DispatchQueue.main.async {
                         self.activityIndicator.stopAnimating()
@@ -726,6 +726,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         print("do core recommendations")
         if(!self.showRecommendations){
             print("no recommendations desired")
+            self.hideAllRecommenderRelatedStuff()
             return
         }
         
@@ -798,7 +799,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "recommenderCell", for: indexPath)
         let recommendation = self.recommendations[indexPath.row]
         cell.textLabel?.text = recommendation.title
-        cell.detailTextLabel?.text = "\(recommendation.year) \(recommendation.author)"
+        cell.detailTextLabel?.text = "(\(recommendation.year)) \(recommendation.author)"
         return cell
     }
     
