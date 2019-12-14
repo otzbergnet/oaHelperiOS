@@ -7,6 +7,7 @@
 
 /* Class = "UILabel"; text = "Enter your search:"; ObjectID = "aEM-QZ-eEg"; */
 "aEM-QZ-eEg.text" = "Ihr Suche:";
+"He3-yf-kv9.placeholder" = "Bitte Suche eingeben";
 
 /* Class = "UIButton"; normalTitle = "Access Document"; ObjectID = "bqf-wb-KsL"; */
 "bqf-wb-KsL.normalTitle" = "Dokument abrufen";
