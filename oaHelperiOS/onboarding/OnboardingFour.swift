@@ -12,6 +12,7 @@ class OnboardingFour: UIViewController {
     
     let defaults = UserDefaults.standard
     var window: UIWindow?
+    let settings = SettingsBundleHelper()
     
     @IBOutlet weak var doneButton: UIButton!
     
@@ -33,6 +34,9 @@ class OnboardingFour: UIViewController {
     */
     @IBAction func doneButtonTapped(_ sender: Any) {
         defaults.set(true, forKey: "onBoarding")
+        settings.setSettingsValue(value: true, key: "oab_setting")
+        settings.setSettingsValue(value: true, key: "recommendation_setting")
+        settings.setSettingsValue(value: true, key: "statistic_setting")
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = mainStoryboard.instantiateInitialViewController()!
         UIApplication.shared.keyWindow!.rootViewController = controller

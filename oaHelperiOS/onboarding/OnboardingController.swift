@@ -15,10 +15,11 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
     }()
     
     var pageControl = UIPageControl()
-    
+    let settings = SettingsBundleHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.settings.ensureSettingsAreRegistered()
         self.dataSource = self
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController], direction: .reverse, animated: true, completion: nil)

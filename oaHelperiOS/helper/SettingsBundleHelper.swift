@@ -140,5 +140,9 @@ class SettingsBundleHelper {
             setSettingsValue(value: true, key: "recommendation_setting")
             setSettingsValue(value: true, key: "recommendation")
         }
+        if(!getSettingsValue(key: "statistic_setting")){
+            setSettingsValue(value: true, key: "statistic_setting")
+            setSettingsValue(value: true, key: "share_stats")
+        }
     }
 }

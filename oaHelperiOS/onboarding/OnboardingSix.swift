@@ -15,7 +15,7 @@ class OnboardingSix: UIViewController {
     @IBOutlet weak var moreInfoButton: UIButton!
     
     let settings = SettingsBundleHelper()
-    
+    let helper = HelperClass()
     
     override func viewDidLoad() {
         super.viewDidLoad()
