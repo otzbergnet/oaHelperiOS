@@ -52,6 +52,8 @@
 		2DAD656C2392AC6200940419 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD656A2392AC6200940419 /* Extensions.swift */; };
 		2DAD65712393D4E700940419 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC23451229CE46400D0BEA7 /* Assets.xcassets */; };
 		2DAE4AF5227F46A30037DB69 /* NewsItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAE4AF4227F46A30037DB69 /* NewsItemData.swift */; };
+		2DB47C2023A6502B004E44FA /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB47C1F23A6502B004E44FA /* Timer.swift */; };
+		2DB47C2123A6502B004E44FA /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB47C1F23A6502B004E44FA /* Timer.swift */; };
 		2DBF96FA2270E59D005C182D /* NoBookMarkSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */; };
 		2DBF96FC2271689B005C182D /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */; };
 		2DC23452229CE46400D0BEA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC23451229CE46400D0BEA7 /* Assets.xcassets */; };
@@ -141,6 +143,7 @@
 		2DAD65672392AA0B00940419 /* RecommenderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommenderHelper.swift; sourceTree = "<group>"; };
 		2DAD656A2392AC6200940419 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2DAE4AF4227F46A30037DB69 /* NewsItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItemData.swift; sourceTree = "<group>"; };
+		2DB47C1F23A6502B004E44FA /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBookMarkSupportViewController.swift; sourceTree = "<group>"; };
 		2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
 		2DC23451229CE46400D0BEA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -281,6 +284,7 @@
 				2DDCF90C22D2435B00BD63B7 /* DateExtension.swift */,
 				2DAD65672392AA0B00940419 /* RecommenderHelper.swift */,
 				2DAD656A2392AC6200940419 /* Extensions.swift */,
+				2DB47C1F23A6502B004E44FA /* Timer.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -485,6 +489,7 @@
 				2D24C280222267DB0012B8E1 /* BookMarkData.swift in Sources */,
 				2DAD65692392AA0B00940419 /* RecommenderHelper.swift in Sources */,
 				2DAD656C2392AC6200940419 /* Extensions.swift in Sources */,
+				2DB47C2123A6502B004E44FA /* Timer.swift in Sources */,
 				2D240E0321BCE6E7000BB29B /* oadoiStruct.swift in Sources */,
 				2DE8F35F2221D076000B27A1 /* Helper.swift in Sources */,
 				2D446A8022E8D2EA001ECFA0 /* coreDiscoveryStruct.swift in Sources */,
@@ -512,6 +517,7 @@
 				2D575C4923A42B2000D1038F /* OnboardingSix.swift in Sources */,
 				2D24C2822222A3BF0012B8E1 /* BookmarkTableViewController.swift in Sources */,
 				2DE8F35B2221D022000B27A1 /* Model.xcdatamodeld in Sources */,
+				2DB47C2023A6502B004E44FA /* Timer.swift in Sources */,
 				2DE0701B21E08B8700D39D99 /* CopyableLabel.swift in Sources */,
 				2DAD65652392A92C00940419 /* coreRecommenderStruct.swift in Sources */,
 				2DD08CFC21BC350800D0B3C0 /* oadoiStruct.swift in Sources */,

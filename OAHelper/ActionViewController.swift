@@ -11,7 +11,7 @@ import CoreData
 import MobileCoreServices
 
 class ActionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
@@ -26,10 +26,10 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var poweredByImage: UIImageView!
     
     
-   
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewActivityIndicator: UIActivityIndicatorView!
-
+    
     @IBOutlet weak var coreRecommenderLabel: UILabel!
     
     
@@ -53,12 +53,12 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     let recommendationObject = CoreRequestObject()
     let recommenderHelper = RecommenderHelper()
     var recommendationText = ""
-
     
     var year : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
@@ -70,7 +70,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
         self.showOpenAccessButton = self.settings.getSettingsValue(key: "open_access_button")
         self.showRecommendations = self.settings.getSettingsValue(key: "recommendation")
-
+        
         guard let extensionItems = extensionContext?.inputItems as? [NSExtensionItem] else {
             return
         }
@@ -85,16 +85,19 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                                 
                                 let doi = self.doiFinder(str: myText)
                                 if(doi.count > 0){
-                                    DispatchQueue.main.async {
-                                        self.selectAction = true
-                                        if(doi.count == 1){
+                                    
+                                    self.selectAction = true
+                                    if(doi.count == 1){
+                                        DispatchQueue.main.async {
                                             self.headerLabel.text = NSLocalizedString("DOI detected", comment: "DOI detected")
                                             self.sourceLabel.text = ""
                                             self.paperIcon.image = UIImage(named: "paper_unknown")
                                             self.textView.text = NSLocalizedString("We found a DOI and are checking the web for an Open Access version", comment: "checking text")
-                                            self.checkUnpaywall(doi: "\(doi[0])")
                                         }
-                                        else{
+                                        self.checkUnpaywall(doi: "\(doi[0])")
+                                    }
+                                    else{
+                                        DispatchQueue.main.async {
                                             self.stopActivity()
                                             self.paperIcon.image = UIImage(named: "paper_unknown")
                                             self.headerLabel.text = NSLocalizedString("Multiple DOIs detected", comment: "Multiple DOIs detected")
@@ -110,9 +113,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                                             if(doi.count > 4){
                                                 self.textView.text += "..."
                                             }
-                                            
                                         }
-                                        
                                     }
                                 }
                                 else{
@@ -134,7 +135,6 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                                             self.urlAction = false
                                             //self.searchAction()
                                         }
-                                        
                                     }
                                 }
                             }
@@ -143,66 +143,43 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                     else if itemProvider.hasItemConformingToTypeIdentifier(kUTTypePropertyList as String) {
                         itemProvider.loadItem(forTypeIdentifier: String(kUTTypePropertyList), options: nil, completionHandler: { (item, error) -> Void in
                             let dictionary = item as! NSDictionary
-                            OperationQueue.main.addOperation {
-                                let results = dictionary[NSExtensionJavaScriptPreprocessingResultsKey] as! NSDictionary
-                                
-                                if let urlString = results["currentUrl"] as? String {
-                                    self.bookMark.url = urlString
-                                    self.recommendationObject.referer = urlString
+                            let results = dictionary[NSExtensionJavaScriptPreprocessingResultsKey] as! NSDictionary
+                            
+                            if let urlString = results["currentUrl"] as? String {
+                                self.bookMark.url = urlString
+                                self.recommendationObject.referer = urlString
+                                DispatchQueue.main.async {
+                                    self.headerLabel.text = "Digital Object Identifier"
+                                    self.textView.text = urlString
+                                }
+                            }
+                            if let titleString = results["docTitle"] as? String{
+                                self.bookMark.title = titleString
+                                self.recommendationObject.title = titleString
+                            }
+                            
+                            if let abstractString = results["abstract"] as? String{
+                                self.recommendationObject.aabstract = abstractString
+                            }
+                            
+                            if let doiString = results["doi"] as? String {
+                                if doiString != "0" {
+                                    self.bookMark.doi = doiString
+                                    self.recommendationObject.doi = doiString
                                     DispatchQueue.main.async {
-                                        self.headerLabel.text = "Digital Object Identifier"
-                                        self.textView.text = urlString
+                                        self.textView.text += "\n\(doiString)"
                                     }
-                                }
-                                if let titleString = results["docTitle"] as? String{
-                                    self.bookMark.title = titleString
-                                    self.recommendationObject.title = titleString
-                                }
-                                
-                                if let abstractString = results["abstract"] as? String{
-                                    self.recommendationObject.aabstract = abstractString
-                                }
-                                
-                                if let doiString = results["doi"] as? String {
-                                    if doiString != "0" {
-                                        self.bookMark.doi = doiString
-                                        self.recommendationObject.doi = doiString
-                                        DispatchQueue.main.async {
-                                            self.textView.text += "\n\(doiString)"
-                                        }
-                                        self.checkUnpaywall(doi: doiString)
-                                    }
-                                    else{
-                                        //print("DOI was 0 so we are here")
-                                        DispatchQueue.main.async {
-                                            self.stopActivity()
-                                            self.paperIcon.image = UIImage(named: "paper_search")
-                                            self.headerLabel.text = NSLocalizedString("No DOI found", comment: "No DOI found")
-                                            
-                                            self.sourceLabel.text = ""
-                                            self.textView.text += NSLocalizedString("\n\nWe were unable to identify a DOI and thus unable to identify an Open Access version of the document", comment: "no doi, no search")
-                                            self.returnURLString = ""
-                                            self.dismissButton.isHidden = false
-                                            if(self.showBookMarkButton){
-                                                self.addBookMarkButton.isHidden = false
-                                            }
-                                            else{
-                                                self.hideBookmarkButtonCompletely()
-                                            }
-                                            
-                                        }
-                                        
-                                    }
+                                    self.checkUnpaywall(doi: doiString)
                                 }
                                 else{
-                                    //print("problem with doi string")
+                                    //print("DOI was 0 so we are here")
                                     DispatchQueue.main.async {
-                                        self.activityIndicator.stopAnimating()
-                                        self.activityIndicator.isHidden = true
-                                        self.paperIcon.image = UIImage(named: "paper_no")
-                                        self.headerLabel.text = NSLocalizedString("No Open Access Found", comment: "No Open Access Found")
+                                        self.stopActivity()
+                                        self.paperIcon.image = UIImage(named: "paper_search")
+                                        self.headerLabel.text = NSLocalizedString("No DOI found", comment: "No DOI found")
+                                        
                                         self.sourceLabel.text = ""
-                                        self.textView.text += NSLocalizedString("\n\nWe were unable to identify an Open Access Version of this document!", comment: "longer text about no open access found")
+                                        self.textView.text += NSLocalizedString("\n\nWe were unable to identify a DOI and thus unable to identify an Open Access version of the document", comment: "no doi, no search")
                                         self.returnURLString = ""
                                         self.dismissButton.isHidden = false
                                         if(self.showBookMarkButton){
@@ -213,9 +190,25 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                                         }
                                     }
                                 }
-                                
-                                
-                                
+                            }
+                            else{
+                                //print("problem with doi string")
+                                DispatchQueue.main.async {
+                                    self.activityIndicator.stopAnimating()
+                                    self.activityIndicator.isHidden = true
+                                    self.paperIcon.image = UIImage(named: "paper_no")
+                                    self.headerLabel.text = NSLocalizedString("No Open Access Found", comment: "No Open Access Found")
+                                    self.sourceLabel.text = ""
+                                    self.textView.text += NSLocalizedString("\n\nWe were unable to identify an Open Access Version of this document!", comment: "longer text about no open access found")
+                                    self.returnURLString = ""
+                                    self.dismissButton.isHidden = false
+                                    if(self.showBookMarkButton){
+                                        self.addBookMarkButton.isHidden = false
+                                    }
+                                    else{
+                                        self.hideBookmarkButtonCompletely()
+                                    }
+                                }
                             }
                         })
                     }
@@ -224,21 +217,23 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
     }
-
+    
     
     func checkUnpaywall(doi: String) {
+        //let timer = ParkBenchTimer()
         //print("checkUnpaywall")
         self.getCoreRecommendations()
         self.bookMark.doi = doi
         let jsonUrlString = "https://api.unpaywall.org/v2/\(doi)?email=oahelper@otzberg.net"
         let url = URL(string: jsonUrlString)
         
-//        let configuration = URLSessionConfiguration.default
-//        configuration.timeoutIntervalForRequest = TimeInterval(15)
-//        configuration.timeoutIntervalForResource = TimeInterval(15)
-//        let session = URLSession(configuration: configuration)
+        //        let configuration = URLSessionConfiguration.default
+        //        configuration.timeoutIntervalForRequest = TimeInterval(15)
+        //        configuration.timeoutIntervalForResource = TimeInterval(15)
+        //        let session = URLSession(configuration: configuration)
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            //print("The unpaywall task took \(timer.stop()) seconds.")
             if let error = error{
                 //we got an error, let's tell the user
                 //print("error on unpaywall data task")
@@ -308,12 +303,11 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                         self.oaLogo.isHidden = false
                         let oaVersion = self.getOpenAccessVersion(data: oaData)
                         if(UIDevice.current.userInterfaceIdiom == .pad){
-                                self.oaTypeLabel.text = "\(myOaType.capitalizingFirstLetter()) OA\(oaVersion)"
+                            self.oaTypeLabel.text = "\(myOaType.capitalizingFirstLetter()) OA\(oaVersion)"
                         }
                         else{
                             self.oaTypeLabel.text = "\(myOaType.capitalizingFirstLetter()) Open Access\(oaVersion)"
                         }
-                        
                     }
                 }
                 else{
@@ -333,15 +327,12 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             }
             else {
                 // not oa
-                DispatchQueue.main.async {
-                    let mySourceLabel = self.constructSource(data: oaData)
-                    if let title = oaData.title{
-                        self.checkCore(doi: doi, title: title, sourceLabel: mySourceLabel)
-                    }
-                    else{
-                        self.checkCore(doi: doi, title: self.recommendationObject.title, sourceLabel: mySourceLabel)
-                    }
-                    
+                let mySourceLabel = self.constructSource(data: oaData)
+                if let title = oaData.title{
+                    self.checkCore(doi: doi, title: title, sourceLabel: mySourceLabel)
+                }
+                else{
+                    self.checkCore(doi: doi, title: self.recommendationObject.title, sourceLabel: mySourceLabel)
                 }
             }
             
@@ -349,16 +340,14 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         }
         catch let jsonError{
             //the most likely error here is that the DOI is actually invalid or oadoi API returns another errror
-            DispatchQueue.main.async {
                 print(jsonError)
                 self.checkCore(doi: doi, title: self.recommendationObject.title, sourceLabel: "")
-                
-            }
             return
         }
     }
     
     func checkCore(doi: String, title: String, sourceLabel: String){
+        //let timer = ParkBenchTimer()
         //print("checkCore")
         let onlyUnpaywall = self.settings.getSettingsValue(key: "only_unpaywall")
         if(onlyUnpaywall){
@@ -372,13 +361,14 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             return
         }
         
-//        let configuration = URLSessionConfiguration.default
-//        configuration.timeoutIntervalForRequest = TimeInterval(15)
-//        configuration.timeoutIntervalForResource = TimeInterval(15)
-//
-//        let session = URLSession(configuration: configuration)
+        //        let configuration = URLSessionConfiguration.default
+        //        configuration.timeoutIntervalForRequest = TimeInterval(15)
+        //        configuration.timeoutIntervalForResource = TimeInterval(15)
+        //
+        //        let session = URLSession(configuration: configuration)
         
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            //print("The core task took \(timer.stop()) seconds.")
             if let error = error{
                 //we got an error, let's tell the user
                 //print("error on core data task")
@@ -401,7 +391,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func handleCoreDiscoveryData(data: Data, title: String, sourceLabel: String){
-        //print("core hanlde data title from function call \(title)")
+        //print("core handle data title from function call \(title)")
         //print("handleCore Data")
         //sole purpose is to dispatch the url
         do{
@@ -469,7 +459,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
-
+            
             if title != "" {
                 self.headerLabel.text = title
                 self.paperIcon.image = UIImage(named: "paper_no")
@@ -545,13 +535,13 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
-
+    
     @IBAction func done() {
-
+        
         executeCancel(action: "dismiss")
         
     }
-
+    
     func executeCancel(action: String){
         let extensionItem = NSExtensionItem()
         let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "action" : action]]
@@ -636,7 +626,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         if let authors = data.z_authors{
             if(authors.count == 1){
                 if let family = authors[0].family{
-                        sourceString = family
+                    sourceString = family
                 }
             }
             else{
@@ -685,14 +675,14 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     func getOpenAccessVersion(data: Unpaywall) -> String{
         if let version = data.best_oa_location?.version{
             switch version{
-                case "submittedVersion":
-                    return NSLocalizedString(": Submitted Version", comment: "submittedVersion")
-                case "acceptedVersion":
-                    return NSLocalizedString(": Accepted Version", comment: "acceptedVersion")
-                case "publishedVersion":
-                    return NSLocalizedString(": Published Version", comment: "publishedVersion")
-                default:
-                    return ""
+            case "submittedVersion":
+                return NSLocalizedString(": Submitted Version", comment: "submittedVersion")
+            case "acceptedVersion":
+                return NSLocalizedString(": Accepted Version", comment: "acceptedVersion")
+            case "publishedVersion":
+                return NSLocalizedString(": Published Version", comment: "publishedVersion")
+            default:
+                return ""
             }
             
         }
@@ -705,7 +695,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         
         addBookMarkButton.isHidden = true
         addBookMarkButton.layer.cornerRadius = 10
-                
+        
         dismissButton.isHidden = true
         dismissButton.layer.cornerRadius = 10
         
@@ -800,7 +790,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 
             case .failure(let error):
                 //I hate my life right now
-                print("core recommend: there was an error: \(error)")
+                //print("core recommend: there was an error: \(error)")
                 self.hideAllRecommenderRelatedStuff()
             }
         }
@@ -832,7 +822,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         cell.textLabel?.text = recommendation.title
         var sourceLabel = "";
         if(recommendation.year != ""){
-           sourceLabel = "(\(recommendation.year)) \(recommendation.author)"
+            sourceLabel = "(\(recommendation.year)) \(recommendation.author)"
         }
         else{
             sourceLabel = "\(recommendation.author)"
