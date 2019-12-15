@@ -147,11 +147,11 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                                 let results = dictionary[NSExtensionJavaScriptPreprocessingResultsKey] as! NSDictionary
                                 
                                 if let urlString = results["currentUrl"] as? String {
+                                    self.bookMark.url = urlString
+                                    self.recommendationObject.referer = urlString
                                     DispatchQueue.main.async {
                                         self.headerLabel.text = "Digital Object Identifier"
                                         self.textView.text = urlString
-                                        self.bookMark.url = urlString
-                                        self.recommendationObject.referer = urlString
                                     }
                                 }
                                 if let titleString = results["docTitle"] as? String{
@@ -227,22 +227,29 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
 
     
     func checkUnpaywall(doi: String) {
+        //print("checkUnpaywall")
         self.getCoreRecommendations()
         self.bookMark.doi = doi
         let jsonUrlString = "https://api.unpaywall.org/v2/\(doi)?email=oahelper@otzberg.net"
         let url = URL(string: jsonUrlString)
         
+//        let configuration = URLSessionConfiguration.default
+//        configuration.timeoutIntervalForRequest = TimeInterval(15)
+//        configuration.timeoutIntervalForResource = TimeInterval(15)
+//        let session = URLSession(configuration: configuration)
+        
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             if let error = error{
                 //we got an error, let's tell the user
-                print(error)
-                self.checkCore(doi: doi, title: "", sourceLabel: "")
+                //print("error on unpaywall data task")
+                print(error.localizedDescription)
+                self.checkCore(doi: doi, title: self.recommendationObject.title, sourceLabel: "")
             }
             if let data = data {
                 self.handleData(data: data, doi: doi)
             }
             else{
-                self.checkCore(doi: doi, title: "", sourceLabel: "")
+                self.checkCore(doi: doi, title: self.recommendationObject.title, sourceLabel: "")
             }
             
         }
@@ -252,6 +259,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     
     func handleData(data: Data, doi: String){
         //sole purpose is to dispatch the url
+        //print("handleData for unpaywall")
         do{
             let oaData = try JSONDecoder().decode(Unpaywall.self, from: data)
             if let unpaywallYear = oaData.year{
@@ -299,7 +307,13 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                         self.oaLogo.image = UIImage(named: oaTypeImg)
                         self.oaLogo.isHidden = false
                         let oaVersion = self.getOpenAccessVersion(data: oaData)
-                        self.oaTypeLabel.text = "\(myOaType.capitalizingFirstLetter()) Open Access\(oaVersion)"
+                        if(UIDevice.current.userInterfaceIdiom == .pad){
+                                self.oaTypeLabel.text = "\(myOaType.capitalizingFirstLetter()) OA\(oaVersion)"
+                        }
+                        else{
+                            self.oaTypeLabel.text = "\(myOaType.capitalizingFirstLetter()) Open Access\(oaVersion)"
+                        }
+                        
                     }
                 }
                 else{
@@ -325,7 +339,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                         self.checkCore(doi: doi, title: title, sourceLabel: mySourceLabel)
                     }
                     else{
-                        self.checkCore(doi: doi, title: "", sourceLabel: mySourceLabel)
+                        self.checkCore(doi: doi, title: self.recommendationObject.title, sourceLabel: mySourceLabel)
                     }
                     
                 }
@@ -337,7 +351,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             //the most likely error here is that the DOI is actually invalid or oadoi API returns another errror
             DispatchQueue.main.async {
                 print(jsonError)
-                self.checkCore(doi: doi, title: "", sourceLabel: "")
+                self.checkCore(doi: doi, title: self.recommendationObject.title, sourceLabel: "")
                 
             }
             return
@@ -345,19 +359,30 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func checkCore(doi: String, title: String, sourceLabel: String){
+        //print("checkCore")
         let onlyUnpaywall = self.settings.getSettingsValue(key: "only_unpaywall")
         if(onlyUnpaywall){
-            self.noOpenAccessFound(title: "", sourceLabel: "")
+            self.noOpenAccessFound(title: title, sourceLabel: "")
             return
         }
         let apiKey = self.helper.getAPIKeyFromPlist(key: "coreDiscovery")
         let jsonUrlString = "https://api.core.ac.uk/discovery/discover?doi=\(doi)&apiKey=\(apiKey)"
-        let url = URL(string: jsonUrlString)
+        guard let url = URL(string: jsonUrlString) else {
+            self.noOpenAccessFound(title: title, sourceLabel: "")
+            return
+        }
         
-        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+//        let configuration = URLSessionConfiguration.default
+//        configuration.timeoutIntervalForRequest = TimeInterval(15)
+//        configuration.timeoutIntervalForResource = TimeInterval(15)
+//
+//        let session = URLSession(configuration: configuration)
+        
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             if let error = error{
                 //we got an error, let's tell the user
-                print(error)
+                //print("error on core data task")
+                print(error.localizedDescription)
                 self.noOpenAccessFound(title: title, sourceLabel: sourceLabel)
                 
             }
@@ -376,6 +401,8 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func handleCoreDiscoveryData(data: Data, title: String, sourceLabel: String){
+        //print("core hanlde data title from function call \(title)")
+        //print("handleCore Data")
         //sole purpose is to dispatch the url
         do{
             let coreData = try JSONDecoder().decode(Coredata.self, from: data)
@@ -438,6 +465,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func noOpenAccessFound(title: String, sourceLabel: String){
+        //print("no open access found")
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
@@ -723,9 +751,9 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     //MARK: CORE Recommender Related Stuff
     
     func getCoreRecommendations(){
-        print("do core recommendations")
+        //print("do core recommendations")
         if(!self.showRecommendations){
-            print("no recommendations desired")
+            //print("no recommendations desired")
             self.hideAllRecommenderRelatedStuff()
             return
         }
@@ -743,15 +771,17 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 // let's check if there are recommendations and then display
                 
                 if(!self.showRecommendations){
-                    print("if we got here and this is false, then there was open access")
+                    //print("if we got here and this is false, then there was open access")
                     self.hideAllRecommenderRelatedStuff()
                     return
                 }
+                //print("core recommends code \(coreRecommends.code)")
                 
                 if(coreRecommends.data.count > 0){
-                    print("there were results")
+                    //print("there were results")
                     
                     DispatchQueue.main.async {
+                        //print("dispatch core recommend queue to display stuff")
                         self.recommendationText = NSLocalizedString("Scroll down, we found some Open Access recommendations!", comment: "we found some OA recommendations")
                         self.textView.text += "\n\n\(self.recommendationText)"
                         self.settings.incrementOACount(key: "recommendation_count")
@@ -764,13 +794,13 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 }
                 else{
                     // there was nothing
-                    print("there were 0 hits")
+                    //print("there were 0 hits")
                     self.hideAllRecommenderRelatedStuff()
                 }
                 
             case .failure(let error):
                 //I hate my life right now
-                print("there was an error: \(error)")
+                print("core recommend: there was an error: \(error)")
                 self.hideAllRecommenderRelatedStuff()
             }
         }
@@ -783,6 +813,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             self.tableViewActivityIndicator.stopAnimating()
             self.poweredByImage.isHidden = true
             self.poweredByLabel.isHidden = true
+            self.tableView.isHidden = true
         }
     }
     

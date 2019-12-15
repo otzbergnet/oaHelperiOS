@@ -29,7 +29,7 @@ enum AppStoreReviewManager {
         let corePdf = settings.getOACount(key: "core_pdf")
         let oaSearch = settings.getOACount(key: "oa_search")
         
-        if(oaFound > 10 || corePdf > 10 || oaSearch > 10){
+        if(oaFound > 25 || corePdf > 10 || oaSearch > 25){
             SKStoreReviewController.requestReview()
             defaults.set(currentVersion, forKey: "lastReviewRequestAppVersion")
         }
