@@ -18,7 +18,7 @@
 "pjO-AG-Swx.text" = "Die unpaywall.org API kann Ihnen helfen mehr als 22 Millionen Open Access Dokumente zu finden.\n\nSobald Sie keinen Zugriff auf eine wissenschaftliche Veröffentlichung haben, drücken Sie das Teilen-Icon in Safari und wählen OA Helper. Wir suchen einen DOI in der Seite und dann nach einer Open Access Kopie.\n\nWischen Sie nach links, um mehr zu erfahren.";
 
 /* Class = "UIButton"; normalTitle = "Open Safari & activate"; ObjectID = "r6v-qV-YFb"; */
-"r6v-qV-YFb.normalTitle" = "Safari öffnen & aktivieren";
+"r6v-qV-YFb.normalTitle" = "Zeig mir wie";
 
 /* Class = "UILabel"; text = "About this App"; ObjectID = "ypY-dD-ifw"; */
 "ypY-dD-ifw.text" = "Über diese App";

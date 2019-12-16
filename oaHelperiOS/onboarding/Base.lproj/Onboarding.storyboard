@@ -114,7 +114,7 @@ Click the button below and we'll show you how!</string>
                                     <constraint firstAttribute="height" constant="50" id="Cu5-cx-2GZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Open Safari &amp; activate">
+                                <state key="normal" title="Show me how">
                                     <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
