@@ -50,7 +50,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.settings.ensureSettingsAreRegistered()
         //search button should have rounded corners
         searchButton.layer.cornerRadius = 10
         //bookmarkButton.layer.cornerRadius = 10

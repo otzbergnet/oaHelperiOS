@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>coreRecommenderUrl</key>
+	<string>https://www.otzberg.net/oahelper/core/recommender.php</string>
+	<key>coreRecommender</key>
+	<string>l6sNUJ3Knh</string>
 	<key>coreDiscovery</key>
 	<string>uMPbcSzO7HNK8wDF5h2gAst3xjrldXEo</string>
 	<key>core</key>

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8K7-ro-il4">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8K7-ro-il4">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oa_ob" translatesAutoresizingMaskIntoConstraints="NO" id="7Q4-UL-A0v">
-                                <rect key="frame" x="105" y="45" width="110" height="50"/>
+                                <rect key="frame" x="105" y="25" width="110" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="JXY-TT-ddx">
                                         <variation key="heightClass=regular-widthClass=compact" constant="50"/>
@@ -36,13 +34,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1Z-Q0-66y">
-                                <rect key="frame" x="20" y="125" width="280" height="34.5"/>
+                                <rect key="frame" x="20" y="105" width="280" height="34.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjO-AG-Swx">
-                                <rect key="frame" x="20" y="174.5" width="280" height="302"/>
+                                <rect key="frame" x="20" y="154.5" width="280" height="302"/>
                                 <string key="text">There are more than 22 million Open Access documents available via the unpaywall.org API and this app is here to help you use them.
 
 Whenever you reach a publisher's paywall, tap the share icon in Safari and select OA Helper. The App will inspect the page for a DOI and take you to the Open Access copy, if one is available.
@@ -84,7 +82,7 @@ Swipe left to learn more.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share_ob" translatesAutoresizingMaskIntoConstraints="NO" id="Q7h-4Q-89d">
-                                <rect key="frame" x="105" y="45" width="110" height="50"/>
+                                <rect key="frame" x="105" y="25" width="110" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="8eW-s8-hsz">
                                         <variation key="heightClass=regular-widthClass=compact" constant="50"/>
@@ -93,16 +91,16 @@ Swipe left to learn more.</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be ready to share!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNJ-v4-b9x">
-                                <rect key="frame" x="20" y="125" width="280" height="34.5"/>
+                                <rect key="frame" x="20" y="105" width="280" height="34.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dro-VJ-mVt">
-                                <rect key="frame" x="20" y="174.5" width="280" height="232.5"/>
+                                <rect key="frame" x="20" y="154.5" width="280" height="255.5"/>
                                 <string key="text">OA Helper isn't active by default. To ensure it's there, go to Safari now, and click the share icon.
 
-Scroll to the right and click "more..." then activate OA Helper and drag it up the list, for easy access.
+Scroll to the bottom and tap "Edit Actions..." then activate OA Helper by tapping the green plus to move it up the list, for easy access.
 
 Click the button below and we'll show you how!</string>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -166,7 +164,7 @@ Click the button below and we'll show you how!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_oa" translatesAutoresizingMaskIntoConstraints="NO" id="QLH-gV-0VU">
-                                <rect key="frame" x="105" y="45" width="110" height="50"/>
+                                <rect key="frame" x="105" y="25" width="110" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="GnJ-xk-VBi">
                                         <variation key="heightClass=regular-widthClass=compact" constant="50"/>
@@ -175,16 +173,16 @@ Click the button below and we'll show you how!</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About this App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypY-dD-ifw">
-                                <rect key="frame" x="20" y="125" width="280" height="34.5"/>
+                                <rect key="frame" x="20" y="105" width="280" height="34.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYL-df-faw">
-                                <rect key="frame" x="20" y="174.5" width="280" height="232.5"/>
+                                <rect key="frame" x="20" y="154.5" width="280" height="255.5"/>
                                 <string key="text">The main purpose of this app is to give you the action sheet extension, which will help you access all that Open Access goodness. However, if you open Open Access Helper you can send a search to core.ac.uk - the world's largest Open Access aggregator.
 
-Click "Close" below to get started!</string>
+Click "Close" below to get started and discover the entire feature set!</string>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -234,7 +232,7 @@ Click "Close" below to get started!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxf-Er-oci" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3782" y="-531"/>
+            <point key="canvasLocation" x="4539" y="-531"/>
         </scene>
         <!--Onboarding Three-->
         <scene sceneID="tVt-Fp-dC7">
@@ -245,7 +243,7 @@ Click "Close" below to get started!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stats" translatesAutoresizingMaskIntoConstraints="NO" id="FHr-2L-sxe">
-                                <rect key="frame" x="105" y="45" width="110" height="50"/>
+                                <rect key="frame" x="105" y="25" width="110" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="9HB-Xi-AmE"/>
                                     <constraint firstAttribute="height" constant="110" id="yF2-mB-U4S">
@@ -254,16 +252,16 @@ Click "Close" below to get started!</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistics?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hme-JW-BbB">
-                                <rect key="frame" x="20" y="125" width="280" height="34.5"/>
+                                <rect key="frame" x="20" y="105" width="280" height="34.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fet-ty-oQM">
-                                <rect key="frame" x="20" y="174.5" width="280" height="279"/>
+                                <rect key="frame" x="20" y="154.5" width="280" height="279"/>
                                 <string key="text">Developing an app with next to no information on how it is used is rather difficult.
 
-You can opt-in to help out, by sharing some usage indicators once a month, which provide no details about you personally. The exact values and when they were shared last, are visible in the Settings App.
+You can help out, by sharing some usage indicators once a month, which provide no details about you personally. The exact values and when they were shared last, are visible in the Settings App.
 
 Thank you for helping out...</string>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -347,8 +345,8 @@ Thank you for helping out...</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookmark" translatesAutoresizingMaskIntoConstraints="NO" id="LDf-vH-mkr">
-                                <rect key="frame" x="105" y="45" width="110" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudbookmark" translatesAutoresizingMaskIntoConstraints="NO" id="LDf-vH-mkr">
+                                <rect key="frame" x="105" y="25" width="110" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="Oyo-xI-gBr">
                                         <variation key="heightClass=regular-widthClass=compact" constant="50"/>
@@ -357,13 +355,13 @@ Thank you for helping out...</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmarks?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhQ-yr-ZOJ">
-                                <rect key="frame" x="20" y="125" width="280" height="34.5"/>
+                                <rect key="frame" x="20" y="105" width="280" height="34.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zh9-dz-nK5">
-                                <rect key="frame" x="20" y="174.5" width="280" height="186"/>
+                                <rect key="frame" x="20" y="154.5" width="280" height="186"/>
                                 <string key="text">If you have more than one iOS / macOS device, consider enabling Bookmarks and iCloud syncing, so that you have private &amp; convenient access on all your devices. 
 
 Syncing is really complicated - so this is a beta feature for now...</string>
@@ -410,7 +408,7 @@ Syncing is really complicated - so this is a beta feature for now...</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qA9-OA-CGD">
-                                <rect key="frame" x="20" y="380.5" width="280" height="20.5"/>
+                                <rect key="frame" x="20" y="360.5" width="280" height="20.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -479,10 +477,135 @@ Syncing is really complicated - so this is a beta feature for now...</string>
             </objects>
             <point key="canvasLocation" x="3045.5999999999999" y="-531.18440779610194"/>
         </scene>
+        <!--Onboarding Six-->
+        <scene sceneID="IfE-3r-nuw">
+            <objects>
+                <viewController storyboardIdentifier="obSix" id="gvu-pN-hiy" customClass="OnboardingSix" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qjD-Kz-UhY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="other_oa" translatesAutoresizingMaskIntoConstraints="NO" id="c1J-zc-xjX">
+                                <rect key="frame" x="105" y="25" width="110" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="kRC-2e-EdB"/>
+                                    <constraint firstAttribute="height" constant="110" id="w9p-gG-4CC">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                                    </constraint>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More Open Access" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIj-pF-X7n">
+                                <rect key="frame" x="20" y="105" width="280" height="35"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSF-zw-4Kh">
+                                <rect key="frame" x="20" y="155" width="280" height="209"/>
+                                <string key="text">Open Access Button and core.ac.uk Similar Articles can help you, when there is no Open Access copy to be found.
+
+Open Access Button will only show for publications of the last five years. Similar Articles can take a few extra seconds to load.</string>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RUE-mQ-udI">
+                                <rect key="frame" x="20" y="412" width="51" height="31"/>
+                                <connections>
+                                    <action selector="recomSwitched:" destination="gvu-pN-hiy" eventType="valueChanged" id="zXV-ut-AYT"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Similar Articles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXp-ds-6Th">
+                                <rect key="frame" x="78" y="417.5" width="217" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdd-3y-GlC">
+                                <rect key="frame" x="20" y="468" width="280" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="O5C-9h-lkU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="More Info">
+                                    <color key="titleColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="moreInfoTapped:" destination="gvu-pN-hiy" eventType="touchUpInside" id="H3r-F8-AnQ"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zaz-ue-pRD">
+                                <rect key="frame" x="20" y="373" width="51" height="31"/>
+                                <connections>
+                                    <action selector="oabSwitched:" destination="gvu-pN-hiy" eventType="valueChanged" id="x6b-lg-swI"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Open Access Button" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeE-yy-dii">
+                                <rect key="frame" x="78" y="376.5" width="217" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wIj-pF-X7n" firstAttribute="top" secondItem="c1J-zc-xjX" secondAttribute="bottom" constant="30" id="3IN-1Q-ggK"/>
+                            <constraint firstItem="wSF-zw-4Kh" firstAttribute="leading" secondItem="qdk-bI-eKx" secondAttribute="leading" constant="20" id="3xa-jo-uJ6">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="qeE-yy-dii" firstAttribute="leading" secondItem="Zaz-ue-pRD" secondAttribute="trailing" constant="9" id="4OL-bd-Q4M"/>
+                            <constraint firstItem="RUE-mQ-udI" firstAttribute="leading" secondItem="qdk-bI-eKx" secondAttribute="leading" constant="20" id="7XC-zQ-rER">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="c1J-zc-xjX" firstAttribute="centerX" secondItem="qjD-Kz-UhY" secondAttribute="centerX" id="BI4-Tt-L5Q"/>
+                            <constraint firstItem="zdd-3y-GlC" firstAttribute="top" secondItem="tXp-ds-6Th" secondAttribute="bottom" constant="30" id="Ikb-Ie-Ecf"/>
+                            <constraint firstItem="zdd-3y-GlC" firstAttribute="top" secondItem="RUE-mQ-udI" secondAttribute="bottom" constant="25" id="JxH-Sm-eHG"/>
+                            <constraint firstItem="RUE-mQ-udI" firstAttribute="top" secondItem="qeE-yy-dii" secondAttribute="bottom" constant="15" id="LyE-wb-rUD"/>
+                            <constraint firstItem="qdk-bI-eKx" firstAttribute="trailing" secondItem="zdd-3y-GlC" secondAttribute="trailing" constant="20" id="Q7N-4j-LXE">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="c1J-zc-xjX" firstAttribute="top" secondItem="qdk-bI-eKx" secondAttribute="top" constant="25" id="QOw-5a-SK7"/>
+                            <constraint firstItem="qdk-bI-eKx" firstAttribute="trailing" secondItem="wIj-pF-X7n" secondAttribute="trailing" constant="20" id="R23-zS-SYA"/>
+                            <constraint firstItem="wSF-zw-4Kh" firstAttribute="top" secondItem="wIj-pF-X7n" secondAttribute="bottom" constant="15" id="Rhc-k5-As5"/>
+                            <constraint firstItem="zdd-3y-GlC" firstAttribute="leading" secondItem="qdk-bI-eKx" secondAttribute="leading" constant="20" id="Y67-8T-a1k">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="wIj-pF-X7n" firstAttribute="leading" secondItem="qdk-bI-eKx" secondAttribute="leading" constant="20" id="ZUN-np-n2a"/>
+                            <constraint firstItem="qdk-bI-eKx" firstAttribute="trailing" secondItem="tXp-ds-6Th" secondAttribute="trailing" constant="25" id="kVW-lD-Aa8">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="qdk-bI-eKx" firstAttribute="bottom" secondItem="zdd-3y-GlC" secondAttribute="bottom" constant="50" id="mAj-KB-j3s"/>
+                            <constraint firstItem="RUE-mQ-udI" firstAttribute="top" secondItem="Zaz-ue-pRD" secondAttribute="bottom" constant="8" id="o4u-D3-Wtm"/>
+                            <constraint firstItem="qdk-bI-eKx" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="RUE-mQ-udI" secondAttribute="bottom" constant="125" id="oqv-lh-AFH"/>
+                            <constraint firstItem="qdk-bI-eKx" firstAttribute="trailing" secondItem="wSF-zw-4Kh" secondAttribute="trailing" constant="20" id="qxF-1x-5Mz">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="Zaz-ue-pRD" firstAttribute="leading" secondItem="qdk-bI-eKx" secondAttribute="leading" constant="20" id="tST-O2-5jt">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="qdk-bI-eKx" firstAttribute="trailing" secondItem="qeE-yy-dii" secondAttribute="trailing" constant="25" id="vTb-uc-Lzq">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="tXp-ds-6Th" firstAttribute="leading" secondItem="RUE-mQ-udI" secondAttribute="trailing" constant="9" id="yfp-Uc-g1Q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qdk-bI-eKx"/>
+                    </view>
+                    <connections>
+                        <outlet property="moreInfoButton" destination="zdd-3y-GlC" id="P6h-7m-uva"/>
+                        <outlet property="oabSwitch" destination="Zaz-ue-pRD" id="NtM-EB-w42"/>
+                        <outlet property="recomSwitch" destination="RUE-mQ-udI" id="XDb-zf-pnx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PJO-jx-EsG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3823" y="-531"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="bookmark" width="100" height="100"/>
+        <image name="cloudbookmark" width="100" height="100"/>
         <image name="oa_ob" width="110" height="110"/>
+        <image name="other_oa" width="220" height="220"/>
         <image name="search_oa" width="220" height="220"/>
         <image name="share_ob" width="220" height="220"/>
         <image name="stats" width="100" height="100"/>

@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "OA Helper isn't active by default. To enusre it's there, go to Safari now, and click the share icon.\n\nScroll to the right and click \"more...\" then activate OAHelper and drag it up the list, for easy access.\n\nClick the button below and we'll show you how!"; ObjectID = "Dro-VJ-mVt"; */
-"Dro-VJ-mVt.text" = "OA Helper muss erst aktiviert werden. Stellen Sie sicher, dass OA Helper aktiv ist, indem Sie nun Safari öffnen und dann das Teilen-Icon drücken.\n\nWischen Sie ganz nach rechts, drücken Sie \"mehr...\" und aktivieren Sie OA Helper für schnellen Zugriff.\n\nDer Knopf unten, zeigt, wie es geht!";
+"Dro-VJ-mVt.text" = "OA Helper muss erst aktiviert werden. Stellen Sie sicher, dass OA Helper aktiv ist, indem Sie nun Safari öffnen und dann das Teilen-Icon drücken.\n\nScrollen Sie ganz nach unten, wählen Sie Sie \"mehr...\" und aktivieren Sie OA Helper für schnellen Zugriff.\n\nDie Schaltfläche unten, zeigt, wie es geht!";
 
 /* Class = "UILabel"; text = "Welcome!"; ObjectID = "U1Z-Q0-66y"; */
 "U1Z-Q0-66y.text" = "Willkommen!";
@@ -37,3 +37,8 @@
 "Sadly, your iCloud account seems unavailable. We've disabled the iCloud option for you." = "Leider, scheint kein iCloud Konto verfügbar. Die iCloud Option wurde für Sie deaktiviert.";
 "iOS reports iCloud status as restricted. We've disabled the iCloud option for you." = "Ihr iCloud Konto wird von iOS als eingeschränkt gemeldet. Die iCloud Option wurde für Sie deaktiviert.";
 "Unable to determine iCloud status. We've disabled the iCloud option for you." = "Der iCloud Status konnte nicht ermittelt werden. Die iCloud Option wurde für Sie deaktiviert.";
+"wSF-zw-4Kh.text" = "Open Access Button und Ähnliche Artikel von core.ac.uk können Ihnen helfen, wenn kein Open Access gefunden wurde.\n\nOpen Access Button wird nur für Artikel der letzten 5 Jahre gezeigt. Die Anzeige der \"Ähnlichen Artikel\" benötigen ein paar Sekunden Extraladezeit.";
+"qeE-yy-dii.text" = "Open Access Button zeigen";
+"tXp-ds-6Th.text" = "Ähnliche Artikel zeigen";
+"zdd-3y-GlC.text" = "Mehr Infos";
+"wIj-pF-X7n.text" = "Mehr Open Access";

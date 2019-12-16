@@ -174,7 +174,6 @@ class DetailViewController: UIViewController {
         if(self.url != ""){
             //print(coreRecord.url)
             if(self.pdf){
-                
                 self.settings.incrementOACount(key : "core_pdf")
             }
             let url = URL(string: self.url.trimmingCharacters(in: .whitespacesAndNewlines))

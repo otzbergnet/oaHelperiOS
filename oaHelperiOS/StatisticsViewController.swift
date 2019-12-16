@@ -94,6 +94,18 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
         bookmark_count.explainerLabel = NSLocalizedString("Number of bookmarks currently in your bookmarks database.", comment: "")
         tmpStatisticsObject.append(bookmark_count)
         
+        let recommendation_count = StatsValues()
+        recommendation_count.textLabel = NSLocalizedString("Number of recommendation views", comment: "")
+        recommendation_count.detailTextLabel = "\(settings.getOACount(key: "recommendation_count"))"
+        recommendation_count.explainerLabel = NSLocalizedString("Number of times a recommendation was shown to you. A typical recommendation consists of three items.", comment: "")
+        tmpStatisticsObject.append(recommendation_count)
+        
+        let recommendation_view = StatsValues()
+        recommendation_view.textLabel = NSLocalizedString("Number of recommendation taps", comment: "")
+        recommendation_view.detailTextLabel = "\(settings.getOACount(key: "recommendation_view"))"
+        recommendation_view.explainerLabel = NSLocalizedString("Number of times you tapped a recommendation to view its details.", comment: "")
+        tmpStatisticsObject.append(recommendation_view)
+        
         let sync_date = StatsValues()
         sync_date.textLabel = NSLocalizedString("Last iCloud Sync Date", comment: "")
         let syncDate = settings.getSyncDate(type: "sync_date")

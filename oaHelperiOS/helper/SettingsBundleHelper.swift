@@ -131,4 +131,18 @@ class SettingsBundleHelper {
         self.defaults.synchronize()
     }
     
+    func ensureSettingsAreRegistered(){
+        if(!getSettingsValue(key: "oab_setting")){
+            setSettingsValue(value: true, key: "oab_setting")
+            setSettingsValue(value: true, key: "open_access_button")
+        }
+        if(!getSettingsValue(key: "recommendation_setting")){
+            setSettingsValue(value: true, key: "recommendation_setting")
+            setSettingsValue(value: true, key: "recommendation")
+        }
+        if(!getSettingsValue(key: "statistic_setting")){
+            setSettingsValue(value: true, key: "statistic_setting")
+            setSettingsValue(value: true, key: "share_stats")
+        }
+    }
 }

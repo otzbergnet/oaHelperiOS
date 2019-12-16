@@ -7,6 +7,7 @@
 
 /* Class = "UILabel"; text = "Enter your search:"; ObjectID = "aEM-QZ-eEg"; */
 "aEM-QZ-eEg.text" = "Ihr Suche:";
+"He3-yf-kv9.placeholder" = "Bitte Suche eingeben";
 
 /* Class = "UIButton"; normalTitle = "Access Document"; ObjectID = "bqf-wb-KsL"; */
 "bqf-wb-KsL.normalTitle" = "Dokument abrufen";
@@ -62,6 +63,7 @@
 "uDz-5C-BWW.normalTitle" = "App empfehlen";
 "33R-cg-J4D.text" = "Nur unpaywall.org";
 "LPH-Rz-Oaa.text" = "Open Access Button Anfragen ermöglichen";
+"eY1-sN-aAv.text" = "Ähnliche Artikel zeigen";
 
 /*Advacned Search*/
 "REW-yP-gPI.normalTitle" = "Felder löschen";

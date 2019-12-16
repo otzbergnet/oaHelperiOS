@@ -36,6 +36,7 @@
 		2D30FC5D21E4715F00C4060D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D30FC5C21E4715F00C4060D /* TableViewCell.swift */; };
 		2D446A7F22E8D2DE001ECFA0 /* coreDiscoveryStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D446A7E22E8D2DE001ECFA0 /* coreDiscoveryStruct.swift */; };
 		2D446A8022E8D2EA001ECFA0 /* coreDiscoveryStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D446A7E22E8D2DE001ECFA0 /* coreDiscoveryStruct.swift */; };
+		2D575C4923A42B2000D1038F /* OnboardingSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D575C4823A42B2000D1038F /* OnboardingSix.swift */; };
 		2D5F91812222582F00D493BE /* BookMarkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F91802222582F00D493BE /* BookMarkData.swift */; };
 		2D652B1B2272BC6500A46F37 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D652B1A2272BC6500A46F37 /* StatisticsViewController.swift */; };
 		2D652B21227452E300A46F37 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D652B20227452E300A46F37 /* NewsTableViewController.swift */; };
@@ -43,7 +44,16 @@
 		2D787BDD229E3CA900AAE269 /* AdvancedSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D787BDC229E3CA900AAE269 /* AdvancedSearchViewController.swift */; };
 		2D8BA9D9227CC77100A0600E /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BA9D8227CC77100A0600E /* DetailNewsViewController.swift */; };
 		2DA7887A222C0A680025CB13 /* OnboardingFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78879222C0A680025CB13 /* OnboardingFive.swift */; };
+		2DAD65652392A92C00940419 /* coreRecommenderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */; };
+		2DAD65662392A92C00940419 /* coreRecommenderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */; };
+		2DAD65682392AA0B00940419 /* RecommenderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65672392AA0B00940419 /* RecommenderHelper.swift */; };
+		2DAD65692392AA0B00940419 /* RecommenderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65672392AA0B00940419 /* RecommenderHelper.swift */; };
+		2DAD656B2392AC6200940419 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD656A2392AC6200940419 /* Extensions.swift */; };
+		2DAD656C2392AC6200940419 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD656A2392AC6200940419 /* Extensions.swift */; };
+		2DAD65712393D4E700940419 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC23451229CE46400D0BEA7 /* Assets.xcassets */; };
 		2DAE4AF5227F46A30037DB69 /* NewsItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAE4AF4227F46A30037DB69 /* NewsItemData.swift */; };
+		2DB47C2023A6502B004E44FA /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB47C1F23A6502B004E44FA /* Timer.swift */; };
+		2DB47C2123A6502B004E44FA /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB47C1F23A6502B004E44FA /* Timer.swift */; };
 		2DBF96FA2270E59D005C182D /* NoBookMarkSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */; };
 		2DBF96FC2271689B005C182D /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */; };
 		2DC23452229CE46400D0BEA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC23451229CE46400D0BEA7 /* Assets.xcassets */; };
@@ -121,6 +131,7 @@
 		2D2FD3B922A61FF7003876CE /* AppStoreReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReviewManager.swift; sourceTree = "<group>"; };
 		2D30FC5C21E4715F00C4060D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		2D446A7E22E8D2DE001ECFA0 /* coreDiscoveryStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreDiscoveryStruct.swift; sourceTree = "<group>"; };
+		2D575C4823A42B2000D1038F /* OnboardingSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSix.swift; sourceTree = "<group>"; };
 		2D5F91802222582F00D493BE /* BookMarkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkData.swift; sourceTree = "<group>"; };
 		2D652B1A2272BC6500A46F37 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		2D652B20227452E300A46F37 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
@@ -128,7 +139,11 @@
 		2D787BDC229E3CA900AAE269 /* AdvancedSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSearchViewController.swift; sourceTree = "<group>"; };
 		2D8BA9D8227CC77100A0600E /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		2DA78879222C0A680025CB13 /* OnboardingFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFive.swift; sourceTree = "<group>"; };
+		2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreRecommenderStruct.swift; sourceTree = "<group>"; };
+		2DAD65672392AA0B00940419 /* RecommenderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommenderHelper.swift; sourceTree = "<group>"; };
+		2DAD656A2392AC6200940419 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2DAE4AF4227F46A30037DB69 /* NewsItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItemData.swift; sourceTree = "<group>"; };
+		2DB47C1F23A6502B004E44FA /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBookMarkSupportViewController.swift; sourceTree = "<group>"; };
 		2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
 		2DC23451229CE46400D0BEA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -250,6 +265,7 @@
 				2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */,
 				2DA78879222C0A680025CB13 /* OnboardingFive.swift */,
 				2D117719222182C800859B08 /* OnboardingFour.swift */,
+				2D575C4823A42B2000D1038F /* OnboardingSix.swift */,
 			);
 			path = onboarding;
 			sourceTree = "<group>";
@@ -266,6 +282,9 @@
 				2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */,
 				2DAE4AF4227F46A30037DB69 /* NewsItemData.swift */,
 				2DDCF90C22D2435B00BD63B7 /* DateExtension.swift */,
+				2DAD65672392AA0B00940419 /* RecommenderHelper.swift */,
+				2DAD656A2392AC6200940419 /* Extensions.swift */,
+				2DB47C1F23A6502B004E44FA /* Timer.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -278,6 +297,7 @@
 				2D28376C21C55AB1008D6C89 /* coreStruct.swift */,
 				2D652B222275A6D400A46F37 /* newsStruct.swift */,
 				2D446A7E22E8D2DE001ECFA0 /* coreDiscoveryStruct.swift */,
+				2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */,
 			);
 			path = json_structs;
 			sourceTree = "<group>";
@@ -394,6 +414,7 @@
 				2D06546F21D3DF60009586B3 /* Localizable.strings in Resources */,
 				2D240E0221BCDFA3000BB29B /* Assets.xcassets in Resources */,
 				2D240E0021BC738E000BB29B /* GetURL.js in Resources */,
+				2DAD65712393D4E700940419 /* Assets.xcassets in Resources */,
 				2D06545F21D357BB009586B3 /* apikey.plist in Resources */,
 				2DF95CE1221DC9CE00F11220 /* Settings.bundle in Resources */,
 			);
@@ -464,7 +485,11 @@
 				2D240DF121BC5A8F000BB29B /* ActionViewController.swift in Sources */,
 				2DE8F35C2221D022000B27A1 /* Model.xcdatamodeld in Sources */,
 				2DF95CE4221DD41800F11220 /* SettingsBundleHelper.swift in Sources */,
+				2DAD65662392A92C00940419 /* coreRecommenderStruct.swift in Sources */,
 				2D24C280222267DB0012B8E1 /* BookMarkData.swift in Sources */,
+				2DAD65692392AA0B00940419 /* RecommenderHelper.swift in Sources */,
+				2DAD656C2392AC6200940419 /* Extensions.swift in Sources */,
+				2DB47C2123A6502B004E44FA /* Timer.swift in Sources */,
 				2D240E0321BCE6E7000BB29B /* oadoiStruct.swift in Sources */,
 				2DE8F35F2221D076000B27A1 /* Helper.swift in Sources */,
 				2D446A8022E8D2EA001ECFA0 /* coreDiscoveryStruct.swift in Sources */,
@@ -489,12 +514,16 @@
 				2D652B232275A6D400A46F37 /* newsStruct.swift in Sources */,
 				2D8BA9D9227CC77100A0600E /* DetailNewsViewController.swift in Sources */,
 				2DAE4AF5227F46A30037DB69 /* NewsItemData.swift in Sources */,
+				2D575C4923A42B2000D1038F /* OnboardingSix.swift in Sources */,
 				2D24C2822222A3BF0012B8E1 /* BookmarkTableViewController.swift in Sources */,
 				2DE8F35B2221D022000B27A1 /* Model.xcdatamodeld in Sources */,
+				2DB47C2023A6502B004E44FA /* Timer.swift in Sources */,
 				2DE0701B21E08B8700D39D99 /* CopyableLabel.swift in Sources */,
+				2DAD65652392A92C00940419 /* coreRecommenderStruct.swift in Sources */,
 				2DD08CFC21BC350800D0B3C0 /* oadoiStruct.swift in Sources */,
 				2D5F91812222582F00D493BE /* BookMarkData.swift in Sources */,
 				2DE8114921C962180052698C /* OnboardingController.swift in Sources */,
+				2DAD656B2392AC6200940419 /* Extensions.swift in Sources */,
 				2DBF96FC2271689B005C182D /* SettingsTabViewController.swift in Sources */,
 				2DFF67B921C2ED6F00120363 /* TableViewController.swift in Sources */,
 				2D28376D21C55AB1008D6C89 /* coreStruct.swift in Sources */,
@@ -506,6 +535,7 @@
 				2D787BDD229E3CA900AAE269 /* AdvancedSearchViewController.swift in Sources */,
 				2D15F9A421E0C5A300FF8B46 /* Helper.swift in Sources */,
 				2D652B21227452E300A46F37 /* NewsTableViewController.swift in Sources */,
+				2DAD65682392AA0B00940419 /* RecommenderHelper.swift in Sources */,
 				2DBF96FA2270E59D005C182D /* NoBookMarkSupportViewController.swift in Sources */,
 				2D2FD3BA22A61FF7003876CE /* AppStoreReviewManager.swift in Sources */,
 			);
@@ -584,7 +614,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Extension";
 				CODE_SIGN_ENTITLEMENTS = OAHelper/OAHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = OAHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -593,7 +623,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2019.11;
+				MARKETING_VERSION = 2019.12;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS.OAHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -610,7 +640,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Extension";
 				CODE_SIGN_ENTITLEMENTS = OAHelper/OAHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = OAHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -619,7 +649,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2019.11;
+				MARKETING_VERSION = 2019.12;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS.OAHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -754,7 +784,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = oaHelperiOS/oaHelperiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = oaHelperiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -762,7 +792,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2019.11;
+				MARKETING_VERSION = 2019.12;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -778,7 +808,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = oaHelperiOS/oaHelperiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = oaHelperiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -786,7 +816,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2019.11;
+				MARKETING_VERSION = 2019.12;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

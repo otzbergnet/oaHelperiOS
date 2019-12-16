@@ -49,3 +49,7 @@
 "A year seems invalid, it needs to be between 1500 and " = "Ein Jahreszahl scheint ungültig. Mögliche Werte zwischen 1500 und ";
 "Within your date range the \"From Year\" is greater than the \"To Year\"" = "Im gewählten Zeitraum ist das \"Von Jahr\" größer als das \"Bis Jahr\"";
 "Sadly, your iCloud account seems unavailable. We've disabled the iCloud option for you." = "Leider, scheint kein iCloud Konto verfügbar. Die iCloud Option wurde für Sie deaktiviert.";
+"Number of recommendation views" = "Anzahl gezeigter Empfehlungen";
+"Number of times a recommendation was shown to you. A typical recommendation consists of three items." = "Die Zahl der angezeigten Empfehlungen. Ein Empfehlungsobjekt besteht üblicherweise aus 3 Artikeln.";
+"Number of recommendation taps" = "Anzahl aufgerufener Empfehlungen";
+"Number of times you tapped a recommendation to view its details." = "Die Zahl der von ihnen aufgerufenen Empfehlungen";

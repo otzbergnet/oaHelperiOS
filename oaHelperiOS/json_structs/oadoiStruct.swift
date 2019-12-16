@@ -16,7 +16,7 @@ struct OaDOI : Decodable {
 
 struct Unpaywall : Decodable{
     let best_oa_location : OpenAccessLocation?
-    let data_standard : Int
+    let data_standard : Int?
     let doi : String
     let doi_url : String
     let genre : String
