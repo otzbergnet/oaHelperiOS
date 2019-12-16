@@ -82,7 +82,7 @@ class RecommenderHelper {
                 catch let jsonError{
                     //print(data)
                     //print("json decode error", jsonError)
-                    //print("JSON String: \(String(data: data, encoding: .utf8))")
+                    print("JSON String: \(String(data: data, encoding: .utf8))")
                     completion(.failure(jsonError))
                 }
             }
