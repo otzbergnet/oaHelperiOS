@@ -25,12 +25,12 @@ class StatisticSubmit {
         let lastDate = self.settings.getShareDate()
         
         if(submit == false){
-            //print("submit is false")
+            print("statistics submit is false")
             return
         }
         
         if(recentUpdate(lastDate: lastDate)){
-            //print("recently updatd")
+            print("recently updatd statistics")
             return
         }
         
@@ -55,12 +55,9 @@ class StatisticSubmit {
         let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
             if let error = error{
                 //we got an error, let's tell the user
-                DispatchQueue.main.async {
                     print(error)
-                }
             }
             if let data = data {
-                DispatchQueue.main.async {
                     do{
                         let myData = try JSONDecoder().decode(Status.self, from: data)
                         if myData.status == 200 {
@@ -74,12 +71,9 @@ class StatisticSubmit {
                     catch let jsonError{
                         print("\(jsonError)")
                     }
-                }
             }
             else{
-                DispatchQueue.main.async {
-                    print("data error")
-                }
+                print("data error")
                 return
             }
         }

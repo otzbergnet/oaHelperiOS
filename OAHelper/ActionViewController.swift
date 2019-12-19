@@ -57,6 +57,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     var year : Int = 0
     
     override func viewDidLoad() {
+        let timer = ParkBenchTimer()
         super.viewDidLoad()
         
         self.tableView.dataSource = self
@@ -94,6 +95,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                                             self.paperIcon.image = UIImage(named: "paper_unknown")
                                             self.textView.text = NSLocalizedString("We found a DOI and are checking the web for an Open Access version", comment: "checking text")
                                         }
+                                        print("up to checkunpaywall \(timer.stop()) seconds.")
                                         self.checkUnpaywall(doi: "\(doi[0])")
                                     }
                                     else{
@@ -169,10 +171,11 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                                     DispatchQueue.main.async {
                                         self.textView.text += "\n\(doiString)"
                                     }
+                                    print("up to checkunpaywall \(timer.stop()) seconds.")
                                     self.checkUnpaywall(doi: doiString)
                                 }
                                 else{
-                                    //print("DOI was 0 so we are here")
+                                    print("DOI was 0 so we are here")
                                     DispatchQueue.main.async {
                                         self.stopActivity()
                                         self.paperIcon.image = UIImage(named: "paper_search")
@@ -192,7 +195,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                                 }
                             }
                             else{
-                                //print("problem with doi string")
+                                print("problem with doi string")
                                 DispatchQueue.main.async {
                                     self.activityIndicator.stopAnimating()
                                     self.activityIndicator.isHidden = true
@@ -220,8 +223,8 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func checkUnpaywall(doi: String) {
-        //let timer = ParkBenchTimer()
-        //print("checkUnpaywall")
+        let timer = ParkBenchTimer()
+        print("checkUnpaywall")
         self.getCoreRecommendations()
         self.bookMark.doi = doi
         let jsonUrlString = "https://api.unpaywall.org/v2/\(doi)?email=oahelper@otzberg.net"
@@ -233,10 +236,10 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         //        let session = URLSession(configuration: configuration)
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-            //print("The unpaywall task took \(timer.stop()) seconds.")
+            print("The unpaywall task took \(timer.stop()) seconds.")
             if let error = error{
                 //we got an error, let's tell the user
-                //print("error on unpaywall data task")
+                print("error on unpaywall data task")
                 print(error.localizedDescription)
                 self.checkCore(doi: doi, title: self.recommendationObject.title, sourceLabel: "")
             }
@@ -254,7 +257,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     
     func handleData(data: Data, doi: String){
         //sole purpose is to dispatch the url
-        //print("handleData for unpaywall")
+        print("handleData for unpaywall")
         do{
             let oaData = try JSONDecoder().decode(Unpaywall.self, from: data)
             if let unpaywallYear = oaData.year{
@@ -347,8 +350,8 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func checkCore(doi: String, title: String, sourceLabel: String){
-        //let timer = ParkBenchTimer()
-        //print("checkCore")
+        let timer = ParkBenchTimer()
+        print("checkCore")
         let onlyUnpaywall = self.settings.getSettingsValue(key: "only_unpaywall")
         if(onlyUnpaywall){
             self.noOpenAccessFound(title: title, sourceLabel: "")
@@ -368,10 +371,10 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         //        let session = URLSession(configuration: configuration)
         
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-            //print("The core task took \(timer.stop()) seconds.")
+            print("The core task took \(timer.stop()) seconds.")
             if let error = error{
                 //we got an error, let's tell the user
-                //print("error on core data task")
+                print("error on core data task")
                 print(error.localizedDescription)
                 self.noOpenAccessFound(title: title, sourceLabel: sourceLabel)
                 
@@ -391,8 +394,8 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func handleCoreDiscoveryData(data: Data, title: String, sourceLabel: String){
-        //print("core handle data title from function call \(title)")
-        //print("handleCore Data")
+        print("core handle data title from function call \(title)")
+        print("handleCore Data")
         //sole purpose is to dispatch the url
         do{
             let coreData = try JSONDecoder().decode(Coredata.self, from: data)
@@ -455,7 +458,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func noOpenAccessFound(title: String, sourceLabel: String){
-        //print("no open access found")
+        print("no open access found")
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
@@ -741,9 +744,9 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     //MARK: CORE Recommender Related Stuff
     
     func getCoreRecommendations(){
-        //print("do core recommendations")
+        print("do core recommendations")
         if(!self.showRecommendations){
-            //print("no recommendations desired")
+            print("no recommendations desired")
             self.hideAllRecommenderRelatedStuff()
             return
         }
@@ -761,17 +764,17 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 // let's check if there are recommendations and then display
                 
                 if(!self.showRecommendations){
-                    //print("if we got here and this is false, then there was open access")
+                    print("if we got here and this is false, then there was open access")
                     self.hideAllRecommenderRelatedStuff()
                     return
                 }
-                //print("core recommends code \(coreRecommends.code)")
+                print("core recommends code \(coreRecommends.code)")
                 
                 if(coreRecommends.data.count > 0){
-                    //print("there were results")
+                    print("there were results")
                     
                     DispatchQueue.main.async {
-                        //print("dispatch core recommend queue to display stuff")
+                        print("dispatch core recommend queue to display stuff")
                         self.recommendationText = NSLocalizedString("Scroll down, we found some Open Access recommendations!", comment: "we found some OA recommendations")
                         self.textView.text += "\n\n\(self.recommendationText)"
                         self.settings.incrementOACount(key: "recommendation_count")
@@ -784,13 +787,13 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 }
                 else{
                     // there was nothing
-                    //print("there were 0 hits")
+                    print("there were 0 hits")
                     self.hideAllRecommenderRelatedStuff()
                 }
                 
             case .failure(let error):
                 //I hate my life right now
-                //print("core recommend: there was an error: \(error)")
+                print("core recommend: there was an error: \(error)")
                 self.hideAllRecommenderRelatedStuff()
             }
         }
