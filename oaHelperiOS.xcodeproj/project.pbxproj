@@ -623,7 +623,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2019.12;
+				MARKETING_VERSION = 2020.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS.OAHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -649,7 +649,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2019.12;
+				MARKETING_VERSION = 2020.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS.OAHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -792,7 +792,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2019.12;
+				MARKETING_VERSION = 2020.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -816,7 +816,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2019.12;
+				MARKETING_VERSION = 2020.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

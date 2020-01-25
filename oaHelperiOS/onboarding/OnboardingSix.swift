@@ -76,7 +76,7 @@ class OnboardingSix: UIViewController {
     }
     
     @IBAction func moreInfoTapped(_ sender: Any) {
-        guard let url = URL(string: "https://www.otzberg.net/oahelper/moreoaoptions.html") else { return }
+        guard let url = URL(string: "https://www.oahelper.org/moreoaoptions.html") else { return }
         UIApplication.shared.open(url)
     }
     
