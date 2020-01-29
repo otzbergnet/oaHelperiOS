@@ -71,7 +71,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         
-        let timer = ParkBenchTimer()
+//        let timer = ParkBenchTimer()
         super.viewDidLoad()
         
         self.tableView.dataSource = self
@@ -97,7 +97,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                             if let myText = text as? String {
                                 
                                 // we have some text, let's handle it
-                                self.handleSelectedTextData(myText: myText, timer: timer)
+                                self.handleSelectedTextData(myText: myText)
                             }
                         })
                     }
@@ -109,7 +109,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                             let dictionary = item as! NSDictionary
                             let results = dictionary[NSExtensionJavaScriptPreprocessingResultsKey] as! NSDictionary
                             
-                            self.handlePageData(results: results, timer: timer)
+                            self.handlePageData(results: results)
                             
                         })
                     }
@@ -119,7 +119,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
-    func handleSelectedTextData(myText: String, timer: ParkBenchTimer){
+    func handleSelectedTextData(myText: String){
         //let's see, if we can identify DOIs in the selected text
         let doi = self.doiFinder(str: myText)
 
@@ -132,7 +132,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 //only one DOI, let's handle as if we found to DOI in the page
                 //great when a user selected an entire citation in a bibliography
                 
-                print("up to checkunpaywall \(timer.stop()) seconds.")
+                //print("up to checkunpaywall \(timer.stop()) seconds.")
                 self.displayFoundSingleDOI()
                 self.checkUnpaywall(doi: "\(doi[0])")
                 
@@ -148,7 +148,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
-    func handlePageData(results: NSDictionary, timer: ParkBenchTimer) {
+    func handlePageData(results: NSDictionary) {
         //page metadata will have been passed in results - Dictionary
         
         // current URL (basically document.URL)
@@ -181,7 +181,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 DispatchQueue.main.async {
                     self.textView.text += "\n\(doiString)"
                 }
-                print("up to checkunpaywall \(timer.stop()) seconds.")
+                //print("up to checkunpaywall \(timer.stop()) seconds.")
                 self.checkUnpaywall(doi: doiString)
             }
             else{
@@ -198,15 +198,15 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     //MARK: Unpaywall Related Functions
     
     func checkUnpaywall(doi: String) {
-        let timer = ParkBenchTimer()
-        print("checkUnpaywall")
+//        let timer = ParkBenchTimer()
+//        print("checkUnpaywall")
         self.getCoreRecommendations()
         self.bookMark.doi = doi
         let jsonUrlString = "https://api.unpaywall.org/v2/\(doi)?email=oahelper@otzberg.net"
         let url = URL(string: jsonUrlString)
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
-            print("The unpaywall task took \(timer.stop()) seconds.")
+//            print("The unpaywall task took \(timer.stop()) seconds.")
             if let error = error{
                 //we got an error, let's move on to core Discovery
                 print("error on unpaywall data task")
@@ -227,7 +227,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     
     func handleUnpaywallData(data: Data, doi: String){
         //sole purpose is to dispatch the url
-        print("handleData for unpaywall")
+//        print("handleData for unpaywall")
         do{
             let oaData = try JSONDecoder().decode(Unpaywall.self, from: data)
             if let unpaywallYear = oaData.year{
@@ -291,8 +291,8 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     //MARK: Core Discovery Related Functions
     
     func checkCore(doi: String, title: String, sourceLabel: String){
-        let timer = ParkBenchTimer()
-        print("checkCore")
+//        let timer = ParkBenchTimer()
+//        print("checkCore")
         let onlyUnpaywall = self.settings.getSettingsValue(key: "only_unpaywall")
         if(onlyUnpaywall){
             self.noOpenAccessFound(title: title, sourceLabel: "")
@@ -306,7 +306,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-            print("The core task took \(timer.stop()) seconds.")
+//            print("The core task took \(timer.stop()) seconds.")
             if let error = error{
                 //we got an error, let's tell the user
                 print("error on core data task")
@@ -329,8 +329,8 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func handleCoreDiscoveryData(data: Data, title: String, sourceLabel: String){
-        print("core handle data title from function call \(title)")
-        print("handleCore Data")
+//        print("core handle data title from function call \(title)")
+//        print("handleCore Data")
         //sole purpose is to dispatch the url
         do{
             let coreData = try JSONDecoder().decode(Coredata.self, from: data)
@@ -365,7 +365,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func noOpenAccessFound(title: String, sourceLabel: String){
-        print("no open access found")
+//        print("no open access found")
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
@@ -391,20 +391,25 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                             let titleTranslation = NSLocalizedString("Try Open Access Button", comment: "Open Access Button")
                             self.actionButton.setTitle(titleTranslation, for: .normal)
                             self.actionButton.backgroundColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
+                            self.urlAction = true
+                            self.selectAction = false
                         }
                         else{
                             self.displayNoOASearchNow(encodedString: encodedString)
+                            self.urlAction = false
+                            self.selectAction = false
                         }
                     }
                     else{
                         self.displayNoOASearchNow(encodedString: encodedString)
+                        self.urlAction = false
+                        self.selectAction = false
                     }
                     
                     self.actionButton.isHidden = false
                     self.dismissButton.isHidden = false
                     self.showBookMarkButtonFunction()
-                    self.urlAction = false
-                    self.selectAction = false
+                    
                 }
             }
             else{
@@ -716,9 +721,9 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     //MARK: CORE Recommender Related Stuff
     
     func getCoreRecommendations(){
-        print("do core recommendations")
+//        print("do core recommendations")
         if(!self.showRecommendations){
-            print("no recommendations desired")
+//            print("no recommendations desired")
             self.hideAllRecommenderRelatedStuff()
             return
         }
@@ -743,10 +748,10 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 print("core recommends code \(coreRecommends.code)")
                 
                 if(coreRecommends.data.count > 0){
-                    print("there were results")
+//                    print("there were results")
                     
                     DispatchQueue.main.async {
-                        print("dispatch core recommend queue to display stuff")
+//                        print("dispatch core recommend queue to display stuff")
                         self.recommendationText = NSLocalizedString("Scroll down, we found some Open Access recommendations!", comment: "we found some OA recommendations")
                         self.textView.text += "\n\n\(self.recommendationText)"
                         self.settings.incrementOACount(key: "recommendation_count")
@@ -759,7 +764,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 }
                 else{
                     // there was nothing
-                    print("there were 0 hits")
+//                    print("there were 0 hits")
                     self.hideAllRecommenderRelatedStuff()
                 }
                 
@@ -865,7 +870,6 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             let extensionItem = NSExtensionItem()
             let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "returnUrl" : self.returnURLString]]
             extensionItem.attachments = [ NSItemProvider(item: jsDict as NSSecureCoding?, typeIdentifier: kUTTypePropertyList as String)]
-            
             self.extensionContext!.completeRequest(returningItems: [extensionItem], completionHandler: nil)
         }
         else{
