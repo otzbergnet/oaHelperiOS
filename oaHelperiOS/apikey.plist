@@ -10,5 +10,7 @@
 	<string>uMPbcSzO7HNK8wDF5h2gAst3xjrldXEo</string>
 	<key>core</key>
 	<string>uMPbcSzO7HNK8wDF5h2gAst3xjrldXEo</string>
+	<key>proxyApi</key>
+	<string>https://www.oahelper.org/institutes/api.php</string>
 </dict>
 </plist>

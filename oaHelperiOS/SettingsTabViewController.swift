@@ -14,17 +14,22 @@ class SettingsTabViewController: UIViewController {
     @IBOutlet weak var shareSwitch: UISwitch!
     @IBOutlet weak var bookMarkSwitch: UISwitch!
     @IBOutlet weak var iCloudSwitch: UISwitch!
-    @IBOutlet weak var openSettingsButton: UIButton!
     @IBOutlet weak var iCloudStatusLabel: UILabel!
     @IBOutlet weak var iCloudSwitchLabel: UILabel!
     @IBOutlet weak var resetBookMarksSwitch: UISwitch!
     @IBOutlet weak var onlyUnpaywallSwitch: UISwitch!
     @IBOutlet weak var openAccessButtonSwitch: UISwitch!
     @IBOutlet weak var recommendationSwitch: UISwitch!
+    @IBOutlet weak var useProxySwitch: UISwitch!
+ 
+    @IBOutlet weak var openSettingsButton: UIButton!
+    @IBOutlet weak var setupProxyButton: UIButton!
+    
     
     
     let settings = SettingsBundleHelper()
     let dataSync = DataSync()
+    let helper = HelperClass()
     let selection = UISelectionFeedbackGenerator()
     
     override func viewDidLoad() {
@@ -33,6 +38,7 @@ class SettingsTabViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         openSettingsButton.layer.cornerRadius = 10
+        setupProxyButton.layer.cornerRadius = 10
         
         readSettingsForSwitches()
         
@@ -128,6 +134,20 @@ class SettingsTabViewController: UIViewController {
             }
         }
         
+        // useProxy
+        if(self.settings.getSettingsValue(key: "useProxy")){
+            DispatchQueue.main.async {
+                self.useProxySwitch.isOn = true
+                self.setupProxyButton.isHidden = false
+            }
+        }
+        else{
+            DispatchQueue.main.async {
+                self.useProxySwitch.isOn = false
+                self.setupProxyButton.isHidden = true
+            }
+        }
+        
     }
     
     func readSettingsForSwitches(){
@@ -187,6 +207,31 @@ class SettingsTabViewController: UIViewController {
         else{
             recommendationSwitch.isOn = false
         }
+        
+        // useProxy
+        if(self.settings.getSettingsValue(key: "useProxy")){
+            useProxySwitch.isOn = true
+        }
+        else{
+            useProxySwitch.isOn = false
+        }
+        
+        let proxyPrefix = self.settings.getSettingsStringValue(key: "proxyPrefix")
+        if(proxyPrefix == ""){
+            let setupProxyButtonTitle = NSLocalizedString("Setup Proxy", comment: "Setup Proxy if no Proxy Prefix present")
+            self.setupProxyButton.setTitle(setupProxyButtonTitle, for: .normal)
+        }
+        else{
+            if(helper.validateProxyPrefix(urlString: proxyPrefix)){
+                let setupProxyButtonTitle = NSLocalizedString("Change Proxy", comment: "Change Proxy if valid Proxy Prefix Present")
+                self.setupProxyButton.setTitle(setupProxyButtonTitle, for: .normal)
+            }
+            else{
+                let setupProxyButtonTitle = NSLocalizedString("Setup Proxy", comment: "Setup Proxy if no Proxy Prefix present")
+                self.setupProxyButton.setTitle(setupProxyButtonTitle, for: .normal)
+            }
+        }
+        
     }
     
     /*
@@ -234,6 +279,7 @@ class SettingsTabViewController: UIViewController {
         self.iCloudSwitchLabel.isHidden = true
         self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
     }
+    
     
     @IBAction func dataShareSwitched(_ sender: UISwitch!) {
         if(self.shareSwitch.isOn){
@@ -304,8 +350,17 @@ class SettingsTabViewController: UIViewController {
         else{
             self.settings.setSettingsValue(value: false, key: "recommendation")
         }
-        
-        
+    }
+    
+    @IBAction func useProxyButtonSwitched(_ sender: Any) {
+        if(self.useProxySwitch.isOn){
+            self.settings.setSettingsValue(value: true, key: "useProxy")
+            self.setupProxyButton.isHidden = false
+        }
+        else{
+            self.settings.setSettingsValue(value: false, key: "useProxy")
+            self.setupProxyButton.isHidden = true
+        }
     }
     
     
@@ -349,6 +404,10 @@ class SettingsTabViewController: UIViewController {
             popOver.sourceView = sender
             popOver.sourceRect = CGRect(x: 0, y: 0, width: sender.frame.size.width, height: sender.frame.size.height)
         }
+    }
+    
+    @IBAction func setupProxyPrefixTapped(_ sender: Any) {
+        performSegue(withIdentifier: "ezProxySegue", sender: nil)
     }
     
     

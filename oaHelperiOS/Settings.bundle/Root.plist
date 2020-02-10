@@ -52,26 +52,26 @@
 			<key>DefaultValue</key>
 			<string>0</string>
 		</dict>
-        <dict>
-            <key>Type</key>
-            <string>PSTitleValueSpecifier</string>
-            <key>Title</key>
-            <string>Core Recommendations Found</string>
-            <key>Key</key>
-            <string>recommendation_count</string>
-            <key>DefaultValue</key>
-            <string>0</string>
-        </dict>
-        <dict>
-            <key>Type</key>
-            <string>PSTitleValueSpecifier</string>
-            <key>Title</key>
-            <string>Core Recommendations Tapped</string>
-            <key>Key</key>
-            <string>recommendation_view</string>
-            <key>DefaultValue</key>
-            <string>0</string>
-        </dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Core Recommendations Found</string>
+			<key>Key</key>
+			<string>recommendation_count</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Core Recommendations Tapped</string>
+			<key>Key</key>
+			<string>recommendation_view</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
@@ -196,6 +196,28 @@
 			<key>DefaultValue</key>
 			<true/>
 		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Support Proxy</string>
+			<key>Key</key>
+			<string>useProxy</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
+			<false/>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+        <dict>
+            <key>Type</key>
+            <string>PSTextFieldSpecifier</string>
+            <key>Title</key>
+            <string>Proxy Prefix</string>
+            <key>Key</key>
+            <string></string>
+        </dict>
 	</array>
 </dict>
 </plist>

@@ -167,6 +167,27 @@ class HelperClass : UIViewController{
         return query
     }
 
+    func validateProxyPrefix(urlString: String) -> Bool {
+           let prefix = urlString.prefix(4)
+           let suffix = urlString.suffix(5)
+           let testService = "https://www.jstor.org"
+           let testUrl = urlString+testService
+           
+           if(prefix != "http"){
+               return false
+           }
+           if(suffix != "?url=" && suffix != "qurl=" && suffix != "&url="){
+               return false
+           }
+           
+           
+           if let url = URL(string: testUrl) {
+               let urlRequest = URLRequest.init(url: url)
+               return NSURLConnection.canHandle(urlRequest)
+           }
+           return false
+       }
+    
 }
 
 

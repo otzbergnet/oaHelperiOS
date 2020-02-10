@@ -56,6 +56,9 @@
 		2DB47C2123A6502B004E44FA /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB47C1F23A6502B004E44FA /* Timer.swift */; };
 		2DBF96FA2270E59D005C182D /* NoBookMarkSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */; };
 		2DBF96FC2271689B005C182D /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */; };
+		2DC0C19B23F1840B00A725AC /* ProxySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0C19A23F1840B00A725AC /* ProxySettingsViewController.swift */; };
+		2DC0C19D23F1956D00A725AC /* proxyStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0C19C23F1956D00A725AC /* proxyStruct.swift */; };
+		2DC0C19F23F195FB00A725AC /* ProxyFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0C19E23F195FB00A725AC /* ProxyFind.swift */; };
 		2DC23452229CE46400D0BEA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC23451229CE46400D0BEA7 /* Assets.xcassets */; };
 		2DD08CEA21BC31ED00D0B3C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD08CE921BC31ED00D0B3C0 /* AppDelegate.swift */; };
 		2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD08CEB21BC31ED00D0B3C0 /* ViewController.swift */; };
@@ -146,6 +149,9 @@
 		2DB47C1F23A6502B004E44FA /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBookMarkSupportViewController.swift; sourceTree = "<group>"; };
 		2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
+		2DC0C19A23F1840B00A725AC /* ProxySettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxySettingsViewController.swift; sourceTree = "<group>"; };
+		2DC0C19C23F1956D00A725AC /* proxyStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = proxyStruct.swift; sourceTree = "<group>"; };
+		2DC0C19E23F195FB00A725AC /* ProxyFind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyFind.swift; sourceTree = "<group>"; };
 		2DC23451229CE46400D0BEA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DD08CE621BC31ED00D0B3C0 /* oaHelperiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oaHelperiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD08CE921BC31ED00D0B3C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -243,6 +249,7 @@
 				2D24C2812222A3BF0012B8E1 /* BookmarkTableViewController.swift */,
 				2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */,
 				2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */,
+				2DC0C19A23F1840B00A725AC /* ProxySettingsViewController.swift */,
 				2D652B1A2272BC6500A46F37 /* StatisticsViewController.swift */,
 				2D652B20227452E300A46F37 /* NewsTableViewController.swift */,
 				2D8BA9D8227CC77100A0600E /* DetailNewsViewController.swift */,
@@ -285,6 +292,7 @@
 				2DAD65672392AA0B00940419 /* RecommenderHelper.swift */,
 				2DAD656A2392AC6200940419 /* Extensions.swift */,
 				2DB47C1F23A6502B004E44FA /* Timer.swift */,
+				2DC0C19E23F195FB00A725AC /* ProxyFind.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -298,6 +306,7 @@
 				2D652B222275A6D400A46F37 /* newsStruct.swift */,
 				2D446A7E22E8D2DE001ECFA0 /* coreDiscoveryStruct.swift */,
 				2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */,
+				2DC0C19C23F1956D00A725AC /* proxyStruct.swift */,
 			);
 			path = json_structs;
 			sourceTree = "<group>";
@@ -501,6 +510,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DC0C19D23F1956D00A725AC /* proxyStruct.swift in Sources */,
 				2D30FC5D21E4715F00C4060D /* TableViewCell.swift in Sources */,
 				2D11771722207A7000859B08 /* StatisticSubmit.swift in Sources */,
 				2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */,
@@ -511,7 +521,9 @@
 				2DD08CEA21BC31ED00D0B3C0 /* AppDelegate.swift in Sources */,
 				2D1BE15F21CAB1440063B691 /* OnboardingThree.swift in Sources */,
 				2D1BE15D21CAB1250063B691 /* OnboardingTwo.swift in Sources */,
+				2DC0C19B23F1840B00A725AC /* ProxySettingsViewController.swift in Sources */,
 				2D652B232275A6D400A46F37 /* newsStruct.swift in Sources */,
+				2DC0C19F23F195FB00A725AC /* ProxyFind.swift in Sources */,
 				2D8BA9D9227CC77100A0600E /* DetailNewsViewController.swift in Sources */,
 				2DAE4AF5227F46A30037DB69 /* NewsItemData.swift in Sources */,
 				2D575C4923A42B2000D1038F /* OnboardingSix.swift in Sources */,

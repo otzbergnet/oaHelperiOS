@@ -45,7 +45,21 @@ class SettingsBundleHelper {
         return self.defaults.bool(forKey: key)
     }
     
+    func getSettingsStringValue(key: String) -> String{
+        if let setting = self.defaults.string(forKey: key){
+            return setting
+        }
+        else{
+            return ""
+        }
+    }
+    
     func setSettingsValue(value: Bool, key: String){
+        self.defaults.set(value, forKey: key)
+        self.defaults.synchronize()
+    }
+    
+    func setSettingsStringValue(value: String, key: String){
         self.defaults.set(value, forKey: key)
         self.defaults.synchronize()
     }
