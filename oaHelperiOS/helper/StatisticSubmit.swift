@@ -40,6 +40,7 @@ class StatisticSubmit {
         let bookmark_count = replaceZeroWithUndersore(value: self.settings.getOACount(key: "bookmark_count"))
         let recom_count = replaceZeroWithUndersore(value: self.settings.getOACount(key: "recommendation_count"))
         let recom_view = replaceZeroWithUndersore(value: self.settings.getOACount(key: "recommendation_view"))
+        let proxy_count = replaceZeroWithUndersore(value: self.settings.getOACount(key: "proxy_count"))
         
         if(oa_found == "_" && oa_search == "_" && core_pdf == "_" && bookmark_count == "_"){
             print("nothing to share")
@@ -47,7 +48,7 @@ class StatisticSubmit {
         }
         
         
-        let urlString = "https://www.oahelper.org/stat.php?oa_search=\(oa_search)&oa_found=\(oa_found)&core_pdf=\(core_pdf)&bookmark_count=\(bookmark_count)&recom_count=\(recom_count)&recom_view=\(recom_view)&uid=\(self.uid)"
+        let urlString = "https://www.oahelper.org/stat.php?oa_search=\(oa_search)&oa_found=\(oa_found)&core_pdf=\(core_pdf)&bookmark_count=\(bookmark_count)&recom_count=\(recom_count)&recom_view=\(recom_view)&proxy_count=\(proxy_count)&uid=\(self.uid)"
         guard let url = URL(string: urlString) else {
             return
         }
