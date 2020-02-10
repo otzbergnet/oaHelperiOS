@@ -1,2 +1,4 @@
 
 oaHelperiOS/apikey.plist
+.DS_Store
+*.xcuserstate

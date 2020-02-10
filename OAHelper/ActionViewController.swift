@@ -132,7 +132,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 //only one DOI, let's handle as if we found to DOI in the page
                 //great when a user selected an entire citation in a bibliography
                 
-                //print("up to checkunpaywall \(timer.stop()) seconds.")
+//                print("up to checkunpaywall \(timer.stop()) seconds.")
                 self.displayFoundSingleDOI()
                 self.checkUnpaywall(doi: "\(doi[0])")
                 
@@ -181,7 +181,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 DispatchQueue.main.async {
                     self.textView.text += "\n\(doiString)"
                 }
-                //print("up to checkunpaywall \(timer.stop()) seconds.")
+//                print("up to checkunpaywall \(timer.stop()) seconds.")
                 self.checkUnpaywall(doi: doiString)
             }
             else{
@@ -203,6 +203,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         self.getCoreRecommendations()
         self.bookMark.doi = doi
         let jsonUrlString = "https://api.unpaywall.org/v2/\(doi)?email=oahelper@otzberg.net"
+//        print(jsonUrlString)
         let url = URL(string: jsonUrlString)
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
@@ -309,7 +310,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
 //            print("The core task took \(timer.stop()) seconds.")
             if let error = error{
                 //we got an error, let's tell the user
-                print("error on core data task")
+//                print("error on core data task")
                 print(error.localizedDescription)
                 self.noOpenAccessFound(title: title, sourceLabel: sourceLabel)
                 
@@ -741,11 +742,11 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 // let's check if there are recommendations and then display
                 
                 if(!self.showRecommendations){
-                    print("if we got here and this is false, then there was open access")
+//                    print("if we got here and this is false, then there was open access")
                     self.hideAllRecommenderRelatedStuff()
                     return
                 }
-                print("core recommends code \(coreRecommends.code)")
+//                print("core recommends code \(coreRecommends.code)")
                 
                 if(coreRecommends.data.count > 0){
 //                    print("there were results")

@@ -30,7 +30,7 @@ class StatisticSubmit {
         }
         
         if(recentUpdate(lastDate: lastDate)){
-            print("recently updatd statistics")
+            //print("recently updatd statistics")
             return
         }
         
