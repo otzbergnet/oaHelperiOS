@@ -926,6 +926,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             return
         }
         let newUrl = proxyPrefix+url
+        settings.incrementOACount(key : "proxy_count")
         let extensionItem = NSExtensionItem()
         let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "returnUrl" : newUrl]]
         extensionItem.attachments = [ NSItemProvider(item: jsDict as NSSecureCoding?, typeIdentifier: kUTTypePropertyList as String)]

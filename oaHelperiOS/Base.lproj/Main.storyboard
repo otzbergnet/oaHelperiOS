@@ -1353,10 +1353,10 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WIG-We-XkY">
-                                <rect key="frame" x="0.0" y="44" width="320" height="375"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="390"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="375" id="6fa-jM-4ZX"/>
+                                    <constraint firstAttribute="height" constant="390" id="6fa-jM-4ZX"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="statCell" textLabel="Qi2-nE-LNB" detailTextLabel="jP7-FY-WVl" style="IBUITableViewCellStyleValue1" id="0vj-Au-pr8">
@@ -1386,17 +1386,17 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcN-Y1-Zub">
-                                <rect key="frame" x="0.0" y="420" width="320" height="99"/>
+                                <rect key="frame" x="0.0" y="435" width="320" height="84"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select a row above for an explanation of the values" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vq8-9p-PLi">
-                                <rect key="frame" x="56" y="434" width="239" height="41"/>
+                                <rect key="frame" x="56" y="449" width="239" height="41"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-info-75" translatesAutoresizingMaskIntoConstraints="NO" id="TQj-yH-PUP">
-                                <rect key="frame" x="16" y="434" width="25" height="25"/>
+                                <rect key="frame" x="16" y="449" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="1Fa-vg-Gew"/>
                                     <constraint firstAttribute="width" constant="25" id="oS7-fz-e9K"/>

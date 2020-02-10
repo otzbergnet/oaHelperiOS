@@ -74,6 +74,16 @@
 		</dict>
 		<dict>
 			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Proxy Actions</string>
+			<key>Key</key>
+			<string>proxy_count</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
 			<string>Share Statistics</string>
@@ -210,14 +220,14 @@
 			<key>DefaultValue</key>
 			<false/>
 		</dict>
-        <dict>
-            <key>Type</key>
-            <string>PSTextFieldSpecifier</string>
-            <key>Title</key>
-            <string>Proxy Prefix</string>
-            <key>Key</key>
-            <string></string>
-        </dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Proxy Prefix</string>
+			<key>Key</key>
+			<string></string>
+		</dict>
 	</array>
 </dict>
 </plist>

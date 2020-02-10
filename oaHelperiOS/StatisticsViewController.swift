@@ -106,6 +106,12 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
         recommendation_view.explainerLabel = NSLocalizedString("Number of times you tapped a recommendation to view its details.", comment: "")
         tmpStatisticsObject.append(recommendation_view)
         
+        let proxy_count = StatsValues()
+        proxy_count.textLabel = NSLocalizedString("Number of Proxy Actions", comment: "")
+        proxy_count.detailTextLabel = "\(settings.getOACount(key: "proxy_count"))"
+        proxy_count.explainerLabel = NSLocalizedString("Number of times a user selected to proxy a url.", comment: "")
+        tmpStatisticsObject.append(proxy_count)
+        
         let sync_date = StatsValues()
         sync_date.textLabel = NSLocalizedString("Last iCloud Sync Date", comment: "")
         let syncDate = settings.getSyncDate(type: "sync_date")
