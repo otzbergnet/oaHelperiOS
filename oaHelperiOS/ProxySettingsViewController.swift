@@ -68,6 +68,9 @@ class ProxySettingsViewController: UIViewController {
                     //nothing
                 }
             }
+            else{
+                self.statusLabel.text = NSLocalizedString("The proxy prefixed you entered, failed to validate. Please enter the prefix in the format https://proxy.university.edu/login?url=", comment: "failed to validate proxy prefix")
+            }
         }
     }
     

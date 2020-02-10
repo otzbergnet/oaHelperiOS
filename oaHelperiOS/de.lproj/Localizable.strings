@@ -57,3 +57,4 @@
 "Number of times a user selected to proxy a url." = "Die Zahl der URLs für die der Zugang mittels des Proxy angefordert wurde.";
 "New Proxy Added" = "Proxy hinzugefügt";
 "We have added your new proxy prefix. It is ready to use!" = "Wir haben den Proxy Prefix hinzugefügt. Dieser steht nun für Sie bereit!";
+"The proxy prefixed you entered, failed to validate. Please enter the prefix in the format https://proxy.university.edu/login?url=" = "Der von Ihnen eingegebene Proxy Prefix konnte nicht validiert werden. Bitte geben Sie den Prefix im folgenden Format ein https://proxy.university.edu/login?url=";
