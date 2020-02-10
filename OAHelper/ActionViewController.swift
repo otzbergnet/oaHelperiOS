@@ -39,6 +39,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var addBookMarkButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
+    @IBOutlet weak var proxyButton: UIButton!
     
     
     //MARK: Setup Basic Display Logic Variables
@@ -49,6 +50,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     var showBookMarkButton = true
     var showOpenAccessButton = true
     var showRecommendations = true
+    var showProxyButton = false
     
     //MARK: Initialize Helper Classes
     
@@ -264,6 +266,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                         self.textView.text = NSLocalizedString("Open Access of this article should be available, but the URL was empty", comment: "Open Access of this article should be available, but the URL was empty")
                         self.returnURLString = ""
                         self.dismissButton.isHidden = false
+                        self.showProxyButtonFunction()
                     }
                     
                 }
@@ -346,6 +349,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                         myTitle = title
                     }
                     self.displayFoundOpenAccess(title: myTitle, sourceLabel: sourceLabel, oaUrl: boa, oaTypeImg: "coreDiscovery", myOaType: "Core Discovery Result", oaVersion: "coreDiscovery")
+                    self.showProxyButtonFunction()
 
                 }
                 else{
@@ -394,6 +398,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                             self.actionButton.backgroundColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
                             self.urlAction = true
                             self.selectAction = false
+                            
                         }
                         else{
                             self.displayNoOASearchNow(encodedString: encodedString)
@@ -410,6 +415,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                     self.actionButton.isHidden = false
                     self.dismissButton.isHidden = false
                     self.showBookMarkButtonFunction()
+                    self.showProxyButtonFunction()
                     
                 }
             }
@@ -421,6 +427,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 self.returnURLString = ""
                 self.dismissButton.isHidden = false
                 self.showBookMarkButtonFunction()
+                self.showProxyButtonFunction()
             }
         }
     }
@@ -533,6 +540,10 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
         self.showOpenAccessButton = self.settings.getSettingsValue(key: "open_access_button")
         self.showRecommendations = self.settings.getSettingsValue(key: "recommendation")
+        if(self.settings.getSettingsValue(key: "useProxy") && self.settings.getSettingsStringValue(key: "proxyPrefix") != ""){
+            self.showProxyButton = true
+        }
+        
     }
     
     //MARK: Display Data in User Interface Related
@@ -546,6 +557,9 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         
         dismissButton.isHidden = true
         dismissButton.layer.cornerRadius = 10
+        
+        proxyButton.isHidden = true
+        proxyButton.layer.cornerRadius = 10
         
         activityIndicator.startAnimating()
         
@@ -561,6 +575,9 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         
         let addBookmarkButtonText = NSLocalizedString("Add Bookmark", comment: "Add bookmark")
         self.addBookMarkButton.setTitle(addBookmarkButtonText, for: .normal)
+        
+        let proxyButtonText = NSLocalizedString("Proxy Original Page", comment: "proxy page button")
+        self.proxyButton.setTitle(proxyButtonText, for: .normal)
         
         tableView.isHidden = true
         tableViewActivityIndicator.isHidden = true
@@ -614,6 +631,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             self.returnURLString = ""
             self.dismissButton.isHidden = false
             self.showBookMarkButtonFunction()
+            self.showProxyButtonFunction()
         }
     }
     
@@ -626,6 +644,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         let titleTranslation = NSLocalizedString("Search core.ac.uk", comment: "Search core.ac.uk")
         self.actionButton.setTitle(titleTranslation, for: .normal)
         self.actionButton.backgroundColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
+        self.showProxyButtonFunction()
     }
     
     func displayFoundOpenAccess(title: String, sourceLabel: String, oaUrl: String, oaTypeImg: String, myOaType: String, oaVersion: String){
@@ -646,7 +665,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             self.returnURLString = oaUrl
             self.bookMark.pdf = oaUrl
             self.settings.incrementOACount(key: "oa_found")
-            let oaFoundButtonText = NSLocalizedString("Go to document now", comment: "Go to document now")
+            let oaFoundButtonText = NSLocalizedString("Go to Document Now", comment: "Go to document now")
             self.actionButton.setTitle(oaFoundButtonText, for: .normal)
             self.actionButton.isHidden = false
             self.showBookMarkButtonFunction()
@@ -665,6 +684,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             else{
                 self.oaTypeLabel.text = myOaType
             }
+            self.showProxyButtonFunction()
             
         }
     }
@@ -704,8 +724,18 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func hideBookmarkButtonCompletely(){
-        NSLayoutConstraint(item: self.addBookMarkButton as Any, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 0).isActive = true
+        self.proxyButton.isHidden = true
     }
+    
+    func showProxyButtonFunction(){
+        if(self.showProxyButton){
+            self.proxyButton.isHidden = false
+        }
+        else{
+            self.proxyButton.isHidden = false
+        }
+    }
+    
     
     func stopActivity(){
         self.activityIndicator.stopAnimating()
@@ -885,6 +915,12 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         }
         executeCancel(action: "bookmarked")
     }
+    
+    @IBAction func proxyButtonTapped(_ sender: Any) {
+        let url = self.bookMark.url
+        print("Proxy Button Was Clicked: \(url)")
+    }
+    
     
     
 }

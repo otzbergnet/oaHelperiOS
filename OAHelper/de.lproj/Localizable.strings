@@ -19,7 +19,7 @@
 "We've encountered an error" = "Ein Fehler ist aufgetreten";
 "We were unable to identify an Open Access Version of this document!" = "Wir konnten keine Open Access Version dieses Dokumentes finden!";
 "Open Access version is available at:\n\n%@" = "Open Access Version verfügbar unter:\n\n%@";
-"Go to document now" = "Zum Dokument";
+"Go to Document Now" = "Zum Dokument";
 "We've encountered a problem" = "Ein Problem ist aufgetreten";
 "Open Access of this article should be available, but the URL was empty" = "Eine Open Access Version sollte verfügbar sein, die URL war jedoch leer";
 "We were unable to find an Open Access version of this article. Please click the button below to search for the title of the article in core.ac.uk" = "Wir konnten keine Open Access Version des Artikels finden. Bitte drücken Sie die Schaltfläche unten, um den Artikeltitel bei core.ac.uk zu suchen";
@@ -31,3 +31,4 @@
 ": Accepted Version" = ": Akzeptierte Fassung";
 ": Published Version" = ": Veröffentlichte Fassung";
 "Scroll down, we found some Open Access recommendations!" = "Wir haben Open Access Empfehlungen gefunden - wischen Sie nach unten!";
+"Proxy Original Page" = "Seite mit Proxy neu laden";
