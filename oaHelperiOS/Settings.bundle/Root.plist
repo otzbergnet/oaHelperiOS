@@ -226,7 +226,7 @@
 			<key>Title</key>
 			<string>Proxy Prefix</string>
 			<key>Key</key>
-			<string></string>
+			<string>proxyPrefix</string>
 		</dict>
 	</array>
 </dict>
