@@ -53,3 +53,7 @@
 "Number of times a recommendation was shown to you. A typical recommendation consists of three items." = "Die Zahl der angezeigten Empfehlungen. Ein Empfehlungsobjekt besteht üblicherweise aus 3 Artikeln.";
 "Number of recommendation taps" = "Anzahl aufgerufener Empfehlungen";
 "Number of times you tapped a recommendation to view its details." = "Die Zahl der von ihnen aufgerufenen Empfehlungen";
+"Number of Proxy Actions" = "Anzahl der Proxy-Anfragen";
+"Number of times a user selected to proxy a url." = "Die Zahl der URLs für die der Zugang mittels des Proxy angefordert wurde.";
+"New Proxy Added" = "Proxy hinzugefügt";
+"We have added your new proxy prefix. It is ready to use!" = "Wir haben den Proxy Prefix hinzugefügt. Dieser steht nun für Sie bereit!";

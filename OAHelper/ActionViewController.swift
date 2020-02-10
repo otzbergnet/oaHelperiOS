@@ -640,7 +640,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         if(self.recommendationText != ""){
             self.textView.text += "\n\n\(self.recommendationText)"
         }
-        self.returnURLString = "oahelper://\(encodedString)"
+        self.returnURLString = "oahelper://search?search=\(encodedString)"
         let titleTranslation = NSLocalizedString("Search core.ac.uk", comment: "Search core.ac.uk")
         self.actionButton.setTitle(titleTranslation, for: .normal)
         self.actionButton.backgroundColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
@@ -695,7 +695,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 
                 let formattedText = String(format: NSLocalizedString("%@ \n\nIf you wish to search the above at core.ac.uk, click the button below", comment: "selected text to be seached"), myText)
                 let titleTranslation = NSLocalizedString("Search core.ac.uk", comment: "Search core.ac.uk")
-                self.returnURLString = "oahelper://\(encodedString)"
+                self.returnURLString = "oahelper://search?search=\(encodedString)"
                 
                 self.stopActivity()
                 

@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window : UIWindow?
     var search = String()
+    var proxy = String()
+    let settings = SettingsBundleHelper()
+    let helper = HelperClass()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -27,9 +30,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // below function is used to receive data via URLscheme oahelper://
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        
-        if let message = url.host?.removingPercentEncoding{
-            self.search = message
+        let myUrl = "\(url)"
+
+        if let components = URLComponents(string: myUrl){
+            if let queryItems = components.queryItems{
+                if let myproxy = queryItems.filter({$0.name == "proxy"}).first{
+                    if let base64data = myproxy.value{
+                        if let data = Data(base64Encoded: base64data){
+                            if let urlString = String(data: data, encoding: .utf8){
+                                if(helper.validateProxyPrefix(urlString: urlString)){
+                                    self.settings.setSettingsStringValue(value: urlString, key: "proxyPrefix")
+                                    self.settings.setSettingsValue(value: true, key: "useProxy")
+                                    self.proxy = urlString
+                                }
+                            }
+                        }
+                    }
+                }
+                if let mysearch = queryItems.filter({$0.name == "search"}).first{
+                    self.search = mysearch.value ?? ""
+                }
+            }
         }
         determineView()
         return true
