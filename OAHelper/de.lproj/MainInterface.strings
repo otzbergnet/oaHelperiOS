@@ -20,6 +20,23 @@
 /* Class = "UILabel"; text = "Source"; ObjectID = "kcR-8X-IwJ"; */
 "kcR-8X-IwJ.text" = "Quelle";
 
+/* Class = "UIButton"; normalTitle = "addBookMark"; ObjectID = "kWE-IA-PxU"; */
 "kWE-IA-PxU.normalTitle" = "Dokument merken";
 
+/* Class = "UILabel"; text = "Similar Articles"; ObjectID = "RQ9-ft-Ovh"; */
 "RQ9-ft-Ovh.text" = "Ähnliche Artikel";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "GSP-YX-rjF"; */
+"GSP-YX-rjF.text" = "";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "PL3-X4-pUX"; */
+"PL3-X4-pUX.text" = "";
+
+/* Class = "UIButton"; normalTitle = "proxyButton"; ObjectID = "qjf-mg-uYs"; */
+"qjf-mg-uYs.normalTitle" = "";
+
+/* Class = "UILabel"; text = "Powered by"; ObjectID = "qp6-5y-yYD"; */
+"qp6-5y-yYD.text" = "";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "w1s-2O-d8L"; */
+"w1s-2O-d8L.text" = "";

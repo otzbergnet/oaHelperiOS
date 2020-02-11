@@ -7,13 +7,12 @@
 
 /* Class = "UILabel"; text = "Enter your search:"; ObjectID = "aEM-QZ-eEg"; */
 "aEM-QZ-eEg.text" = "Ihr Suche:";
+
+/* Class = "UITextField"; placeholder = "Please enter your search"; ObjectID = "He3-yf-kv9"; */
 "He3-yf-kv9.placeholder" = "Bitte Suche eingeben";
 
 /* Class = "UIButton"; normalTitle = "Access Document"; ObjectID = "bqf-wb-KsL"; */
 "bqf-wb-KsL.normalTitle" = "Dokument abrufen";
-
-/* Class = "UILabel"; text = "Title"; ObjectID = "cjE-4d-ZYa"; */
-"cjE-4d-ZYa.text" = "Title";
 
 /* Class = "UILabel"; text = "authorLabel"; ObjectID = "hFn-dy-2Xd"; */
 "hFn-dy-2Xd.text" = "authorLabel";
@@ -27,56 +26,197 @@
 /* Class = "UILabel"; text = "Please remember that you'll get the most out of OA Helper, if you use the Safari Share Sheet!"; ObjectID = "oHP-zt-CAG"; */
 "oHP-zt-CAG.text" = "Bitte denken Sie daran, dass Sie den größten Nuzten aus dem Safari Share Sheet ziehen werden";
 
-/* Class = "UILabel"; text = "Subtitle"; ObjectID = "y5E-9n-LU8"; */
-"y5E-9n-LU8.text" = "Untertitel";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "zpM-2j-XVw"; */
-"zpM-2j-XVw.text" = "Label";
-
+/* Class = "UIButton"; normalTitle = "Open Access Search"; ObjectID = "JJr-Ge-nca"; */
 "JJr-Ge-nca.normalTitle" = "Open Access Suche";
 
+/* Class = "UIButton"; normalTitle = "Previous"; ObjectID = "Mni-tS-rL6"; */
 "Mni-tS-rL6.normalTitle" = "Zurück";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "ryL-RR-chJ"; */
 "ryL-RR-chJ.normalTitle" = "Weiter";
 
-"06u-j8-OkT.normalTitle" = "Bookmarks anzeigen";
+/* Class = "UIButton"; normalTitle = "Advanced Search"; ObjectID = "iH6-Bw-q2M"; */
 "iH6-Bw-q2M.normalTitle" = "Erweiterte Suche";
 
 /* TabBarItems*/
 "O82-Bh-Fyw.title" = "Statistiken";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "OFZ-wQ-cqx"; */
 "OFZ-wQ-cqx.title" = "Einstellungen";
+
+/* Class = "UITabBarItem"; title = "News"; ObjectID = "WJ7-yu-DEz"; */
 "WJ7-yu-DEz.title" = "Nachrichten";
 
 /*Title for View Controllers*/
 "sut-FN-B9K.title" = "Statistiken";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "Tan-j2-6UR"; */
 "Tan-j2-6UR.title" = "Einstellungen";
+
+/* Class = "UINavigationItem"; title = "News & Info"; ObjectID = "5d6-3G-nJ9"; */
 "5d6-3G-nJ9.title" = "Nachrichten & Infos";
 
 /* SettingsTabView*/
-
 "SRu-U1-Sp5.text" = "Sie können hier die wichtigsten Einstellungen für diese App anpassen.";
+
+/* Class = "UILabel"; text = "Share usage once a month"; ObjectID = "xIv-r5-Rvh"; */
 "xIv-r5-Rvh.text" = "Nutzung monatlich teilen";
+
+/* Class = "UILabel"; text = "Enable Bookmarks"; ObjectID = "34Y-wY-K30"; */
 "34Y-wY-K30.text" = "Bookmarks aktivieren";
+
+/* Class = "UILabel"; text = "iCloud Sync Bookmarks "; ObjectID = "cD5-Oy-m8y"; */
 "cD5-Oy-m8y.text" = "Bookmarks über iCloud synchronisieren";
+
+/* Class = "UILabel"; text = "Reset Bookmarks from iCloud"; ObjectID = "4nL-4z-9Nt"; */
 "4nL-4z-9Nt.text" = "Bookmarks löschen & aus iCoud laden";
+
+/* Class = "UIButton"; normalTitle = "Open Settings"; ObjectID = "E8z-S7-jDc"; */
 "E8z-S7-jDc.normalTitle" = "Einstellungen öffnen";
+
+/* Class = "UIButton"; normalTitle = "Leave Review"; ObjectID = "o4f-O4-Z0t"; */
 "o4f-O4-Z0t.normalTitle" = "App bewerten";
+
+/* Class = "UIButton"; normalTitle = "Tell Your Friends"; ObjectID = "uDz-5C-BWW"; */
 "uDz-5C-BWW.normalTitle" = "App empfehlen";
+
+/* Class = "UILabel"; text = "Only use unpaywall.org"; ObjectID = "33R-cg-J4D"; */
 "33R-cg-J4D.text" = "Nur unpaywall.org";
+
+/* Class = "UILabel"; text = "Open Access Button Request"; ObjectID = "LPH-Rz-Oaa"; */
 "LPH-Rz-Oaa.text" = "Open Access Button Anfragen ermöglichen";
+
+/* Class = "UILabel"; text = "Show Similar Articles"; ObjectID = "eY1-sN-aAv"; */
 "eY1-sN-aAv.text" = "Ähnliche Artikel zeigen";
 
 /*Advacned Search*/
 "REW-yP-gPI.normalTitle" = "Felder löschen";
+
+/* Class = "UIButton"; normalTitle = "Advanced Search"; ObjectID = "4Tl-nX-NTX"; */
 "4Tl-nX-NTX.normalTitle" = "Erweiterte Suche";
+
+/* Class = "UITextField"; placeholder = "Article Title"; ObjectID = "rxk-ok-JMg"; */
 "rxk-ok-JMg.placeholder" = "Titel";
+
+/* Class = "UITextField"; placeholder = "Author (Last Name)"; ObjectID = "NAK-Yy-sdX"; */
 "NAK-Yy-sdX.placeholder" = "Autor (Nachname)";
+
+/* Class = "UITextField"; placeholder = "From Year"; ObjectID = "VQT-jJ-laO"; */
 "VQT-jJ-laO.placeholder" = "Jahr (von)";
+
+/* Class = "UITextField"; placeholder = "To Year"; ObjectID = "4Su-Au-oDM"; */
 "4Su-Au-oDM.placeholder" = "Jahr (bis)";
-"Ply-Vz-xNm.placeholder" = "Sprache (auf Englisch)";
 
 /*Bookmark Disabled*/
-
 "6AE-wr-UX8.text" = "Diese Funktion ist zur Zeit nicht aktiviert.\n\nMit der Bookmarks-Funktion können Sie die URLs von relevanten Inhalten speichern. Handelt es sich um einen Open Access Artikel speichert die App selbst\U00ADver\U00ADständ\U00ADlich die URL der entsprechenden PDF-Datei.\n\nSofern Sie mehrere Apple Geräte haben, können Sie die Bookmarks über iCloud abgleichen.";
+
+/* Class = "UILabel"; text = "Enable Bookmarks"; ObjectID = "xDj-8Q-Y1N"; */
 "xDj-8Q-Y1N.text" = "Bookmarks aktivieren";
+
+/* Class = "UILabel"; text = "iCloud Sync Bookmarks "; ObjectID = "IwD-N7-YbI"; */
 "IwD-N7-YbI.text" = "iCloud Synchronisation aktivieren";
+
+/* Class = "UIButton"; normalTitle = "Open Settings"; ObjectID = "cdj-kF-7Wg"; */
 "cdj-kF-7Wg.normalTitle" = "Einstellungen öffnen";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "1lj-de-Wva"; */
+"1lj-de-Wva.text" = "";
+
+/* Class = "UIButton"; normalTitle = "Setup Proxy"; ObjectID = "2SW-lw-2NX"; */
+"2SW-lw-2NX.normalTitle" = "";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "3S3-po-hYW"; */
+"3S3-po-hYW.text" = "";
+
+/* Class = "UITabBarItem"; title = "Bookmarks"; ObjectID = "5Uc-b0-J6l"; */
+"5Uc-b0-J6l.title" = "";
+
+/* Class = "UIViewController"; title = "Bookmarks"; ObjectID = "68n-8o-H12"; */
+"68n-8o-H12.title" = "";
+
+/* Class = "UIButton"; normalTitle = "PDF"; ObjectID = "7NV-dD-8xy"; */
+"7NV-dD-8xy.normalTitle" = "";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "Nbo-ag-TJJ"; */
+"Nbo-ag-TJJ.text" = "";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Nj9-yR-KDx"; */
+"Nj9-yR-KDx.text" = "";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Poo-dX-Xer"; */
+"Poo-dX-Xer.title" = "";
+
+/* Class = "UILabel"; text = "iCloudStatusLabel"; ObjectID = "QP7-jR-ut3"; */
+"QP7-jR-ut3.text" = "";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "QXB-17-Pqf"; */
+"QXB-17-Pqf.text" = "";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "QbF-XW-6oc"; */
+"QbF-XW-6oc.text" = "";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Qi2-nE-LNB"; */
+"Qi2-nE-LNB.text" = "";
+
+/* Class = "UILabel"; text = "EZProxy Setting"; ObjectID = "S05-fC-VTy"; */
+"S05-fC-VTy.text" = "";
+
+/* Class = "UILabel"; text = "Use Proxy"; ObjectID = "Vra-TD-yuG"; */
+"Vra-TD-yuG.text" = "";
+
+/* Class = "UIButton"; normalTitle = "Search by domain"; ObjectID = "Z2G-g4-c2A"; */
+"Z2G-g4-c2A.normalTitle" = "";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "enT-rz-IDG"; */
+"enT-rz-IDG.title" = "";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "fMc-wf-3N5"; */
+"fMc-wf-3N5.text" = "";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gz4-K1-Zpp"; */
+"gz4-K1-Zpp.text" = "";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "jP7-FY-WVl"; */
+"jP7-FY-WVl.text" = "";
+
+/* Class = "UIButton"; normalTitle = "Save Proxy Prefix"; ObjectID = "jUc-rg-BjY"; */
+"jUc-rg-BjY.normalTitle" = "";
+
+/* Class = "UITextField"; placeholder = "e.g. https://proxy.uni.edu/login?url="; ObjectID = "kxE-nz-zPg"; */
+"kxE-nz-zPg.placeholder" = "";
+
+/* Class = "UITextField"; placeholder = "institute domain, e.g. harvard.edu"; ObjectID = "mEF-9Q-afL"; */
+"mEF-9Q-afL.placeholder" = "";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "nMH-el-X6m"; */
+"nMH-el-X6m.text" = "";
+
+/* Class = "UITabBarItem"; title = "Search"; ObjectID = "o8H-7F-7qK"; */
+"o8H-7F-7qK.title" = "";
+
+/* Class = "UILabel"; text = "Find Settings by Domain"; ObjectID = "qx5-tJ-hiD"; */
+"qx5-tJ-hiD.text" = "";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "rm1-3d-JDr"; */
+"rm1-3d-JDr.text" = "";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ryu-4s-jBf"; */
+"ryu-4s-jBf.text" = "";
+
+/* Class = "UILabel"; text = "ErrorLabel"; ObjectID = "tXL-xz-gc1"; */
+"tXL-xz-gc1.text" = "";
+
+/* Class = "UILabel"; text = "Please select a row above for an explanation of the values"; ObjectID = "vq8-9p-PLi"; */
+"vq8-9p-PLi.text" = "";
+
+/* Class = "UITextView"; text = "abstractLabel"; ObjectID = "w2g-Gf-A10"; */
+"w2g-Gf-A10.text" = "";
+
+/* Class = "UIBarButtonItem"; title = "Sync"; ObjectID = "wrj-kY-gQn"; */
+"wrj-kY-gQn.title" = "";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "yEY-vv-WBU"; */
+"yEY-vv-WBU.text" = "";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "z94-xJ-2VE"; */
+"z94-xJ-2VE.normalTitle" = "";

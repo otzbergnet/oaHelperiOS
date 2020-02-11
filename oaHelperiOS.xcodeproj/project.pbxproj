@@ -54,6 +54,7 @@
 		2DAD656C2392AC6200940419 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD656A2392AC6200940419 /* Extensions.swift */; };
 		2DAD65712393D4E700940419 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC23451229CE46400D0BEA7 /* Assets.xcassets */; };
 		2DAE4AF5227F46A30037DB69 /* NewsItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAE4AF4227F46A30037DB69 /* NewsItemData.swift */; };
+		2DB43AAD23F31022007B2F3C /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB43AAC23F31022007B2F3C /* BartyCrouch.swift */; };
 		2DB47C2023A6502B004E44FA /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB47C1F23A6502B004E44FA /* Timer.swift */; };
 		2DB47C2123A6502B004E44FA /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB47C1F23A6502B004E44FA /* Timer.swift */; };
 		2DBF96FA2270E59D005C182D /* NoBookMarkSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */; };
@@ -150,6 +151,7 @@
 		2DAD65672392AA0B00940419 /* RecommenderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommenderHelper.swift; sourceTree = "<group>"; };
 		2DAD656A2392AC6200940419 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2DAE4AF4227F46A30037DB69 /* NewsItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItemData.swift; sourceTree = "<group>"; };
+		2DB43AAC23F31022007B2F3C /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 		2DB47C1F23A6502B004E44FA /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBookMarkSupportViewController.swift; sourceTree = "<group>"; };
 		2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				2D652B20227452E300A46F37 /* NewsTableViewController.swift */,
 				2D8BA9D8227CC77100A0600E /* DetailNewsViewController.swift */,
 				2DD08CED21BC31ED00D0B3C0 /* Main.storyboard */,
+				2DB43AAC23F31022007B2F3C /* BartyCrouch.swift */,
 				2DD08CF221BC31EF00D0B3C0 /* LaunchScreen.storyboard */,
 				2DD08CF521BC31EF00D0B3C0 /* Info.plist */,
 				2D06545D21D357BB009586B3 /* apikey.plist */,
@@ -328,6 +331,7 @@
 				2D240DE921BC5A8F000BB29B /* Frameworks */,
 				2D240DEA21BC5A8F000BB29B /* Resources */,
 				2D8FDFFD224F6B8C00F4F532 /* Set Build Number */,
+				2DB43AAF23F3112E007B2F3C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -347,6 +351,7 @@
 				2DD08CE421BC31ED00D0B3C0 /* Resources */,
 				2DD08D1121BC4EFB00D0B3C0 /* Embed App Extensions */,
 				2D8FDFFC224F6B7000F4F532 /* Set Build Number */,
+				2DB43AAE23F3111D007B2F3C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -488,6 +493,40 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ngit=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
 		};
+		2DB43AAE23F3111D007B2F3C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
+		};
+		2DB43AAF23F3112E007B2F3C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -537,6 +576,7 @@
 				2D24C2822222A3BF0012B8E1 /* BookmarkTableViewController.swift in Sources */,
 				2DE8F35B2221D022000B27A1 /* Model.xcdatamodeld in Sources */,
 				2DB47C2023A6502B004E44FA /* Timer.swift in Sources */,
+				2DB43AAD23F31022007B2F3C /* BartyCrouch.swift in Sources */,
 				2DE0701B21E08B8700D39D99 /* CopyableLabel.swift in Sources */,
 				2DAD65652392A92C00940419 /* coreRecommenderStruct.swift in Sources */,
 				2DD08CFC21BC350800D0B3C0 /* oadoiStruct.swift in Sources */,

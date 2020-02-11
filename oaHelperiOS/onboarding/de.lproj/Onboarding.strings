@@ -1,5 +1,5 @@
 
-/* Class = "UILabel"; text = "OA Helper isn't active by default. To enusre it's there, go to Safari now, and click the share icon.\n\nScroll to the right and click \"more...\" then activate OAHelper and drag it up the list, for easy access.\n\nClick the button below and we'll show you how!"; ObjectID = "Dro-VJ-mVt"; */
+/* Class = "UILabel"; text = "OA Helper isn't active by default. To ensure it's there, go to Safari now, and click the share icon.\n\nScroll to the bottom and tap \"Edit Actions...\" then activate OA Helper by tapping the green plus to move it up the list, for easy access.\n\nClick the button below and we'll show you how!"; ObjectID = "Dro-VJ-mVt"; */
 "Dro-VJ-mVt.text" = "OA Helper muss erst aktiviert werden. Stellen Sie sicher, dass OA Helper aktiv ist, indem Sie nun Safari öffnen und dann das Teilen-Icon drücken.\n\nScrollen Sie ganz nach unten, wählen Sie Sie \"mehr...\" und aktivieren Sie OA Helper für schnellen Zugriff.\n\nDie Schaltfläche unten, zeigt, wie es geht!";
 
 /* Class = "UILabel"; text = "Welcome!"; ObjectID = "U1Z-Q0-66y"; */
@@ -8,37 +8,77 @@
 /* Class = "UILabel"; text = "Be ready to share!"; ObjectID = "dNJ-v4-b9x"; */
 "dNJ-v4-b9x.text" = "Seien Sie bereit \"zu teilen\"!";
 
-/* Class = "UILabel"; text = "The main purpose of this app is to give you the action sheet extension, which will help you access all that Open Access goodness. However, if you open Open Access Helper you can send a search to core.ac.uk - the world's largest Open Access aggregator.\n\nIn my books no better place to start an Open Access search...\n\nClick \"Close\" below to get started!"; ObjectID = "dYL-df-faw"; */
+/* Class = "UILabel"; text = "The main purpose of this app is to give you the action sheet extension, which will help you access all that Open Access goodness. However, if you open Open Access Helper you can send a search to core.ac.uk - the world's largest Open Access aggregator.\n\nClick \"Close\" below to get started and discover the entire feature set!"; ObjectID = "dYL-df-faw"; */
 "dYL-df-faw.text" = "Die Hauptaufgabe dieser App ist es eine Action Sheet Extension zu installieren, die Ihnen helfen wird Open Access Doku\U00ADmente zu finden. Wenn Sie die App öffnen können Sie eine Suche an core.ac.uk - dem weltweit größten Open Access Aggregator - senden.\n\nDrücken Sie \"Beenden\", um loszulegen!";
 
 /* Class = "UIButton"; normalTitle = "Close"; ObjectID = "lLR-Ad-8Xk"; */
 "lLR-Ad-8Xk.normalTitle" = "Beenden";
 
-/* Class = "UILabel"; text = "There are more than 23 million Open Access documents available via the unpaywall.org API and this app is here to help you use them.\n\nWhenever you reach a publisher's paywall, tap the share icon in Safari and select OA Helper. The App will inspect the page for a DOI and take you to the Open Access copy, if one is available. "; ObjectID = "pjO-AG-Swx"; */
+/* Class = "UILabel"; text = "There are more than 22 million Open Access documents available via the unpaywall.org API and this app is here to help you use them.\n\nWhenever you reach a publisher's paywall, tap the share icon in Safari and select OA Helper. The App will inspect the page for a DOI and take you to the Open Access copy, if one is available.\n\nSwipe left to learn more."; ObjectID = "pjO-AG-Swx"; */
 "pjO-AG-Swx.text" = "Die unpaywall.org API kann Ihnen helfen mehr als 22 Millionen Open Access Dokumente zu finden.\n\nSobald Sie keinen Zugriff auf eine wissenschaftliche Veröffentlichung haben, drücken Sie das Teilen-Icon in Safari und wählen OA Helper. Wir suchen einen DOI in der Seite und dann nach einer Open Access Kopie.\n\nWischen Sie nach links, um mehr zu erfahren.";
 
-/* Class = "UIButton"; normalTitle = "Open Safari & activate"; ObjectID = "r6v-qV-YFb"; */
+/* Class = "UIButton"; normalTitle = "Show me how"; ObjectID = "r6v-qV-YFb"; */
 "r6v-qV-YFb.normalTitle" = "Zeig mir wie";
 
 /* Class = "UILabel"; text = "About this App"; ObjectID = "ypY-dD-ifw"; */
 "ypY-dD-ifw.text" = "Über diese App";
 
+/* Class = "UILabel"; text = "Statistics?"; ObjectID = "Hme-JW-BbB"; */
 "Hme-JW-BbB.text" = "Statistiken";
+
+/* Class = "UILabel"; text = "Developing an app with next to no information on how it is used is rather difficult.\n\nYou can help out, by sharing some usage indicators once a month, which provide no details about you personally. The exact values and when they were shared last, are visible in the Settings App.\n\nThank you for helping out..."; ObjectID = "fet-ty-oQM"; */
 "fet-ty-oQM.text" = "Eine App ganz ohne Nutzungsdaten zu entwickeln ist richtig schwer.\n\nSie können helfen, indem Sie zustimmen einmal im Monat Nutzungsindikatoren zu teilen, die keine Rückschlüsse auf Sie als Nutzer geben. Die exakten Werte, und wann diese zum letzten Mal geteilt wurden, erhalten Sie in den Einstellungen zur App.\n\nDanke, dass Sie helfen wollen...";
+
+/* Class = "UILabel"; text = "Share once a month"; ObjectID = "XS4-fc-ccN"; */
 "XS4-fc-ccN.text" = "Daten monatlich teilen";
+
+/* Class = "UIButton"; normalTitle = "Open Settings"; ObjectID = "p7e-u9-etC"; */
 "p7e-u9-etC.normalTitle" = "Einstellungen öffnen";
+
+/* Class = "UILabel"; text = "Bookmarks?"; ObjectID = "RhQ-yr-ZOJ"; */
 "RhQ-yr-ZOJ.text" = "Bookmarks?";
+
+/* Class = "UILabel"; text = "If you have more than one iOS / macOS device, consider enabling Bookmarks and iCloud syncing, so that you have private & convenient access on all your devices. \n\nSyncing is really complicated - so this is a beta feature for now..."; ObjectID = "Zh9-dz-nK5"; */
 "Zh9-dz-nK5.text" = "Wenn Sie mehr als ein iOS / macOS Gerät haben, dann sollten Sie Bookmarks & iCloud Sync aktivieren, damit Sie von allen Geräten auf Ihre Bookmarks zugreifen können. Durch iCloud wird Ihre Privat\U00ADsphäre dabei gut geschützt.\n\nDiese Funktion ist noch in der Beta-Phase";
+
+/* Class = "UILabel"; text = "Enable Bookmarks"; ObjectID = "brv-EB-6Mr"; */
 "brv-EB-6Mr.text" = "Bookmarks";
-"xwc-XU-Ie2" = "iCloud Sync";
+
+/* Class = "UIButton"; normalTitle = "Open Settings"; ObjectID = "HaA-at-RLi"; */
 "HaA-at-RLi.normalTitle" = "Einstellungen öffnen";
 
-"iCloud Available" = "iCloud verfügbar";
-"Sadly, your iCloud account seems unavailable. We've disabled the iCloud option for you." = "Leider, scheint kein iCloud Konto verfügbar. Die iCloud Option wurde für Sie deaktiviert.";
-"iOS reports iCloud status as restricted. We've disabled the iCloud option for you." = "Ihr iCloud Konto wird von iOS als eingeschränkt gemeldet. Die iCloud Option wurde für Sie deaktiviert.";
-"Unable to determine iCloud status. We've disabled the iCloud option for you." = "Der iCloud Status konnte nicht ermittelt werden. Die iCloud Option wurde für Sie deaktiviert.";
+/* Class = "UILabel"; text = "Open Access Button and core.ac.uk Similar Articles can help you, when there is no Open Access copy to be found.\n\nOpen Access Button will only show for publications of the last five years. Similar Articles can take a few extra seconds to load."; ObjectID = "wSF-zw-4Kh"; */
 "wSF-zw-4Kh.text" = "Open Access Button und Ähnliche Artikel von core.ac.uk können Ihnen helfen, wenn kein Open Access gefunden wurde.\n\nOpen Access Button wird nur für Artikel der letzten 5 Jahre gezeigt. Die Anzeige der \"Ähnlichen Artikel\" benötigen ein paar Sekunden Extraladezeit.";
+
+/* Class = "UILabel"; text = "Show Open Access Button"; ObjectID = "qeE-yy-dii"; */
 "qeE-yy-dii.text" = "Open Access Button zeigen";
+
+/* Class = "UILabel"; text = "Show Similar Articles"; ObjectID = "tXp-ds-6Th"; */
 "tXp-ds-6Th.text" = "Ähnliche Artikel zeigen";
-"zdd-3y-GlC.text" = "Mehr Infos";
+
+/* Class = "UILabel"; text = "More Open Access"; ObjectID = "wIj-pF-X7n"; */
 "wIj-pF-X7n.text" = "Mehr Open Access";
+
+/* Class = "UIButton"; normalTitle = "Setup Proxy"; ObjectID = "FWu-w7-oVE"; */
+"FWu-w7-oVE.normalTitle" = "";
+
+/* Class = "UIButton"; normalTitle = "Skip, I'll do it later"; ObjectID = "PUe-Ye-tIX"; */
+"PUe-Ye-tIX.normalTitle" = "";
+
+/* Class = "UILabel"; text = "If your institute supports EZProxy for remote access, you can setup support in Open Access Helper with just a few clicks.\n\nEnter the domain (e.g. harvard.edu) of your university below and click Setup Proxy Button. You can make more changes in Settings!"; ObjectID = "UsE-ZG-b1a"; */
+"UsE-ZG-b1a.text" = "";
+
+/* Class = "UILabel"; text = "Remote Access"; ObjectID = "a21-Tn-iaz"; */
+"a21-Tn-iaz.text" = "";
+
+/* Class = "UITextField"; placeholder = "Institute Domain, e.g. harvard.edu"; ObjectID = "bS5-pZ-CQi"; */
+"bS5-pZ-CQi.placeholder" = "";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qA9-OA-CGD"; */
+"qA9-OA-CGD.text" = "";
+
+/* Class = "UILabel"; text = "iCloud Sync Bookmarks "; ObjectID = "xwc-XU-Ie2"; */
+"xwc-XU-Ie2.text" = "";
+
+/* Class = "UIButton"; normalTitle = "More Info"; ObjectID = "zdd-3y-GlC"; */
+"zdd-3y-GlC.normalTitle" = "";
