@@ -30,7 +30,7 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
         configurePageControl()
         // Do any additional setup after loading the view.
     }
-    
+        
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         let pageContentViewController = pageViewController.viewControllers![0]
         self.pageControl.currentPage = orderedViewControllers.firstIndex(of: pageContentViewController)!

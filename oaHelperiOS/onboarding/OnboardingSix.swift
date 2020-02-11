@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class OnboardingSix: UIViewController {
 
@@ -30,6 +31,7 @@ class OnboardingSix: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(OnboardingSix.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
     }
     
+   
     deinit {
         NotificationCenter.default.removeObserver( self, name: UserDefaults.didChangeNotification, object: nil)
     }
@@ -77,7 +79,8 @@ class OnboardingSix: UIViewController {
     
     @IBAction func moreInfoTapped(_ sender: Any) {
         guard let url = URL(string: "https://www.oahelper.org/moreoaoptions.html") else { return }
-        UIApplication.shared.open(url)
+        let vc = SFSafariViewController(url: url)
+        self.present(vc, animated: true, completion: nil)
     }
     
 }

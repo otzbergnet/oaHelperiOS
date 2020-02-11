@@ -28,6 +28,7 @@ class OnboardingSeven: UIViewController, UITextFieldDelegate {
         self.view.addGestureRecognizer(tapGesture)
     }
     
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         domainTextField.resignFirstResponder()

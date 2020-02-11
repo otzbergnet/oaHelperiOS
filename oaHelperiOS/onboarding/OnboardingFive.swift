@@ -72,6 +72,7 @@ class OnboardingFive: UIViewController {
         }
     }
     
+    
     @objc func defaultsChanged(){
         if settings.getSettingsValue(key: "bookmarks") {
             DispatchQueue.main.async {

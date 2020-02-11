@@ -203,7 +203,7 @@ Click the button below and we'll show you how!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWu-w7-oVE">
-                                <rect key="frame" x="20" y="208.5" width="280" height="50"/>
+                                <rect key="frame" x="20" y="219.5" width="280" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="VAv-e7-jdh"/>
@@ -218,15 +218,15 @@ Click the button below and we'll show you how!</string>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Institute Domain, e.g. harvard.edu" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bS5-pZ-CQi">
-                                <rect key="frame" x="20" y="159.5" width="280" height="34"/>
+                                <rect key="frame" x="20" y="159.5" width="280" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="1dY-fS-mLA"/>
+                                    <constraint firstAttribute="height" constant="45" id="1dY-fS-mLA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done" smartDashesType="no" smartQuotesType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsE-ZG-b1a">
-                                <rect key="frame" x="20" y="278.5" width="280" height="209"/>
+                                <rect key="frame" x="20" y="289.5" width="280" height="209"/>
                                 <string key="text">If your institute supports EZProxy for remote access, you can setup support in Open Access Helper with just a few clicks.
 
 Enter the domain (e.g. harvard.edu) of your university below and click Setup Proxy Button. You can make more changes in Settings!</string>
