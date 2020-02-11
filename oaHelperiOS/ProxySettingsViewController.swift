@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProxySettingsViewController: UIViewController {
+class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var proxyPrefixTextfield: UITextField!
@@ -33,11 +33,39 @@ class ProxySettingsViewController: UIViewController {
         cancelButton.layer.cornerRadius = 10
         
         statusLabel.text = ""
-        
+        self.proxyPrefixTextfield.delegate = self
+        self.searchDomainTextfield.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         getProxyForTextfield()
+    }
+    
+    @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
+        self.proxyPrefixTextfield.resignFirstResponder()
+        self.searchDomainTextfield.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let restorationIdentifier = textField.restorationIdentifier{
+            switch(restorationIdentifier){
+            case "domainField":
+                print("domain")
+                
+            case "proxyPrefix":
+                
+                print("proxy")
+                
+            default:
+                print("nothing")
+            }
+        }
+        print("I should return")
+        textField.resignFirstResponder()
+        //doSearch()
+        return true
     }
     
     func getProxyForTextfield(){
@@ -60,6 +88,7 @@ class ProxySettingsViewController: UIViewController {
      */
     
     @IBAction func saveProxyButtonTapped(_ sender: Any) {
+        self.proxyPrefixTextfield.resignFirstResponder()
         if let proxyPrefix = proxyPrefixTextfield.text {
             if(helper.validateProxyPrefix(urlString: proxyPrefix)){
                 settings.setSettingsStringValue(value: proxyPrefix, key: "proxyPrefix")
@@ -75,6 +104,7 @@ class ProxySettingsViewController: UIViewController {
     }
     
     @IBAction func searchDomainButtonTapped(_ sender: Any) {
+        self.searchDomainTextfield.resignFirstResponder()
         if let domain = searchDomainTextfield.text {
             if(domain.count > 0){
                 proxyFind.askForProxy(domain: domain) { (res) in
@@ -89,6 +119,9 @@ class ProxySettingsViewController: UIViewController {
                             if let proxyPrefix = proxyList.first?.proxyUrl.replacingOccurrences(of: "{targetUrl}", with: ""){
                                 DispatchQueue.main.async {
                                     self.settings.setSettingsStringValue(value: proxyPrefix, key: "proxyPrefix")
+                                    if let instituteId = proxyList.first?.id{
+                                        self.settings.setSettingsStringValue(value: instituteId, key: "instituteId")
+                                    }
                                     self.getProxyForTextfield()
                                     self.statusLabel.text = NSLocalizedString("Successfuly, saved!", comment: "if proxy was successfully saved")
                                     self.statusLabel.textColor = .blue

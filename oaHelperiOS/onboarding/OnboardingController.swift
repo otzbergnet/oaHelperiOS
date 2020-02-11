@@ -11,7 +11,9 @@ import UIKit
 class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
     lazy var orderedViewControllers : [UIViewController] = {
-        return [self.newVc(viewController: "obFirst"), self.newVc(viewController: "obSecond"), self.newVc(viewController: "obThird"), self.newVc(viewController: "obFive"), self.newVc(viewController: "obSix"), self.newVc(viewController: "obFourth")]
+        return [self.newVc(viewController: "obFirst"), self.newVc(viewController: "obSecond"), self.newVc(viewController: "obThird"), self.newVc(viewController: "obFive"), self.newVc(viewController: "obSix"),
+            self.newVc(viewController: "obSeven"),
+            self.newVc(viewController: "obFourth")]
     }()
     
     var pageControl = UIPageControl()

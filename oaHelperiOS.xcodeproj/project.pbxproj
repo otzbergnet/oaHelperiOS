@@ -43,6 +43,8 @@
 		2D652B232275A6D400A46F37 /* newsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D652B222275A6D400A46F37 /* newsStruct.swift */; };
 		2D787BDD229E3CA900AAE269 /* AdvancedSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D787BDC229E3CA900AAE269 /* AdvancedSearchViewController.swift */; };
 		2D8BA9D9227CC77100A0600E /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BA9D8227CC77100A0600E /* DetailNewsViewController.swift */; };
+		2DA19A9C23F28BED0096BFD2 /* OnboardingSeven.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA19A9B23F28BED0096BFD2 /* OnboardingSeven.swift */; };
+		2DA19A9E23F28CC70096BFD2 /* OnboardingOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA19A9D23F28CC70096BFD2 /* OnboardingOne.swift */; };
 		2DA7887A222C0A680025CB13 /* OnboardingFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78879222C0A680025CB13 /* OnboardingFive.swift */; };
 		2DAD65652392A92C00940419 /* coreRecommenderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */; };
 		2DAD65662392A92C00940419 /* coreRecommenderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */; };
@@ -141,6 +143,8 @@
 		2D652B222275A6D400A46F37 /* newsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsStruct.swift; sourceTree = "<group>"; };
 		2D787BDC229E3CA900AAE269 /* AdvancedSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSearchViewController.swift; sourceTree = "<group>"; };
 		2D8BA9D8227CC77100A0600E /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
+		2DA19A9B23F28BED0096BFD2 /* OnboardingSeven.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSeven.swift; sourceTree = "<group>"; };
+		2DA19A9D23F28CC70096BFD2 /* OnboardingOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOne.swift; sourceTree = "<group>"; };
 		2DA78879222C0A680025CB13 /* OnboardingFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFive.swift; sourceTree = "<group>"; };
 		2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreRecommenderStruct.swift; sourceTree = "<group>"; };
 		2DAD65672392AA0B00940419 /* RecommenderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommenderHelper.swift; sourceTree = "<group>"; };
@@ -268,11 +272,13 @@
 			children = (
 				2D06546521D383AA009586B3 /* Onboarding.storyboard */,
 				2DE8114821C962180052698C /* OnboardingController.swift */,
-				2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */,
-				2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */,
 				2DA78879222C0A680025CB13 /* OnboardingFive.swift */,
 				2D117719222182C800859B08 /* OnboardingFour.swift */,
+				2DA19A9D23F28CC70096BFD2 /* OnboardingOne.swift */,
+				2DA19A9B23F28BED0096BFD2 /* OnboardingSeven.swift */,
 				2D575C4823A42B2000D1038F /* OnboardingSix.swift */,
+				2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */,
+				2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */,
 			);
 			path = onboarding;
 			sourceTree = "<group>";
@@ -282,17 +288,17 @@
 			children = (
 				2D2FD3B922A61FF7003876CE /* AppStoreReviewManager.swift */,
 				2D5F91802222582F00D493BE /* BookMarkData.swift */,
+				2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */,
 				2D08FE262229B3290066949C /* DataSync.swift */,
+				2DDCF90C22D2435B00BD63B7 /* DateExtension.swift */,
+				2DAD656A2392AC6200940419 /* Extensions.swift */,
+				2D15F9A321E0C5A300FF8B46 /* Helper.swift */,
+				2DAE4AF4227F46A30037DB69 /* NewsItemData.swift */,
+				2DC0C19E23F195FB00A725AC /* ProxyFind.swift */,
+				2DAD65672392AA0B00940419 /* RecommenderHelper.swift */,
 				2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */,
 				2D11771622207A7000859B08 /* StatisticSubmit.swift */,
-				2D15F9A321E0C5A300FF8B46 /* Helper.swift */,
-				2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */,
-				2DAE4AF4227F46A30037DB69 /* NewsItemData.swift */,
-				2DDCF90C22D2435B00BD63B7 /* DateExtension.swift */,
-				2DAD65672392AA0B00940419 /* RecommenderHelper.swift */,
-				2DAD656A2392AC6200940419 /* Extensions.swift */,
 				2DB47C1F23A6502B004E44FA /* Timer.swift */,
-				2DC0C19E23F195FB00A725AC /* ProxyFind.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -300,12 +306,12 @@
 		2DE8F3612221D09D000B27A1 /* json_structs */ = {
 			isa = PBXGroup;
 			children = (
-				2DD08CFB21BC350800D0B3C0 /* oadoiStruct.swift */,
-				2DFF67BA21C2F30A00120363 /* dessimStruct.swift */,
-				2D28376C21C55AB1008D6C89 /* coreStruct.swift */,
-				2D652B222275A6D400A46F37 /* newsStruct.swift */,
 				2D446A7E22E8D2DE001ECFA0 /* coreDiscoveryStruct.swift */,
 				2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */,
+				2D28376C21C55AB1008D6C89 /* coreStruct.swift */,
+				2DFF67BA21C2F30A00120363 /* dessimStruct.swift */,
+				2D652B222275A6D400A46F37 /* newsStruct.swift */,
+				2DD08CFB21BC350800D0B3C0 /* oadoiStruct.swift */,
 				2DC0C19C23F1956D00A725AC /* proxyStruct.swift */,
 			);
 			path = json_structs;
@@ -523,6 +529,7 @@
 				2D1BE15D21CAB1250063B691 /* OnboardingTwo.swift in Sources */,
 				2DC0C19B23F1840B00A725AC /* ProxySettingsViewController.swift in Sources */,
 				2D652B232275A6D400A46F37 /* newsStruct.swift in Sources */,
+				2DA19A9E23F28CC70096BFD2 /* OnboardingOne.swift in Sources */,
 				2DC0C19F23F195FB00A725AC /* ProxyFind.swift in Sources */,
 				2D8BA9D9227CC77100A0600E /* DetailNewsViewController.swift in Sources */,
 				2DAE4AF5227F46A30037DB69 /* NewsItemData.swift in Sources */,
@@ -544,6 +551,7 @@
 				2D28376F21C61821008D6C89 /* DetailViewController.swift in Sources */,
 				2D11771A222182C800859B08 /* OnboardingFour.swift in Sources */,
 				2D446A7F22E8D2DE001ECFA0 /* coreDiscoveryStruct.swift in Sources */,
+				2DA19A9C23F28BED0096BFD2 /* OnboardingSeven.swift in Sources */,
 				2D787BDD229E3CA900AAE269 /* AdvancedSearchViewController.swift in Sources */,
 				2D15F9A421E0C5A300FF8B46 /* Helper.swift in Sources */,
 				2D652B21227452E300A46F37 /* NewsTableViewController.swift in Sources */,
