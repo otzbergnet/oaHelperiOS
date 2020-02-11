@@ -275,7 +275,7 @@ class BookmarkTableViewController: UITableViewController {
         
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: okButton, style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
-            print("I will disable iCoud Syning now")
+            print("I will disable iCloud Syning now")
             self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
             
         }))

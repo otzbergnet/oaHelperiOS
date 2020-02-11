@@ -570,7 +570,7 @@
                                             <constraint firstAttribute="trailing" secondItem="E8z-S7-jDc" secondAttribute="trailing" constant="15" id="fuN-A9-l55">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                                             </constraint>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2SW-lw-2NX" secondAttribute="bottom" constant="75" id="lV4-mo-dgJ">
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2SW-lw-2NX" secondAttribute="bottom" constant="100" id="lV4-mo-dgJ">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="150"/>
                                             </constraint>
                                             <constraint firstItem="2SW-lw-2NX" firstAttribute="top" secondItem="E8z-S7-jDc" secondAttribute="bottom" constant="15" id="rq7-Bx-vJa">

@@ -69,7 +69,7 @@
 "cD5-Oy-m8y.text" = "Bookmarks über iCloud synchronisieren";
 
 /* Class = "UILabel"; text = "Reset Bookmarks from iCloud"; ObjectID = "4nL-4z-9Nt"; */
-"4nL-4z-9Nt.text" = "Bookmarks löschen & aus iCoud laden";
+"4nL-4z-9Nt.text" = "Bookmarks löschen & aus iCloud laden";
 
 /* Class = "UIButton"; normalTitle = "Open Settings"; ObjectID = "E8z-S7-jDc"; */
 "E8z-S7-jDc.normalTitle" = "Einstellungen öffnen";
@@ -84,7 +84,7 @@
 "33R-cg-J4D.text" = "Nur unpaywall.org";
 
 /* Class = "UILabel"; text = "Open Access Button Request"; ObjectID = "LPH-Rz-Oaa"; */
-"LPH-Rz-Oaa.text" = "Open Access Button Anfragen ermöglichen";
+"LPH-Rz-Oaa.text" = "Open Access Button Anfragen";
 
 /* Class = "UILabel"; text = "Show Similar Articles"; ObjectID = "eY1-sN-aAv"; */
 "eY1-sN-aAv.text" = "Ähnliche Artikel zeigen";
@@ -120,103 +120,103 @@
 "cdj-kF-7Wg.normalTitle" = "Einstellungen öffnen";
 
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "1lj-de-Wva"; */
-"1lj-de-Wva.text" = "";
+"1lj-de-Wva.text" = "Untertitel";
 
 /* Class = "UIButton"; normalTitle = "Setup Proxy"; ObjectID = "2SW-lw-2NX"; */
-"2SW-lw-2NX.normalTitle" = "";
+"2SW-lw-2NX.normalTitle" = "Proxy einrichten";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "3S3-po-hYW"; */
-"3S3-po-hYW.text" = "";
+"3S3-po-hYW.text" = "Label";
 
 /* Class = "UITabBarItem"; title = "Bookmarks"; ObjectID = "5Uc-b0-J6l"; */
-"5Uc-b0-J6l.title" = "";
+"5Uc-b0-J6l.title" = "Bookmarks";
 
 /* Class = "UIViewController"; title = "Bookmarks"; ObjectID = "68n-8o-H12"; */
-"68n-8o-H12.title" = "";
+"68n-8o-H12.title" = "Bookmarks";
 
 /* Class = "UIButton"; normalTitle = "PDF"; ObjectID = "7NV-dD-8xy"; */
-"7NV-dD-8xy.normalTitle" = "";
+"7NV-dD-8xy.normalTitle" = "PDF";
 
 /* Class = "UILabel"; text = "Detail"; ObjectID = "Nbo-ag-TJJ"; */
-"Nbo-ag-TJJ.text" = "";
+"Nbo-ag-TJJ.text" = "Details";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "Nj9-yR-KDx"; */
-"Nj9-yR-KDx.text" = "";
+"Nj9-yR-KDx.text" = "Label";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Poo-dX-Xer"; */
-"Poo-dX-Xer.title" = "";
+"Poo-dX-Xer.title" = "Eintrag";
 
 /* Class = "UILabel"; text = "iCloudStatusLabel"; ObjectID = "QP7-jR-ut3"; */
-"QP7-jR-ut3.text" = "";
+"QP7-jR-ut3.text" = "iCloudStatusLabel";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "QXB-17-Pqf"; */
-"QXB-17-Pqf.text" = "";
+"QXB-17-Pqf.text" = "Titel";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "QbF-XW-6oc"; */
-"QbF-XW-6oc.text" = "";
+"QbF-XW-6oc.text" = "Titel";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "Qi2-nE-LNB"; */
-"Qi2-nE-LNB.text" = "";
+"Qi2-nE-LNB.text" = "Titel";
 
 /* Class = "UILabel"; text = "EZProxy Setting"; ObjectID = "S05-fC-VTy"; */
-"S05-fC-VTy.text" = "";
+"S05-fC-VTy.text" = "EZProxy Einstellungen";
 
 /* Class = "UILabel"; text = "Use Proxy"; ObjectID = "Vra-TD-yuG"; */
-"Vra-TD-yuG.text" = "";
+"Vra-TD-yuG.text" = "Proxy nutzen";
 
 /* Class = "UIButton"; normalTitle = "Search by domain"; ObjectID = "Z2G-g4-c2A"; */
-"Z2G-g4-c2A.normalTitle" = "";
+"Z2G-g4-c2A.normalTitle" = "Such nach Domain";
 
 /* Class = "UITabBarItem"; title = "Item"; ObjectID = "enT-rz-IDG"; */
-"enT-rz-IDG.title" = "";
+"enT-rz-IDG.title" = "Item";
 
 /* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "fMc-wf-3N5"; */
-"fMc-wf-3N5.text" = "";
+"fMc-wf-3N5.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "gz4-K1-Zpp"; */
-"gz4-K1-Zpp.text" = "";
+"gz4-K1-Zpp.text" = "Label";
 
 /* Class = "UILabel"; text = "Detail"; ObjectID = "jP7-FY-WVl"; */
-"jP7-FY-WVl.text" = "";
+"jP7-FY-WVl.text" = "Details";
 
 /* Class = "UIButton"; normalTitle = "Save Proxy Prefix"; ObjectID = "jUc-rg-BjY"; */
-"jUc-rg-BjY.normalTitle" = "";
+"jUc-rg-BjY.normalTitle" = "Proxy URL speichern";
 
 /* Class = "UITextField"; placeholder = "e.g. https://proxy.uni.edu/login?url="; ObjectID = "kxE-nz-zPg"; */
-"kxE-nz-zPg.placeholder" = "";
+"kxE-nz-zPg.placeholder" = "z.B. https://proxy.uni.de/login?url=";
 
 /* Class = "UITextField"; placeholder = "institute domain, e.g. harvard.edu"; ObjectID = "mEF-9Q-afL"; */
-"mEF-9Q-afL.placeholder" = "";
+"mEF-9Q-afL.placeholder" = "Domain der Institution, z.B. harvard.edu";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "nMH-el-X6m"; */
-"nMH-el-X6m.text" = "";
+"nMH-el-X6m.text" = "Label";
 
 /* Class = "UITabBarItem"; title = "Search"; ObjectID = "o8H-7F-7qK"; */
-"o8H-7F-7qK.title" = "";
+"o8H-7F-7qK.title" = "Suchen";
 
 /* Class = "UILabel"; text = "Find Settings by Domain"; ObjectID = "qx5-tJ-hiD"; */
-"qx5-tJ-hiD.text" = "";
+"qx5-tJ-hiD.text" = "Einstellungen anhand der Domain suchen";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "rm1-3d-JDr"; */
-"rm1-3d-JDr.text" = "";
+"rm1-3d-JDr.text" = "Label";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "ryu-4s-jBf"; */
-"ryu-4s-jBf.text" = "";
+"ryu-4s-jBf.text" = "Label";
 
 /* Class = "UILabel"; text = "ErrorLabel"; ObjectID = "tXL-xz-gc1"; */
-"tXL-xz-gc1.text" = "";
+"tXL-xz-gc1.text" = "ErrorLabel";
 
 /* Class = "UILabel"; text = "Please select a row above for an explanation of the values"; ObjectID = "vq8-9p-PLi"; */
-"vq8-9p-PLi.text" = "";
+"vq8-9p-PLi.text" = "Für eine Erklärung des Statistikwerts, wählen Sie bitte eine Spalte";
 
 /* Class = "UITextView"; text = "abstractLabel"; ObjectID = "w2g-Gf-A10"; */
-"w2g-Gf-A10.text" = "";
+"w2g-Gf-A10.text" = "abstractLabel";
 
 /* Class = "UIBarButtonItem"; title = "Sync"; ObjectID = "wrj-kY-gQn"; */
-"wrj-kY-gQn.title" = "";
+"wrj-kY-gQn.title" = "Sync";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "yEY-vv-WBU"; */
-"yEY-vv-WBU.text" = "";
+"yEY-vv-WBU.text" = "Label";
 
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "z94-xJ-2VE"; */
-"z94-xJ-2VE.normalTitle" = "";
+"z94-xJ-2VE.normalTitle" = "Abbrechen";

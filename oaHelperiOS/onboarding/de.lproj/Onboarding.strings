@@ -60,25 +60,25 @@
 "wIj-pF-X7n.text" = "Mehr Open Access";
 
 /* Class = "UIButton"; normalTitle = "Setup Proxy"; ObjectID = "FWu-w7-oVE"; */
-"FWu-w7-oVE.normalTitle" = "";
+"FWu-w7-oVE.normalTitle" = "Proxy einrichten";
 
 /* Class = "UIButton"; normalTitle = "Skip, I'll do it later"; ObjectID = "PUe-Ye-tIX"; */
-"PUe-Ye-tIX.normalTitle" = "";
+"PUe-Ye-tIX.normalTitle" = "Überspringen, mach ich später";
 
 /* Class = "UILabel"; text = "If your institute supports EZProxy for remote access, you can setup support in Open Access Helper with just a few clicks.\n\nEnter the domain (e.g. harvard.edu) of your university below and click Setup Proxy Button. You can make more changes in Settings!"; ObjectID = "UsE-ZG-b1a"; */
-"UsE-ZG-b1a.text" = "";
+"UsE-ZG-b1a.text" = "Wenn Ihre Institution Fernzugriff mittels EZProxy unterstützt, können Sie Open Access Helper mit einigen Klicks entsprechend einrichten.\n\nGeben Sie den Domain-Namen (z.B. harvard.edu) Ihrer Institution ein, und wählen Sie dann Proxy einrichten. In den Einstellungen finden Sie weitere Konfigurationsmöglichkeiten!";
 
 /* Class = "UILabel"; text = "Remote Access"; ObjectID = "a21-Tn-iaz"; */
-"a21-Tn-iaz.text" = "";
+"a21-Tn-iaz.text" = "Fernzugriff";
 
 /* Class = "UITextField"; placeholder = "Institute Domain, e.g. harvard.edu"; ObjectID = "bS5-pZ-CQi"; */
-"bS5-pZ-CQi.placeholder" = "";
+"bS5-pZ-CQi.placeholder" = "Domain-Name, z.B. harvard.edu";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "qA9-OA-CGD"; */
-"qA9-OA-CGD.text" = "";
+"qA9-OA-CGD.text" = "Label";
 
 /* Class = "UILabel"; text = "iCloud Sync Bookmarks "; ObjectID = "xwc-XU-Ie2"; */
-"xwc-XU-Ie2.text" = "";
+"xwc-XU-Ie2.text" = "Bookmarks mit iCloud synchronisieren";
 
 /* Class = "UIButton"; normalTitle = "More Info"; ObjectID = "zdd-3y-GlC"; */
-"zdd-3y-GlC.normalTitle" = "";
+"zdd-3y-GlC.normalTitle" = "Weitere Informationen";

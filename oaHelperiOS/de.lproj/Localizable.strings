@@ -85,7 +85,7 @@
 "Open Access Searches" = "Open Access Suchen";
 
 /* No comment provided by engineer. */
-"The number of Open Access searches conducted within, or by sending text to, the app. Search API is kindly provided by core.ac.uk!" = "Die Anzahl der Open Access Suchen, die innerhalb dieser App durchgeführt worden, entweder, da die Suche hier begonnen oder ausgewählter Text übergeben wurde";
+"The number of Open Access searches conducted within, or by sending text to, the app. Search API is kindly provided by core.ac.uk!" = "Die Anzahl der Open Access Suchen, die innerhalb dieser App durchgeführt wurden, entweder, da die Suche hier begonnen oder ausgewählter Text übergeben wurde";
 
 /* No comment provided by engineer. */
 "Number of core.ac.uk PDFs" = "Anzahl der core.ac.uk PDFs";
@@ -97,7 +97,7 @@
 "Unpaywall.org Found" = "Unpaywall.org Alternativen";
 
 /* No comment provided by engineer. */
-"Number of paywalls avoided, thanks to unpaywall.org. This value gets incremented, when you use the Safari Action Extension and an Open Access Alternative is found, whether you clicked it, or not." = "Anzahl der Paywalls, die Sie dank unpaywall.org umgehen konnten. Dieser Wert wird erhöht, sobald in der Safari Action Extension eine Open Access Alternative gezeigt wird, gleich ob diese angezeigt wird";
+"Number of paywalls avoided, thanks to unpaywall.org. This value gets incremented, when you use the Safari Action Extension and an Open Access Alternative is found, whether you clicked it, or not." = "Anzahl der Paywalls, die Sie dank unpaywall.org umgehen konnten. Dieser Wert wird erhöht, sobald in der Safari Action Extension eine Open Access Alternative gezeigt wird, gleich ob diese aufgerufen wurde";
 
 /* No comment provided by engineer. */
 "Number of Bookmarks" = "Anzahl der Bookmarks";
@@ -112,13 +112,13 @@
 "Never" = "Nie";
 
 /* No comment provided by engineer. */
-"The date, we have last synced your bookmarks with iCloud. Please note that we will only sync once every two hours, unless you manually initiate a sync. See Settings to change your iCloud Sync preference." = "Das Datum andem Ihr Bookmarks zum letzten Mal mit iCloud synchronisiert wurden. Bitte beachten Sie, dass wir nur alle zwei Stunden aktualisieren, es sei denn Sie initieren die Synchornisation manuell. Ihr iCloud Präferenz können Sie in den Einstellungen anpassen";
+"The date, we have last synced your bookmarks with iCloud. Please note that we will only sync once every two hours, unless you manually initiate a sync. See Settings to change your iCloud Sync preference." = "Das Datum an dem Ihre Bookmarks zum letzten Mal mit iCloud synchronisiert wurden. Bitte beachten Sie, dass wir nur alle zwei Stunden aktualisieren, es sei denn Sie initieren die Synchronisation manuell. Ihr iCloud Präferenz können Sie in den Einstellungen anpassen";
 
 /* No comment provided by engineer. */
 "Last Statstics Share Date" = "Letzten Statistikübermittlung";
 
 /* No comment provided by engineer. */
-"The date, these statistics have last been shared with the app developer. See Settings to change your sharing preference." = "Das Datum, an dem Ihre Statistiken zum letzten Mal mit dem Entwickler geteilt wurden. Sie können diese Option in den Einstellungen anpassen";
+"The date, these statistics have last been shared with the app developer. See Settings to change your sharing preference." = "Das Datum, an dem Ihre Statistiken zum letzten Mal mit dem Entwickler der App geteilt wurden. Sie können diese Option in den Einstellungen anpassen";
 
 /* RefreshControl */
 "Updating News Items" = "Nachrichten werden aktualisiert";
@@ -130,7 +130,7 @@
 "A year seems invalid, it needs to be between 1500 and " = "Ein Jahreszahl scheint ungültig. Mögliche Werte zwischen 1500 und ";
 
 /* from year greater to year error */
-"Within your date range the \"From Year\" is greater than the \"To Year\"" = "Im gewählten Zeitraum ist das \"Von Jahr\" größer als das \"Bis Jahr\"";
+"Within your date range the \"From Year\" is greater than the \"To Year\"" = "Im gewählten Zeitraum ist das \"Von-Jahr\" größer als das \"Bis-Jahr\"";
 
 /* No iCloud account */
 "Sadly, your iCloud account seems unavailable. We've disabled the iCloud option for you." = "Leider, scheint kein iCloud Konto verfügbar. Die iCloud Option wurde für Sie deaktiviert.";
@@ -163,127 +163,127 @@
 "The proxy prefixed you entered, failed to validate. Please enter the prefix in the format https://proxy.university.edu/login?url=" = "Der von Ihnen eingegebene Proxy Prefix konnte nicht validiert werden. Bitte geben Sie den Prefix im folgenden Format ein https://proxy.university.edu/login?url=";
 
 /* selected text to be seached */
-"%@ \n\nIf you wish to search the above at core.ac.uk, click the button below" = "";
+"%@ \n\nIf you wish to search the above at core.ac.uk, click the button below" = "%@ \n\nWenn Sie nach dem oben gezeigten Text in core.ac.uk suchen möchten, wählen Sie die Schaltfläche unten.";
 
 /* acceptedVersion */
-": Accepted Version" = "";
+": Accepted Version" = ": angenommene Version";
 
 /* publishedVersion */
-": Published Version" = "";
+": Published Version" = ": veröffentliche Version";
 
 /* submittedVersion */
-": Submitted Version" = "";
+": Submitted Version" = ": eingereichte Version";
 
 /* no doi, no search */
-"\n\nWe were unable to identify a DOI and thus unable to identify an Open Access version of the document" = "";
+"\n\nWe were unable to identify a DOI and thus unable to identify an Open Access version of the document" = "\n\nWir konnten keinen DOI ermitteln und somit auch keine Open Access Version des Dokuments";
 
 /* Add bookmark */
-"Add Bookmark" = "";
+"Add Bookmark" = "Bookmark hinzufügen";
 
 /* Change Proxy if valid Proxy Prefix Present */
-"Change Proxy" = "";
+"Change Proxy" = "Proxy ändern";
 
 /* shown while checking */
-"Checking..." = "";
+"Checking..." = "Suche...";
 
 /* DOI detected */
-"DOI detected" = "";
+"DOI detected" = "DOI gefunden";
 
 /* if proxy field was empty */
-"Field Empty?" = "";
+"Field Empty?" = "Leeres Feld?";
 
 /* if unable to actually get to the proxyPrefix */
-"General Error" = "";
+"General Error" = "Generischer Fehler";
 
 /* Go to document now */
-"Go to Document Now" = "";
+"Go to Document Now" = "Dokument jetzt aufrufen";
 
 /* iCloud restricted */
-"iOS reports iCloud status as restricted. We've disabled the iCloud option for you." = "";
+"iOS reports iCloud status as restricted. We've disabled the iCloud option for you." = "iOS gibt an, dass der Zugriff auf iCloud eingeschränkt wurde. Wir haben daher iCloud für Sie deaktiviert.";
 
 /* if proxy field was empty */
-"Looks like the domain field was empty" = "";
+"Looks like the domain field was empty" = "Es scheint, als ob das Domain-Feld leer war";
 
 /* Multiple DOIs detected */
-"Multiple DOIs detected" = "";
+"Multiple DOIs detected" = "Mehrere DOIs gefunden";
 
 /* iCloud Sync Error - most likely caused by a network being unavailable */
-"Network Unavailable" = "";
+"Network Unavailable" = "Netzwerk nicht verfügbar";
 
 /* No DOI found */
-"No DOI found" = "";
+"No DOI found" = "Kein DOI gefunden";
 
 /* if 0 hits returned */
-"No match found" = "";
+"No match found" = "Kein Treffer gefunden";
 
 /* if 0 hits returned */
-"No match was found" = "";
+"No match was found" = "Kein Treffer gefunden";
 
 /* No Open Access available */
-"No Open Access available" = "";
+"No Open Access available" = "Open Access Kopie nicht verfügbar";
 
 /* Open Access of this article should be available, but the URL was empty */
-"Open Access of this article should be available, but the URL was empty" = "";
+"Open Access of this article should be available, but the URL was empty" = "Zu diesem Artikel sollte es eine Open Access version geben, das URL Feld war jedoch leer";
 
 /* shows when OA was found */
-"Open Access version is available at:\n\n%@" = "";
+"Open Access version is available at:\n\n%@" = "Open Access Version verfügbar unter:\n\n%@";
 
 /* if there are more than one result */
-"Please review your domain-name, as we were unable to find just one match" = "";
+"Please review your domain-name, as we were unable to find just one match" = "Bitte überprüfen Sie den Domain-Name, da wir mehrere Treffer gefunden haben";
 
 /* proxy page button */
-"Proxy Original Page" = "";
+"Proxy Original Page" = "Mit Proxy aufrufen";
 
 /* Status Label */
-"Remote Access" = "";
+"Remote Access" = "Fernzugriff";
 
 /* we found some OA recommendations */
-"Scroll down, we found some Open Access recommendations!" = "";
+"Scroll down, we found some Open Access recommendations!" = "Nach unten wischen, wir haben Open Access Empfehlungen gefunden";
 
 /* Search core.ac.uk */
-"Search core.ac.uk" = "";
+"Search core.ac.uk" = "Suche in core.ac.uk";
 
 /* Select one of the DOIs below and try again: */
-"Select one of the DOIs below and try again:" = "";
+"Select one of the DOIs below and try again:" = "Wählen Sie einen DOI aus und versuchen Sie es erneut:";
 
 /* Setup Proxy if no Proxy Prefix present */
-"Setup Proxy" = "";
+"Setup Proxy" = "Proxy einrichten";
 
 /* if proxy was successfully saved */
-"Success!" = "";
+"Success!" = "Erfolg!";
 
 /* if proxy was successfully saved */
-"Successfuly, saved!" = "";
+"Successfuly, saved!" = "Erfolgreich gespeichert!";
 
 /* if there are more than one result */
-"Try again!" = "";
+"Try again!" = "Erneut versuchen!";
 
 /* Open Access Button */
-"Try Open Access Button" = "";
+"Try Open Access Button" = "Open Access Button Anfrage";
 
 /* Unable to determine iCloud status */
-"Unable to determine iCloud status. We've disabled the iCloud option for you." = "";
+"Unable to determine iCloud status. We've disabled the iCloud option for you." = "Wir konnten den iCloud Status nicht ermitteln und haben iCloud daher deaktiviert.";
 
 /* if failure received */
-"Unexpected Error" = "";
+"Unexpected Error" = "Überraschender Fehler";
 
 /* if failure received */
-"We encountered an unexpected error" = "";
+"We encountered an unexpected error" = "Ein Fehler ist aufgetreten, den wir nicht erwartet haben";
 
 /* checking text */
-"We found a DOI and are checking the web for an Open Access version" = "";
+"We found a DOI and are checking the web for an Open Access version" = "Wir haben einen DOI gefunden und schauen nun nach einer Open Access Kopie";
 
 /* if unable to actually get to the proxyPrefix */
-"We found a match, but could not get the prefix" = "";
+"We found a match, but could not get the prefix" = "Wir haben einen Treffer gefunden, konnten jedoch keinen Proxy Prefix ermitteln";
 
 /* unable to find OA */
-"We were unable to find an Open Access version of this article. Please click the button below to search for the title of the article in core.ac.uk" = "";
+"We were unable to find an Open Access version of this article. Please click the button below to search for the title of the article in core.ac.uk" = "Wir konnten keine Open Access Version des Artikels finden. Bitte klicken Sie die Schaltfläche unten, um nach dem Artikeltitel in core.ac.uk zu suchen.";
 
 /* unable to find OA */
-"We were unable to find an Open Access version of this article. You can click the Open Access Button below, to try request it from the author." = "";
+"We were unable to find an Open Access version of this article. You can click the Open Access Button below, to try request it from the author." = "Wir konnten keine Open Access Version des Artikels finden. Sie können die Open Access Button Schaltfläche nutzen, um eine Anfrage beim Autor zu starten.";
 
 /* longer no oa available */
-"We were unable to identify an Open Access Version of this document!" = "";
+"We were unable to identify an Open Access Version of this document!" = "Wir konnten keine Open Access Version des Dokumentes finden!";
 
 /* We've encountered a problem */
-"We've encountered a problem" = "";
+"We've encountered a problem" = "Ein Problem ist aufgetreten";
