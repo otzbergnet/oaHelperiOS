@@ -47,6 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }
                     }
                 }
+                if let instituteId = queryItems.filter({$0.name == "id"}).first{
+                    if let id = instituteId.value{
+                        self.settings.setSettingsStringValue(value: id, key: "instituteId")
+                    }
+                }
                 if let mysearch = queryItems.filter({$0.name == "search"}).first{
                     self.search = mysearch.value ?? ""
                 }
