@@ -77,6 +77,14 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func dismissLater(seconds: Double){
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: {
+            self.dismiss(animated: true) {
+                //nothing
+            }
+        })
+    }
+    
     /*
      // MARK: - Navigation
      
@@ -92,6 +100,7 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
         if let proxyPrefix = proxyPrefixTextfield.text {
             if(helper.validateProxyPrefix(urlString: proxyPrefix)){
                 settings.setSettingsStringValue(value: proxyPrefix, key: "proxyPrefix")
+                self.settings.setSettingsStringValue(value: "-", key: "instituteId")
                 getProxyForTextfield()
                 dismiss(animated: true) {
                     //nothing
@@ -125,6 +134,7 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
                                     self.getProxyForTextfield()
                                     self.statusLabel.text = NSLocalizedString("Successfuly, saved!", comment: "if proxy was successfully saved")
                                     self.statusLabel.textColor = .blue
+                                    self.dismissLater(seconds: 1.5)
                                 }
                             }
                             else{

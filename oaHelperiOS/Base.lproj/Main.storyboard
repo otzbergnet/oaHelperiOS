@@ -1447,7 +1447,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                         <viewLayoutGuide key="safeArea" id="U6B-yj-2ee"/>
                     </view>
                     <navigationItem key="navigationItem" title="Statistics" id="sut-FN-B9K">
-                        <barButtonItem key="rightBarButtonItem" title="share Statistic Data" image="sharedata" id="utV-Ok-v4Q">
+                        <barButtonItem key="leftBarButtonItem" title="share Statistic Data" image="sharedata" id="utV-Ok-v4Q">
                             <connections>
                                 <action selector="shareStats:" destination="XyU-0e-gHe" id="Uh5-Jc-RGd"/>
                             </connections>

@@ -166,6 +166,12 @@
 		</dict>
 		<dict>
 			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Additional Settings</string>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
 			<string>Only use unpaywall.org for alternatives</string>
@@ -208,6 +214,12 @@
 		</dict>
 		<dict>
 			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Proxy Settings</string>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
 			<string>Support Proxy</string>
@@ -227,6 +239,16 @@
 			<string>Proxy Prefix</string>
 			<key>Key</key>
 			<string>proxyPrefix</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Institute ID for Proxy Settings</string>
+			<key>Key</key>
+			<string>instituteId</string>
+			<key>DefaultValue</key>
+			<string>-</string>
 		</dict>
 	</array>
 </dict>
