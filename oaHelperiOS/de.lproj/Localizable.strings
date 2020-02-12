@@ -287,3 +287,9 @@
 
 /* We've encountered a problem */
 "We've encountered a problem" = "Ein Problem ist aufgetreten";
+
+/* Thank you (for sharing staitsitcs) body */
+"I appreciate you sharing your usage data with me - only the values on this screen were shared" = "Ich schätze sehr, dass Sie Ihre Statistikdaten mit mir geteilt haben. Es wurden nur die hier gezeigten Werte geteilt.";
+
+/* Thank you (for sharing statistics) */
+"Thank you" = "Danke";

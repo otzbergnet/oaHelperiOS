@@ -143,8 +143,8 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "Nj9-yR-KDx"; */
 "Nj9-yR-KDx.text" = "Label";
 
-/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Poo-dX-Xer"; */
-"Poo-dX-Xer.title" = "Eintrag";
+/* Class = "UIBarButtonItem"; title = "Mark All Unread"; ObjectID = "Poo-dX-Xer"; */
+"Poo-dX-Xer.title" = "Alle gelesen";
 
 /* Class = "UILabel"; text = "iCloudStatusLabel"; ObjectID = "QP7-jR-ut3"; */
 "QP7-jR-ut3.text" = "iCloudStatusLabel";
@@ -212,11 +212,14 @@
 /* Class = "UITextView"; text = "abstractLabel"; ObjectID = "w2g-Gf-A10"; */
 "w2g-Gf-A10.text" = "abstractLabel";
 
-/* Class = "UIBarButtonItem"; title = "Sync"; ObjectID = "wrj-kY-gQn"; */
-"wrj-kY-gQn.title" = "Sync";
+/* Class = "UIBarButtonItem"; title = "Sync Bookmarks"; ObjectID = "wrj-kY-gQn"; */
+"wrj-kY-gQn.title" = "Sync Bookmarks";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "yEY-vv-WBU"; */
 "yEY-vv-WBU.text" = "Label";
 
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "z94-xJ-2VE"; */
 "z94-xJ-2VE.normalTitle" = "Abbrechen";
+
+/* Class = "UIBarButtonItem"; title = "share Statistic Data"; ObjectID = "utV-Ok-v4Q"; */
+"utV-Ok-v4Q.title" = "Statistiken teilen";

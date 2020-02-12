@@ -13,7 +13,9 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var myView: UIView!
     
     let settings = SettingsBundleHelper()
+    let stats = StatisticSubmit()
     var statisticsObject : [StatsValues] = []
+    @IBOutlet weak var shareDataButton: UIBarButtonItem!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,6 +30,7 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction))
         self.myView.addGestureRecognizer(gesture)
         AppStoreReviewManager.requestReviewIfAppropriate()
+        showShareIcon()
     }
     
     @objc func checkAction(sender : UITapGestureRecognizer) {
@@ -39,7 +42,7 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
         setExplainerLabelDefault()
         createStatisticsObject()
         tableView.reloadData()
-        
+        showShareIcon()
     }
     
     func setExplainerLabelDefault(){
@@ -150,6 +153,35 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
     }
     */
 
+    func showShareIcon(){
+        let submit = self.settings.getSettingsValue(key: "share_stats")
+        if(submit){
+            self.shareDataButton.isEnabled = false
+            self.shareDataButton.tintColor = UIColor.clear
+        }
+        else{
+            self.shareDataButton.isEnabled = true
+            self.shareDataButton.tintColor = .black
+        }
+    }
+    
+    func showAlert(alertTitle : String, alertMessage : String, okButton : String){
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: okButton, style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
+            //self.syncButton.isHidden = true
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func shareStats(_ sender: Any) {
+        
+        self.stats.submitStats(force: true)
+        self.shareDataButton.isEnabled = false
+        self.shareDataButton.tintColor = UIColor.clear
+        let alertTitle = NSLocalizedString("Thank you", comment: "Thank you (for sharing statistics)")
+        let alertMessage = NSLocalizedString("I appreciate you sharing your usage data with me - only the values on this screen were shared", comment: "Thank you (for sharing staitsitcs) body")
+        showAlert(alertTitle: alertTitle, alertMessage: alertMessage, okButton: "OK")
+    }
     
 }
 

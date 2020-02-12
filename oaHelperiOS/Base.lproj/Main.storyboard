@@ -663,7 +663,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News &amp; Info" id="5d6-3G-nJ9">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="image_read" id="Poo-dX-Xer">
+                        <barButtonItem key="rightBarButtonItem" title="Mark All Unread" image="image_read" id="Poo-dX-Xer">
                             <connections>
                                 <action selector="allUnreadTapped:" destination="nzE-8T-XzR" id="YfK-ID-HgM"/>
                             </connections>
@@ -925,7 +925,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="enT-rz-IDG"/>
                     <navigationItem key="navigationItem" id="moE-y1-T79">
-                        <barButtonItem key="leftBarButtonItem" title="Sync" image="icons8-cloud-sync-75" id="wrj-kY-gQn">
+                        <barButtonItem key="leftBarButtonItem" title="Sync Bookmarks" image="icons8-cloud-sync-75" id="wrj-kY-gQn">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cloudSyncTapped:" destination="nS1-8K-6N6" id="VgK-x5-ypc"/>
@@ -1446,10 +1446,17 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="U6B-yj-2ee"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Statistics" id="sut-FN-B9K"/>
+                    <navigationItem key="navigationItem" title="Statistics" id="sut-FN-B9K">
+                        <barButtonItem key="rightBarButtonItem" title="share Statistic Data" image="sharedata" id="utV-Ok-v4Q">
+                            <connections>
+                                <action selector="shareStats:" destination="XyU-0e-gHe" id="Uh5-Jc-RGd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="explainerLabel" destination="vq8-9p-PLi" id="9tB-IA-ngJ"/>
                         <outlet property="myView" destination="NcN-Y1-Zub" id="U4H-hc-B73"/>
+                        <outlet property="shareDataButton" destination="utV-Ok-v4Q" id="hhl-C0-fFF"/>
                         <outlet property="tableView" destination="WIG-We-XkY" id="uVM-Zm-ZGz"/>
                     </connections>
                 </viewController>
@@ -1515,7 +1522,8 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
         <image name="icons8-search-75" width="25" height="25"/>
         <image name="icons8-settings-75" width="25" height="25"/>
         <image name="icons8-statistics-75" width="25" height="25"/>
-        <image name="image_read" width="33" height="33"/>
+        <image name="image_read" width="25" height="25"/>
+        <image name="sharedata" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Xbo-Rx-qqx"/>

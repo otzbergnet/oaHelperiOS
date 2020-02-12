@@ -18,18 +18,18 @@ class StatisticSubmit {
         self.uid = UIDevice.current.identifierForVendor?.uuidString ?? "_"
     }
     
-    func submitStats(){
+    func submitStats(force : Bool = false){
         
         let submit = self.settings.getSettingsValue(key: "share_stats")
         let stringDate = self.getDate()
         let lastDate = self.settings.getShareDate()
         
-        if(submit == false){
+        if(!submit && !force){
             print("statistics submit is false")
             return
         }
         
-        if(recentUpdate(lastDate: lastDate)){
+        if(!force && recentUpdate(lastDate: lastDate)){
             //print("recently updatd statistics")
             return
         }
