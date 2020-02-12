@@ -66,7 +66,7 @@
 "PUe-Ye-tIX.normalTitle" = "Überspringen, mach ich später";
 
 /* Class = "UILabel"; text = "If your institute supports EZProxy for remote access, you can setup support in Open Access Helper with just a few clicks.\n\nEnter the domain (e.g. harvard.edu) of your university below and click Setup Proxy Button. You can make more changes in Settings!"; ObjectID = "UsE-ZG-b1a"; */
-"UsE-ZG-b1a.text" = "Wenn Ihre Institution Fernzugriff mittels EZProxy unterstützt, können Sie Open Access Helper mit einigen Klicks entsprechend einrichten.\n\nGeben Sie den Domain-Namen (z.B. harvard.edu) Ihrer Institution ein, und wählen Sie dann Proxy einrichten. In den Einstellungen finden Sie weitere Konfigurationsmöglichkeiten!";
+"UsE-ZG-b1a.text" = "Wenn Ihre Institution den Fernzugriff mittels EZProxy unterstützt, können Sie Open Access Helper mit wenigen Klicks entsprechend einrichten.\n\nGeben Sie den Domain-Namen (z.B. harvard.edu) Ihrer Institution ein und wählen Sie dann \"Proxy einrichten\". In den Einstellungen finden Sie weitere Konfigurationsmöglichkeiten!";
 
 /* Class = "UILabel"; text = "Remote Access"; ObjectID = "a21-Tn-iaz"; */
 "a21-Tn-iaz.text" = "Fernzugriff";

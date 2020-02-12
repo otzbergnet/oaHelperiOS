@@ -693,6 +693,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="proxyPrefix" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. https://proxy.uni.edu/login?url=" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kxE-nz-zPg" userLabel="proxyPrefix">
                                 <rect key="frame" x="25" y="51" width="270" height="34"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemFillColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done" smartDashesType="no" smartQuotesType="no"/>
                             </textField>
@@ -717,6 +718,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="domainField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="institute domain, e.g. harvard.edu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mEF-9Q-afL" userLabel="domainField">
                                 <rect key="frame" x="25" y="211" width="270" height="34"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemFillColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="search" smartDashesType="no" smartQuotesType="no"/>
                             </textField>
@@ -1516,7 +1518,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
         <image name="image_read" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QaW-6b-mlT"/>
+        <segue reference="Xbo-Rx-qqx"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

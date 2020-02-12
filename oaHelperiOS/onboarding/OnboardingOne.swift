@@ -24,6 +24,9 @@ class OnboardingOne: UIViewController {
         skipButton.layer.cornerRadius = 10
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     /*
     // MARK: - Navigation

@@ -28,6 +28,9 @@ class OnboardingSeven: UIViewController, UITextFieldDelegate {
         self.view.addGestureRecognizer(tapGesture)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         

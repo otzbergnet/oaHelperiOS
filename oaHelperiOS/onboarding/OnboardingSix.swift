@@ -31,6 +31,9 @@ class OnboardingSix: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(OnboardingSix.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
    
     deinit {
         NotificationCenter.default.removeObserver( self, name: UserDefaults.didChangeNotification, object: nil)
