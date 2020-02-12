@@ -293,3 +293,9 @@
 
 /* Thank you (for sharing statistics) */
 "Thank you" = "Danke";
+
+/* show searching, when looking up settings */
+"Searching..." = "Suche...";
+
+/* shown upon save */
+"Successfully saved!" = "Erfolgreich gespeichert!";

@@ -49,22 +49,17 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         if let restorationIdentifier = textField.restorationIdentifier{
             switch(restorationIdentifier){
             case "domainField":
-                print("domain")
-                
+                self.serchByDomainFunction()
             case "proxyPrefix":
-                
-                print("proxy")
-                
+                self.saveProxyManually()
             default:
                 print("nothing")
             }
         }
-        print("I should return")
-        textField.resignFirstResponder()
-        //doSearch()
         return true
     }
     
@@ -95,16 +90,16 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
      }
      */
     
-    @IBAction func saveProxyButtonTapped(_ sender: Any) {
+    func saveProxyManually() {
         self.proxyPrefixTextfield.resignFirstResponder()
         if let proxyPrefix = proxyPrefixTextfield.text {
             if(helper.validateProxyPrefix(urlString: proxyPrefix)){
                 settings.setSettingsStringValue(value: proxyPrefix, key: "proxyPrefix")
                 self.settings.setSettingsStringValue(value: "-", key: "instituteId")
                 getProxyForTextfield()
-                dismiss(animated: true) {
-                    //nothing
-                }
+                self.statusLabel.text = NSLocalizedString("Successfully saved!", comment: "shown upon save")
+                self.statusLabel.textColor = .blue
+                self.dismissLater(seconds: 0.75)
             }
             else{
                 self.statusLabel.text = NSLocalizedString("The proxy prefixed you entered, failed to validate. Please enter the prefix in the format https://proxy.university.edu/login?url=", comment: "failed to validate proxy prefix")
@@ -112,8 +107,13 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func searchDomainButtonTapped(_ sender: Any) {
+    @IBAction func saveProxyButtonTapped(_ sender: Any) {
+        saveProxyManually()
+    }
+    
+    func serchByDomainFunction() {
         self.searchDomainTextfield.resignFirstResponder()
+        self.statusLabel.text = NSLocalizedString("Searching...", comment: "show searching, when looking up settings")
         if let domain = searchDomainTextfield.text {
             if(domain.count > 0){
                 proxyFind.askForProxy(domain: domain) { (res) in
@@ -134,7 +134,7 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
                                     self.getProxyForTextfield()
                                     self.statusLabel.text = NSLocalizedString("Successfuly, saved!", comment: "if proxy was successfully saved")
                                     self.statusLabel.textColor = .blue
-                                    self.dismissLater(seconds: 1.5)
+                                    self.dismissLater(seconds: 0.75)
                                 }
                             }
                             else{
@@ -163,6 +163,10 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+    }
+    
+    @IBAction func searchDomainButtonTapped(_ sender: Any) {
+        serchByDomainFunction()
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
