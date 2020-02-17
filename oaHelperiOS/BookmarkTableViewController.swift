@@ -392,6 +392,7 @@ class BookmarkTableViewController: UITableViewController {
     }
     
     func cloudSync(isRefresh: Bool){
+        self.effectView.removeFromSuperview()
         if(!self.settings.getSettingsValue(key: "bookmarks_icloud")){
             print("not supposed to iCloud sync")
             return
