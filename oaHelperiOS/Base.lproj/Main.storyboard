@@ -318,18 +318,18 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="h60-9C-GdD">
-                                                <rect key="frame" x="15" y="79" width="290" height="309.5"/>
+                                                <rect key="frame" x="15" y="79" width="290" height="353"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ZoG-7t-ZF7" userLabel="shareUsageStack">
-                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share usage once a month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIv-r5-Rvh">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S0b-h1-oM1">
-                                                                <rect key="frame" x="241" y="0.0" width="51" height="20.5"/>
+                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
                                                                 <connections>
                                                                     <action selector="dataShareSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="9bY-Ff-xei"/>
                                                                 </connections>
@@ -337,15 +337,15 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="SRX-0E-F2u" userLabel="enableBookMarkStack">
-                                                        <rect key="frame" x="0.0" y="35.5" width="290" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="46" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34Y-wY-K30">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lVl-hB-gDw">
-                                                                <rect key="frame" x="241" y="0.0" width="51" height="20.5"/>
+                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
                                                                 <connections>
                                                                     <action selector="bookMarksSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="eVa-n7-nyc"/>
                                                                 </connections>
@@ -353,15 +353,15 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="BYD-mR-Ret" userLabel="iCloudSyncStack">
-                                                        <rect key="frame" x="0.0" y="71" width="290" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="92" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Sync Bookmarks " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cD5-Oy-m8y">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OSv-wu-QL2">
-                                                                <rect key="frame" x="241" y="0.0" width="51" height="20.5"/>
+                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
                                                                 <connections>
                                                                     <action selector="iCloudSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="I1e-hq-dkb"/>
                                                                 </connections>
@@ -369,15 +369,15 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="MW7-y0-qje" userLabel="resetBookMarkStack">
-                                                        <rect key="frame" x="0.0" y="106.5" width="290" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="138" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset Bookmarks from iCloud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nL-4z-9Nt">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bep-E9-Ibv">
-                                                                <rect key="frame" x="241" y="0.0" width="51" height="20.5"/>
+                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
                                                                 <connections>
                                                                     <action selector="resetSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="MmE-jL-uDB"/>
                                                                 </connections>
@@ -385,16 +385,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ARc-IO-RfC" userLabel="onlyUnpaywallStack">
-                                                        <rect key="frame" x="0.0" y="142" width="290" height="29.5"/>
+                                                        <rect key="frame" x="0.0" y="184" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only use unpaywall.org" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33R-cg-J4D">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="29.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4jJ-NP-3Tn">
-                                                                <rect key="frame" x="241" y="0.0" width="51" height="29.5"/>
+                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
                                                                 <connections>
                                                                     <action selector="onlyUnpawayllSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="tMy-lc-LkU"/>
                                                                 </connections>
@@ -402,7 +402,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="iOX-KG-bMt" userLabel="openAccessButtonStack">
-                                                        <rect key="frame" x="0.0" y="186.5" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="230" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Access Button Request" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPH-Rz-Oaa">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -421,7 +421,7 @@
                                                         <viewLayoutGuide key="safeArea" id="hy7-Fc-xi1"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ch-1p-OaN" userLabel="showRecommendationStack">
-                                                        <rect key="frame" x="0.0" y="232.5" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="276" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Similar Articles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eY1-sN-aAv">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -438,7 +438,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="DrX-CP-Dze" userLabel="useProxyStackView">
-                                                        <rect key="frame" x="0.0" y="278.5" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="322" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Proxy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vra-TD-yuG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -455,19 +455,15 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="iOX-KG-bMt" firstAttribute="top" secondItem="h60-9C-GdD" secondAttribute="top" constant="186.5" id="GZW-L2-3E4"/>
-                                                    <constraint firstItem="ARc-IO-RfC" firstAttribute="top" secondItem="h60-9C-GdD" secondAttribute="top" constant="142" id="iFy-0w-fuz"/>
-                                                </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloudStatusLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QP7-jR-ut3">
-                                                <rect key="frame" x="15" y="438.5" width="290" height="22"/>
+                                                <rect key="frame" x="15" y="468" width="290" height="22"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="s7Y-5h-QXP" userLabel="reviewTellFriendStack">
-                                                <rect key="frame" x="15" y="465.5" width="290" height="30"/>
+                                                <rect key="frame" x="15" y="495" width="290" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4f-O4-Z0t">
                                                         <rect key="frame" x="0.0" y="0.0" width="137.5" height="30"/>
@@ -498,7 +494,7 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8z-S7-jDc">
-                                                <rect key="frame" x="15" y="505.5" width="290" height="50"/>
+                                                <rect key="frame" x="15" y="535" width="290" height="50"/>
                                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Jq5-EC-rcH"/>
@@ -512,7 +508,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SW-lw-2NX">
-                                                <rect key="frame" x="15" y="570.5" width="290" height="50"/>
+                                                <rect key="frame" x="15" y="600" width="290" height="50"/>
                                                 <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="EtG-7O-rGw"/>
@@ -540,14 +536,13 @@
                                             <constraint firstAttribute="trailing" secondItem="h60-9C-GdD" secondAttribute="trailing" constant="15" id="DUM-KA-Wq8">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                                             </constraint>
-                                            <constraint firstItem="QP7-jR-ut3" firstAttribute="top" secondItem="Vra-TD-yuG" secondAttribute="bottom" constant="50" id="GOX-7c-Miz"/>
+                                            <constraint firstItem="QP7-jR-ut3" firstAttribute="top" secondItem="h60-9C-GdD" secondAttribute="bottom" constant="36" id="Jne-BV-FGf"/>
                                             <constraint firstItem="s7Y-5h-QXP" firstAttribute="leading" secondItem="WKx-UV-kCB" secondAttribute="leading" constant="15" id="LZP-4Y-9tp">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                                             </constraint>
                                             <constraint firstAttribute="trailing" secondItem="QP7-jR-ut3" secondAttribute="trailing" constant="15" id="MbK-kR-78x">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                                             </constraint>
-                                            <constraint firstItem="h60-9C-GdD" firstAttribute="top" secondItem="SRu-U1-Sp5" secondAttribute="bottom" constant="15" id="NKO-Uu-wzz"/>
                                             <constraint firstItem="SRu-U1-Sp5" firstAttribute="leading" secondItem="WKx-UV-kCB" secondAttribute="leading" constant="15" id="Pn7-JY-wfk">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                                             </constraint>
@@ -576,6 +571,7 @@
                                             <constraint firstItem="2SW-lw-2NX" firstAttribute="top" secondItem="E8z-S7-jDc" secondAttribute="bottom" constant="15" id="rq7-Bx-vJa">
                                                 <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                             </constraint>
+                                            <constraint firstItem="h60-9C-GdD" firstAttribute="top" secondItem="SRu-U1-Sp5" secondAttribute="bottom" constant="15" id="yjW-bn-IZ0"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1239,6 +1235,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="Ldk-r4-ZZV" firstAttribute="trailing" secondItem="hFn-dy-2Xd" secondAttribute="trailing" id="2Vd-em-sW4"/>
                                     <constraint firstAttribute="bottom" secondItem="bqf-wb-KsL" secondAttribute="bottom" constant="150" id="3j9-v1-ziH"/>
@@ -1270,6 +1267,10 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                     </constraint>
                                     <constraint firstItem="Ldk-r4-ZZV" firstAttribute="centerX" secondItem="2KM-Oh-4Gc" secondAttribute="centerX" id="zCW-mt-TUr"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="4R4-Z9-0ID" appends="YES" id="0hL-VE-FSM"/>
+                                    <outletCollection property="gestureRecognizers" destination="VoP-KZ-IXf" appends="YES" id="CZA-bJ-dK6"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1302,6 +1303,16 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YU-Ni-KxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="4R4-Z9-0ID">
+                    <connections>
+                        <action selector="swipedLeft:" destination="XrP-TS-2nF" id="amE-ZC-1fE"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="VoP-KZ-IXf">
+                    <connections>
+                        <action selector="swipedRight:" destination="XrP-TS-2nF" id="Hvp-Kt-iLR"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2764" y="262"/>
         </scene>
