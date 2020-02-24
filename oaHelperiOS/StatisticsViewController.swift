@@ -13,7 +13,9 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var myView: UIView!
     
     let settings = SettingsBundleHelper()
+    let stats = StatisticSubmit()
     var statisticsObject : [StatsValues] = []
+    @IBOutlet weak var shareDataButton: UIBarButtonItem!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,6 +30,7 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction))
         self.myView.addGestureRecognizer(gesture)
         AppStoreReviewManager.requestReviewIfAppropriate()
+        showShareIcon()
     }
     
     @objc func checkAction(sender : UITapGestureRecognizer) {
@@ -35,11 +38,11 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
         setExplainerLabelDefault()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         setExplainerLabelDefault()
         createStatisticsObject()
         tableView.reloadData()
-        
+        showShareIcon()
     }
     
     func setExplainerLabelDefault(){
@@ -106,6 +109,12 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
         recommendation_view.explainerLabel = NSLocalizedString("Number of times you tapped a recommendation to view its details.", comment: "")
         tmpStatisticsObject.append(recommendation_view)
         
+        let proxy_count = StatsValues()
+        proxy_count.textLabel = NSLocalizedString("Number of Proxy Actions", comment: "")
+        proxy_count.detailTextLabel = "\(settings.getOACount(key: "proxy_count"))"
+        proxy_count.explainerLabel = NSLocalizedString("Number of times a user selected to proxy a url.", comment: "")
+        tmpStatisticsObject.append(proxy_count)
+        
         let sync_date = StatsValues()
         sync_date.textLabel = NSLocalizedString("Last iCloud Sync Date", comment: "")
         let syncDate = settings.getSyncDate(type: "sync_date")
@@ -144,6 +153,35 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
     }
     */
 
+    func showShareIcon(){
+        let submit = self.settings.getSettingsValue(key: "share_stats")
+        if(submit){
+            self.shareDataButton.isEnabled = false
+            self.shareDataButton.tintColor = UIColor.clear
+        }
+        else{
+            self.shareDataButton.isEnabled = true
+            self.shareDataButton.tintColor = .black
+        }
+    }
+    
+    func showAlert(alertTitle : String, alertMessage : String, okButton : String){
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: okButton, style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
+            //self.syncButton.isHidden = true
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func shareStats(_ sender: Any) {
+        
+        self.stats.submitStats(force: true)
+        self.shareDataButton.isEnabled = false
+        self.shareDataButton.tintColor = UIColor.clear
+        let alertTitle = NSLocalizedString("Thank you", comment: "Thank you (for sharing statistics)")
+        let alertMessage = NSLocalizedString("I appreciate you sharing your usage data with me - only the values on this screen were shared", comment: "Thank you (for sharing staitsitcs) body")
+        showAlert(alertTitle: alertTitle, alertMessage: alertMessage, okButton: "OK")
+    }
     
 }
 

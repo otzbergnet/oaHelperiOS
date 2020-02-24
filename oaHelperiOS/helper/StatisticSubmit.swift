@@ -18,19 +18,19 @@ class StatisticSubmit {
         self.uid = UIDevice.current.identifierForVendor?.uuidString ?? "_"
     }
     
-    func submitStats(){
+    func submitStats(force : Bool = false){
         
         let submit = self.settings.getSettingsValue(key: "share_stats")
         let stringDate = self.getDate()
         let lastDate = self.settings.getShareDate()
         
-        if(submit == false){
-            //print("submit is false")
+        if(!submit && !force){
+            print("statistics submit is false")
             return
         }
         
-        if(recentUpdate(lastDate: lastDate)){
-            //print("recently updatd")
+        if(!force && recentUpdate(lastDate: lastDate)){
+            //print("recently updatd statistics")
             return
         }
         
@@ -40,6 +40,7 @@ class StatisticSubmit {
         let bookmark_count = replaceZeroWithUndersore(value: self.settings.getOACount(key: "bookmark_count"))
         let recom_count = replaceZeroWithUndersore(value: self.settings.getOACount(key: "recommendation_count"))
         let recom_view = replaceZeroWithUndersore(value: self.settings.getOACount(key: "recommendation_view"))
+        let proxy_count = replaceZeroWithUndersore(value: self.settings.getOACount(key: "proxy_count"))
         
         if(oa_found == "_" && oa_search == "_" && core_pdf == "_" && bookmark_count == "_"){
             print("nothing to share")
@@ -47,7 +48,7 @@ class StatisticSubmit {
         }
         
         
-        let urlString = "https://www.otzberg.net/oahelper/stat.php?oa_search=\(oa_search)&oa_found=\(oa_found)&core_pdf=\(core_pdf)&bookmark_count=\(bookmark_count)&recom_count=\(recom_count)&recom_view=\(recom_view)&uid=\(self.uid)"
+        let urlString = "https://www.oahelper.org/stat.php?oa_search=\(oa_search)&oa_found=\(oa_found)&core_pdf=\(core_pdf)&bookmark_count=\(bookmark_count)&recom_count=\(recom_count)&recom_view=\(recom_view)&proxy_count=\(proxy_count)&uid=\(self.uid)&os=ios"
         guard let url = URL(string: urlString) else {
             return
         }
@@ -55,12 +56,9 @@ class StatisticSubmit {
         let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
             if let error = error{
                 //we got an error, let's tell the user
-                DispatchQueue.main.async {
                     print(error)
-                }
             }
             if let data = data {
-                DispatchQueue.main.async {
                     do{
                         let myData = try JSONDecoder().decode(Status.self, from: data)
                         if myData.status == 200 {
@@ -74,12 +72,9 @@ class StatisticSubmit {
                     catch let jsonError{
                         print("\(jsonError)")
                     }
-                }
             }
             else{
-                DispatchQueue.main.async {
-                    print("data error")
-                }
+                print("data error")
                 return
             }
         }

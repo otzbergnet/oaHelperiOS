@@ -53,6 +53,10 @@ class OnboardingFive: UIViewController {
         }
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver( self, name: UserDefaults.didChangeNotification, object: nil)
     }
@@ -71,6 +75,7 @@ class OnboardingFive: UIViewController {
             iCloudSwitch.isOn = false
         }
     }
+    
     
     @objc func defaultsChanged(){
         if settings.getSettingsValue(key: "bookmarks") {

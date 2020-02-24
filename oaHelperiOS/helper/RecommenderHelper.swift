@@ -22,8 +22,8 @@ class RecommenderHelper {
     let helper = HelperClass()
     
     func askForRecommendation(metaData : CoreRequestObject, completion: @escaping (Result<CoreRecommender, Error>) -> ()){
-        //let timer = ParkBenchTimer()
-        //print("ask for Core Recommendation")
+//        let timer = ParkBenchTimer()
+//        print("ask for Core Recommendation")
         let apiKey = self.helper.getAPIKeyFromPlist(key: "coreRecommender")
         let apiEndPoint = self.helper.getAPIKeyFromPlist(key: "coreRecommenderUrl")
         if (apiKey == "") {
@@ -65,7 +65,7 @@ class RecommenderHelper {
         let session = URLSession(configuration: urlconfig, delegate: self as? URLSessionDelegate, delegateQueue: nil)
         
         let task = session.dataTask(with: request) {(data, response, error) in
-            //print("The core recommender task took \(timer.stop()) seconds.")
+//            print("The core recommender task took \(timer.stop()) seconds.")
             if let error = error{
                 //we got an error, let's tell the user
                 //print("error")
@@ -82,7 +82,7 @@ class RecommenderHelper {
                 catch let jsonError{
                     //print(data)
                     //print("json decode error", jsonError)
-                    print("JSON String: \(String(data: data, encoding: .utf8))")
+                    print("JSON String: \(String(data: data, encoding: .utf8) ?? "JSON ERROR COULD NOT PRINT")")
                     completion(.failure(jsonError))
                 }
             }

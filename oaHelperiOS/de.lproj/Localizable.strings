@@ -5,51 +5,297 @@
   Created by Claus Wolf on 26.12.18.
   Copyright © 2018 Claus Wolf. All rights reserved.
 */
-
 "Searching core.ac.uk for you" = "Suche in core.ac.uk gestartet";
+
+/* problem with search */
 "Sorry, we encountered a problem" = "Sorry, ein Problem ist aufgetreten";
+
+/* above the search field */
 "Enter your search:" = "Ihre Suche:";
+
+/* missing API key, breaking error */
 "core.ac.uk API key missing - please quit app" = "core.ac.uk API Key fehlt - bitte beenden Sie die App";
+
 "Sorry, we encountered a data problem" = "Sorry, wir hatten ein Datenproblem";
+
+/* button, access full text */
 "Access Full Text" = "Volltext abrufen";
+
+/* button, core.ac.uk document
+   in this case used for string comparison */
 "View Record at core.ac.uk" = "core.ac.uk Datensatz zeigen";
+
+/* Hit count indicator */
 "%@ Hits" = "%@ Treffer";
+
+/* No results message */
 "😢 No Results" = "😢 Keine Ergebnisse";
+
+/* message for no hits */
 "Sadly there were no results for your search. Please check your search terms or rephrase your query and try again." = "Leider ergab Ihre Suche keine Treffer. Bitte überprüfen Sie Ihre Suchbegriffe, oder formulieren Sie die Suche um";
+
+/* unforseen error at data decoding */
 "❗This wasn't meant to happen" = "❗Das hätte nicht passieren sollen";
+
+/* body for alert, when there was an error */
 "We encountered an error, which we thought you'd never see. Sorry about that. Please try again!" = "Sie haben einen Fehler gefunden, der nie hätte gezeigt werden sollen. Sorry! Bitte versuchen Sie es erneut";
+
+/* Search Results String used as back-button */
 "Search Results" = "Ergebnisse";
+
+/* By is shown just before authors */
 "By: " = "Von: ";
+
+/* Search
+   Search shown in navbar on first view controller */
 "Search" = "Suche";
+
+/* button, arXiv.org document */
 "View Record at arXiv.org" = "Bei arXiv.org ansehen";
+
+/* iCloud Bookmark Sync - shows as tapped */
 "Updating iCloud Bookmarks" = "iCloud Bookmarks werden aktualisiert";
+
+/* alert ok button
+   OK */
 "OK" = "OK";
+
+/* yes */
 "Yes" = "Ja";
+
+/* No */
 "No" = "Nein";
+
+/* iCloud Sync Error - most likely caused by invalid change token */
 "iCloud Required" = "iCloud Zugriff wird benötigt";
+
+/* iCloud Sync Error - most likely caused by a network failure */
 "Network Failure" = "Netzwerk Fehler";
+
+/* iCloud Sync Error - most likely caused by invalid change token */
 "You are not logged into iCloud or removed iCloud priviledges for OAHelper. Would you like to disable iCloud Sync?" = "Sie sind nicht bei iCloud angemeldet, oder haben OAHelper die iCloud Rechte entzogen. Soll iCloud Sync deaktiviert werden?";
+
+/* iCloud Sync Error - most likely caused by wifi or mobile data being unavailable */
 "The app is unable to connect to the internet and thus won't be able to function correctly. Please ensure appropriate connectivity" = "Die App kann sich nicht mit dem Internet verbinden und kann daher nicht richtig funktionieren. Bitte stellen Sie sicher, dass Sie verbunden sind";
+
+/* No comment provided by engineer. */
 "Please select an entry above for an explanation of the value." = "Bitte wählen Sie einen Eintrag, um hier eine Erklärung des Wertes zu sehen";
+
+/* No comment provided by engineer. */
 "Open Access Searches" = "Open Access Suchen";
-"The number of Open Access searches conducted within, or by sending text to, the app. Search API is kindly provided by core.ac.uk!" = "Die Anzahl der Open Access Suchen, die innerhalb dieser App durchgeführt worden, entweder, da die Suche hier begonnen oder ausgewählter Text übergeben wurde";
+
+/* No comment provided by engineer. */
+"The number of Open Access searches conducted within, or by sending text to, the app. Search API is kindly provided by core.ac.uk!" = "Die Anzahl der Open Access Suchen, die innerhalb dieser App durchgeführt wurden, entweder, da die Suche hier begonnen oder ausgewählter Text übergeben wurde";
+
+/* No comment provided by engineer. */
 "Number of core.ac.uk PDFs" = "Anzahl der core.ac.uk PDFs";
+
+/* No comment provided by engineer. */
 "Number of PDF documents accessed from core.ac.uk through this app. This would be a direct result of an Open Access Search." = "Die Anzahl der PDF Dokumente von core.ac.uk die in dieser App als Ergebnis einer Open Access Suche abgerufen wurden";
+
+/* No comment provided by engineer. */
 "Unpaywall.org Found" = "Unpaywall.org Alternativen";
-"Number of paywalls avoided, thanks to unpaywall.org. This value gets incremented, when you use the Safari Action Extension and an Open Access Alternative is found, whether you clicked it, or not." = "Anzahl der Paywalls, die Sie dank unpaywall.org umgehen konnten. Dieser Wert wird erhöht, sobald in der Safari Action Extension eine Open Access Alternative gezeigt wird, gleich ob diese angezeigt wird";
+
+/* No comment provided by engineer. */
+"Number of paywalls avoided, thanks to unpaywall.org. This value gets incremented, when you use the Safari Action Extension and an Open Access Alternative is found, whether you clicked it, or not." = "Anzahl der Paywalls, die Sie dank unpaywall.org umgehen konnten. Dieser Wert wird erhöht, sobald in der Safari Action Extension eine Open Access Alternative gezeigt wird, gleich ob diese aufgerufen wurde";
+
+/* No comment provided by engineer. */
 "Number of Bookmarks" = "Anzahl der Bookmarks";
+
+/* No comment provided by engineer. */
 "Number of bookmarks currently in your bookmarks database." = "Anzahl der Bookmarks, die sich gerade in der Datenbank befinden";
+
+/* No comment provided by engineer. */
 "Last iCloud Sync Date" = "Letzte iCloud Aktualisierung";
+
+/* No comment provided by engineer. */
 "Never" = "Nie";
-"The date, we have last synced your bookmarks with iCloud. Please note that we will only sync once every two hours, unless you manually initiate a sync. See Settings to change your iCloud Sync preference." = "Das Datum andem Ihr Bookmarks zum letzten Mal mit iCloud synchronisiert wurden. Bitte beachten Sie, dass wir nur alle zwei Stunden aktualisieren, es sei denn Sie initieren die Synchornisation manuell. Ihr iCloud Präferenz können Sie in den Einstellungen anpassen";
+
+/* No comment provided by engineer. */
+"The date, we have last synced your bookmarks with iCloud. Please note that we will only sync once every two hours, unless you manually initiate a sync. See Settings to change your iCloud Sync preference." = "Das Datum an dem Ihre Bookmarks zum letzten Mal mit iCloud synchronisiert wurden. Bitte beachten Sie, dass wir nur alle zwei Stunden aktualisieren, es sei denn Sie initieren die Synchronisation manuell. Ihr iCloud Präferenz können Sie in den Einstellungen anpassen";
+
+/* No comment provided by engineer. */
 "Last Statstics Share Date" = "Letzten Statistikübermittlung";
-"The date, these statistics have last been shared with the app developer. See Settings to change your sharing preference." = "Das Datum, an dem Ihre Statistiken zum letzten Mal mit dem Entwickler geteilt wurden. Sie können diese Option in den Einstellungen anpassen";
+
+/* No comment provided by engineer. */
+"The date, these statistics have last been shared with the app developer. See Settings to change your sharing preference." = "Das Datum, an dem Ihre Statistiken zum letzten Mal mit dem Entwickler der App geteilt wurden. Sie können diese Option in den Einstellungen anpassen";
+
+/* RefreshControl */
 "Updating News Items" = "Nachrichten werden aktualisiert";
+
+/* Promotional String */
 "Check for Open Access copies of scientific articles with Open Access Helper!" = "Prüfen Sie mit Open Access Helper, ob Open Access für einen wissenschaftlichen Artikel verfügbar ist!";
+
+/* year error */
 "A year seems invalid, it needs to be between 1500 and " = "Ein Jahreszahl scheint ungültig. Mögliche Werte zwischen 1500 und ";
-"Within your date range the \"From Year\" is greater than the \"To Year\"" = "Im gewählten Zeitraum ist das \"Von Jahr\" größer als das \"Bis Jahr\"";
+
+/* from year greater to year error */
+"Within your date range the \"From Year\" is greater than the \"To Year\"" = "Im gewählten Zeitraum ist das \"Von-Jahr\" größer als das \"Bis-Jahr\"";
+
+/* No iCloud account */
 "Sadly, your iCloud account seems unavailable. We've disabled the iCloud option for you." = "Leider, scheint kein iCloud Konto verfügbar. Die iCloud Option wurde für Sie deaktiviert.";
+
+/* No comment provided by engineer. */
 "Number of recommendation views" = "Anzahl gezeigter Empfehlungen";
+
+/* No comment provided by engineer. */
 "Number of times a recommendation was shown to you. A typical recommendation consists of three items." = "Die Zahl der angezeigten Empfehlungen. Ein Empfehlungsobjekt besteht üblicherweise aus 3 Artikeln.";
+
+/* No comment provided by engineer. */
 "Number of recommendation taps" = "Anzahl aufgerufener Empfehlungen";
+
+/* No comment provided by engineer. */
 "Number of times you tapped a recommendation to view its details." = "Die Zahl der von ihnen aufgerufenen Empfehlungen";
+
+/* No comment provided by engineer. */
+"Number of Proxy Actions" = "Anzahl der Proxy-Anfragen";
+
+/* No comment provided by engineer. */
+"Number of times a user selected to proxy a url." = "Die Zahl der URLs für die der Zugang mittels des Proxy angefordert wurde.";
+
+/* alert title: new proxy added */
+"New Proxy Added" = "Proxy hinzugefügt";
+
+/* alert body: new proxy added */
+"We have added your new proxy prefix. It is ready to use!" = "Wir haben den Proxy Prefix hinzugefügt. Dieser steht nun für Sie bereit!";
+
+/* failed to validate proxy prefix */
+"The proxy prefixed you entered, failed to validate. Please enter the prefix in the format https://proxy.university.edu/login?url=" = "Der von Ihnen eingegebene Proxy Prefix konnte nicht validiert werden. Bitte geben Sie den Prefix im folgenden Format ein https://proxy.university.edu/login?url=";
+
+/* selected text to be seached */
+"%@ \n\nIf you wish to search the above at core.ac.uk, click the button below" = "%@ \n\nWenn Sie nach dem oben gezeigten Text in core.ac.uk suchen möchten, wählen Sie die Schaltfläche unten.";
+
+/* acceptedVersion */
+": Accepted Version" = ": angenommene Version";
+
+/* publishedVersion */
+": Published Version" = ": veröffentliche Version";
+
+/* submittedVersion */
+": Submitted Version" = ": eingereichte Version";
+
+/* no doi, no search */
+"\n\nWe were unable to identify a DOI and thus unable to identify an Open Access version of the document" = "\n\nWir konnten keinen DOI ermitteln und somit auch keine Open Access Version des Dokuments";
+
+/* Add bookmark */
+"Add Bookmark" = "Bookmark hinzufügen";
+
+/* Change Proxy if valid Proxy Prefix Present */
+"Change Proxy" = "Proxy ändern";
+
+/* shown while checking */
+"Checking..." = "Suche...";
+
+/* DOI detected */
+"DOI detected" = "DOI gefunden";
+
+/* if proxy field was empty */
+"Field Empty?" = "Leeres Feld?";
+
+/* if unable to actually get to the proxyPrefix */
+"General Error" = "Generischer Fehler";
+
+/* Go to document now */
+"Go to Document Now" = "Dokument jetzt aufrufen";
+
+/* iCloud restricted */
+"iOS reports iCloud status as restricted. We've disabled the iCloud option for you." = "iOS gibt an, dass der Zugriff auf iCloud eingeschränkt wurde. Wir haben daher iCloud für Sie deaktiviert.";
+
+/* if proxy field was empty */
+"Looks like the domain field was empty" = "Es scheint, als ob das Domain-Feld leer war";
+
+/* Multiple DOIs detected */
+"Multiple DOIs detected" = "Mehrere DOIs gefunden";
+
+/* iCloud Sync Error - most likely caused by a network being unavailable */
+"Network Unavailable" = "Netzwerk nicht verfügbar";
+
+/* No DOI found */
+"No DOI found" = "Kein DOI gefunden";
+
+/* if 0 hits returned */
+"No match found" = "Kein Treffer gefunden";
+
+/* if 0 hits returned */
+"No match was found" = "Kein Treffer gefunden";
+
+/* No Open Access available */
+"No Open Access available" = "Open Access Kopie nicht verfügbar";
+
+/* Open Access of this article should be available, but the URL was empty */
+"Open Access of this article should be available, but the URL was empty" = "Zu diesem Artikel sollte es eine Open Access version geben, das URL Feld war jedoch leer";
+
+/* shows when OA was found */
+"Open Access version is available at:\n\n%@" = "Open Access Version verfügbar unter:\n\n%@";
+
+/* if there are more than one result */
+"Please review your domain-name, as we were unable to find just one match" = "Bitte überprüfen Sie den Domain-Name, da wir mehrere Treffer gefunden haben";
+
+/* proxy page button */
+"Proxy Original Page" = "Mit Proxy aufrufen";
+
+/* Status Label */
+"Remote Access" = "Fernzugriff";
+
+/* we found some OA recommendations */
+"Scroll down, we found some Open Access recommendations!" = "Nach unten wischen, wir haben Open Access Empfehlungen gefunden";
+
+/* Search core.ac.uk */
+"Search core.ac.uk" = "Suche in core.ac.uk";
+
+/* Select one of the DOIs below and try again: */
+"Select one of the DOIs below and try again:" = "Wählen Sie einen DOI aus und versuchen Sie es erneut:";
+
+/* Setup Proxy if no Proxy Prefix present */
+"Setup Proxy" = "Proxy einrichten";
+
+/* if proxy was successfully saved */
+"Success!" = "Erfolg!";
+
+/* if proxy was successfully saved */
+"Successfuly, saved!" = "Erfolgreich gespeichert!";
+
+/* if there are more than one result */
+"Try again!" = "Erneut versuchen!";
+
+/* Open Access Button */
+"Try Open Access Button" = "Open Access Button Anfrage";
+
+/* Unable to determine iCloud status */
+"Unable to determine iCloud status. We've disabled the iCloud option for you." = "Wir konnten den iCloud Status nicht ermitteln und haben iCloud daher deaktiviert.";
+
+/* if failure received */
+"Unexpected Error" = "Überraschender Fehler";
+
+/* if failure received */
+"We encountered an unexpected error" = "Ein Fehler ist aufgetreten, den wir nicht erwartet haben";
+
+/* checking text */
+"We found a DOI and are checking the web for an Open Access version" = "Wir haben einen DOI gefunden und schauen nun nach einer Open Access Kopie";
+
+/* if unable to actually get to the proxyPrefix */
+"We found a match, but could not get the prefix" = "Wir haben einen Treffer gefunden, konnten jedoch keinen Proxy Prefix ermitteln";
+
+/* unable to find OA */
+"We were unable to find an Open Access version of this article. Please click the button below to search for the title of the article in core.ac.uk" = "Wir konnten keine Open Access Version des Artikels finden. Bitte klicken Sie die Schaltfläche unten, um nach dem Artikeltitel in core.ac.uk zu suchen.";
+
+/* unable to find OA */
+"We were unable to find an Open Access version of this article. You can click the Open Access Button below, to try request it from the author." = "Wir konnten keine Open Access Version des Artikels finden. Sie können die Open Access Button Schaltfläche nutzen, um eine Anfrage beim Autor zu starten.";
+
+/* longer no oa available */
+"We were unable to identify an Open Access Version of this document!" = "Wir konnten keine Open Access Version des Dokumentes finden!";
+
+/* We've encountered a problem */
+"We've encountered a problem" = "Ein Problem ist aufgetreten";
+
+/* Thank you (for sharing staitsitcs) body */
+"I appreciate you sharing your usage data with me - only the values on this screen were shared" = "Ich schätze sehr, dass Sie Ihre Statistikdaten mit mir geteilt haben. Es wurden nur die hier gezeigten Werte geteilt.";
+
+/* Thank you (for sharing statistics) */
+"Thank you" = "Danke";
+
+/* show searching, when looking up settings */
+"Searching..." = "Suche...";
+
+/* shown upon save */
+"Successfully saved!" = "Erfolgreich gespeichert!";

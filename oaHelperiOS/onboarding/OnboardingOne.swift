@@ -1,25 +1,27 @@
 //
-//  OnboardingThree.swift
+//  OnboardingOne.swift
 //  oaHelperiOS
 //
-//  Created by Claus Wolf on 19.12.18.
-//  Copyright © 2018 Claus Wolf. All rights reserved.
+//  Created by Claus Wolf on 11.02.20.
+//  Copyright © 2020 Claus Wolf. All rights reserved.
 //
 
 import UIKit
 
-class OnboardingFour: UIViewController {
-    
+class OnboardingOne: UIViewController {
+
     let defaults = UserDefaults.standard
     var window: UIWindow?
     let settings = SettingsBundleHelper()
     
-    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var skipButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doneButton.layer.cornerRadius = 10
+
         // Do any additional setup after loading the view.
+        skipButton.layer.cornerRadius = 10
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -35,7 +37,8 @@ class OnboardingFour: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func doneButtonTapped(_ sender: Any) {
+    
+    @IBAction func skipTapped(_ sender: Any) {
         defaults.set(true, forKey: "onBoarding")
         settings.setSettingsValue(value: true, key: "oab_setting")
         settings.setSettingsValue(value: true, key: "recommendation_setting")
@@ -45,4 +48,5 @@ class OnboardingFour: UIViewController {
         UIApplication.shared.keyWindow!.rootViewController = controller
     }
     
+
 }

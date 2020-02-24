@@ -37,6 +37,9 @@ class OnboardingThree: UIViewController {
         }
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     deinit {
         NotificationCenter.default.removeObserver( self, name: UserDefaults.didChangeNotification, object: nil)

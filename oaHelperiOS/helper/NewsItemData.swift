@@ -26,10 +26,10 @@ class NewsItemData: UIViewController {
         }
         
         let highestId = getHighstId()
-        var urlString = "https://www.otzberg.net/oahelper/news.php?lang=en&id=\(highestId)"
+        var urlString = "https://www.oahelper.org/news.php?lang=en&id=\(highestId)"
         
         if let locale = NSLocale.current.languageCode{
-            urlString = "https://www.otzberg.net/oahelper/news.php?lang=\(locale)&id=\(highestId)"
+            urlString = "https://www.oahelper.org/news.php?lang=\(locale)&id=\(highestId)"
         }
         
         
