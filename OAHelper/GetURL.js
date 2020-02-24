@@ -13,7 +13,7 @@ finalize: function(arguments) {
             window.location.href = message["returnUrl"]
         }
         else if(message["returnUrl"] != ""){
-            //alert(message);
+//            alert(message);
         }
     }
     else if(message["action"] && message["action"] == "bookmarked"){

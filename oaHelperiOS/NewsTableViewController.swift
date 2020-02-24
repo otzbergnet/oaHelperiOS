@@ -59,22 +59,7 @@ class NewsTableViewController: UITableViewController {
     }
     
     @objc func refreshData(refreshControl: UIRefreshControl) {
-        newsItemData.getNews(forced: true) { ( res) in
-            switch res {
-            case .success(_):
-                DispatchQueue.main.async {
-                    self.newsItemsToShow = self.newsItemData.getAllNewsItems()
-                    self.tableView.refreshControl?.endRefreshing()
-                    self.tableView.reloadData()
-                    self.updateUnreadCount();
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.tableView.refreshControl?.endRefreshing()
-                    print("failed to fetch newsItems:", error)
-                }
-            }
-        }
+        refreshNewsItems()
     }
     
     // MARK: - Table view data source
@@ -190,6 +175,25 @@ class NewsTableViewController: UITableViewController {
      }
      */
     
+    func refreshNewsItems(){
+        newsItemData.getNews(forced: true) { ( res) in
+            switch res {
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.newsItemsToShow = self.newsItemData.getAllNewsItems()
+                    self.tableView.refreshControl?.endRefreshing()
+                    self.tableView.reloadData()
+                    self.updateUnreadCount();
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.tableView.refreshControl?.endRefreshing()
+                    print("failed to fetch newsItems:", error)
+                }
+            }
+        }
+    }
+    
     func updateUnreadCount(){
         let unreadCount = self.newsItemData.getUnreadCount();
         if let tabBar = self.tabBarController{
@@ -197,6 +201,15 @@ class NewsTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func allUnreadTapped(_ sender: Any) {
+        for myNewsItem in newsItemsToShow{
+            if(!myNewsItem.read){
+                self.newsItemData.markRead(requestId: myNewsItem.id)
+            }
+        }
+        refreshNewsItems()
+        
+    }
     
     
 }

@@ -11,7 +11,9 @@ import UIKit
 class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
     lazy var orderedViewControllers : [UIViewController] = {
-        return [self.newVc(viewController: "obFirst"), self.newVc(viewController: "obSecond"), self.newVc(viewController: "obThird"), self.newVc(viewController: "obFive"), self.newVc(viewController: "obSix"), self.newVc(viewController: "obFourth")]
+        return [self.newVc(viewController: "obFirst"), self.newVc(viewController: "obSecond"), self.newVc(viewController: "obThird"), self.newVc(viewController: "obFive"), self.newVc(viewController: "obSix"),
+            self.newVc(viewController: "obSeven"),
+            self.newVc(viewController: "obFourth")]
     }()
     
     var pageControl = UIPageControl()
@@ -29,6 +31,10 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
         // Do any additional setup after loading the view.
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+        
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         let pageContentViewController = pageViewController.viewControllers![0]
         self.pageControl.currentPage = orderedViewControllers.firstIndex(of: pageContentViewController)!

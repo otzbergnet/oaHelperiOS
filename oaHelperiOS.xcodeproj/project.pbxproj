@@ -43,6 +43,8 @@
 		2D652B232275A6D400A46F37 /* newsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D652B222275A6D400A46F37 /* newsStruct.swift */; };
 		2D787BDD229E3CA900AAE269 /* AdvancedSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D787BDC229E3CA900AAE269 /* AdvancedSearchViewController.swift */; };
 		2D8BA9D9227CC77100A0600E /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BA9D8227CC77100A0600E /* DetailNewsViewController.swift */; };
+		2DA19A9C23F28BED0096BFD2 /* OnboardingSeven.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA19A9B23F28BED0096BFD2 /* OnboardingSeven.swift */; };
+		2DA19A9E23F28CC70096BFD2 /* OnboardingOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA19A9D23F28CC70096BFD2 /* OnboardingOne.swift */; };
 		2DA7887A222C0A680025CB13 /* OnboardingFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78879222C0A680025CB13 /* OnboardingFive.swift */; };
 		2DAD65652392A92C00940419 /* coreRecommenderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */; };
 		2DAD65662392A92C00940419 /* coreRecommenderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */; };
@@ -52,10 +54,14 @@
 		2DAD656C2392AC6200940419 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD656A2392AC6200940419 /* Extensions.swift */; };
 		2DAD65712393D4E700940419 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC23451229CE46400D0BEA7 /* Assets.xcassets */; };
 		2DAE4AF5227F46A30037DB69 /* NewsItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAE4AF4227F46A30037DB69 /* NewsItemData.swift */; };
+		2DB43AAD23F31022007B2F3C /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB43AAC23F31022007B2F3C /* BartyCrouch.swift */; };
 		2DB47C2023A6502B004E44FA /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB47C1F23A6502B004E44FA /* Timer.swift */; };
 		2DB47C2123A6502B004E44FA /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB47C1F23A6502B004E44FA /* Timer.swift */; };
 		2DBF96FA2270E59D005C182D /* NoBookMarkSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */; };
 		2DBF96FC2271689B005C182D /* SettingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */; };
+		2DC0C19B23F1840B00A725AC /* ProxySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0C19A23F1840B00A725AC /* ProxySettingsViewController.swift */; };
+		2DC0C19D23F1956D00A725AC /* proxyStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0C19C23F1956D00A725AC /* proxyStruct.swift */; };
+		2DC0C19F23F195FB00A725AC /* ProxyFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0C19E23F195FB00A725AC /* ProxyFind.swift */; };
 		2DC23452229CE46400D0BEA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC23451229CE46400D0BEA7 /* Assets.xcassets */; };
 		2DD08CEA21BC31ED00D0B3C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD08CE921BC31ED00D0B3C0 /* AppDelegate.swift */; };
 		2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD08CEB21BC31ED00D0B3C0 /* ViewController.swift */; };
@@ -138,14 +144,20 @@
 		2D652B222275A6D400A46F37 /* newsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsStruct.swift; sourceTree = "<group>"; };
 		2D787BDC229E3CA900AAE269 /* AdvancedSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSearchViewController.swift; sourceTree = "<group>"; };
 		2D8BA9D8227CC77100A0600E /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
+		2DA19A9B23F28BED0096BFD2 /* OnboardingSeven.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSeven.swift; sourceTree = "<group>"; };
+		2DA19A9D23F28CC70096BFD2 /* OnboardingOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOne.swift; sourceTree = "<group>"; };
 		2DA78879222C0A680025CB13 /* OnboardingFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFive.swift; sourceTree = "<group>"; };
 		2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreRecommenderStruct.swift; sourceTree = "<group>"; };
 		2DAD65672392AA0B00940419 /* RecommenderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommenderHelper.swift; sourceTree = "<group>"; };
 		2DAD656A2392AC6200940419 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2DAE4AF4227F46A30037DB69 /* NewsItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItemData.swift; sourceTree = "<group>"; };
+		2DB43AAC23F31022007B2F3C /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 		2DB47C1F23A6502B004E44FA /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoBookMarkSupportViewController.swift; sourceTree = "<group>"; };
 		2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabViewController.swift; sourceTree = "<group>"; };
+		2DC0C19A23F1840B00A725AC /* ProxySettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxySettingsViewController.swift; sourceTree = "<group>"; };
+		2DC0C19C23F1956D00A725AC /* proxyStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = proxyStruct.swift; sourceTree = "<group>"; };
+		2DC0C19E23F195FB00A725AC /* ProxyFind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyFind.swift; sourceTree = "<group>"; };
 		2DC23451229CE46400D0BEA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DD08CE621BC31ED00D0B3C0 /* oaHelperiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oaHelperiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD08CE921BC31ED00D0B3C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -243,10 +255,12 @@
 				2D24C2812222A3BF0012B8E1 /* BookmarkTableViewController.swift */,
 				2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */,
 				2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */,
+				2DC0C19A23F1840B00A725AC /* ProxySettingsViewController.swift */,
 				2D652B1A2272BC6500A46F37 /* StatisticsViewController.swift */,
 				2D652B20227452E300A46F37 /* NewsTableViewController.swift */,
 				2D8BA9D8227CC77100A0600E /* DetailNewsViewController.swift */,
 				2DD08CED21BC31ED00D0B3C0 /* Main.storyboard */,
+				2DB43AAC23F31022007B2F3C /* BartyCrouch.swift */,
 				2DD08CF221BC31EF00D0B3C0 /* LaunchScreen.storyboard */,
 				2DD08CF521BC31EF00D0B3C0 /* Info.plist */,
 				2D06545D21D357BB009586B3 /* apikey.plist */,
@@ -261,11 +275,13 @@
 			children = (
 				2D06546521D383AA009586B3 /* Onboarding.storyboard */,
 				2DE8114821C962180052698C /* OnboardingController.swift */,
-				2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */,
-				2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */,
 				2DA78879222C0A680025CB13 /* OnboardingFive.swift */,
 				2D117719222182C800859B08 /* OnboardingFour.swift */,
+				2DA19A9D23F28CC70096BFD2 /* OnboardingOne.swift */,
+				2DA19A9B23F28BED0096BFD2 /* OnboardingSeven.swift */,
 				2D575C4823A42B2000D1038F /* OnboardingSix.swift */,
+				2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */,
+				2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */,
 			);
 			path = onboarding;
 			sourceTree = "<group>";
@@ -275,15 +291,16 @@
 			children = (
 				2D2FD3B922A61FF7003876CE /* AppStoreReviewManager.swift */,
 				2D5F91802222582F00D493BE /* BookMarkData.swift */,
+				2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */,
 				2D08FE262229B3290066949C /* DataSync.swift */,
+				2DDCF90C22D2435B00BD63B7 /* DateExtension.swift */,
+				2DAD656A2392AC6200940419 /* Extensions.swift */,
+				2D15F9A321E0C5A300FF8B46 /* Helper.swift */,
+				2DAE4AF4227F46A30037DB69 /* NewsItemData.swift */,
+				2DC0C19E23F195FB00A725AC /* ProxyFind.swift */,
+				2DAD65672392AA0B00940419 /* RecommenderHelper.swift */,
 				2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */,
 				2D11771622207A7000859B08 /* StatisticSubmit.swift */,
-				2D15F9A321E0C5A300FF8B46 /* Helper.swift */,
-				2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */,
-				2DAE4AF4227F46A30037DB69 /* NewsItemData.swift */,
-				2DDCF90C22D2435B00BD63B7 /* DateExtension.swift */,
-				2DAD65672392AA0B00940419 /* RecommenderHelper.swift */,
-				2DAD656A2392AC6200940419 /* Extensions.swift */,
 				2DB47C1F23A6502B004E44FA /* Timer.swift */,
 			);
 			path = helper;
@@ -292,12 +309,13 @@
 		2DE8F3612221D09D000B27A1 /* json_structs */ = {
 			isa = PBXGroup;
 			children = (
-				2DD08CFB21BC350800D0B3C0 /* oadoiStruct.swift */,
-				2DFF67BA21C2F30A00120363 /* dessimStruct.swift */,
-				2D28376C21C55AB1008D6C89 /* coreStruct.swift */,
-				2D652B222275A6D400A46F37 /* newsStruct.swift */,
 				2D446A7E22E8D2DE001ECFA0 /* coreDiscoveryStruct.swift */,
 				2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */,
+				2D28376C21C55AB1008D6C89 /* coreStruct.swift */,
+				2DFF67BA21C2F30A00120363 /* dessimStruct.swift */,
+				2D652B222275A6D400A46F37 /* newsStruct.swift */,
+				2DD08CFB21BC350800D0B3C0 /* oadoiStruct.swift */,
+				2DC0C19C23F1956D00A725AC /* proxyStruct.swift */,
 			);
 			path = json_structs;
 			sourceTree = "<group>";
@@ -313,6 +331,7 @@
 				2D240DE921BC5A8F000BB29B /* Frameworks */,
 				2D240DEA21BC5A8F000BB29B /* Resources */,
 				2D8FDFFD224F6B8C00F4F532 /* Set Build Number */,
+				2DB43AAF23F3112E007B2F3C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -332,6 +351,7 @@
 				2DD08CE421BC31ED00D0B3C0 /* Resources */,
 				2DD08D1121BC4EFB00D0B3C0 /* Embed App Extensions */,
 				2D8FDFFC224F6B7000F4F532 /* Set Build Number */,
+				2DB43AAE23F3111D007B2F3C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -473,6 +493,40 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ngit=`sh /etc/profile; which git`\nbundleVersion=`\"$git\" rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $bundleVersion\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n";
 		};
+		2DB43AAE23F3111D007B2F3C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
+		};
+		2DB43AAF23F3112E007B2F3C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -501,6 +555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DC0C19D23F1956D00A725AC /* proxyStruct.swift in Sources */,
 				2D30FC5D21E4715F00C4060D /* TableViewCell.swift in Sources */,
 				2D11771722207A7000859B08 /* StatisticSubmit.swift in Sources */,
 				2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */,
@@ -511,13 +566,17 @@
 				2DD08CEA21BC31ED00D0B3C0 /* AppDelegate.swift in Sources */,
 				2D1BE15F21CAB1440063B691 /* OnboardingThree.swift in Sources */,
 				2D1BE15D21CAB1250063B691 /* OnboardingTwo.swift in Sources */,
+				2DC0C19B23F1840B00A725AC /* ProxySettingsViewController.swift in Sources */,
 				2D652B232275A6D400A46F37 /* newsStruct.swift in Sources */,
+				2DA19A9E23F28CC70096BFD2 /* OnboardingOne.swift in Sources */,
+				2DC0C19F23F195FB00A725AC /* ProxyFind.swift in Sources */,
 				2D8BA9D9227CC77100A0600E /* DetailNewsViewController.swift in Sources */,
 				2DAE4AF5227F46A30037DB69 /* NewsItemData.swift in Sources */,
 				2D575C4923A42B2000D1038F /* OnboardingSix.swift in Sources */,
 				2D24C2822222A3BF0012B8E1 /* BookmarkTableViewController.swift in Sources */,
 				2DE8F35B2221D022000B27A1 /* Model.xcdatamodeld in Sources */,
 				2DB47C2023A6502B004E44FA /* Timer.swift in Sources */,
+				2DB43AAD23F31022007B2F3C /* BartyCrouch.swift in Sources */,
 				2DE0701B21E08B8700D39D99 /* CopyableLabel.swift in Sources */,
 				2DAD65652392A92C00940419 /* coreRecommenderStruct.swift in Sources */,
 				2DD08CFC21BC350800D0B3C0 /* oadoiStruct.swift in Sources */,
@@ -532,6 +591,7 @@
 				2D28376F21C61821008D6C89 /* DetailViewController.swift in Sources */,
 				2D11771A222182C800859B08 /* OnboardingFour.swift in Sources */,
 				2D446A7F22E8D2DE001ECFA0 /* coreDiscoveryStruct.swift in Sources */,
+				2DA19A9C23F28BED0096BFD2 /* OnboardingSeven.swift in Sources */,
 				2D787BDD229E3CA900AAE269 /* AdvancedSearchViewController.swift in Sources */,
 				2D15F9A421E0C5A300FF8B46 /* Helper.swift in Sources */,
 				2D652B21227452E300A46F37 /* NewsTableViewController.swift in Sources */,
@@ -623,7 +683,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2019.12;
+				MARKETING_VERSION = 2020.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS.OAHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -649,7 +709,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2019.12;
+				MARKETING_VERSION = 2020.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS.OAHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -792,7 +852,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2019.12;
+				MARKETING_VERSION = 2020.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -816,7 +876,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2019.12;
+				MARKETING_VERSION = 2020.1;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

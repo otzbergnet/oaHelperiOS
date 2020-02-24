@@ -52,26 +52,36 @@
 			<key>DefaultValue</key>
 			<string>0</string>
 		</dict>
-        <dict>
-            <key>Type</key>
-            <string>PSTitleValueSpecifier</string>
-            <key>Title</key>
-            <string>Core Recommendations Found</string>
-            <key>Key</key>
-            <string>recommendation_count</string>
-            <key>DefaultValue</key>
-            <string>0</string>
-        </dict>
-        <dict>
-            <key>Type</key>
-            <string>PSTitleValueSpecifier</string>
-            <key>Title</key>
-            <string>Core Recommendations Tapped</string>
-            <key>Key</key>
-            <string>recommendation_view</string>
-            <key>DefaultValue</key>
-            <string>0</string>
-        </dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Core Recommendations Found</string>
+			<key>Key</key>
+			<string>recommendation_count</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Core Recommendations Tapped</string>
+			<key>Key</key>
+			<string>recommendation_view</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Proxy Actions</string>
+			<key>Key</key>
+			<string>proxy_count</string>
+			<key>DefaultValue</key>
+			<string>0</string>
+		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
@@ -156,6 +166,12 @@
 		</dict>
 		<dict>
 			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Additional Settings</string>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
 			<string>Only use unpaywall.org for alternatives</string>
@@ -195,6 +211,44 @@
 			<false/>
 			<key>DefaultValue</key>
 			<true/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Proxy Settings</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Support Proxy</string>
+			<key>Key</key>
+			<string>useProxy</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
+			<false/>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Proxy Prefix</string>
+			<key>Key</key>
+			<string>proxyPrefix</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Institute ID for Proxy Settings</string>
+			<key>Key</key>
+			<string>instituteId</string>
+			<key>DefaultValue</key>
+			<string>-</string>
 		</dict>
 	</array>
 </dict>

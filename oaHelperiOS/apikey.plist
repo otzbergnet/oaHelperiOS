@@ -3,12 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>coreRecommenderUrl</key>
-	<string>https://www.otzberg.net/oahelper/core/recommender.php</string>
+	<string>https://www.oahelper.org/core/recommender.php</string>
 	<key>coreRecommender</key>
 	<string>l6sNUJ3Knh</string>
 	<key>coreDiscovery</key>
 	<string>uMPbcSzO7HNK8wDF5h2gAst3xjrldXEo</string>
 	<key>core</key>
 	<string>uMPbcSzO7HNK8wDF5h2gAst3xjrldXEo</string>
+	<key>proxyApi</key>
+	<string>https://www.oahelper.org/institutes/api.php</string>
 </dict>
 </plist>

@@ -23,6 +23,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     var searchTerm = ""
     var search = ""
+    var proxy = ""
     var apiData = Data()
     var urlScheme = false
     
@@ -109,7 +110,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @objc func applicationDidBecomeActive() {
         if(!urlScheme){
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            if appDelegate.search != "" {
+            if(appDelegate.search != ""){
                 //print(appDelegate.search)
                 self.textField.text = appDelegate.search
                 let message = NSLocalizedString("Searching core.ac.uk for you", comment: "shows as soon as search is submitted")
@@ -120,6 +121,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 // setting this to true, there was a case, where the search would execute again, if you left the app and opened it again
                 // the search fromt he previuos url scheme would be re-executed
                 urlScheme = true
+            }
+            else if (appDelegate.proxy != ""){
+                let alertTitle = NSLocalizedString("New Proxy Added", comment: "alert title: new proxy added")
+                let alertMessage = NSLocalizedString("We have added your new proxy prefix. It is ready to use!", comment: "alert body: new proxy added")
+                let okButton = NSLocalizedString("OK", comment: "alert ok button")
+                self.showErrorAlert(alertTitle : alertTitle, alertMessage : alertMessage, okButton : okButton)
             }
         }
         

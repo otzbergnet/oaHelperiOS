@@ -248,5 +248,15 @@ class DetailViewController: UIViewController {
         goToDocument()
     }
     
-
+    @IBAction func swipedLeft(_ sender: Any) {
+        selection.selectionChanged()
+        goNext()
+    }
+    
+    @IBAction func swipedRight(_ sender: Any) {
+        selection.selectionChanged()
+        goPrevious()
+    }
+    
+    
 }
