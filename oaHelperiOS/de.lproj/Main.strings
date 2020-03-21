@@ -223,3 +223,6 @@
 
 /* Class = "UIBarButtonItem"; title = "share Statistic Data"; ObjectID = "utV-Ok-v4Q"; */
 "utV-Ok-v4Q.title" = "Statistiken teilen";
+
+/* Class = "UILabel"; text = "Show OpenCitations"; ObjectID = "J6i-ty-AYy"; */
+"J6i-ty-AYy.text" = "OpenCitations zeigen";

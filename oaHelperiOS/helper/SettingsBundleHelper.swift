@@ -146,6 +146,10 @@ class SettingsBundleHelper {
     }
     
     func ensureSettingsAreRegistered(){
+        if(!getSettingsValue(key: "opencitations_settings")){
+            setSettingsValue(value: true, key: "opencitations_settings")
+            setSettingsValue(value: true, key: "openCitations")
+        }
         if(!getSettingsValue(key: "oab_setting")){
             setSettingsValue(value: true, key: "oab_setting")
             setSettingsValue(value: true, key: "open_access_button")

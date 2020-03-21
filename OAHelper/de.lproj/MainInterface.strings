@@ -40,3 +40,6 @@
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "w1s-2O-d8L"; */
 "w1s-2O-d8L.text" = "Titel";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gPt-GV-L5m"; */
+"gPt-GV-L5m.text" = "Label";
