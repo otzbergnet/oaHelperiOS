@@ -22,6 +22,9 @@ class OnboardingOne: UIViewController {
 
         // Do any additional setup after loading the view.
         skipButton.layer.cornerRadius = 10
+        if #available(iOS 13.4, *) {
+            skipButton.isPointerInteractionEnabled = true
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

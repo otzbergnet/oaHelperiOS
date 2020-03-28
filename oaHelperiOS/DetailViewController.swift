@@ -23,10 +23,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var accessButton: UIButton!
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var abstractNewLabel: UITextView!
     
+    // MARK: Buttons
+    
+    @IBOutlet weak var accessButton: UIButton!
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var pdfButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
@@ -54,6 +56,13 @@ class DetailViewController: UIViewController {
         createDetailData(num: self.num)
         self.title = "\(self.num+1)/\(self.coreRecords.count)"
         AppStoreReviewManager.requestReviewIfAppropriate()
+        
+        if #available(iOS 13.4, *) {
+            accessButton.isPointerInteractionEnabled = true
+            previousButton.isPointerInteractionEnabled = true
+            nextButton.isPointerInteractionEnabled = true
+            pdfButton.isPointerInteractionEnabled = true
+        }
     }
     
 

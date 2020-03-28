@@ -28,6 +28,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableViewActivityIndicator: UIActivityIndicatorView!
     
+    
     //MARK: User Interface Images
     
     @IBOutlet weak var oaLogo: UIImageView!
@@ -594,6 +595,12 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         self.poweredByLabel.isHidden = true
         self.openCitationsLogo.isHidden = true
         self.openCitationsCountLabel.isHidden = true
+        
+        if #available(iOS 13.0, *) {
+            activityIndicator.style = .medium
+            tableViewActivityIndicator.style = .medium
+        }
+        
     }
     
     func displayFoundSingleDOI(){
@@ -882,7 +889,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             switch res{
                 
                 case .success(let openCitation):
-                    if let count = Int(openCitation.citation_count) {
+                    if let count = Int(openCitation.count) {
                         if(count > 0){
                             DispatchQueue.main.async {
                                 self.openCitationsLogo.isHidden = false

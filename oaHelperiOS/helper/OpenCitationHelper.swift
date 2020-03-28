@@ -12,7 +12,7 @@ class OpenCitationHelper {
     
     func findCitations(doi : String, completion: @escaping (Result<OpenCitationStruct, Error>) -> ()){
         print("finding Citations")
-        let urlString = "https://opencitations.net/index/api/v1/metadata/\(doi)"
+        let urlString = "https://opencitations.net/index/api/v1/citation-count/\(doi)"
         
         guard let url = URL(string: urlString) else {
             return
@@ -31,7 +31,7 @@ class OpenCitationHelper {
                 do {
                     let openCitations = try JSONDecoder().decode([OpenCitationStruct].self, from: data)
                     if(openCitations.count > 0){
-                        print("data received \(openCitations.first!.citation_count)")
+                        print("data received \(openCitations.first!.count)")
                         completion(.success(openCitations.first!))
                     }
                     else{

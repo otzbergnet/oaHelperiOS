@@ -23,8 +23,12 @@ class SettingsTabViewController: UIViewController {
     @IBOutlet weak var useProxySwitch: UISwitch!
     @IBOutlet weak var useOpenCitationsSwitch: UISwitch!
     
+    // Mark: Buttons
+    
     @IBOutlet weak var openSettingsButton: UIButton!
     @IBOutlet weak var setupProxyButton: UIButton!
+    @IBOutlet weak var leaveReviewButton: UIButton!
+    @IBOutlet weak var tellYourFriendsButton: UIButton!
     
     
     
@@ -47,6 +51,14 @@ class SettingsTabViewController: UIViewController {
         
         iCloudStatus()
         AppStoreReviewManager.requestReviewIfAppropriate()
+        
+        if #available(iOS 13.4, *) {
+            openSettingsButton.isPointerInteractionEnabled = true
+            setupProxyButton.isPointerInteractionEnabled = true
+            leaveReviewButton.isPointerInteractionEnabled = true
+            tellYourFriendsButton.isPointerInteractionEnabled = true
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

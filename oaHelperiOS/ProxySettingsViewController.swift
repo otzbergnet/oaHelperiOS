@@ -37,6 +37,12 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
         self.searchDomainTextfield.delegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
+        
+        if #available(iOS 13.4, *) {
+            saveProxyButton.isPointerInteractionEnabled = true
+            searchDomainButton.isPointerInteractionEnabled = true
+            cancelButton.isPointerInteractionEnabled = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -20,6 +20,9 @@ class OnboardingFour: UIViewController {
         super.viewDidLoad()
         doneButton.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
+        if #available(iOS 13.4, *) {
+            doneButton.isPointerInteractionEnabled = true
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
