@@ -154,12 +154,14 @@
                                                             <constraint firstAttribute="width" constant="25" id="eU0-u9-Uui"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPt-GV-L5m">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXa-60-4gA">
                                                         <rect key="frame" x="35" y="0.0" width="245" height="25"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="openCitationsCountTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="2EW-G7-eyI"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -290,7 +292,7 @@
                         <outlet property="headerLabel" destination="w1s-2O-d8L" id="ZPO-nT-4ky"/>
                         <outlet property="oaLogo" destination="23h-HX-lrP" id="u9K-cC-Fkf"/>
                         <outlet property="oaTypeLabel" destination="fEr-kP-ah3" id="k27-uJ-usJ"/>
-                        <outlet property="openCitationsCountLabel" destination="gPt-GV-L5m" id="Lwi-8d-MpD"/>
+                        <outlet property="openCitationsCountButton" destination="BXa-60-4gA" id="lRR-th-Cc8"/>
                         <outlet property="openCitationsLogo" destination="4i3-VX-hSv" id="fpx-eX-MDn"/>
                         <outlet property="paperIcon" destination="iYl-je-PRt" id="OuU-QG-83T"/>
                         <outlet property="poweredByImage" destination="WM1-bI-NPt" id="cz9-s8-swO"/>

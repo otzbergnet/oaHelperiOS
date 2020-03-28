@@ -19,7 +19,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var oaTypeLabel: UILabel!
     @IBOutlet weak var poweredByLabel: UILabel!
     @IBOutlet weak var coreRecommenderLabel: UILabel!
-    @IBOutlet weak var openCitationsCountLabel: UILabel!
+
     
     @IBOutlet weak var textView: UITextView!
     
@@ -43,6 +43,8 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var addBookMarkButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var proxyButton: UIButton!
+    @IBOutlet weak var openCitationsCountButton: UIButton!
+    
     
     
     //MARK: Setup Basic Display Logic Variables
@@ -575,6 +577,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             addBookMarkButton.isPointerInteractionEnabled = true
             dismissButton.isPointerInteractionEnabled = true
             proxyButton.isPointerInteractionEnabled = true
+            openCitationsCountButton.isPointerInteractionEnabled = true
         }
         
         activityIndicator.startAnimating()
@@ -601,13 +604,14 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         self.poweredByImage.isHidden = true
         self.poweredByLabel.isHidden = true
         self.openCitationsLogo.isHidden = true
-        self.openCitationsCountLabel.isHidden = true
+        self.openCitationsCountButton.isHidden = true
         
         if #available(iOS 13.0, *) {
             activityIndicator.style = .medium
             tableViewActivityIndicator.style = .medium
         }
         
+
     }
     
     func displayFoundSingleDOI(){
@@ -900,8 +904,9 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                         if(count > 0){
                             DispatchQueue.main.async {
                                 self.openCitationsLogo.isHidden = false
-                                self.openCitationsCountLabel.text = "Times Cited: \(count)"
-                                self.openCitationsCountLabel.isHidden = false
+                                let citationText = "Times Cited: \(count)"
+                                self.openCitationsCountButton.setTitle(citationText, for: .normal)
+                                self.openCitationsCountButton.isHidden = false
                             }
                         }
                     }
@@ -989,6 +994,14 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
+    @IBAction func openCitationsCountTapped(_ sender: Any) {
+        let urlString = "https://www.oahelper.org/doi/index.php?doi=\(self.bookMark.doi)"
+        let extensionItem = NSExtensionItem()
+        let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "returnUrl" : urlString]]
+        extensionItem.attachments = [ NSItemProvider(item: jsDict as NSSecureCoding?, typeIdentifier: kUTTypePropertyList as String)]
+        self.extensionContext!.completeRequest(returningItems: [extensionItem], completionHandler: nil)
+    }
+
     
 }
 
