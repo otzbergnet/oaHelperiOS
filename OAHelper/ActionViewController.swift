@@ -570,6 +570,13 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         proxyButton.isHidden = true
         proxyButton.layer.cornerRadius = 10
         
+        if #available(iOS 13.4, *) {
+            actionButton.isPointerInteractionEnabled = true
+            addBookMarkButton.isPointerInteractionEnabled = true
+            dismissButton.isPointerInteractionEnabled = true
+            proxyButton.isPointerInteractionEnabled = true
+        }
+        
         activityIndicator.startAnimating()
         
         headerLabel.text = ""

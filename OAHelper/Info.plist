@@ -39,5 +39,7 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.ui-services</string>
 	</dict>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
 </dict>
 </plist>
