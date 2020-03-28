@@ -760,7 +760,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             self.proxyButton.isHidden = false
         }
         else{
-            self.proxyButton.isHidden = false
+            self.proxyButton.isHidden = true
         }
     }
     
