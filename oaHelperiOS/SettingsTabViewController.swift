@@ -21,9 +21,14 @@ class SettingsTabViewController: UIViewController {
     @IBOutlet weak var openAccessButtonSwitch: UISwitch!
     @IBOutlet weak var recommendationSwitch: UISwitch!
     @IBOutlet weak var useProxySwitch: UISwitch!
- 
+    @IBOutlet weak var useOpenCitationsSwitch: UISwitch!
+    
+    // Mark: Buttons
+    
     @IBOutlet weak var openSettingsButton: UIButton!
     @IBOutlet weak var setupProxyButton: UIButton!
+    @IBOutlet weak var leaveReviewButton: UIButton!
+    @IBOutlet weak var tellYourFriendsButton: UIButton!
     
     
     
@@ -46,6 +51,14 @@ class SettingsTabViewController: UIViewController {
         
         iCloudStatus()
         AppStoreReviewManager.requestReviewIfAppropriate()
+        
+        if #available(iOS 13.4, *) {
+            openSettingsButton.isPointerInteractionEnabled = true
+            setupProxyButton.isPointerInteractionEnabled = true
+            leaveReviewButton.isPointerInteractionEnabled = true
+            tellYourFriendsButton.isPointerInteractionEnabled = true
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -147,6 +160,17 @@ class SettingsTabViewController: UIViewController {
                 self.setupProxyButton.isHidden = true
             }
         }
+        // useOpenCitations
+        if(self.settings.getSettingsValue(key: "openCitations")){
+            DispatchQueue.main.async {
+                self.useOpenCitationsSwitch.isOn = true
+            }
+        }
+        else{
+            DispatchQueue.main.async {
+                self.useOpenCitationsSwitch.isOn = false
+            }
+        }
         
     }
     
@@ -230,6 +254,14 @@ class SettingsTabViewController: UIViewController {
                 let setupProxyButtonTitle = NSLocalizedString("Setup Proxy", comment: "Setup Proxy if no Proxy Prefix present")
                 self.setupProxyButton.setTitle(setupProxyButtonTitle, for: .normal)
             }
+        }
+        
+        // useOpenCitations
+        if(self.settings.getSettingsValue(key: "openCitations")){
+            useOpenCitationsSwitch.isOn = true
+        }
+        else{
+            useOpenCitationsSwitch.isOn = false
         }
         
     }
@@ -360,6 +392,16 @@ class SettingsTabViewController: UIViewController {
         else{
             self.settings.setSettingsValue(value: false, key: "useProxy")
             self.setupProxyButton.isHidden = true
+        }
+    }
+    
+    @IBAction func useOpenCitationsSwitched(_ sender: Any) {
+        if(self.useOpenCitationsSwitch.isOn){
+            self.settings.setSettingsValue(value: true, key: "openCitations")
+            
+        }
+        else{
+            self.settings.setSettingsValue(value: false, key: "openCitations")
         }
     }
     

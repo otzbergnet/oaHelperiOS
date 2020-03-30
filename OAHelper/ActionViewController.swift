@@ -19,6 +19,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var oaTypeLabel: UILabel!
     @IBOutlet weak var poweredByLabel: UILabel!
     @IBOutlet weak var coreRecommenderLabel: UILabel!
+
     
     @IBOutlet weak var textView: UITextView!
     
@@ -27,12 +28,14 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableViewActivityIndicator: UIActivityIndicatorView!
     
+    
     //MARK: User Interface Images
     
     @IBOutlet weak var oaLogo: UIImageView!
     @IBOutlet weak var paperIcon: UIImageView!
     @IBOutlet weak var poweredByImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var openCitationsLogo: UIImageView!
     
     //MARK: User Interface Buttons
     
@@ -40,6 +43,8 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var addBookMarkButton: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var proxyButton: UIButton!
+    @IBOutlet weak var openCitationsCountButton: UIButton!
+    
     
     
     //MARK: Setup Basic Display Logic Variables
@@ -66,6 +71,10 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     let recommendationObject = CoreRequestObject()
     let recommenderHelper = RecommenderHelper()
     var recommendationText = ""
+    
+    //MARK: OpenCitations
+    
+    var openCitationHelper = OpenCitationHelper()
     
     var year : Int = 0
     
@@ -185,6 +194,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 }
                 //                print("up to checkunpaywall \(timer.stop()) seconds.")
                 self.checkUnpaywall(doi: doiString)
+                
             }
             else{
                 // no DOI was found in the page
@@ -203,6 +213,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         //        let timer = ParkBenchTimer()
         //        print("checkUnpaywall")
         self.getCoreRecommendations()
+        self.getOpenCitations(doi: doi)
         self.bookMark.doi = doi
         let jsonUrlString = "https://api.unpaywall.org/v2/\(doi)?email=oahelper@otzberg.net"
         //        print(jsonUrlString)
@@ -561,6 +572,14 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         proxyButton.isHidden = true
         proxyButton.layer.cornerRadius = 10
         
+        if #available(iOS 13.4, *) {
+            actionButton.isPointerInteractionEnabled = true
+            addBookMarkButton.isPointerInteractionEnabled = true
+            dismissButton.isPointerInteractionEnabled = true
+            proxyButton.isPointerInteractionEnabled = true
+            openCitationsCountButton.isPointerInteractionEnabled = true
+        }
+        
         activityIndicator.startAnimating()
         
         headerLabel.text = ""
@@ -584,6 +603,15 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         coreRecommenderLabel.isHidden = true
         self.poweredByImage.isHidden = true
         self.poweredByLabel.isHidden = true
+        self.openCitationsLogo.isHidden = true
+        self.openCitationsCountButton.isHidden = true
+        
+        if #available(iOS 13.0, *) {
+            activityIndicator.style = .medium
+            tableViewActivityIndicator.style = .medium
+        }
+        
+
     }
     
     func displayFoundSingleDOI(){
@@ -732,7 +760,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             self.proxyButton.isHidden = false
         }
         else{
-            self.proxyButton.isHidden = false
+            self.proxyButton.isHidden = true
         }
     }
     
@@ -859,6 +887,38 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
+    //MARK: Open Citations Action Handle
+    
+    func getOpenCitations(doi: String){
+        
+        if(!settings.getSettingsValue(key: "openCitations")){
+            return
+        }
+        
+        self.openCitationHelper.findCitations(doi: doi){ (res) in
+            
+            switch res{
+                
+                case .success(let openCitation):
+                    if let count = Int(openCitation.count) {
+                        if(count > 0){
+                            DispatchQueue.main.async {
+                                self.openCitationsLogo.isHidden = false
+                                let citationText = "Times Cited: \(count)"
+                                self.openCitationsCountButton.setTitle(citationText, for: .normal)
+                                self.openCitationsCountButton.isHidden = false
+                            }
+                        }
+                    }
+                
+                case .failure(let error):
+                    //I hate my life right now
+                    print("openCitation: there was an error: \(error)")
+            }
+            
+        }
+    }
+    
     //MARK: Actions used in Action Buttons Section
     
     func executeCancel(action: String){
@@ -934,6 +994,14 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
+    @IBAction func openCitationsCountTapped(_ sender: Any) {
+        let urlString = "https://www.oahelper.org/doi/index.php?doi=\(self.bookMark.doi)"
+        let extensionItem = NSExtensionItem()
+        let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "returnUrl" : urlString]]
+        extensionItem.attachments = [ NSItemProvider(item: jsDict as NSSecureCoding?, typeIdentifier: kUTTypePropertyList as String)]
+        self.extensionContext!.completeRequest(returningItems: [extensionItem], completionHandler: nil)
+    }
+
     
 }
 

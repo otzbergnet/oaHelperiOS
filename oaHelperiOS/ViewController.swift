@@ -15,11 +15,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // MARK: Properties
     
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var searchButton: UIButton!
+
     @IBOutlet weak var enterSearchLabel: UILabel!
     //@IBOutlet weak var bookmarkButton: UIButton!
     //@IBOutlet weak var syncButton: UIButton!
     @IBOutlet weak var offlineLabel: UILabel!
+    
+    // MARK: Buttons
+    
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var advancedSearchButton: UIButton!
+    @IBOutlet weak var helpButton: UIButton!
+    
     
     var searchTerm = ""
     var search = ""
@@ -80,6 +87,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         self.checkNews()
         self.updateUnreadCount()
+        
+        if #available(iOS 13.4, *) {
+            helpButton.isPointerInteractionEnabled = true
+            advancedSearchButton.isPointerInteractionEnabled = true
+            searchButton.isPointerInteractionEnabled = true
+        }
         
     }
     

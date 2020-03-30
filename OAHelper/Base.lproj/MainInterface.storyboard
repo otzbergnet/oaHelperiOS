@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -88,7 +88,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="9Xu-I3-NkM">
-                                        <rect key="frame" x="20" y="170.5" width="280" height="245"/>
+                                        <rect key="frame" x="20" y="170.5" width="280" height="285"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTw-Gm-XyT">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
@@ -144,22 +144,42 @@
                                                     <action selector="done" destination="ObA-dk-sSI" eventType="touchUpInside" id="FkX-Ux-iyq"/>
                                                 </connections>
                                             </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hTu-RZ-p7R">
+                                                <rect key="frame" x="0.0" y="260" width="280" height="25"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="opencitationlogo" translatesAutoresizingMaskIntoConstraints="NO" id="4i3-VX-hSv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="25" id="Sej-3y-daD"/>
+                                                            <constraint firstAttribute="width" constant="25" id="eU0-u9-Uui"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXa-60-4gA">
+                                                        <rect key="frame" x="35" y="0.0" width="245" height="25"/>
+                                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="openCitationsCountTapped:" destination="ObA-dk-sSI" eventType="touchUpInside" id="2EW-G7-eyI"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="245" id="qgD-Si-xJM"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="305" id="qgD-Si-xJM"/>
                                         </constraints>
                                     </stackView>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Nvi-B3-uNn">
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Nvi-B3-uNn">
                                         <rect key="frame" x="150" y="142.5" width="20" height="20"/>
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Similar Articles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQ9-ft-Ovh">
-                                        <rect key="frame" x="15" y="440.5" width="285" height="23.5"/>
+                                        <rect key="frame" x="15" y="480.5" width="285" height="23.5"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YQS-0a-6s8">
-                                        <rect key="frame" x="15" y="479" width="285" height="220"/>
+                                        <rect key="frame" x="15" y="519" width="285" height="220"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="220" id="qU8-uk-DUQ"/>
@@ -191,11 +211,11 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="4hV-mW-2eh">
-                                        <rect key="frame" x="150" y="494" width="20" height="20"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4hV-mW-2eh">
+                                        <rect key="frame" x="150" y="534" width="20" height="20"/>
                                     </activityIndicatorView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WfD-XB-Avz">
-                                        <rect key="frame" x="218.5" y="710" width="82.5" height="20"/>
+                                        <rect key="frame" x="218.5" y="750" width="82.5" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qp6-5y-yYD">
                                                 <rect key="frame" x="0.0" y="0.0" width="43.5" height="20"/>
@@ -272,6 +292,8 @@
                         <outlet property="headerLabel" destination="w1s-2O-d8L" id="ZPO-nT-4ky"/>
                         <outlet property="oaLogo" destination="23h-HX-lrP" id="u9K-cC-Fkf"/>
                         <outlet property="oaTypeLabel" destination="fEr-kP-ah3" id="k27-uJ-usJ"/>
+                        <outlet property="openCitationsCountButton" destination="BXa-60-4gA" id="lRR-th-Cc8"/>
+                        <outlet property="openCitationsLogo" destination="4i3-VX-hSv" id="fpx-eX-MDn"/>
                         <outlet property="paperIcon" destination="iYl-je-PRt" id="OuU-QG-83T"/>
                         <outlet property="poweredByImage" destination="WM1-bI-NPt" id="cz9-s8-swO"/>
                         <outlet property="poweredByLabel" destination="qp6-5y-yYD" id="g5P-Ev-GlG"/>
@@ -291,6 +313,7 @@
     <resources>
         <image name="bronze_oa" width="128" height="200"/>
         <image name="core_ac_uk" width="171" height="95"/>
+        <image name="opencitationlogo" width="101" height="65.5"/>
         <image name="paper_unknown" width="33.5" height="50"/>
     </resources>
 </document>

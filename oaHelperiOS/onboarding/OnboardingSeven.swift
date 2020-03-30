@@ -26,6 +26,9 @@ class OnboardingSeven: UIViewController, UITextFieldDelegate {
         self.domainTextField.delegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
+        if #available(iOS 13.4, *) {
+            setupProxyButton.isPointerInteractionEnabled = true
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

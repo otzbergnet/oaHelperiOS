@@ -18,7 +18,11 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
     //@IBOutlet weak var language: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     
+    // MARK: Buttons
+    
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
+    
     
     let helper = HelperClass()
     let settings = SettingsBundleHelper()
@@ -52,6 +56,12 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
+        
+        if #available(iOS 13.4, *) {
+            searchButton.isPointerInteractionEnabled = true
+            clearButton.isPointerInteractionEnabled = true
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

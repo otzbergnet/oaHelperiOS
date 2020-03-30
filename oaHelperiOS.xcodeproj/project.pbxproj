@@ -45,6 +45,9 @@
 		2D8BA9D9227CC77100A0600E /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BA9D8227CC77100A0600E /* DetailNewsViewController.swift */; };
 		2DA19A9C23F28BED0096BFD2 /* OnboardingSeven.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA19A9B23F28BED0096BFD2 /* OnboardingSeven.swift */; };
 		2DA19A9E23F28CC70096BFD2 /* OnboardingOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA19A9D23F28CC70096BFD2 /* OnboardingOne.swift */; };
+		2DA6ECAE2425D44B00B5369A /* OpenCitationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA6ECAD2425D44B00B5369A /* OpenCitationHelper.swift */; };
+		2DA6ECAF2425D66200B5369A /* OpenCitationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA6ECAD2425D44B00B5369A /* OpenCitationHelper.swift */; };
+		2DA6ECB02425DAC400B5369A /* openCitationStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF9FC2024247C30007C7D75 /* openCitationStruct.swift */; };
 		2DA7887A222C0A680025CB13 /* OnboardingFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78879222C0A680025CB13 /* OnboardingFive.swift */; };
 		2DAD65652392A92C00940419 /* coreRecommenderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */; };
 		2DAD65662392A92C00940419 /* coreRecommenderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */; };
@@ -79,6 +82,7 @@
 		2DF95CE1221DC9CE00F11220 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DF95CDF221DC9CE00F11220 /* Settings.bundle */; };
 		2DF95CE3221DD41800F11220 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */; };
 		2DF95CE4221DD41800F11220 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */; };
+		2DF9FC2124247C30007C7D75 /* openCitationStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF9FC2024247C30007C7D75 /* openCitationStruct.swift */; };
 		2DFF67B921C2ED6F00120363 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF67B821C2ED6F00120363 /* TableViewController.swift */; };
 		2DFF67BB21C2F30A00120363 /* dessimStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFF67BA21C2F30A00120363 /* dessimStruct.swift */; };
 /* End PBXBuildFile section */
@@ -146,6 +150,7 @@
 		2D8BA9D8227CC77100A0600E /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		2DA19A9B23F28BED0096BFD2 /* OnboardingSeven.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSeven.swift; sourceTree = "<group>"; };
 		2DA19A9D23F28CC70096BFD2 /* OnboardingOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOne.swift; sourceTree = "<group>"; };
+		2DA6ECAD2425D44B00B5369A /* OpenCitationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCitationHelper.swift; sourceTree = "<group>"; };
 		2DA78879222C0A680025CB13 /* OnboardingFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFive.swift; sourceTree = "<group>"; };
 		2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreRecommenderStruct.swift; sourceTree = "<group>"; };
 		2DAD65672392AA0B00940419 /* RecommenderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommenderHelper.swift; sourceTree = "<group>"; };
@@ -172,6 +177,7 @@
 		2DE8F35A2221D022000B27A1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		2DF95CDF221DC9CE00F11220 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
+		2DF9FC2024247C30007C7D75 /* openCitationStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = openCitationStruct.swift; sourceTree = "<group>"; };
 		2DFF67B821C2ED6F00120363 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		2DFF67BA21C2F30A00120363 /* dessimStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dessimStruct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -302,6 +308,7 @@
 				2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */,
 				2D11771622207A7000859B08 /* StatisticSubmit.swift */,
 				2DB47C1F23A6502B004E44FA /* Timer.swift */,
+				2DA6ECAD2425D44B00B5369A /* OpenCitationHelper.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -316,6 +323,7 @@
 				2D652B222275A6D400A46F37 /* newsStruct.swift */,
 				2DD08CFB21BC350800D0B3C0 /* oadoiStruct.swift */,
 				2DC0C19C23F1956D00A725AC /* proxyStruct.swift */,
+				2DF9FC2024247C30007C7D75 /* openCitationStruct.swift */,
 			);
 			path = json_structs;
 			sourceTree = "<group>";
@@ -534,10 +542,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DA6ECAF2425D66200B5369A /* OpenCitationHelper.swift in Sources */,
 				2DE8F3602221D079000B27A1 /* CopyableLabel.swift in Sources */,
 				2D1177182221329500859B08 /* StatisticSubmit.swift in Sources */,
 				2D240DF121BC5A8F000BB29B /* ActionViewController.swift in Sources */,
 				2DE8F35C2221D022000B27A1 /* Model.xcdatamodeld in Sources */,
+				2DA6ECB02425DAC400B5369A /* openCitationStruct.swift in Sources */,
 				2DF95CE4221DD41800F11220 /* SettingsBundleHelper.swift in Sources */,
 				2DAD65662392A92C00940419 /* coreRecommenderStruct.swift in Sources */,
 				2D24C280222267DB0012B8E1 /* BookMarkData.swift in Sources */,
@@ -564,6 +574,7 @@
 				2DF95CE3221DD41800F11220 /* SettingsBundleHelper.swift in Sources */,
 				2DFF67BB21C2F30A00120363 /* dessimStruct.swift in Sources */,
 				2DD08CEA21BC31ED00D0B3C0 /* AppDelegate.swift in Sources */,
+				2DF9FC2124247C30007C7D75 /* openCitationStruct.swift in Sources */,
 				2D1BE15F21CAB1440063B691 /* OnboardingThree.swift in Sources */,
 				2D1BE15D21CAB1250063B691 /* OnboardingTwo.swift in Sources */,
 				2DC0C19B23F1840B00A725AC /* ProxySettingsViewController.swift in Sources */,
@@ -584,6 +595,7 @@
 				2DE8114921C962180052698C /* OnboardingController.swift in Sources */,
 				2DAD656B2392AC6200940419 /* Extensions.swift in Sources */,
 				2DBF96FC2271689B005C182D /* SettingsTabViewController.swift in Sources */,
+				2DA6ECAE2425D44B00B5369A /* OpenCitationHelper.swift in Sources */,
 				2DFF67B921C2ED6F00120363 /* TableViewController.swift in Sources */,
 				2D28376D21C55AB1008D6C89 /* coreStruct.swift in Sources */,
 				2DA7887A222C0A680025CB13 /* OnboardingFive.swift in Sources */,
@@ -674,7 +686,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Extension";
 				CODE_SIGN_ENTITLEMENTS = OAHelper/OAHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = OAHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -683,7 +695,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2020.1;
+				MARKETING_VERSION = 2020.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS.OAHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -700,7 +712,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Extension";
 				CODE_SIGN_ENTITLEMENTS = OAHelper/OAHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = OAHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -709,7 +721,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2020.1;
+				MARKETING_VERSION = 2020.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS.OAHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -844,7 +856,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = oaHelperiOS/oaHelperiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = oaHelperiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -852,7 +864,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2020.1;
+				MARKETING_VERSION = 2020.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -868,7 +880,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = oaHelperiOS/oaHelperiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = oaHelperiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -876,7 +888,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2020.1;
+				MARKETING_VERSION = 2020.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

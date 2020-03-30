@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8K7-ro-il4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8K7-ro-il4">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -73,7 +73,9 @@ Swipe left to learn more.</string>
                             <constraint firstItem="03B-Q0-N5b" firstAttribute="trailing" secondItem="pjO-AG-Swx" secondAttribute="trailing" constant="20" id="8Sz-zT-wN8">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
-                            <constraint firstItem="PUe-Ye-tIX" firstAttribute="leading" secondItem="03B-Q0-N5b" secondAttribute="leading" constant="20" id="FlI-28-5Yh"/>
+                            <constraint firstItem="PUe-Ye-tIX" firstAttribute="leading" secondItem="03B-Q0-N5b" secondAttribute="leading" constant="20" id="FlI-28-5Yh">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="7Q4-UL-A0v" firstAttribute="centerX" secondItem="p0B-gs-641" secondAttribute="centerX" id="Mbo-cZ-RdB"/>
                             <constraint firstItem="03B-Q0-N5b" firstAttribute="bottom" secondItem="PUe-Ye-tIX" secondAttribute="bottom" constant="50" id="XZ3-YY-qoE"/>
                             <constraint firstItem="03B-Q0-N5b" firstAttribute="trailing" secondItem="U1Z-Q0-66y" secondAttribute="trailing" constant="20" id="cIZ-8D-Sgj"/>
@@ -82,7 +84,9 @@ Swipe left to learn more.</string>
                             <constraint firstItem="pjO-AG-Swx" firstAttribute="leading" secondItem="03B-Q0-N5b" secondAttribute="leading" constant="20" id="tH0-Rq-2Sa">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
-                            <constraint firstItem="03B-Q0-N5b" firstAttribute="trailing" secondItem="PUe-Ye-tIX" secondAttribute="trailing" constant="20" id="tHS-GC-Pp0"/>
+                            <constraint firstItem="03B-Q0-N5b" firstAttribute="trailing" secondItem="PUe-Ye-tIX" secondAttribute="trailing" constant="20" id="tHS-GC-Pp0">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="03B-Q0-N5b"/>
                     </view>
@@ -238,21 +242,33 @@ Enter the domain (e.g. harvard.edu) of your university below and click Setup Pro
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="TTS-e3-mQ7" firstAttribute="trailing" secondItem="FWu-w7-oVE" secondAttribute="trailing" constant="20" id="3j7-Ql-2rE"/>
+                            <constraint firstItem="TTS-e3-mQ7" firstAttribute="trailing" secondItem="FWu-w7-oVE" secondAttribute="trailing" constant="20" id="3j7-Ql-2rE">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="TTS-e3-mQ7" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UsE-ZG-b1a" secondAttribute="bottom" constant="25" id="Gsd-lk-2xI"/>
                             <constraint firstItem="TTS-e3-mQ7" firstAttribute="trailing" secondItem="a21-Tn-iaz" secondAttribute="trailing" constant="20" id="H0b-Jy-3FF"/>
                             <constraint firstItem="FWu-w7-oVE" firstAttribute="top" secondItem="bS5-pZ-CQi" secondAttribute="bottom" constant="15" id="Ioe-cb-dCO"/>
-                            <constraint firstItem="FWu-w7-oVE" firstAttribute="leading" secondItem="TTS-e3-mQ7" secondAttribute="leading" constant="20" id="RU9-h4-E38"/>
+                            <constraint firstItem="FWu-w7-oVE" firstAttribute="leading" secondItem="TTS-e3-mQ7" secondAttribute="leading" constant="20" id="RU9-h4-E38">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="bS5-pZ-CQi" firstAttribute="top" secondItem="a21-Tn-iaz" secondAttribute="bottom" constant="20" id="T66-Hg-9vA"/>
                             <constraint firstItem="a21-Tn-iaz" firstAttribute="leading" secondItem="TTS-e3-mQ7" secondAttribute="leading" constant="20" id="UTr-Vz-tvQ"/>
                             <constraint firstItem="7dE-GM-Xyb" firstAttribute="centerX" secondItem="kdY-Yk-hGt" secondAttribute="centerX" id="Uh5-vw-qf0"/>
-                            <constraint firstItem="UsE-ZG-b1a" firstAttribute="leading" secondItem="TTS-e3-mQ7" secondAttribute="leading" constant="20" id="ZhP-kI-rOQ"/>
+                            <constraint firstItem="UsE-ZG-b1a" firstAttribute="leading" secondItem="TTS-e3-mQ7" secondAttribute="leading" constant="20" id="ZhP-kI-rOQ">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="UsE-ZG-b1a" firstAttribute="top" secondItem="FWu-w7-oVE" secondAttribute="bottom" constant="20" id="eYe-CO-Vp5"/>
                             <constraint firstItem="7dE-GM-Xyb" firstAttribute="top" secondItem="TTS-e3-mQ7" secondAttribute="top" constant="25" id="eoY-d9-PbD"/>
-                            <constraint firstItem="TTS-e3-mQ7" firstAttribute="trailing" secondItem="bS5-pZ-CQi" secondAttribute="trailing" constant="20" id="hJK-Vg-PRu"/>
+                            <constraint firstItem="TTS-e3-mQ7" firstAttribute="trailing" secondItem="bS5-pZ-CQi" secondAttribute="trailing" constant="20" id="hJK-Vg-PRu">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="a21-Tn-iaz" firstAttribute="top" secondItem="7dE-GM-Xyb" secondAttribute="bottom" constant="30" id="j4h-Fv-ZrH"/>
-                            <constraint firstItem="bS5-pZ-CQi" firstAttribute="leading" secondItem="TTS-e3-mQ7" secondAttribute="leading" constant="20" id="n6j-9i-LxV"/>
-                            <constraint firstItem="TTS-e3-mQ7" firstAttribute="trailing" secondItem="UsE-ZG-b1a" secondAttribute="trailing" constant="20" id="y34-WH-ohY"/>
+                            <constraint firstItem="bS5-pZ-CQi" firstAttribute="leading" secondItem="TTS-e3-mQ7" secondAttribute="leading" constant="20" id="n6j-9i-LxV">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="TTS-e3-mQ7" firstAttribute="trailing" secondItem="UsE-ZG-b1a" secondAttribute="trailing" constant="20" id="y34-WH-ohY">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TTS-e3-mQ7"/>
                     </view>

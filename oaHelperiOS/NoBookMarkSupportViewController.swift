@@ -45,6 +45,11 @@ class NoBookMarkSupportViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(NoBookMarkSupportViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
         
         iCloudStatus()
+        
+        if #available(iOS 13.4, *) {
+            openSettingsButton.isPointerInteractionEnabled = true
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

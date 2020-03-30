@@ -29,6 +29,8 @@ class OnboardingController: UIPageViewController, UIPageViewControllerDelegate, 
         self.delegate = self
         configurePageControl()
         // Do any additional setup after loading the view.
+        
+
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

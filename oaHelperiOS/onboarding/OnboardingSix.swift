@@ -29,6 +29,9 @@ class OnboardingSix: UIViewController {
             self.recomSwitch.isOn = true
         }
         NotificationCenter.default.addObserver(self, selector: #selector(OnboardingSix.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
+        if #available(iOS 13.4, *) {
+            moreInfoButton.isPointerInteractionEnabled = true
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

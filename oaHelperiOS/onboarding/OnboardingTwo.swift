@@ -17,6 +17,9 @@ class OnboardingTwo: UIViewController {
         super.viewDidLoad()
         openSafariButton.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
+        if #available(iOS 13.4, *) {
+            openSafariButton.isPointerInteractionEnabled = true
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

@@ -51,6 +51,9 @@ class OnboardingFive: UIViewController {
             bookMarkSwitch.isHidden = true
             bookMarkSwitchLabel1.isHidden = true
         }
+        if #available(iOS 13.4, *) {
+            openSettingsButton.isPointerInteractionEnabled = true
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
