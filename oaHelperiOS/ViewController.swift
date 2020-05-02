@@ -221,10 +221,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     self.performSegue(withIdentifier: "searchSegue", sender: nil)
                 }
             case .failure(let error):
-                self.effectView.removeFromSuperview()
-                self.enterSearchLabel.text = NSLocalizedString("Sorry, we encountered a problem", comment: "problem with search")
-                self.enterSearchLabel.textColor = UIColor.red
-                print(error)
+                DispatchQueue.main.async {
+                    self.effectView.removeFromSuperview()
+                    self.enterSearchLabel.text = NSLocalizedString("Sorry, we encountered a problem", comment: "problem with search")
+                    self.enterSearchLabel.textColor = UIColor.red
+                    print(error)
+                }
             }
         }
     }
