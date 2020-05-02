@@ -38,7 +38,7 @@ class OnboardingTwo: UIViewController {
 
     @IBAction func safariButtonTapped(_ sender: Any) {
         
-        guard let url = URL(string: "https://www.oahelper.org/as.php") else { return }
+        guard let url = URL(string: "https://www.oahelper.org/help-activate-share-sheet/") else { return }
         let vc = SFSafariViewController(url: url)
         self.present(vc, animated: true, completion: nil)
     }

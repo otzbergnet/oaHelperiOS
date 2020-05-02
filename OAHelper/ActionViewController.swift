@@ -995,7 +995,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     @IBAction func openCitationsCountTapped(_ sender: Any) {
-        let urlString = "https://www.oahelper.org/doi/index.php?doi=\(self.bookMark.doi)"
+        let urlString = "https://www.oahelper.org/opencitations/?doi=\(self.bookMark.doi)"
         let extensionItem = NSExtensionItem()
         let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "returnUrl" : urlString]]
         extensionItem.attachments = [ NSItemProvider(item: jsDict as NSSecureCoding?, typeIdentifier: kUTTypePropertyList as String)]
