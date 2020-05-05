@@ -1148,54 +1148,53 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryL-RR-chJ">
-                                <rect key="frame" x="195" y="479" width="125" height="40"/>
-                                <color key="backgroundColor" red="0.9882352941176471" green="0.61176470588235299" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="dXu-1V-eUg"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="wYA-kv-mnI">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="225"/>
-                                    </constraint>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextTapped:" destination="XrP-TS-2nF" eventType="touchUpInside" id="WPi-op-hmx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7NV-dD-8xy">
-                                <rect key="frame" x="125" y="479" width="70" height="40"/>
-                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="4jQ-6o-phw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
-                                <state key="normal" title="PDF">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="pdfTapped:" destination="XrP-TS-2nF" eventType="touchUpInside" id="vG8-JO-Wic"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mni-tS-rL6">
-                                <rect key="frame" x="0.0" y="479" width="125" height="40"/>
-                                <color key="backgroundColor" red="0.9882352941176471" green="0.61176470588235299" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="125" id="3ja-yu-cgO">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="225"/>
-                                    </constraint>
-                                    <constraint firstAttribute="height" constant="40" id="Cyh-Ue-imh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
-                                <state key="normal" title="Previous">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="previousTapped:" destination="XrP-TS-2nF" eventType="touchUpInside" id="ciE-SO-ILy"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TTG-Xv-LPm">
+                                <rect key="frame" x="0.0" y="479" width="320" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mni-tS-rL6">
+                                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="40"/>
+                                        <color key="backgroundColor" red="0.9882352941176471" green="0.61176470588235299" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Cyh-Ue-imh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                                        <state key="normal" title="Previous">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="previousTapped:" destination="XrP-TS-2nF" eventType="touchUpInside" id="ciE-SO-ILy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7NV-dD-8xy">
+                                        <rect key="frame" x="106.5" y="0.0" width="107" height="40"/>
+                                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="4jQ-6o-phw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                                        <state key="normal" title="PDF">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pdfTapped:" destination="XrP-TS-2nF" eventType="touchUpInside" id="vG8-JO-Wic"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryL-RR-chJ">
+                                        <rect key="frame" x="213.5" y="0.0" width="106.5" height="40"/>
+                                        <color key="backgroundColor" red="0.9882352941176471" green="0.61176470588235299" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="dXu-1V-eUg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
+                                        <state key="normal" title="Next">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextTapped:" destination="XrP-TS-2nF" eventType="touchUpInside" id="WPi-op-hmx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KM-Oh-4Gc">
                                 <rect key="frame" x="0.0" y="44" width="320" height="435"/>
                                 <subviews>
@@ -1281,17 +1280,13 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2KM-Oh-4Gc" secondAttribute="trailing" id="58B-l5-CCl"/>
-                            <constraint firstItem="G6y-Vh-RKu" firstAttribute="bottom" secondItem="Mni-tS-rL6" secondAttribute="bottom" id="6ob-2k-CLr"/>
-                            <constraint firstItem="G6y-Vh-RKu" firstAttribute="bottom" secondItem="ryL-RR-chJ" secondAttribute="bottom" id="6xH-df-Pgg"/>
                             <constraint firstAttribute="bottomMargin" secondItem="2KM-Oh-4Gc" secondAttribute="bottom" constant="40" id="9gr-qd-opK"/>
-                            <constraint firstItem="G6y-Vh-RKu" firstAttribute="trailing" secondItem="ryL-RR-chJ" secondAttribute="trailing" id="LXm-MU-fnj"/>
-                            <constraint firstItem="7NV-dD-8xy" firstAttribute="centerX" secondItem="l2N-kd-AAv" secondAttribute="centerX" id="OOh-Fp-ahh"/>
-                            <constraint firstItem="ryL-RR-chJ" firstAttribute="leading" secondItem="7NV-dD-8xy" secondAttribute="trailing" id="OlM-Nv-9ci"/>
+                            <constraint firstItem="TTG-Xv-LPm" firstAttribute="top" secondItem="2KM-Oh-4Gc" secondAttribute="bottom" id="Jsk-tq-yYD"/>
                             <constraint firstItem="2KM-Oh-4Gc" firstAttribute="leading" secondItem="l2N-kd-AAv" secondAttribute="leading" id="RlG-Bs-Z1w"/>
-                            <constraint firstItem="G6y-Vh-RKu" firstAttribute="bottom" secondItem="7NV-dD-8xy" secondAttribute="bottom" id="YIj-jA-ZVl"/>
                             <constraint firstItem="2KM-Oh-4Gc" firstAttribute="top" secondItem="G6y-Vh-RKu" secondAttribute="top" id="bTh-h7-L0a"/>
-                            <constraint firstItem="7NV-dD-8xy" firstAttribute="leading" secondItem="Mni-tS-rL6" secondAttribute="trailing" id="e0d-I1-nuD"/>
-                            <constraint firstItem="Mni-tS-rL6" firstAttribute="leading" secondItem="G6y-Vh-RKu" secondAttribute="leading" id="no4-9R-M7h"/>
+                            <constraint firstItem="TTG-Xv-LPm" firstAttribute="leading" secondItem="G6y-Vh-RKu" secondAttribute="leading" id="cfG-9k-YTa"/>
+                            <constraint firstItem="G6y-Vh-RKu" firstAttribute="trailing" secondItem="TTG-Xv-LPm" secondAttribute="trailing" id="p1K-xY-TqA"/>
+                            <constraint firstItem="TTG-Xv-LPm" firstAttribute="bottom" secondItem="G6y-Vh-RKu" secondAttribute="bottom" id="yQ7-uc-es9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="G6y-Vh-RKu"/>
                     </view>
@@ -1319,7 +1314,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2764" y="262"/>
+            <point key="canvasLocation" x="2719" y="162"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YSk-vF-gT8">
