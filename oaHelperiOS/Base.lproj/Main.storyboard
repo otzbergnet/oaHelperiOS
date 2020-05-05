@@ -3,7 +3,7 @@
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -305,90 +305,37 @@
             <objects>
                 <viewController id="oET-sM-Gh4" customClass="SettingsTabViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z80-6r-t7V">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="850"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NtV-dM-cPe">
-                                <rect key="frame" x="0.0" y="44" width="320" height="800"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8O-wu-c6a">
+                                <rect key="frame" x="0.0" y="44" width="320" height="806"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKx-UV-kCB">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="miY-0Z-9fT">
+                                        <rect key="frame" x="15" y="25" width="290" height="810"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can change the most important settings here and in the settings app." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-U1-Sp5" userLabel="settingsExplainLabel">
-                                                <rect key="frame" x="15" y="20" width="290" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="44"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <size key="shadowOffset" width="0.0" height="0.0"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="h60-9C-GdD">
-                                                <rect key="frame" x="15" y="79" width="290" height="399"/>
+                                                <rect key="frame" x="0.0" y="69" width="290" height="534"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ZoG-7t-ZF7" userLabel="shareUsageStack">
-                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="31"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share usage once a month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIv-r5-Rvh">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
-                                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S0b-h1-oM1">
-                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
-                                                                <connections>
-                                                                    <action selector="dataShareSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="9bY-Ff-xei"/>
-                                                                </connections>
-                                                            </switch>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="SRX-0E-F2u" userLabel="enableBookMarkStack">
-                                                        <rect key="frame" x="0.0" y="46" width="290" height="31"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34Y-wY-K30">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
-                                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lVl-hB-gDw">
-                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
-                                                                <connections>
-                                                                    <action selector="bookMarksSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="eVa-n7-nyc"/>
-                                                                </connections>
-                                                            </switch>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="BYD-mR-Ret" userLabel="iCloudSyncStack">
-                                                        <rect key="frame" x="0.0" y="92" width="290" height="31"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Sync Bookmarks " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cD5-Oy-m8y">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
-                                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OSv-wu-QL2">
-                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
-                                                                <connections>
-                                                                    <action selector="iCloudSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="I1e-hq-dkb"/>
-                                                                </connections>
-                                                            </switch>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="MW7-y0-qje" userLabel="resetBookMarkStack">
-                                                        <rect key="frame" x="0.0" y="138" width="290" height="31"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset Bookmarks from iCloud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nL-4z-9Nt">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
-                                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bep-E9-Ibv">
-                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
-                                                                <connections>
-                                                                    <action selector="resetSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="MmE-jL-uDB"/>
-                                                                </connections>
-                                                            </switch>
-                                                        </subviews>
-                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Access Options" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1i-qs-LcB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="290" height="30"/>
+                                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="8RD-w2-jbg"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ARc-IO-RfC" userLabel="onlyUnpaywallStack">
-                                                        <rect key="frame" x="0.0" y="184" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="45" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only use unpaywall.org" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33R-cg-J4D">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -405,9 +352,9 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="iOX-KG-bMt" userLabel="openAccessButtonStack">
-                                                        <rect key="frame" x="0.0" y="230" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="91" width="290" height="31"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Access Button Request" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPH-Rz-Oaa">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="OpenAccessButton.org Request" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPH-Rz-Oaa">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
                                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                                 <nil key="textColor"/>
@@ -424,7 +371,7 @@
                                                         <viewLayoutGuide key="safeArea" id="hy7-Fc-xi1"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ch-1p-OaN" userLabel="showRecommendationStack">
-                                                        <rect key="frame" x="0.0" y="276" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="137" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Similar Articles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eY1-sN-aAv">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -440,8 +387,76 @@
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmarks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lw-9P-kfI">
+                                                        <rect key="frame" x="0.0" y="183" width="290" height="30"/>
+                                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="6BO-98-g0s"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="SRX-0E-F2u" userLabel="enableBookMarkStack">
+                                                        <rect key="frame" x="0.0" y="228" width="290" height="31"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34Y-wY-K30">
+                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
+                                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lVl-hB-gDw">
+                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="bookMarksSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="eVa-n7-nyc"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="BYD-mR-Ret" userLabel="iCloudSyncStack">
+                                                        <rect key="frame" x="0.0" y="274" width="290" height="31"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Sync Bookmarks " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cD5-Oy-m8y">
+                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
+                                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OSv-wu-QL2">
+                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="iCloudSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="I1e-hq-dkb"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="MW7-y0-qje" userLabel="resetBookMarkStack">
+                                                        <rect key="frame" x="0.0" y="320" width="290" height="31"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Reset Bookmarks from iCloud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nL-4z-9Nt">
+                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
+                                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bep-E9-Ibv">
+                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="resetSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="MmE-jL-uDB"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Additional Features" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdK-Gg-8py">
+                                                        <rect key="frame" x="0.0" y="366" width="290" height="30"/>
+                                                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="rGk-BR-awl"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="DrX-CP-Dze" userLabel="useProxyStackView">
-                                                        <rect key="frame" x="0.0" y="322" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="411" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Proxy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vra-TD-yuG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -458,7 +473,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2EU-K6-6Fu" userLabel="useOpenCitStackView">
-                                                        <rect key="frame" x="0.0" y="368" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="457" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show OpenCitations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6i-ty-AYy">
                                                                 <rect key="frame" x="0.0" y="0.0" width="241" height="31"/>
@@ -474,10 +489,28 @@
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ZoG-7t-ZF7" userLabel="shareUsageStack">
+                                                        <rect key="frame" x="0.0" y="503" width="290" height="31"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share usage once a month" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIv-r5-Rvh">
+                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
+                                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S0b-h1-oM1">
+                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="dataShareSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="9bY-Ff-xei"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </stackView>
                                                 </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Md-7U-bVi">
-                                                <rect key="frame" x="15" y="508" width="290" height="182"/>
+                                                <rect key="frame" x="0.0" y="628" width="290" height="182"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloudStatusLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QP7-jR-ut3">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="22"/>
@@ -505,22 +538,12 @@
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="o4f-O4-Z0t" firstAttribute="top" secondItem="s7Y-5h-QXP" secondAttribute="top" id="PUY-CQ-vCy"/>
-                                                            <constraint firstAttribute="trailing" secondItem="uDz-5C-BWW" secondAttribute="trailing" id="Ryh-JS-YHB"/>
-                                                            <constraint firstItem="o4f-O4-Z0t" firstAttribute="leading" secondItem="s7Y-5h-QXP" secondAttribute="leading" id="Z3M-3b-CPu"/>
-                                                            <constraint firstAttribute="bottom" secondItem="uDz-5C-BWW" secondAttribute="bottom" id="bJG-QN-f7Y"/>
-                                                            <constraint firstItem="uDz-5C-BWW" firstAttribute="leading" secondItem="o4f-O4-Z0t" secondAttribute="trailing" constant="15" id="kk8-eq-LC2"/>
-                                                            <constraint firstItem="uDz-5C-BWW" firstAttribute="leading" secondItem="o4f-O4-Z0t" secondAttribute="trailing" constant="15" id="oM6-ez-w6e"/>
-                                                            <constraint firstItem="uDz-5C-BWW" firstAttribute="top" secondItem="s7Y-5h-QXP" secondAttribute="top" id="xXr-iF-9mb"/>
-                                                            <constraint firstAttribute="bottom" secondItem="o4f-O4-Z0t" secondAttribute="bottom" id="zdu-uL-LPq"/>
-                                                        </constraints>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8z-S7-jDc">
                                                         <rect key="frame" x="0.0" y="72" width="290" height="50"/>
                                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="Jq5-EC-rcH"/>
+                                                            <constraint firstAttribute="height" constant="50" id="cxH-7e-gbr"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <state key="normal" title="Open Settings">
@@ -534,7 +557,7 @@
                                                         <rect key="frame" x="0.0" y="132" width="290" height="50"/>
                                                         <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="EtG-7O-rGw"/>
+                                                            <constraint firstAttribute="height" constant="50" id="HgD-wu-57g"/>
                                                         </constraints>
                                                         <state key="normal" title="Setup Proxy">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -544,63 +567,48 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstItem="2Md-7U-bVi" firstAttribute="leading" secondItem="WKx-UV-kCB" secondAttribute="leading" constant="15" id="1Cd-2C-Ku5"/>
-                                            <constraint firstItem="SRu-U1-Sp5" firstAttribute="top" secondItem="WKx-UV-kCB" secondAttribute="top" constant="20" id="1Nc-WH-xPb"/>
-                                            <constraint firstAttribute="height" constant="800" id="8Pg-5k-2F9"/>
-                                            <constraint firstItem="h60-9C-GdD" firstAttribute="leading" secondItem="WKx-UV-kCB" secondAttribute="leading" constant="15" id="Ah2-Om-2Cw">
-                                                <variation key="heightClass=regular-widthClass=regular" constant="70"/>
-                                            </constraint>
-                                            <constraint firstAttribute="trailing" secondItem="h60-9C-GdD" secondAttribute="trailing" constant="15" id="DUM-KA-Wq8">
-                                                <variation key="heightClass=regular-widthClass=regular" constant="70"/>
-                                            </constraint>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2Md-7U-bVi" secondAttribute="bottom" constant="70" id="HMu-w0-O9f"/>
-                                            <constraint firstItem="SRu-U1-Sp5" firstAttribute="leading" secondItem="WKx-UV-kCB" secondAttribute="leading" constant="15" id="Pn7-JY-wfk">
-                                                <variation key="heightClass=regular-widthClass=regular" constant="70"/>
-                                            </constraint>
-                                            <constraint firstAttribute="trailing" secondItem="SRu-U1-Sp5" secondAttribute="trailing" constant="15" id="Z3Z-lc-cTx">
-                                                <variation key="heightClass=regular-widthClass=regular" constant="70"/>
-                                            </constraint>
-                                            <constraint firstItem="2Md-7U-bVi" firstAttribute="top" secondItem="h60-9C-GdD" secondAttribute="bottom" constant="30" id="Zzf-XR-Eye"/>
-                                            <constraint firstAttribute="trailing" secondItem="2Md-7U-bVi" secondAttribute="trailing" constant="15" id="lUB-ds-Xjr"/>
-                                            <constraint firstItem="h60-9C-GdD" firstAttribute="top" secondItem="SRu-U1-Sp5" secondAttribute="bottom" constant="15" id="yjW-bn-IZ0"/>
-                                        </constraints>
-                                    </view>
+                                    </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="WKx-UV-kCB" firstAttribute="leading" secondItem="NtV-dM-cPe" secondAttribute="leading" id="YoI-rM-Tep"/>
-                                    <constraint firstAttribute="trailing" secondItem="WKx-UV-kCB" secondAttribute="trailing" constant="-28" id="ZRa-6R-UkT"/>
-                                    <constraint firstAttribute="bottom" secondItem="WKx-UV-kCB" secondAttribute="bottom" constant="-23" id="aBF-wT-tl0"/>
-                                    <constraint firstItem="WKx-UV-kCB" firstAttribute="top" secondItem="NtV-dM-cPe" secondAttribute="top" id="bvG-vN-eVh"/>
-                                    <constraint firstItem="WKx-UV-kCB" firstAttribute="width" secondItem="NtV-dM-cPe" secondAttribute="width" id="lJh-Ha-yAl"/>
+                                    <constraint firstItem="miY-0Z-9fT" firstAttribute="width" secondItem="C8h-i1-nMe" secondAttribute="width" constant="-30" id="Jhn-Ym-2M7"/>
+                                    <constraint firstItem="miY-0Z-9fT" firstAttribute="trailing" secondItem="ZyL-yg-Bw4" secondAttribute="trailing" id="Kr4-mo-Xp2"/>
+                                    <constraint firstItem="miY-0Z-9fT" firstAttribute="top" secondItem="ZyL-yg-Bw4" secondAttribute="top" constant="25" id="V1h-xX-Q6R"/>
+                                    <constraint firstItem="miY-0Z-9fT" firstAttribute="leading" secondItem="ZyL-yg-Bw4" secondAttribute="leading" constant="15" id="aLd-70-WpR"/>
+                                    <constraint firstItem="miY-0Z-9fT" firstAttribute="bottom" secondItem="ZyL-yg-Bw4" secondAttribute="bottom" id="v5q-d8-c2c"/>
                                 </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="ZyL-yg-Bw4"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="C8h-i1-nMe"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="NtV-dM-cPe" firstAttribute="leading" secondItem="245-Ry-Z5e" secondAttribute="leading" id="M9G-O2-SvG"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="NtV-dM-cPe" secondAttribute="bottom" constant="-93" id="dOB-PM-MId"/>
-                            <constraint firstItem="245-Ry-Z5e" firstAttribute="trailing" secondItem="NtV-dM-cPe" secondAttribute="trailing" id="fnz-xq-qyw"/>
-                            <constraint firstItem="NtV-dM-cPe" firstAttribute="top" secondItem="245-Ry-Z5e" secondAttribute="top" id="jst-0q-VOJ"/>
-                            <constraint firstItem="NtV-dM-cPe" firstAttribute="width" secondItem="z80-6r-t7V" secondAttribute="width" id="oTs-UM-3rN"/>
+                            <constraint firstItem="v8O-wu-c6a" firstAttribute="leading" secondItem="245-Ry-Z5e" secondAttribute="leading" id="5pL-V4-sFd"/>
+                            <constraint firstAttribute="bottom" secondItem="v8O-wu-c6a" secondAttribute="bottom" id="8GW-H0-L20"/>
+                            <constraint firstItem="v8O-wu-c6a" firstAttribute="top" secondItem="245-Ry-Z5e" secondAttribute="top" id="ISl-vt-hu3"/>
+                            <constraint firstItem="v8O-wu-c6a" firstAttribute="trailing" secondItem="245-Ry-Z5e" secondAttribute="trailing" id="d5i-pG-L4c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="245-Ry-Z5e"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="Tan-j2-6UR"/>
-                    <size key="freeformSize" width="320" height="800"/>
+                    <size key="freeformSize" width="320" height="850"/>
                     <connections>
+                        <outlet property="additionalFeaturesHeaderLabel" destination="RdK-Gg-8py" id="pNF-ZZ-gnG"/>
                         <outlet property="bookMarkSwitch" destination="lVl-hB-gDw" id="TRW-3V-mXJ"/>
+                        <outlet property="bookmarksHeaderLabel" destination="3lw-9P-kfI" id="p59-uQ-zTR"/>
                         <outlet property="iCloudStatusLabel" destination="QP7-jR-ut3" id="gvv-x3-SbR"/>
                         <outlet property="iCloudSwitch" destination="OSv-wu-QL2" id="CKd-pq-OQf"/>
                         <outlet property="iCloudSwitchLabel" destination="cD5-Oy-m8y" id="5Th-t3-swu"/>
                         <outlet property="leaveReviewButton" destination="o4f-O4-Z0t" id="ROk-wU-h8H"/>
                         <outlet property="onlyUnpaywallSwitch" destination="4jJ-NP-3Tn" id="ufG-AR-I3l"/>
                         <outlet property="openAccessButtonSwitch" destination="T5V-Rd-BJ0" id="GoC-JI-XA7"/>
+                        <outlet property="openAccessOptionsHeaderLabel" destination="s1i-qs-LcB" id="bYK-WM-iK4"/>
                         <outlet property="openSettingsButton" destination="E8z-S7-jDc" id="6Gx-fh-17k"/>
                         <outlet property="recommendationSwitch" destination="7Uh-bz-Z0n" id="2Au-CU-GrD"/>
+                        <outlet property="resetBookMarksLabel" destination="4nL-4z-9Nt" id="nfl-38-fiN"/>
                         <outlet property="resetBookMarksSwitch" destination="bep-E9-Ibv" id="qRw-aW-Ngk"/>
                         <outlet property="setupProxyButton" destination="2SW-lw-2NX" id="tWM-6h-lUf"/>
                         <outlet property="shareSwitch" destination="S0b-h1-oM1" id="Pl5-vv-jiY"/>
@@ -614,7 +622,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J3r-ei-pOe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1275" y="2664"/>
+            <point key="canvasLocation" x="-1275" y="2687.323943661972"/>
         </scene>
         <!--News & Info-->
         <scene sceneID="Xwu-Y5-cYi">
@@ -786,7 +794,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yqo-mT-uuE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1275" y="3485"/>
+            <point key="canvasLocation" x="-1275" y="3596"/>
         </scene>
         <!--Detail News View Controller-->
         <scene sceneID="1Eb-in-86J">

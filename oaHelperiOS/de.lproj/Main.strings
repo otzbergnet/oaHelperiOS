@@ -24,7 +24,7 @@
 "iSb-6n-f6q.text" = "Zusammenfassung";
 
 /* Class = "UILabel"; text = "Please remember that you'll get the most out of OA Helper, if you use the Safari Share Sheet!"; ObjectID = "oHP-zt-CAG"; */
-"oHP-zt-CAG.text" = "Bitte denken Sie daran, dass Sie den größten Nuzten aus dem Safari Share Sheet ziehen werden";
+"oHP-zt-CAG.text" = "Bitte denken Sie daran, dass Sie den größten Nutzen aus dem Safari Share Sheet ziehen werden";
 
 /* Class = "UIButton"; normalTitle = "Open Access Search"; ObjectID = "JJr-Ge-nca"; */
 "JJr-Ge-nca.normalTitle" = "Open Access Suche";
@@ -83,8 +83,8 @@
 /* Class = "UILabel"; text = "Only use unpaywall.org"; ObjectID = "33R-cg-J4D"; */
 "33R-cg-J4D.text" = "Nur unpaywall.org";
 
-/* Class = "UILabel"; text = "Open Access Button Request"; ObjectID = "LPH-Rz-Oaa"; */
-"LPH-Rz-Oaa.text" = "Open Access Button Anfragen";
+/* Class = "UILabel"; text = "OpenAccessButton.org Request"; ObjectID = "LPH-Rz-Oaa"; */
+"LPH-Rz-Oaa.text" = "OpenAccessButton.org Anfragen";
 
 /* Class = "UILabel"; text = "Show Similar Articles"; ObjectID = "eY1-sN-aAv"; */
 "eY1-sN-aAv.text" = "Ähnliche Artikel zeigen";
@@ -226,3 +226,12 @@
 
 /* Class = "UILabel"; text = "Show OpenCitations"; ObjectID = "J6i-ty-AYy"; */
 "J6i-ty-AYy.text" = "OpenCitations zeigen";
+
+/* Class = "UILabel"; text = "Bookmarks"; ObjectID = "3lw-9P-kfI"; */
+"3lw-9P-kfI.text" = "Bookmarks";
+
+/* Class = "UILabel"; text = "Additional Features"; ObjectID = "RdK-Gg-8py"; */
+"RdK-Gg-8py.text" = "Zusätzliche Funktionen";
+
+/* Class = "UILabel"; text = "Open Access Options"; ObjectID = "s1i-qs-LcB"; */
+"s1i-qs-LcB.text" = "Open Access Optionen";
