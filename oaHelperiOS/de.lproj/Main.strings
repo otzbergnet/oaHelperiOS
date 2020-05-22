@@ -235,3 +235,36 @@
 
 /* Class = "UILabel"; text = "Open Access Options"; ObjectID = "s1i-qs-LcB"; */
 "s1i-qs-LcB.text" = "Open Access Optionen";
+
+/* Class = "UISwitch"; accessibilityLabel = "Only use unpywall.org"; ObjectID = "4jJ-NP-3Tn"; */
+"4jJ-NP-3Tn.accessibilityLabel" = "Nur unpaywall.org verwenden";
+
+/* Class = "UISwitch"; accessibilityLabel = "OpenAccessButton.org Request"; ObjectID = "T5V-Rd-BJ0"; */
+"T5V-Rd-BJ0.accessibilityLabel" = "OpenAccessButton.org Anfragen ermöglichen";
+
+/* Class = "UISwitch"; accessibilityLabel = "Show similar articles"; ObjectID = "7Uh-bz-Z0n"; */
+"7Uh-bz-Z0n.accessibilityLabel" = "Ähnilche Artikel vorschlagen";
+
+/* Class = "UISwitch"; accessibilityLabel = "Use Proxy"; ObjectID = "1An-xo-deb"; */
+"1An-xo-deb.accessibilityLabel" = "Proxy verwenden";
+
+/* Class = "UISwitch"; accessibilityLabel = "iCloud Sync Bookmarks "; ObjectID = "OSv-wu-QL2"; */
+"OSv-wu-QL2.accessibilityLabel" = "Bookmarks mit iCloud synchronisieren";
+
+/* Class = "UISwitch"; accessibilityLabel = "Share usage once a month"; ObjectID = "S0b-h1-oM1"; */
+"S0b-h1-oM1.accessibilityLabel" = "Nutzungsdaten monatlich teilen";
+
+/* Class = "UISwitch"; accessibilityLabel = "iCloud Sync Bookmarks "; ObjectID = "UEp-7m-ecA"; */
+"UEp-7m-ecA.accessibilityLabel" = "Bookmarks mit iCloud synchronisieren";
+
+/* Class = "UISwitch"; accessibilityLabel = "Reset Bookmarks from iCloud"; ObjectID = "bep-E9-Ibv"; */
+"bep-E9-Ibv.accessibilityLabel" = "Bookmarks zurücksetzen und aus iCloud laden";
+
+/* Class = "UISwitch"; accessibilityLabel = "Enable Bookmarks"; ObjectID = "lGb-Mk-usE"; */
+"lGb-Mk-usE.accessibilityLabel" = "Bookmarks aktivieren";
+
+/* Class = "UISwitch"; accessibilityLabel = "Enable Bookmarks"; ObjectID = "lVl-hB-gDw"; */
+"lVl-hB-gDw.accessibilityLabel" = "Bookmarks aktivieren";
+
+/* Class = "UISwitch"; accessibilityLabel = "Show OpenCitations"; ObjectID = "rwa-cs-Bsc"; */
+"rwa-cs-Bsc.accessibilityLabel" = "OpenCitations zeigen";
