@@ -681,7 +681,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="newsCell" textLabel="QXB-17-Pqf" detailTextLabel="Nbo-ag-TJJ" style="IBUITableViewCellStyleSubtitle" id="6G5-v9-f2j">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="newsCell" textLabel="QXB-17-Pqf" detailTextLabel="Nbo-ag-TJJ" style="IBUITableViewCellStyleSubtitle" id="6G5-v9-f2j" customClass="GenericTableViewCell" customModule="oaHelperiOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6G5-v9-f2j" id="4Ri-v6-6GF">
@@ -942,7 +942,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookMarkCell" textLabel="QbF-XW-6oc" detailTextLabel="1lj-de-Wva" style="IBUITableViewCellStyleSubtitle" id="G2W-Yj-Grx">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookMarkCell" textLabel="QbF-XW-6oc" detailTextLabel="1lj-de-Wva" style="IBUITableViewCellStyleSubtitle" id="G2W-Yj-Grx" customClass="GenericTableViewCell" customModule="oaHelperiOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G2W-Yj-Grx" id="axH-Mp-sBV">
@@ -1452,7 +1452,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                     <constraint firstAttribute="height" constant="390" id="6fa-jM-4ZX"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="statCell" textLabel="Qi2-nE-LNB" detailTextLabel="jP7-FY-WVl" style="IBUITableViewCellStyleValue1" id="0vj-Au-pr8">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="statCell" textLabel="Qi2-nE-LNB" detailTextLabel="jP7-FY-WVl" style="IBUITableViewCellStyleValue1" id="0vj-Au-pr8" customClass="GenericTableViewCell" customModule="oaHelperiOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0vj-Au-pr8" id="zll-If-CBe">
