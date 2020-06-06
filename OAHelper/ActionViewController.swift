@@ -110,7 +110,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                                 self.handleSelectedTextData(myText: myText)
                             }
                             else{
-                                print("cancel badText")
+                                //print("cancel badText")
                                 self.executeCancel(action: "badText")
                             }
                         })
@@ -137,7 +137,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                                 self.handleReceivedUrl(urlString: "\(url)")
                             }
                             else{
-                                print("cancel badURL")
+                                //print("cancel badURL")
                                 self.executeCancel(action: "badURL")
                             }
                             
@@ -194,7 +194,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func handleReceivedUrl(urlString: String){
-        let doi = self.doiFinder(str: urlString)
+        let doi = self.doiFinder(str: urlString.replacingOccurrences(of: "%2F", with: "/"))
         
         if(doi.count > 0){
             handleFoundDoi(doi: doi)
