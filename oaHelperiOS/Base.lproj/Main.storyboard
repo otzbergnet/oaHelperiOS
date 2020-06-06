@@ -844,6 +844,95 @@
             </objects>
             <point key="canvasLocation" x="-1275" y="3596"/>
         </scene>
+        <!--Info Child View Controller-->
+        <scene sceneID="tM6-7j-gHG">
+            <objects>
+                <viewController storyboardIdentifier="InfoChildViewController" id="Ifb-iO-Mak" customClass="InfoChildViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nIC-rc-1S5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_icon" translatesAutoresizingMaskIntoConstraints="NO" id="q4v-IR-62l">
+                                <rect key="frame" x="130" y="10" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="OZr-db-CEi"/>
+                                    <constraint firstAttribute="width" constant="60" id="k7N-lS-uD7"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here's a tip for you!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyN-qd-wLQ">
+                                <rect key="frame" x="25" y="72" width="270" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bt-9F-HEk">
+                                <rect key="frame" x="20" y="100.5" width="280" height="72"/>
+                                <string key="text">Did you know that OA Helper has a Safari Share Sheet Extension to help you find Open Access while you browse publisher websites?</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="P8k-hj-Idv">
+                                <rect key="frame" x="25" y="240" width="270" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHn-C8-G32">
+                                        <rect key="frame" x="0.0" y="0.0" width="132.5" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.78431372549019607" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="XLm-oh-iA0"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Show me"/>
+                                        <connections>
+                                            <action selector="showMeTapped:" destination="Ifb-iO-Mak" eventType="touchUpInside" id="aZp-iU-Log"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keu-6Q-p3p">
+                                        <rect key="frame" x="137.5" y="0.0" width="132.5" height="50"/>
+                                        <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="xBd-c8-QQ1"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Dismiss">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissButtonTapped:" destination="Ifb-iO-Mak" eventType="touchUpInside" id="AEK-TR-LpN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ybg-t1-O5Q" firstAttribute="trailing" secondItem="6Bt-9F-HEk" secondAttribute="trailing" constant="20" id="1x5-iH-pPq"/>
+                            <constraint firstItem="P8k-hj-Idv" firstAttribute="leading" secondItem="Ybg-t1-O5Q" secondAttribute="leading" constant="25" id="8aY-Ll-2aW"/>
+                            <constraint firstItem="Ybg-t1-O5Q" firstAttribute="trailing" secondItem="P8k-hj-Idv" secondAttribute="trailing" constant="25" id="BbL-Rx-01K"/>
+                            <constraint firstItem="zyN-qd-wLQ" firstAttribute="leading" secondItem="Ybg-t1-O5Q" secondAttribute="leading" constant="25" id="Dy7-TA-YE5"/>
+                            <constraint firstItem="q4v-IR-62l" firstAttribute="centerX" secondItem="nIC-rc-1S5" secondAttribute="centerX" id="KUu-yl-DJL"/>
+                            <constraint firstItem="q4v-IR-62l" firstAttribute="top" secondItem="Ybg-t1-O5Q" secondAttribute="top" constant="10" id="TrJ-Cb-uPs"/>
+                            <constraint firstItem="Ybg-t1-O5Q" firstAttribute="bottom" secondItem="P8k-hj-Idv" secondAttribute="bottom" constant="10" id="Xk0-GD-Iti"/>
+                            <constraint firstItem="6Bt-9F-HEk" firstAttribute="top" secondItem="zyN-qd-wLQ" secondAttribute="bottom" constant="8" id="aD2-q6-EIP"/>
+                            <constraint firstItem="Ybg-t1-O5Q" firstAttribute="trailing" secondItem="zyN-qd-wLQ" secondAttribute="trailing" constant="25" id="aSn-fe-Qny"/>
+                            <constraint firstItem="6Bt-9F-HEk" firstAttribute="leading" secondItem="Ybg-t1-O5Q" secondAttribute="leading" constant="20" id="eLh-2l-ZzW"/>
+                            <constraint firstItem="zyN-qd-wLQ" firstAttribute="top" secondItem="q4v-IR-62l" secondAttribute="bottom" constant="2" id="vXo-Ek-vfb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ybg-t1-O5Q"/>
+                    </view>
+                    <size key="freeformSize" width="320" height="300"/>
+                    <connections>
+                        <outlet property="bodyLabel" destination="6Bt-9F-HEk" id="gYZ-PN-1ex"/>
+                        <outlet property="dismissButton" destination="keu-6Q-p3p" id="h1e-gw-Djl"/>
+                        <outlet property="headingLabel" destination="zyN-qd-wLQ" id="TYp-8v-Gpw"/>
+                        <outlet property="showMeButton" destination="pHn-C8-G32" id="Ly2-TF-pRR"/>
+                        <outlet property="topImage" destination="q4v-IR-62l" id="Dpj-id-fIU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4g-kc-Na4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-234" y="3353"/>
+        </scene>
         <!--Detail News View Controller-->
         <scene sceneID="1Eb-in-86J">
             <objects>
@@ -1594,6 +1683,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
         <image name="icons8-settings-75" width="25" height="25"/>
         <image name="icons8-statistics-75" width="25" height="25"/>
         <image name="image_read" width="25" height="25"/>
+        <image name="info_icon" width="100" height="100"/>
         <image name="sharedata" width="25" height="25"/>
     </resources>
 </document>

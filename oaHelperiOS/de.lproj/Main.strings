@@ -268,3 +268,15 @@
 
 /* Class = "UISwitch"; accessibilityLabel = "Show OpenCitations"; ObjectID = "rwa-cs-Bsc"; */
 "rwa-cs-Bsc.accessibilityLabel" = "OpenCitations zeigen";
+
+/* Class = "UIButton"; normalTitle = "Dismiss"; ObjectID = "keu-6Q-p3p"; */
+"keu-6Q-p3p.normalTitle" = "Schließen";
+
+/* Class = "UILabel"; text = "Did you know that OA Helper has a Safari Share Sheet Extension to help you find Open Access while you browse publisher websites?"; ObjectID = "6Bt-9F-HEk"; */
+"6Bt-9F-HEk.text" = "Wussten Sie, dass Open Access Helper eine Safari Erweiterung hat, die Ihnen helfen kann, Open Access direkt aus Safari heraus zu finden?";
+
+/* Class = "UIButton"; normalTitle = "Show me"; ObjectID = "pHn-C8-G32"; */
+"pHn-C8-G32.normalTitle" = "Mehr Infos";
+
+/* Class = "UILabel"; text = "Here's a tip for you!"; ObjectID = "zyN-qd-wLQ"; */
+"zyN-qd-wLQ.text" = "Ein Tipp für Sie!";
