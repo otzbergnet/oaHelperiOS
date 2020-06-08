@@ -84,7 +84,7 @@ class OnboardingSix: UIViewController {
     }
     
     @IBAction func moreInfoTapped(_ sender: Any) {
-        guard let url = URL(string: "https://www.oahelper.org/moreoaoptions.html") else { return }
+        guard let url = URL(string: "https://www.oahelper.org/help-more-options-ios/") else { return }
         let vc = SFSafariViewController(url: url)
         self.present(vc, animated: true, completion: nil)
     }

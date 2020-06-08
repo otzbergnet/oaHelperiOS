@@ -140,7 +140,7 @@ class HelperClass : UIViewController{
             let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
                 if let error = error{
                     //we got an error, let's tell the user
-                    completion(.failure(error))
+                    completion(.failure(NSError(domain: "", code: 444, userInfo: ["description" : "\(error.localizedDescription)"])))
                     print(error)
                 }
                 if let data = data {

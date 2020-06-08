@@ -1,19 +1,15 @@
 //
-//  TableViewCell.swift
+//  GenericTableViewCell.swift
 //  oaHelperiOS
 //
-//  Created by Claus Wolf on 08.01.19.
-//  Copyright © 2019 Claus Wolf. All rights reserved.
+//  Created by Claus Wolf on 23.05.20.
+//  Copyright © 2020 Claus Wolf. All rights reserved.
 //
 
 import UIKit
 
-class TableViewCell: UITableViewCell, UIPointerInteractionDelegate {
+class GenericTableViewCell: UITableViewCell, UIPointerInteractionDelegate {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
-    @IBOutlet weak var iconImageView: UIImageView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,6 +24,7 @@ class TableViewCell: UITableViewCell, UIPointerInteractionDelegate {
         // Configure the view for the selected state
     }
 
+    
     @available(iOS 13.4, *)
     func configurePointer() {
         let interaction = UIPointerInteraction(delegate: self)
@@ -44,5 +41,4 @@ class TableViewCell: UITableViewCell, UIPointerInteractionDelegate {
         }
         return pointerStyle
     }
-    
 }

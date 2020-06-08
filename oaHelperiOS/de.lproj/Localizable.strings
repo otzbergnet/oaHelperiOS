@@ -299,3 +299,27 @@
 
 /* shown upon save */
 "Successfully saved!" = "Erfolgreich gespeichert!";
+
+/* No comment provided by engineer. */
+"Did you know that OA Helper has a Safari Share Sheet Extension to help you find Open Access while you browse publisher websites?" = "Wussten Sie, dass Open Access Helper eine Safari Erweiterung hat, die Ihnen helfen kann, Open Access direkt aus Safari heraus zu finden?";
+
+/* No comment provided by engineer. */
+"Here's a tip for you!" = "Ein Tipp für Sie!";
+
+/* No comment provided by engineer. */
+"Share" = "Teilen";
+
+/* No comment provided by engineer. */
+"Thank you!" = "Vielen Dank!";
+
+/* first half of text */
+"You've installed Open Access Helper" = "Sie haben Open Access Helper vor";
+
+/* second half of text */
+"days ago. Thank you for your support! Want to let others know about it?" = "Tagen installiert. Vielen Dank für Ihre Unsterütztung. Bitte erzählen Sie anderen davon!";
+
+/* shown when there is no DOI, but there are URL actions like proxy or bookmark */
+"For this URL we were unable to identify a DOI. Please see these URL actions below:" = "Für diese URL konnten wir keinen DOI ermitteln. Bitte wählen Sie eine Aktion aus:";
+
+/* No comment provided by engineer. */
+"Show me how" = "Zeig mir wie";

@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import MobileCoreServices
+import LinkPresentation
 
 class ActionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -19,7 +20,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var oaTypeLabel: UILabel!
     @IBOutlet weak var poweredByLabel: UILabel!
     @IBOutlet weak var coreRecommenderLabel: UILabel!
-
+    
     
     @IBOutlet weak var textView: UITextView!
     
@@ -45,13 +46,12 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var proxyButton: UIButton!
     @IBOutlet weak var openCitationsCountButton: UIButton!
     
-    
-    
     //MARK: Setup Basic Display Logic Variables
     
     var returnURLString = ""
     var urlAction = false
     var selectAction = false
+    var fromSelectUrl = false
     var showBookMarkButton = true
     var showOpenAccessButton = true
     var showRecommendations = true
@@ -101,14 +101,17 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             if let itemProviders = extensionItem.attachments {
                 for itemProvider in itemProviders {
                     
-                    //user has selected some text and got here by the share sheet
+                    //user actioned the share sheet, let's see what they are sharing
                     
                     if itemProvider.hasItemConformingToTypeIdentifier(kUTTypeText as String) {
                         itemProvider.loadItem(forTypeIdentifier: kUTTypeText as String, options: nil, completionHandler: { text, error in
                             if let myText = text as? String {
-                                
                                 // we have some text, let's handle it
                                 self.handleSelectedTextData(myText: myText)
+                            }
+                            else{
+                                //print("cancel badText")
+                                self.executeCancel(action: "badText")
                             }
                         })
                     }
@@ -124,7 +127,29 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                             
                         })
                     }
+                    else if itemProvider.hasItemConformingToTypeIdentifier("public.url"){
+                        // not sure what to do
+                        itemProvider.loadItem(forTypeIdentifier: "public.url", options: nil, completionHandler: { (item, error) -> Void in
+                            // let's get data from the page, based on the JS that was injected
+                            self.fromSelectUrl = true
+                            if let url = item as? NSURL {
+                                self.bookMark.url = "\(url)"
+                                self.handleReceivedUrl(urlString: "\(url)")
+                            }
+                            else{
+                                //print("cancel badURL")
+                                self.executeCancel(action: "badURL")
+                            }
+                            
+                            
+                        })
+                    }
+                    else{
+                        print(itemProvider)
+                        executeCancel(action: "unknown")
+                    }
                 }
+                
             }
         }
         
@@ -135,27 +160,92 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         let doi = self.doiFinder(str: myText)
         
         if(doi.count > 0){
-            
             //we found at least one DOI, let's handle
-            self.selectAction = true
-            if(doi.count == 1){
-                
-                //only one DOI, let's handle as if we found to DOI in the page
-                //great when a user selected an entire citation in a bibliography
-                
-                //                print("up to checkunpaywall \(timer.stop()) seconds.")
+            handleFoundDoi(doi: doi)
+        }
+        else{
+            // as we found no DOIs, let's offer the user to search in core.ac.uk (within the main app)
+            self.displaySearchForText(myText: myText)
+        }
+    }
+    
+    func handleFoundDoi(doi: [String]){
+        self.selectAction = true
+        if(doi.count == 1){
+            
+            //only one DOI, let's handle as if we found to DOI in the page
+            //great when a user selected an entire citation in a bibliography
+            self.displayFoundSingleDOI()
+            self.checkUnpaywall(doi: "\(doi[0])")
+            
+        }
+        else if (doi.count == 2){
+            if(doi[0] == doi[1]){
                 self.displayFoundSingleDOI()
                 self.checkUnpaywall(doi: "\(doi[0])")
-                
             }
             else{
                 self.displayFoundMultipleDOI(doi: doi)
             }
         }
         else{
-            
-            // as we found no DOIs, let's offer the user to search in core.ac.uk (within the main app)
-            self.displaySearchForText(myText: myText)
+            self.displayFoundMultipleDOI(doi: doi)
+        }
+    }
+    
+    func handleReceivedUrl(urlString: String){
+        let doi = self.doiFinder(str: urlString.replacingOccurrences(of: "%2F", with: "/"))
+        
+        if(doi.count > 0){
+            handleFoundDoi(doi: doi)
+        }
+        else{
+            DispatchQueue.main.async {
+                self.fromSelectUrl = true
+                self.paperIcon.isHidden = true
+                self.activityIndicator.isHidden = true
+                
+                //if there is neither proxy nor bookmark support, dismiss
+                if(!self.showProxyButton && !self.showBookMarkButton){
+                    self.executeCancel(action: "dimiss")
+                    return
+                }
+                
+                
+                self.addSomeUrlMetadata(url: urlString)
+                
+                
+                if(self.showProxyButton){
+                    self.proxyButton.isHidden = false
+                }
+                // need to check if bookmarksis supposed to show
+                if(self.showBookMarkButton){
+                    self.addBookMarkButton.isHidden = false
+                }
+                self.dismissButton.isHidden = false
+                self.paperIcon.image = UIImage(named: "www_icon")
+                self.paperIcon.isHidden = false
+                self.sourceLabel.text = urlString
+                self.textView.text = NSLocalizedString("For this URL we were unable to identify a DOI. Please see these URL actions below:", comment: "shown when there is no DOI, but there are URL actions like proxy or bookmark")
+            }
+        }
+    }
+    
+    func addSomeUrlMetadata(url: String){
+        if #available(iOSApplicationExtension 13.0, *) {
+            let metadataProvider = LPMetadataProvider()
+            let url = URL(string: url)!
+
+            metadataProvider.startFetchingMetadata(for: url) { [weak self] metadata, error in
+                guard let metadata = metadata else { return }
+                if let urlTitle = metadata.title{
+                    DispatchQueue.main.async {
+                        self?.headerLabel.text = urlTitle
+                        self?.bookMark.title = urlTitle
+                    }
+                }
+                
+            }
         }
     }
     
@@ -611,7 +701,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             tableViewActivityIndicator.style = .medium
         }
         
-
+        
     }
     
     func displayFoundSingleDOI(){
@@ -899,21 +989,21 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             
             switch res{
                 
-                case .success(let openCitation):
-                    if let count = Int(openCitation.count) {
-                        if(count > 0){
-                            DispatchQueue.main.async {
-                                self.openCitationsLogo.isHidden = false
-                                let citationText = "Times Cited: \(count)"
-                                self.openCitationsCountButton.setTitle(citationText, for: .normal)
-                                self.openCitationsCountButton.isHidden = false
-                            }
+            case .success(let openCitation):
+                if let count = Int(openCitation.count) {
+                    if(count > 0){
+                        DispatchQueue.main.async {
+                            self.openCitationsLogo.isHidden = false
+                            let citationText = "Times Cited: \(count)"
+                            self.openCitationsCountButton.setTitle(citationText, for: .normal)
+                            self.openCitationsCountButton.isHidden = false
                         }
                     }
+                }
                 
-                case .failure(let error):
-                    //I hate my life right now
-                    print("openCitation: there was an error: \(error)")
+            case .failure(let error):
+                //I hate my life right now
+                print("openCitation: there was an error: \(error)")
             }
             
         }
@@ -928,27 +1018,33 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.extensionContext!.completeRequest(returningItems: [extensionItem], completionHandler: nil)
     }
-    
-    func searchAction(){
-        var responder: UIResponder? = self as UIResponder
-        let selector = #selector(openURL(_:))
-        while responder != nil {
-            if responder!.responds(to: selector) && responder != self {
-                responder!.perform(selector, with: URL(string: self.returnURLString)!)
-                let extensionItem = NSExtensionItem()
-                let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "returnUrl" : self.returnURLString]]
-                extensionItem.attachments = [ NSItemProvider(item: jsDict as NSSecureCoding?, typeIdentifier: kUTTypePropertyList as String)]
-                self.extensionContext!.completeRequest(returningItems: [extensionItem], completionHandler: nil)
-                return
+       
+    func openUrlAction(url: String){
+        print("I got to proxy Action")
+        if let url = URL(string: url){
+            let openUrlResult = self.openURL(url)
+            if(openUrlResult){
+                executeCancel(action: "dismiss")
             }
-            responder = responder?.next
         }
     }
     
-    @objc func openURL(_ url: URL) {
-        return
-    }
+    //    @objc func openURL(_ url: URL) {
+    //        return
+    //    }
     
+    //  Function must be named exactly like this so a selector can be found by the compiler!
+    //  Anyway - it's another selector in another instance that would be "performed" instead.
+    @objc func openURL(_ url: URL) -> Bool {
+        var responder: UIResponder? = self
+        while responder != nil {
+            if let application = responder as? UIApplication {
+                return application.perform(#selector(openURL(_:)), with: url) != nil
+            }
+            responder = responder?.next
+        }
+        return false
+    }
     
     //MARK: Action Buttons
     
@@ -957,14 +1053,14 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @IBAction func actionButtonTapped(_ sender: Any) {
-        if(self.urlAction && self.selectAction == false){
+        if(self.urlAction && self.selectAction == false && !fromSelectUrl){
             let extensionItem = NSExtensionItem()
             let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "returnUrl" : self.returnURLString]]
             extensionItem.attachments = [ NSItemProvider(item: jsDict as NSSecureCoding?, typeIdentifier: kUTTypePropertyList as String)]
             self.extensionContext!.completeRequest(returningItems: [extensionItem], completionHandler: nil)
         }
         else{
-            searchAction()
+            openUrlAction(url: self.returnURLString)
         }
         
     }
@@ -986,22 +1082,30 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             return
         }
         let newUrl = proxyPrefix+url
+        print(newUrl)
         settings.incrementOACount(key : "proxy_count")
-        let extensionItem = NSExtensionItem()
-        let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "returnUrl" : newUrl]]
-        extensionItem.attachments = [ NSItemProvider(item: jsDict as NSSecureCoding?, typeIdentifier: kUTTypePropertyList as String)]
-        self.extensionContext!.completeRequest(returningItems: [extensionItem], completionHandler: nil)
+        
+        if(fromSelectUrl){
+            self.openUrlAction(url: newUrl)
+        }
+        else{
+            let extensionItem = NSExtensionItem()
+            let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "returnUrl" : newUrl]]
+            extensionItem.attachments = [ NSItemProvider(item: jsDict as NSSecureCoding?, typeIdentifier: kUTTypePropertyList as String)]
+            self.extensionContext!.completeRequest(returningItems: [extensionItem], completionHandler: nil)
+        }
+        
     }
     
     
     @IBAction func openCitationsCountTapped(_ sender: Any) {
-        let urlString = "https://www.oahelper.org/doi/index.php?doi=\(self.bookMark.doi)"
+        let urlString = "https://www.oahelper.org/opencitations/?doi=\(self.bookMark.doi)"
         let extensionItem = NSExtensionItem()
         let jsDict = [ NSExtensionJavaScriptFinalizeArgumentKey : [ "returnUrl" : urlString]]
         extensionItem.attachments = [ NSItemProvider(item: jsDict as NSSecureCoding?, typeIdentifier: kUTTypePropertyList as String)]
         self.extensionContext!.completeRequest(returningItems: [extensionItem], completionHandler: nil)
     }
-
+    
     
 }
 

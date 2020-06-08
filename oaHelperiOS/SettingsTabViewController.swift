@@ -16,6 +16,7 @@ class SettingsTabViewController: UIViewController {
     @IBOutlet weak var iCloudSwitch: UISwitch!
     @IBOutlet weak var iCloudStatusLabel: UILabel!
     @IBOutlet weak var iCloudSwitchLabel: UILabel!
+    @IBOutlet weak var resetBookMarksLabel: UILabel!
     @IBOutlet weak var resetBookMarksSwitch: UISwitch!
     @IBOutlet weak var onlyUnpaywallSwitch: UISwitch!
     @IBOutlet weak var openAccessButtonSwitch: UISwitch!
@@ -30,6 +31,11 @@ class SettingsTabViewController: UIViewController {
     @IBOutlet weak var leaveReviewButton: UIButton!
     @IBOutlet weak var tellYourFriendsButton: UIButton!
     
+    // Mark: Header Labels
+    
+    @IBOutlet weak var openAccessOptionsHeaderLabel: UILabel!
+    @IBOutlet weak var bookmarksHeaderLabel: UILabel!
+    @IBOutlet weak var additionalFeaturesHeaderLabel: UILabel!
     
     
     let settings = SettingsBundleHelper()
@@ -44,6 +50,12 @@ class SettingsTabViewController: UIViewController {
         
         openSettingsButton.layer.cornerRadius = 10
         setupProxyButton.layer.cornerRadius = 10
+        openAccessOptionsHeaderLabel.layer.masksToBounds = true
+        bookmarksHeaderLabel.layer.masksToBounds = true
+        additionalFeaturesHeaderLabel.layer.masksToBounds = true
+        openAccessOptionsHeaderLabel.layer.cornerRadius = 5
+        bookmarksHeaderLabel.layer.cornerRadius = 5
+        additionalFeaturesHeaderLabel.layer.cornerRadius = 5
         
         readSettingsForSwitches()
         
@@ -307,8 +319,10 @@ class SettingsTabViewController: UIViewController {
     
     func hideiCloudRelatedContent(){
         self.iCloudSwitch.isOn = false
-        self.iCloudSwitch.isHidden = true
-        self.iCloudSwitchLabel.isHidden = true
+        self.iCloudSwitch.isEnabled = false
+        self.iCloudSwitchLabel.isEnabled = false
+        self.resetBookMarksSwitch.isEnabled = false
+        self.resetBookMarksLabel.isEnabled = false
         self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
     }
     

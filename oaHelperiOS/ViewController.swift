@@ -53,18 +53,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var activeBookMarkCheck = false
     var isOnline = true
     
+    var infoChildViewController = InfoChildViewController()
     
     // MARK: View Did Load
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.settings.ensureSettingsAreRegistered()
-        //search button should have rounded corners
+
+        //search button should have corner radius and offlineLabel should be empty
         searchButton.layer.cornerRadius = 10
-        //bookmarkButton.layer.cornerRadius = 10
-        //bookmarkButton.isHidden = true
-        //syncButton.isHidden = true
-        
         offlineLabel.text = ""
         
         //we want to set the title
@@ -88,6 +86,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.checkNews()
         self.updateUnreadCount()
         
+        // do promo containerView (Child VC)
+        self.addInfoChildViewController()
+        
+        //support mouse pointer
         if #available(iOS 13.4, *) {
             helpButton.isPointerInteractionEnabled = true
             advancedSearchButton.isPointerInteractionEnabled = true
@@ -158,18 +160,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    @IBAction func checkTapped(_ sender: Any) {
-        if(!self.isOnline){
-            let alertTitle = NSLocalizedString("Network Unavailable", comment: "iCloud Sync Error - most likely caused by a network being unavailable")
-            let alertMessage = NSLocalizedString("The app is unable to connect to the internet and thus won't be able to function correctly. Please ensure appropriate connectivity", comment: "iCloud Sync Error - most likely caused by wifi or mobile data being unavailable")
-            let okButton = "OK"
-            self.showErrorAlert(alertTitle : alertTitle, alertMessage : alertMessage, okButton : okButton)
-        }
-        else{
-           doSearch()
-        }
-        
-    }
+
     
     func doSearch(){
         selection.selectionChanged()
@@ -221,10 +212,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     self.performSegue(withIdentifier: "searchSegue", sender: nil)
                 }
             case .failure(let error):
-                self.effectView.removeFromSuperview()
-                self.enterSearchLabel.text = NSLocalizedString("Sorry, we encountered a problem", comment: "problem with search")
-                self.enterSearchLabel.textColor = UIColor.red
-                print(error)
+                DispatchQueue.main.async {
+                    self.effectView.removeFromSuperview()
+                    self.enterSearchLabel.text = NSLocalizedString("Sorry, we encountered a problem", comment: "problem with search")
+                    self.enterSearchLabel.textColor = UIColor.red
+                    print(error)
+                }
             }
         }
     }
@@ -260,8 +253,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
       
         
     }
-    
-
     
     func showErrorAlert(alertTitle : String, alertMessage : String, okButton : String){
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
@@ -318,6 +309,142 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func addInfoChildViewController(){
+        //if hint or anniversary was shown, we are done
+        let hintShown = self.settings.getSettingsValue(key: "hintShown")
+        let anniversaryShown = self.settings.getSettingsValue(key: "anniversaryShown")
+        var type = ""
+
+        if(hintShown && anniversaryShown){
+            return
+        }
+
+        if(!hintShown){
+            //find oa_found & oa_search counts, we don't want to show to users
+            //who have done the extension several times, or who are very low on oa_search counts
+            let oa_found = self.settings.getOACount(key: "oa_found");
+            let oa_search = self.settings.getOACount(key: "oa_search");
+            if(oa_found > 2){
+                self.settings.setSettingsValue(value: true, key: "hintShown")
+                return
+            }
+            if(oa_search < 5){
+                return
+            }
+            type = "hint"
+        }
+        else if(!anniversaryShown){
+            // installedHowLongAgo returns number of days
+            // we want to show to folks, who have used the app at least for 45 days
+            if(installedHowLongAgo() < 45){
+                return
+            }
+            type = "anniversary"
+        }
+        
+        
+        blurBackground()
+        infoChildViewController = storyboard!.instantiateViewController(withIdentifier: "InfoChildViewController") as! InfoChildViewController
+        addChild(infoChildViewController)
+        view.addSubview(infoChildViewController.view)
+        infoChildViewController.didMove(toParent: self)
+        setAddInfoChildViewControllerConstraints()
+        
+        if(type == "hint"){
+            infoChildViewController.type = "hint"
+            //set hintShown to true - for dev set it to false
+            self.settings.setSettingsValue(value: true, key: "hintShown")
+        }
+        else if(type == "anniversary"){
+            infoChildViewController.type = "anniversary"
+            infoChildViewController.days = installedHowLongAgo()
+            //set hintShown to true - for dev set it to false
+            self.settings.setSettingsValue(value: true, key: "anniversaryShown")
+        }
+        
+        infoChildViewController.setStuff()
+        
+        infoChildViewController.view.transform = CGAffineTransform(scaleX: 0.3, y: 2)
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0, options: .allowUserInteraction, animations: {
+            self.infoChildViewController.view.transform = .identity
+        }) { (finished) in
+            print("I am finished")
+        }
+        
+        
+    }
+    
+    func removeInfoChildViewController(){
+        let blurEffect = self.view.subviews.compactMap{ $0 as? UIVisualEffectView }
+               
+        
+        UIView.animate(withDuration: 0.4, delay: 0.1, options: .allowUserInteraction, animations: {
+            self.infoChildViewController.view.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+   
+        }) { (finished) in
+            self.infoChildViewController.view.alpha = 0
+            self.infoChildViewController.willMove(toParent: nil)
+            self.infoChildViewController.view.removeFromSuperview()
+            self.infoChildViewController.removeFromParent()
+            for effect in blurEffect{
+                effect.removeFromSuperview()
+            }
+        }
+    }
+    
+    func setAddInfoChildViewControllerConstraints(){
+        infoChildViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        infoChildViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50).isActive = true
+        infoChildViewController.view.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        infoChildViewController.view.heightAnchor.constraint(equalToConstant: 280).isActive = true
+        infoChildViewController.view.widthAnchor.constraint(equalToConstant: 280).isActive = true
+        infoChildViewController.view.layer.cornerRadius = 10
+    }
+    
+    func blurBackground(){
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
+    }
+    
+    func installedHowLongAgo() -> Int{
+        
+        let calendar = Calendar.current
+        
+        var appInstallDate: Date {
+          if let documentsFolder = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last {
+            if let installDate = try! FileManager.default.attributesOfItem(atPath: documentsFolder.path)[.creationDate] as? Date {
+              return installDate
+            }
+          }
+          return Date() // Should never execute
+        }
+        
+        // Replace the hour (time) of both dates with 00:00
+        let date1 = calendar.startOfDay(for: appInstallDate)
+        let date2 = calendar.startOfDay(for: Date())
+
+        let components = calendar.dateComponents([.day], from: date1, to: date2)
+        return components.day ?? 0
+    }
+    
+    func openExternalUrlWithProxy(url: String){
+        if(url != ""){
+            // need to get ProxyPrefix
+            let newProxyPrefix = settings.getSettingsStringValue(key: "proxyPrefix")
+            let newUrl = "\(newProxyPrefix)\(url)"
+            let url = URL(string: newUrl.trimmingCharacters(in: .whitespacesAndNewlines))
+            let vc = SFSafariViewController(url: url!)
+            self.present(vc, animated: true, completion: nil)
+        }
+        else{
+            print("access Tapped failed somehow - empty?")
+        }
+    }
+    
+    
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         self.textField.resignFirstResponder()
     }
@@ -326,6 +453,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let mainStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
         let controller = mainStoryboard.instantiateInitialViewController()!
         UIApplication.shared.keyWindow!.rootViewController = controller
+    }
+    
+    @IBAction func checkTapped(_ sender: Any) {
+        if(!self.isOnline){
+            let alertTitle = NSLocalizedString("Network Unavailable", comment: "iCloud Sync Error - most likely caused by a network being unavailable")
+            let alertMessage = NSLocalizedString("The app is unable to connect to the internet and thus won't be able to function correctly. Please ensure appropriate connectivity", comment: "iCloud Sync Error - most likely caused by wifi or mobile data being unavailable")
+            let okButton = "OK"
+            self.showErrorAlert(alertTitle : alertTitle, alertMessage : alertMessage, okButton : okButton)
+        }
+        else{
+           doSearch()
+        }
+        
     }
     
 }
