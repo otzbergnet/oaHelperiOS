@@ -1581,17 +1581,10 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="U6B-yj-2ee"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Statistics" id="sut-FN-B9K">
-                        <barButtonItem key="leftBarButtonItem" title="share Statistic Data" image="sharedata" id="utV-Ok-v4Q">
-                            <connections>
-                                <action selector="shareStats:" destination="XyU-0e-gHe" id="Uh5-Jc-RGd"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Statistics" id="sut-FN-B9K"/>
                     <connections>
                         <outlet property="explainerLabel" destination="vq8-9p-PLi" id="9tB-IA-ngJ"/>
                         <outlet property="myView" destination="NcN-Y1-Zub" id="U4H-hc-B73"/>
-                        <outlet property="shareDataButton" destination="utV-Ok-v4Q" id="hhl-C0-fFF"/>
                         <outlet property="tableView" destination="WIG-We-XkY" id="uVM-Zm-ZGz"/>
                     </connections>
                 </viewController>
@@ -1663,6 +1656,5 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
         <image name="icons8-statistics-75" width="25" height="25"/>
         <image name="image_read" width="25" height="25"/>
         <image name="info_icon" width="100" height="100"/>
-        <image name="sharedata" width="25" height="25"/>
     </resources>
 </document>
