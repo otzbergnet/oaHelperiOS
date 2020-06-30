@@ -23,18 +23,6 @@
 /* Class = "UILabel"; text = "About this App"; ObjectID = "ypY-dD-ifw"; */
 "ypY-dD-ifw.text" = "Über diese App";
 
-/* Class = "UILabel"; text = "Statistics?"; ObjectID = "Hme-JW-BbB"; */
-"Hme-JW-BbB.text" = "Statistiken";
-
-/* Class = "UILabel"; text = "Developing an app with next to no information on how it is used is rather difficult.\n\nYou can help out, by sharing some usage indicators once a month, which provide no details about you personally. The exact values and when they were shared last, are visible in the Settings App.\n\nThank you for helping out..."; ObjectID = "fet-ty-oQM"; */
-"fet-ty-oQM.text" = "Eine App ganz ohne Nutzungsdaten zu entwickeln ist richtig schwer.\n\nSie können helfen, indem Sie zustimmen einmal im Monat Nutzungsindikatoren zu teilen, die keine Rückschlüsse auf Sie als Nutzer geben. Die exakten Werte, und wann diese zum letzten Mal geteilt wurden, erhalten Sie in den Einstellungen zur App.\n\nDanke, dass Sie helfen wollen...";
-
-/* Class = "UILabel"; text = "Share once a month"; ObjectID = "XS4-fc-ccN"; */
-"XS4-fc-ccN.text" = "Daten monatlich teilen";
-
-/* Class = "UIButton"; normalTitle = "Open Settings"; ObjectID = "p7e-u9-etC"; */
-"p7e-u9-etC.normalTitle" = "Einstellungen öffnen";
-
 /* Class = "UILabel"; text = "Bookmarks?"; ObjectID = "RhQ-yr-ZOJ"; */
 "RhQ-yr-ZOJ.text" = "Bookmarks?";
 

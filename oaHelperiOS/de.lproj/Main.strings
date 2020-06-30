@@ -59,9 +59,6 @@
 /* SettingsTabView*/
 "SRu-U1-Sp5.text" = "Sie können hier die wichtigsten Einstellungen für diese App anpassen.";
 
-/* Class = "UILabel"; text = "Share usage once a month"; ObjectID = "xIv-r5-Rvh"; */
-"xIv-r5-Rvh.text" = "Nutzung monatlich teilen";
-
 /* Class = "UILabel"; text = "Enable Bookmarks"; ObjectID = "34Y-wY-K30"; */
 "34Y-wY-K30.text" = "Bookmarks aktivieren";
 
@@ -221,9 +218,6 @@
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "z94-xJ-2VE"; */
 "z94-xJ-2VE.normalTitle" = "Abbrechen";
 
-/* Class = "UIBarButtonItem"; title = "share Statistic Data"; ObjectID = "utV-Ok-v4Q"; */
-"utV-Ok-v4Q.title" = "Statistiken teilen";
-
 /* Class = "UILabel"; text = "Show OpenCitations"; ObjectID = "J6i-ty-AYy"; */
 "J6i-ty-AYy.text" = "OpenCitations zeigen";
 
@@ -250,9 +244,6 @@
 
 /* Class = "UISwitch"; accessibilityLabel = "iCloud Sync Bookmarks "; ObjectID = "OSv-wu-QL2"; */
 "OSv-wu-QL2.accessibilityLabel" = "Bookmarks mit iCloud synchronisieren";
-
-/* Class = "UISwitch"; accessibilityLabel = "Share usage once a month"; ObjectID = "S0b-h1-oM1"; */
-"S0b-h1-oM1.accessibilityLabel" = "Nutzungsdaten monatlich teilen";
 
 /* Class = "UISwitch"; accessibilityLabel = "iCloud Sync Bookmarks "; ObjectID = "UEp-7m-ecA"; */
 "UEp-7m-ecA.accessibilityLabel" = "Bookmarks mit iCloud synchronisieren";
