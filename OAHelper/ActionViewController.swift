@@ -61,7 +61,6 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     
     let settings = SettingsBundleHelper()
     let helper = HelperClass()
-    let stats = StatisticSubmit()
     let bookMark = BookMarkObject()
     let bookMarkData = BookMarkData()
     
@@ -90,8 +89,6 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.setupEmptyView()
         self.getAndSetBasicSettings()
-        
-        self.stats.submitStats()
         
         guard let extensionItems = extensionContext?.inputItems as? [NSExtensionItem] else {
             return

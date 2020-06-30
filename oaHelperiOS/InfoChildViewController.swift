@@ -63,7 +63,7 @@ class InfoChildViewController: UIViewController {
         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(activityViewController, animated: true, completion: nil)
         if let popOver = activityViewController.popoverPresentationController {
-            if let parentView = self.parent?.view{
+            if let parentView = vc.oahelperLogo{
                 popOver.sourceView = parentView
                 popOver.sourceRect = CGRect(x: 0, y: 0, width: parentView.frame.size.width, height: parentView.frame.size.height)
             }

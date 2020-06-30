@@ -293,6 +293,7 @@
                         <outlet property="advancedSearchButton" destination="iH6-Bw-q2M" id="dE9-Cu-NHH"/>
                         <outlet property="enterSearchLabel" destination="aEM-QZ-eEg" id="5TY-l6-XMG"/>
                         <outlet property="helpButton" destination="0EK-mq-2BI" id="XNa-sh-JGT"/>
+                        <outlet property="oahelperLogo" destination="U0W-S4-Hpn" id="9Rk-9O-w07"/>
                         <outlet property="offlineLabel" destination="3S3-po-hYW" id="u2P-iv-abg"/>
                         <outlet property="searchButton" destination="JJr-Ge-nca" id="x60-xD-WfN"/>
                         <outlet property="textField" destination="He3-yf-kv9" id="18E-Ge-1YB"/>

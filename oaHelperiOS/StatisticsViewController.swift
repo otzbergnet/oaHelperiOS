@@ -13,7 +13,6 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var myView: UIView!
     
     let settings = SettingsBundleHelper()
-    let stats = StatisticSubmit()
     var statisticsObject : [StatsValues] = []
     @IBOutlet weak var shareDataButton: UIBarButtonItem!
     
@@ -173,15 +172,6 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func shareStats(_ sender: Any) {
-        
-        self.stats.submitStats(force: true)
-        self.shareDataButton.isEnabled = false
-        self.shareDataButton.tintColor = UIColor.clear
-        let alertTitle = NSLocalizedString("Thank you", comment: "Thank you (for sharing statistics)")
-        let alertMessage = NSLocalizedString("I appreciate you sharing your usage data with me - only the values on this screen were shared", comment: "Thank you (for sharing staitsitcs) body")
-        showAlert(alertTitle: alertTitle, alertMessage: alertMessage, okButton: "OK")
-    }
     
 }
 
