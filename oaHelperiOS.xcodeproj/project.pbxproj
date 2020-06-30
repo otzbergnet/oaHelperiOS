@@ -19,7 +19,6 @@
 		2D11771A222182C800859B08 /* OnboardingFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D117719222182C800859B08 /* OnboardingFour.swift */; };
 		2D15F9A421E0C5A300FF8B46 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D15F9A321E0C5A300FF8B46 /* Helper.swift */; };
 		2D1BE15D21CAB1250063B691 /* OnboardingTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */; };
-		2D1BE15F21CAB1440063B691 /* OnboardingThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */; };
 		2D240DF121BC5A8F000BB29B /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D240DF021BC5A8F000BB29B /* ActionViewController.swift */; };
 		2D240DF421BC5A8F000BB29B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D240DF221BC5A8F000BB29B /* MainInterface.storyboard */; };
 		2D240DF821BC5A8F000BB29B /* OAHelper.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2D240DEC21BC5A8F000BB29B /* OAHelper.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -125,7 +124,6 @@
 		2D117719222182C800859B08 /* OnboardingFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingFour.swift; sourceTree = "<group>"; };
 		2D15F9A321E0C5A300FF8B46 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTwo.swift; sourceTree = "<group>"; };
-		2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingThree.swift; sourceTree = "<group>"; };
 		2D240DEC21BC5A8F000BB29B /* OAHelper.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OAHelper.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D240DF021BC5A8F000BB29B /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		2D240DF321BC5A8F000BB29B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -288,7 +286,6 @@
 				2DA19A9D23F28CC70096BFD2 /* OnboardingOne.swift */,
 				2DA19A9B23F28BED0096BFD2 /* OnboardingSeven.swift */,
 				2D575C4823A42B2000D1038F /* OnboardingSix.swift */,
-				2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */,
 				2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */,
 			);
 			path = onboarding;
@@ -575,7 +572,6 @@
 				2DFF67BB21C2F30A00120363 /* dessimStruct.swift in Sources */,
 				2DD08CEA21BC31ED00D0B3C0 /* AppDelegate.swift in Sources */,
 				2DF9FC2124247C30007C7D75 /* openCitationStruct.swift in Sources */,
-				2D1BE15F21CAB1440063B691 /* OnboardingThree.swift in Sources */,
 				2D1BE15D21CAB1250063B691 /* OnboardingTwo.swift in Sources */,
 				2DC0C19B23F1840B00A725AC /* ProxySettingsViewController.swift in Sources */,
 				2D652B232275A6D400A46F37 /* newsStruct.swift in Sources */,
