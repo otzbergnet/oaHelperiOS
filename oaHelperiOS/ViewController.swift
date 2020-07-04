@@ -91,13 +91,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
             advancedSearchButton.isPointerInteractionEnabled = true
             searchButton.isPointerInteractionEnabled = true
         }
-        
+        navigationController?.navigationBar.barStyle = .default
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.networkAvailable()
+        navigationController?.navigationBar.barStyle = .default
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
 
     // MARK:  NotificationCenter Observer Functions
     
