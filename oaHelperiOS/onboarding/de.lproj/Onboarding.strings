@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "OA Helper isn't active by default. To ensure it's there, go to Safari now, and click the share icon.\n\nScroll to the bottom and tap \"Edit Actions...\" then activate OA Helper by tapping the green plus to move it up the list, for easy access.\n\nClick the button below and we'll show you how!"; ObjectID = "Dro-VJ-mVt"; */
-"Dro-VJ-mVt.text" = "OA Helper muss erst aktiviert werden. Stellen Sie sicher, dass OA Helper aktiv ist, indem Sie nun Safari öffnen und dann das Teilen-Icon drücken.\n\nScrollen Sie ganz nach unten, wählen Sie Sie \"mehr...\" und aktivieren Sie OA Helper für schnellen Zugriff.\n\nDie Schaltfläche unten, zeigt, wie es geht!";
+"Dro-VJ-mVt.text" = "OA Helper muss erst aktiviert werden. Stellen Sie sicher, dass OA Helper aktiv ist, indem Sie nun Safari öffnen und dann das Teilen-Icon drücken.\n\nScrollen Sie ganz nach unten, wählen Sie \"mehr...\" und aktivieren Sie OA Helper für schnellen Zugriff.\n\nDie Schaltfläche unten, zeigt, wie es geht!";
 
 /* Class = "UILabel"; text = "Welcome!"; ObjectID = "U1Z-Q0-66y"; */
 "U1Z-Q0-66y.text" = "Willkommen!";
@@ -14,8 +14,8 @@
 /* Class = "UIButton"; normalTitle = "Close"; ObjectID = "lLR-Ad-8Xk"; */
 "lLR-Ad-8Xk.normalTitle" = "Beenden";
 
-/* Class = "UILabel"; text = "There are more than 22 million Open Access documents available via the unpaywall.org API and this app is here to help you use them.\n\nWhenever you reach a publisher's paywall, tap the share icon in Safari and select OA Helper. The App will inspect the page for a DOI and take you to the Open Access copy, if one is available.\n\nSwipe left to learn more."; ObjectID = "pjO-AG-Swx"; */
-"pjO-AG-Swx.text" = "Die unpaywall.org API kann Ihnen helfen mehr als 22 Millionen Open Access Dokumente zu finden.\n\nSobald Sie keinen Zugriff auf eine wissenschaftliche Veröffentlichung haben, drücken Sie das Teilen-Icon in Safari und wählen OA Helper. Wir suchen einen DOI in der Seite und dann nach einer Open Access Kopie.\n\nWischen Sie nach links, um mehr zu erfahren.";
+/* Class = "UILabel"; text = "There are more than 25 million Open Access documents available via the unpaywall.org API and this app is here to help you use them.\n\nWhenever you reach a publisher's paywall, tap the share icon in Safari and select OA Helper. The App will inspect the page for a DOI and take you to the Open Access copy, if one is available.\n\nSwipe left to learn more."; ObjectID = "pjO-AG-Swx"; */
+"pjO-AG-Swx.text" = "Die unpaywall.org API kann Ihnen helfen mehr als 25 Millionen Open Access Dokumente zu finden.\n\nSobald Sie keinen Zugriff auf eine wissenschaftliche Veröffentlichung haben, drücken Sie das Teilen-Icon in Safari und wählen OA Helper. Wir suchen einen DOI in der Seite und dann nach einer Open Access Kopie.\n\nWischen Sie nach links, um mehr zu erfahren.";
 
 /* Class = "UIButton"; normalTitle = "Show me how"; ObjectID = "r6v-qV-YFb"; */
 "r6v-qV-YFb.normalTitle" = "Anleitung zeigen";
@@ -53,7 +53,7 @@
 /* Class = "UIButton"; normalTitle = "Skip, I'll do it later"; ObjectID = "PUe-Ye-tIX"; */
 "PUe-Ye-tIX.normalTitle" = "Überspringen, mach ich später";
 
-/* Class = "UILabel"; text = "If your institute supports EZProxy for remote access, you can setup support in Open Access Helper with just a few clicks.\n\nEnter the domain (e.g. harvard.edu) of your university below and click Setup Proxy Button. You can make more changes in Settings!"; ObjectID = "UsE-ZG-b1a"; */
+/* Class = "UILabel"; text = "If your institute supports EZProxy for remote access, you can setup support in Open Access Helper with just a few clicks.\n\nEnter the domain (e.g. harvard.edu) of your university above and click the Setup Proxy button. You can make more changes in Settings!"; ObjectID = "UsE-ZG-b1a"; */
 "UsE-ZG-b1a.text" = "Wenn Ihre Institution den Fernzugriff mittels EZProxy unterstützt, können Sie Open Access Helper mit wenigen Klicks entsprechend einrichten.\n\nGeben Sie den Domain-Namen (z.B. harvard.edu) Ihrer Institution ein und wählen Sie dann \"Proxy einrichten\". In den Einstellungen finden Sie weitere Konfigurationsmöglichkeiten!";
 
 /* Class = "UILabel"; text = "Remote Access"; ObjectID = "a21-Tn-iaz"; */
