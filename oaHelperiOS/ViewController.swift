@@ -27,6 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var advancedSearchButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
     
+    @IBOutlet weak var oahelperLogo: UIImageView!
     
     var searchTerm = ""
     var search = ""
@@ -41,7 +42,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     
     let settings = SettingsBundleHelper()
-    let stats = StatisticSubmit()
     var bookMarkData = BookMarkData()
     let helper = HelperClass()
     let newsItemData = NewsItemData()
@@ -79,10 +79,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //do the bookMarkCheck
         NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
         
-        //only do when the view truly did load, we don't want to do this too often
-        //the function also checks to ensure it only happens once a month
-        self.stats.submitStats()
-        
         self.checkNews()
         self.updateUnreadCount()
         
@@ -95,13 +91,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
             advancedSearchButton.isPointerInteractionEnabled = true
             searchButton.isPointerInteractionEnabled = true
         }
-        
+        navigationController?.navigationBar.barStyle = .default
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.networkAvailable()
+        navigationController?.navigationBar.barStyle = .default
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
 
     // MARK:  NotificationCenter Observer Functions
     

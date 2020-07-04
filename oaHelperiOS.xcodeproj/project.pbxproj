@@ -16,12 +16,9 @@
 		2D08FE252229AFD30066949C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D08FE232229AF8E0066949C /* CloudKit.framework */; };
 		2D08FE272229B3290066949C /* DataSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08FE262229B3290066949C /* DataSync.swift */; };
 		2D08FE282229B3290066949C /* DataSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D08FE262229B3290066949C /* DataSync.swift */; };
-		2D11771722207A7000859B08 /* StatisticSubmit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11771622207A7000859B08 /* StatisticSubmit.swift */; };
-		2D1177182221329500859B08 /* StatisticSubmit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11771622207A7000859B08 /* StatisticSubmit.swift */; };
 		2D11771A222182C800859B08 /* OnboardingFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D117719222182C800859B08 /* OnboardingFour.swift */; };
 		2D15F9A421E0C5A300FF8B46 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D15F9A321E0C5A300FF8B46 /* Helper.swift */; };
 		2D1BE15D21CAB1250063B691 /* OnboardingTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */; };
-		2D1BE15F21CAB1440063B691 /* OnboardingThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */; };
 		2D240DF121BC5A8F000BB29B /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D240DF021BC5A8F000BB29B /* ActionViewController.swift */; };
 		2D240DF421BC5A8F000BB29B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D240DF221BC5A8F000BB29B /* MainInterface.storyboard */; };
 		2D240DF821BC5A8F000BB29B /* OAHelper.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2D240DEC21BC5A8F000BB29B /* OAHelper.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -124,11 +121,9 @@
 		2D06547021D3DF60009586B3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2D08FE232229AF8E0066949C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		2D08FE262229B3290066949C /* DataSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSync.swift; sourceTree = "<group>"; };
-		2D11771622207A7000859B08 /* StatisticSubmit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticSubmit.swift; sourceTree = "<group>"; };
 		2D117719222182C800859B08 /* OnboardingFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingFour.swift; sourceTree = "<group>"; };
 		2D15F9A321E0C5A300FF8B46 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTwo.swift; sourceTree = "<group>"; };
-		2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingThree.swift; sourceTree = "<group>"; };
 		2D240DEC21BC5A8F000BB29B /* OAHelper.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OAHelper.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D240DF021BC5A8F000BB29B /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		2D240DF321BC5A8F000BB29B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -291,7 +286,6 @@
 				2DA19A9D23F28CC70096BFD2 /* OnboardingOne.swift */,
 				2DA19A9B23F28BED0096BFD2 /* OnboardingSeven.swift */,
 				2D575C4823A42B2000D1038F /* OnboardingSix.swift */,
-				2D1BE15E21CAB1440063B691 /* OnboardingThree.swift */,
 				2D1BE15C21CAB1250063B691 /* OnboardingTwo.swift */,
 			);
 			path = onboarding;
@@ -311,7 +305,6 @@
 				2DC0C19E23F195FB00A725AC /* ProxyFind.swift */,
 				2DAD65672392AA0B00940419 /* RecommenderHelper.swift */,
 				2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */,
-				2D11771622207A7000859B08 /* StatisticSubmit.swift */,
 				2DB47C1F23A6502B004E44FA /* Timer.swift */,
 				2DA6ECAD2425D44B00B5369A /* OpenCitationHelper.swift */,
 				2DB2D3682479141A007CD6FF /* GenericTableViewCell.swift */,
@@ -550,7 +543,6 @@
 			files = (
 				2DA6ECAF2425D66200B5369A /* OpenCitationHelper.swift in Sources */,
 				2DE8F3602221D079000B27A1 /* CopyableLabel.swift in Sources */,
-				2D1177182221329500859B08 /* StatisticSubmit.swift in Sources */,
 				2D240DF121BC5A8F000BB29B /* ActionViewController.swift in Sources */,
 				2DE8F35C2221D022000B27A1 /* Model.xcdatamodeld in Sources */,
 				2DA6ECB02425DAC400B5369A /* openCitationStruct.swift in Sources */,
@@ -573,7 +565,6 @@
 			files = (
 				2DC0C19D23F1956D00A725AC /* proxyStruct.swift in Sources */,
 				2D30FC5D21E4715F00C4060D /* TableViewCell.swift in Sources */,
-				2D11771722207A7000859B08 /* StatisticSubmit.swift in Sources */,
 				2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */,
 				2D652B1B2272BC6500A46F37 /* StatisticsViewController.swift in Sources */,
 				2DDCF90D22D2435B00BD63B7 /* DateExtension.swift in Sources */,
@@ -581,7 +572,6 @@
 				2DFF67BB21C2F30A00120363 /* dessimStruct.swift in Sources */,
 				2DD08CEA21BC31ED00D0B3C0 /* AppDelegate.swift in Sources */,
 				2DF9FC2124247C30007C7D75 /* openCitationStruct.swift in Sources */,
-				2D1BE15F21CAB1440063B691 /* OnboardingThree.swift in Sources */,
 				2D1BE15D21CAB1250063B691 /* OnboardingTwo.swift in Sources */,
 				2DC0C19B23F1840B00A725AC /* ProxySettingsViewController.swift in Sources */,
 				2D652B232275A6D400A46F37 /* newsStruct.swift in Sources */,
@@ -694,7 +684,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Extension";
 				CODE_SIGN_ENTITLEMENTS = OAHelper/OAHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = OAHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -703,7 +693,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2020.3;
+				MARKETING_VERSION = 2020.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS.OAHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -720,7 +710,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Extension";
 				CODE_SIGN_ENTITLEMENTS = OAHelper/OAHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = OAHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -729,7 +719,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2020.3;
+				MARKETING_VERSION = 2020.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS.OAHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -864,7 +854,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = oaHelperiOS/oaHelperiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = oaHelperiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -872,7 +862,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2020.3;
+				MARKETING_VERSION = 2020.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -888,7 +878,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = oaHelperiOS/oaHelperiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = oaHelperiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -896,7 +886,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2020.3;
+				MARKETING_VERSION = 2020.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

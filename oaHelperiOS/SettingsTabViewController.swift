@@ -11,7 +11,6 @@ import CloudKit
 
 class SettingsTabViewController: UIViewController {
     
-    @IBOutlet weak var shareSwitch: UISwitch!
     @IBOutlet weak var bookMarkSwitch: UISwitch!
     @IBOutlet weak var iCloudSwitch: UISwitch!
     @IBOutlet weak var iCloudStatusLabel: UILabel!
@@ -111,18 +110,6 @@ class SettingsTabViewController: UIViewController {
             }
         }
         
-        // share stats
-        if(self.settings.getSettingsValue(key: "share_stats")){
-            DispatchQueue.main.async {
-                self.shareSwitch.isOn = true
-            }
-        }
-        else{
-            DispatchQueue.main.async {
-                self.shareSwitch.isOn = false
-            }
-        }
-        
         // use only Unaywall
         if(self.settings.getSettingsValue(key: "only_unpaywall")){
             DispatchQueue.main.async {
@@ -187,15 +174,7 @@ class SettingsTabViewController: UIViewController {
     }
     
     func readSettingsForSwitches(){
-        
-        // share stats
-        if(self.settings.getSettingsValue(key: "share_stats")){
-            shareSwitch.isOn = true
-        }
-        else{
-            shareSwitch.isOn = false
-        }
-        
+               
         // use bookmarks
         if(self.settings.getSettingsValue(key: "bookmarks")){
             bookMarkSwitch.isOn = true
@@ -324,16 +303,6 @@ class SettingsTabViewController: UIViewController {
         self.resetBookMarksSwitch.isEnabled = false
         self.resetBookMarksLabel.isEnabled = false
         self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
-    }
-    
-    
-    @IBAction func dataShareSwitched(_ sender: UISwitch!) {
-        if(self.shareSwitch.isOn){
-            self.settings.setSettingsValue(value: true, key: "share_stats")
-        }
-        else{
-            self.settings.setSettingsValue(value: false, key: "share_stats")
-        }
     }
     
     @IBAction func bookMarksSwitched(_ sender: UISwitch!) {

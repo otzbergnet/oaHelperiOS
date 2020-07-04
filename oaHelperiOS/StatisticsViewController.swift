@@ -13,7 +13,6 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var myView: UIView!
     
     let settings = SettingsBundleHelper()
-    let stats = StatisticSubmit()
     var statisticsObject : [StatsValues] = []
     @IBOutlet weak var shareDataButton: UIBarButtonItem!
     
@@ -30,7 +29,6 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction))
         self.myView.addGestureRecognizer(gesture)
         AppStoreReviewManager.requestReviewIfAppropriate()
-        showShareIcon()
     }
     
     @objc func checkAction(sender : UITapGestureRecognizer) {
@@ -42,7 +40,6 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
         setExplainerLabelDefault()
         createStatisticsObject()
         tableView.reloadData()
-        showShareIcon()
     }
     
     func setExplainerLabelDefault(){
@@ -127,18 +124,6 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
         sync_date.explainerLabel = NSLocalizedString("The date, we have last synced your bookmarks with iCloud. Please note that we will only sync once every two hours, unless you manually initiate a sync. See Settings to change your iCloud Sync preference.", comment: "")
         tmpStatisticsObject.append(sync_date)
         
-        let share_date = StatsValues()
-        share_date.textLabel = NSLocalizedString("Last Statstics Share Date", comment: "")
-        let shareDate = settings.getShareDate()
-        if(shareDate != "0"){
-            share_date.detailTextLabel = "\(shareDate)"
-        }
-        else{
-            share_date.detailTextLabel = NSLocalizedString("Never", comment: "")
-        }
-        share_date.explainerLabel = NSLocalizedString("The date, these statistics have last been shared with the app developer. See Settings to change your sharing preference.", comment: "")
-        tmpStatisticsObject.append(share_date)
-        
         statisticsObject = tmpStatisticsObject
         
     }
@@ -153,17 +138,6 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
     }
     */
 
-    func showShareIcon(){
-        let submit = self.settings.getSettingsValue(key: "share_stats")
-        if(submit){
-            self.shareDataButton.isEnabled = false
-            self.shareDataButton.tintColor = UIColor.clear
-        }
-        else{
-            self.shareDataButton.isEnabled = true
-            self.shareDataButton.tintColor = .black
-        }
-    }
     
     func showAlert(alertTitle : String, alertMessage : String, okButton : String){
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
@@ -173,15 +147,6 @@ class StatisticsViewController: UIViewController, UITableViewDataSource, UITable
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func shareStats(_ sender: Any) {
-        
-        self.stats.submitStats(force: true)
-        self.shareDataButton.isEnabled = false
-        self.shareDataButton.tintColor = UIColor.clear
-        let alertTitle = NSLocalizedString("Thank you", comment: "Thank you (for sharing statistics)")
-        let alertMessage = NSLocalizedString("I appreciate you sharing your usage data with me - only the values on this screen were shared", comment: "Thank you (for sharing staitsitcs) body")
-        showAlert(alertTitle: alertTitle, alertMessage: alertMessage, okButton: "OK")
-    }
     
 }
 
