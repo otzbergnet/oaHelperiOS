@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GQy-uu-nA0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GQy-uu-nA0">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -535,7 +535,6 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Md-7U-bVi">
                                                 <rect key="frame" x="0.0" y="582" width="290" height="182"/>
@@ -595,12 +594,10 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="miY-0Z-9fT" firstAttribute="width" secondItem="C8h-i1-nMe" secondAttribute="width" constant="-30" id="Jhn-Ym-2M7"/>
                                     <constraint firstItem="miY-0Z-9fT" firstAttribute="trailing" secondItem="ZyL-yg-Bw4" secondAttribute="trailing" id="Kr4-mo-Xp2"/>
@@ -612,7 +609,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="C8h-i1-nMe"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="v8O-wu-c6a" firstAttribute="leading" secondItem="245-Ry-Z5e" secondAttribute="leading" id="5pL-V4-sFd"/>
                             <constraint firstAttribute="bottom" secondItem="v8O-wu-c6a" secondAttribute="bottom" id="8GW-H0-L20"/>
