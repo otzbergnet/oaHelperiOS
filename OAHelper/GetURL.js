@@ -53,7 +53,7 @@ function findDoi(){
     }
     
     //on this one I am rather desperate and start scraping specific elements
-    if(doi1 == "0"){
+    if(doi == "0" && doi1 == "0"){
         doi2 = scrapePage();
     }
     
