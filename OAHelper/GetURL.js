@@ -1,7 +1,7 @@
 var GetURL = function() {};
 
 GetURL.prototype = {
-
+    
 run: function(arguments) {
     arguments.completionFunction({ "currentUrl" : document.URL, "docTitle" : document.title, "doi" : findDoi(), "abstract" : findAbstract() });
 },
@@ -13,7 +13,7 @@ finalize: function(arguments) {
             window.location.href = message["returnUrl"]
         }
         else if(message["returnUrl"] != ""){
-//            alert(message);
+            //            alert(message);
         }
     }
     else if(message["action"] && message["action"] == "bookmarked"){
@@ -53,7 +53,7 @@ function findDoi(){
     }
     
     //on this one I am rather desperate and start scraping specific elements
-    if(doi1 == "0"){
+    if(doi == "0" && doi1 == "0"){
         doi2 = scrapePage();
     }
     
@@ -107,13 +107,13 @@ function findAbstract(){
     
     for(i = 0; i < locations.length; i++){
         if(abstract == "0"){
-           abstract = getMeta(locations[i]);
+            abstract = getMeta(locations[i]);
         }
     }
     var ogLocation = ['og:description'];
     for(j = 0; j < ogLocation.length; j++){
         if(abstract == "0"){
-           abstract = getMetaProperty(ogLocation[j]);
+            abstract = getMetaProperty(ogLocation[j]);
         }
     }
     return abstract;
@@ -204,7 +204,92 @@ function scrapePage(){
         return doi;
     }
     else{
-        return "0"
+        var host = document.URL;
+        if(host.indexOf("ieeexplore.ieee.org") > -1){
+            // IEEE
+            var regex = new RegExp('"doi":"([^"]+)"');
+            var doi = runRegexOnDoc(regex);
+            if(doi != false){
+                return doi;
+            }
+            
+        }
+        else if(host.indexOf("nber.org") > -1){
+            //National Bureau of Economic Research
+            var regex = new RegExp('Document Object Identifier \\(DOI\\): (10.*?)<\\/p>');
+            var doi = runRegexOnDoc(regex);
+            return doi;
+            
+        }
+        else if(host.indexOf("base-search.net") > -1){
+            // BASE SEARCH - for detail view, really quite superflous, but I like base
+            if (document.querySelectorAll("a.link-orange[href^=\"https://doi.org/\"]").length > 0){
+                var doi = document.querySelectorAll("a.link-orange[href^=\"https://doi.org/\"]")[0].href.replace('https://doi.org/','').replace('http://doi.org/','');
+                return doi;
+            }
+        }
+        else if(host.indexOf("gettheresearch.org") > -1){
+            doConsoleLog("Open Access Helper (Safari Extension) - support for gettheresearch.org is experimental");
+            // GetTheResearch.org- for detail view, really quite superflous, but I like base
+            if(window.location.search.indexOf("zoom=") > -1){
+                var potentialDoi = getQueryVariable("zoom");
+                return doi;
+            }
+        }
+        else if(host.indexOf("psycnet.apa.org") > -1){
+            doConsoleLog("Open Access Helper (Safari Extension) - support for psycnet.apa.org is experimental");
+            
+            if(document.querySelectorAll(".citation-text>a").length > 0){
+                var doiElements = document.querySelectorAll(".citation-text>a");
+                var potentialDoi = doiElements[0];
+                potentialDoi = potentialDoi.replace('https://doi.org/', '');
+                return doi;
+            }
+        }
+        else if(host.indexOf("proquest.com") > -1){
+            doConsoleLog("Open Access Helper (Safari Extension) - support for proquest.com is experimental");
+            if(document.querySelectorAll(".abstract_Text").length > 0){
+                var doiElements = document.querySelectorAll(".abstract_Text");
+                var potentialDoi = doiElements[0];
+                var regex = new RegExp('DOI:(10\..*)');
+                var doi = runRegexOnText(potentialDoi.textContent, regex);
+                return doi;
+            }
+        }
+        else if(host.indexOf("ebscohost.com") > -1 && document.location.href.indexOf("/detail") > -1){
+            doConsoleLog("Open Access Helper (Safari Extension) - support for ebscohost.com is experimental");
+            const fullTextIndicators = ['pdf-ft', 'html-ft', 'html-ftwg'];
+            let isFullText = false;
+            fullTextIndicators.forEach(function(item){
+                let element = document.getElementsByClassName(item);
+                if(element.length > 0){
+                    isFullText = true;
+                }
+            });
+            
+            
+            if(document.getElementsByTagName("dd").length > 0){
+                var doiElements = document.getElementsByTagName("dd");
+                [...doiElements].forEach(function(element){
+                    if(element.textContent.indexOf("10.") == 0 && isDOI(element.textContent)){
+                        if(!isFullText){
+                            return element.textContent;
+                        }
+                        
+                    }
+                });
+            }
+        }
+        else if(host.indexOf("dl.acm.org") > -1 && document.location.href.indexOf("/doi/") > -1){
+            doConsoleLog("Open Access Helper (Safari Extension) - support for dl.acm.org is experimental");
+            var urlParts = document.location.href.split("/doi/");
+            if(isDOI(urlParts[1])){
+                return urlParts[1];
+            }
+        }
+        else{
+            return 0;
+        }
     }
 }
 
@@ -238,6 +323,24 @@ function matchAgainstRegex(data){
     }
     
     return '';
+}
+
+function runRegexOnDoc(regEx){
+    var m = regEx.exec(document.documentElement.innerHTML);
+    if (m && m.length > 1){
+        return m[1];
+    }
+    return false
+}
+
+function runRegexOnText(text, regEx){
+    doConsoleLog(text)
+    var m = regEx.exec(text);
+    if (m && m.length > 1){
+        doConsoleLog(m)
+        return m[1];
+    }
+    return false
 }
 
 function insertConfirmation(message){
