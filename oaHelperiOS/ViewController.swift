@@ -91,12 +91,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             advancedSearchButton.isPointerInteractionEnabled = true
             searchButton.isPointerInteractionEnabled = true
         }
-        navigationController?.navigationBar.barStyle = .default
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.networkAvailable()
-        navigationController?.navigationBar.barStyle = .default
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -181,7 +179,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 nextViewController.apiData = self.apiData
                 nextViewController.page = 1
                 nextViewController.search = self.search
-                print("searchTerm:", self.search)
+                //print("searchTerm:", self.search)
             }
         }
     }
@@ -369,7 +367,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0, options: .allowUserInteraction, animations: {
             self.infoChildViewController.view.transform = .identity
         }) { (finished) in
-            print("I am finished")
+            //print("I am finished")
         }
         
         
@@ -441,7 +439,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.present(vc, animated: true, completion: nil)
         }
         else{
-            print("access Tapped failed somehow - empty?")
+            //print("access Tapped failed somehow - empty?")
         }
     }
     
