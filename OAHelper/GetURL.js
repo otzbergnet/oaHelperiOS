@@ -275,7 +275,7 @@ function scrapePage(){
                         if(!isFullText){
                             return element.textContent;
                         }
-
+                        
                     }
                 });
             }
