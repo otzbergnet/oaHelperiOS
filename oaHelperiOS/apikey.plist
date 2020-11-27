@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>coreRecommenderUrl</key>
-	<string>https://www.oahelper.org/backend/core/recommender.php</string>
+	<string>---</string>
 	<key>coreRecommender</key>
-	<string>l6sNUJ3Knh</string>
+	<string>---</string>
 	<key>coreDiscovery</key>
-	<string>uMPbcSzO7HNK8wDF5h2gAst3xjrldXEo</string>
+	<string>---</string>
 	<key>core</key>
-	<string>uMPbcSzO7HNK8wDF5h2gAst3xjrldXEo</string>
+	<string>---</string>
 	<key>proxyApi</key>
-	<string>https://www.oahelper.org/backend/institutes/api.php</string>
+	<string>---</string>
 </dict>
 </plist>
