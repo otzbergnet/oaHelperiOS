@@ -13,10 +13,13 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var proxyPrefixTextfield: UITextField!
     @IBOutlet weak var searchDomainTextfield: UITextField!
+    @IBOutlet weak var illUrlTextfield: UITextField!
     
     @IBOutlet weak var saveProxyButton: UIButton!
+    @IBOutlet weak var saveIllButton: UIButton!
     @IBOutlet weak var searchDomainButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var searchTypeSegmentControl: UISegmentedControl!
     
     @IBOutlet weak var statusLabel: UILabel!
     
@@ -28,8 +31,9 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        saveProxyButton.layer.cornerRadius = 10
-        searchDomainButton.layer.cornerRadius = 10
+        saveProxyButton.layer.cornerRadius = 5
+        searchDomainButton.layer.cornerRadius = 5
+        saveIllButton.layer.cornerRadius = 5
         cancelButton.layer.cornerRadius = 10
         
         statusLabel.text = ""
@@ -76,6 +80,12 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
                 self.proxyPrefixTextfield.text = newProxyPrefix
             }
         }
+        let newIllUrl = settings.getSettingsStringValue(key: "illUrl")
+        if(newIllUrl != ""){
+            DispatchQueue.main.async {
+                self.illUrlTextfield.text = newIllUrl
+            }
+        }
     }
     
     func dismissLater(seconds: Double){
@@ -117,12 +127,33 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
         saveProxyManually()
     }
     
+    @IBAction func saveIllButtonTapped(_ sender: Any) {
+        //TO DO
+    }
+    
+    @IBAction func searchTypeSegmentChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            searchDomainTextfield.placeholder = "Institute Domain, e.g. harvard.edu"
+        case 1:
+            searchDomainTextfield.placeholder = "Partial Name, e.g. harva"
+        default:
+            break;
+        }
+    }
+    
+    
     func serchByDomainFunction() {
         self.searchDomainTextfield.resignFirstResponder()
         self.statusLabel.text = NSLocalizedString("Searching...", comment: "show searching, when looking up settings")
+        let queryTypeRawValue = self.searchTypeSegmentControl.selectedSegmentIndex
+        var queryType = "domain"
+        if(queryTypeRawValue == 1){
+            queryType = "query"
+        }
         if let domain = searchDomainTextfield.text {
             if(domain.count > 0){
-                proxyFind.askForProxy(domain: domain) { (res) in
+                proxyFind.askForProxy(domain: domain, queryType: queryType) { (res) in
                     switch res{
                     case .success(let proxyList):
                         if(proxyList.count == 0){
@@ -134,8 +165,17 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
                             if let proxyPrefix = proxyList.first?.proxyUrl.replacingOccurrences(of: "{targetUrl}", with: ""){
                                 DispatchQueue.main.async {
                                     self.settings.setSettingsStringValue(value: proxyPrefix, key: "proxyPrefix")
+                                    if(proxyPrefix != ""){
+                                        self.settings.setSettingsValue(value: true, key: "useProxy")
+                                    }
                                     if let instituteId = proxyList.first?.id{
                                         self.settings.setSettingsStringValue(value: instituteId, key: "instituteId")
+                                    }
+                                    if let illUrl = proxyList.first?.ill.replacingOccurrences(of: "{doi}", with: "") {
+                                        self.settings.setSettingsStringValue(value: illUrl, key: "illUrl")
+                                        if(illUrl != ""){
+                                            self.settings.setSettingsValue(value: true, key: "useIll")
+                                        }
                                     }
                                     self.getProxyForTextfield()
                                     self.statusLabel.text = NSLocalizedString("Successfuly, saved!", comment: "if proxy was successfully saved")

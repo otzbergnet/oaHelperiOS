@@ -118,7 +118,7 @@
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "1lj-de-Wva"; */
 "1lj-de-Wva.text" = "Untertitel";
 
-/* Class = "UIButton"; normalTitle = "Setup Proxy"; ObjectID = "2SW-lw-2NX"; */
+/* Class = "UIButton"; normalTitle = "Setup Institution"; ObjectID = "2SW-lw-2NX"; */
 "2SW-lw-2NX.normalTitle" = "Proxy einrichten";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "3S3-po-hYW"; */
@@ -160,7 +160,7 @@
 /* Class = "UILabel"; text = "Use Proxy"; ObjectID = "Vra-TD-yuG"; */
 "Vra-TD-yuG.text" = "Proxy nutzen";
 
-/* Class = "UIButton"; normalTitle = "Search by domain"; ObjectID = "Z2G-g4-c2A"; */
+/* Class = "UIButton"; normalTitle = "Search Institute"; ObjectID = "Z2G-g4-c2A"; */
 "Z2G-g4-c2A.normalTitle" = "Such nach Domain";
 
 /* Class = "UITabBarItem"; title = "Item"; ObjectID = "enT-rz-IDG"; */
@@ -190,7 +190,7 @@
 /* Class = "UITabBarItem"; title = "Search"; ObjectID = "o8H-7F-7qK"; */
 "o8H-7F-7qK.title" = "Suchen";
 
-/* Class = "UILabel"; text = "Find Settings by Domain"; ObjectID = "qx5-tJ-hiD"; */
+/* Class = "UILabel"; text = "Find Settings"; ObjectID = "qx5-tJ-hiD"; */
 "qx5-tJ-hiD.text" = "Einstellungen anhand der Domain suchen";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "rm1-3d-JDr"; */
@@ -270,3 +270,24 @@
 
 /* Class = "UILabel"; text = "Here's a tip for you!"; ObjectID = "zyN-qd-wLQ"; */
 "zyN-qd-wLQ.text" = "Ein Tipp für Sie!";
+
+/* Class = "UISwitch"; accessibilityLabel = "Use Proxy"; ObjectID = "64q-jH-359"; */
+"64q-jH-359.accessibilityLabel" = "Proxy nutzen";
+
+/* Class = "UILabel"; text = "Use Inst. Request Form"; ObjectID = "uMt-tk-tdn"; */
+"uMt-tk-tdn.text" = "Anfrageformular nutzen";
+
+/* Class = "UILabel"; text = "Request Form Settings"; ObjectID = "SIp-Nk-j8g"; */
+"SIp-Nk-j8g.text" = "Einstellungen f. Anfrageformular";
+
+/* Class = "UISegmentedControl"; T2A-Cp-Iqa.segmentTitles[0] = "Domain"; ObjectID = "T2A-Cp-Iqa"; */
+"T2A-Cp-Iqa.segmentTitles[0]" = "Domain";
+
+/* Class = "UISegmentedControl"; T2A-Cp-Iqa.segmentTitles[1] = "Name"; ObjectID = "T2A-Cp-Iqa"; */
+"T2A-Cp-Iqa.segmentTitles[1]" = "Name";
+
+/* Class = "UITextField"; placeholder = "e.g. https://proxy.uni.edu/form?doi="; ObjectID = "hS9-np-m46"; */
+"hS9-np-m46.placeholder" = "z.B. https://proxy.uni.edu/form?doi=";
+
+/* Class = "UIButton"; normalTitle = "Save Request Form"; ObjectID = "iEQ-ht-Hai"; */
+"iEQ-ht-Hai.normalTitle" = "Anfrageformular speichern";

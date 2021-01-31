@@ -46,16 +46,16 @@
 /* Class = "UILabel"; text = "More Open Access"; ObjectID = "wIj-pF-X7n"; */
 "wIj-pF-X7n.text" = "Mehr Open Access";
 
-/* Class = "UIButton"; normalTitle = "Setup Proxy"; ObjectID = "FWu-w7-oVE"; */
+/* Class = "UIButton"; normalTitle = "Setup Institute"; ObjectID = "FWu-w7-oVE"; */
 "FWu-w7-oVE.normalTitle" = "Proxy einrichten";
 
 /* Class = "UIButton"; normalTitle = "Skip, I'll do it later"; ObjectID = "PUe-Ye-tIX"; */
 "PUe-Ye-tIX.normalTitle" = "Überspringen, mach ich später";
 
-/* Class = "UILabel"; text = "If your institute supports EZProxy for remote access, you can setup support in Open Access Helper with just a few clicks.\n\nEnter the domain (e.g. harvard.edu) of your university above and click the Setup Proxy button. You can make more changes in Settings!"; ObjectID = "UsE-ZG-b1a"; */
+/* Class = "UILabel"; text = "If your institute supports EZProxy for remote access, you can setup support in Open Access Helper with just a few clicks.\n\nIf a Request Form is registered with us, this too can be shown. Search for your institute - it's that easy!"; ObjectID = "UsE-ZG-b1a"; */
 "UsE-ZG-b1a.text" = "Wenn Ihre Institution den Fernzugriff mittels EZProxy unterstützt, können Sie Open Access Helper mit wenigen Klicks entsprechend einrichten.\n\nGeben Sie den Domain-Namen (z.B. harvard.edu) Ihrer Institution ein und wählen Sie dann \"Proxy einrichten\". In den Einstellungen finden Sie weitere Konfigurationsmöglichkeiten!";
 
-/* Class = "UILabel"; text = "Remote Access"; ObjectID = "a21-Tn-iaz"; */
+/* Class = "UILabel"; text = "Institutional Access"; ObjectID = "a21-Tn-iaz"; */
 "a21-Tn-iaz.text" = "Fernzugriff";
 
 /* Class = "UITextField"; placeholder = "Institute Domain, e.g. harvard.edu"; ObjectID = "bS5-pZ-CQi"; */
@@ -69,3 +69,9 @@
 
 /* Class = "UIButton"; normalTitle = "More Info"; ObjectID = "zdd-3y-GlC"; */
 "zdd-3y-GlC.normalTitle" = "Weitere Informationen";
+
+/* Class = "UISegmentedControl"; oX9-0s-Xpw.segmentTitles[0] = "Domain"; ObjectID = "oX9-0s-Xpw"; */
+"oX9-0s-Xpw.segmentTitles[0]" = "Domain";
+
+/* Class = "UISegmentedControl"; oX9-0s-Xpw.segmentTitles[1] = "Inst. Name"; ObjectID = "oX9-0s-Xpw"; */
+"oX9-0s-Xpw.segmentTitles[1]" = "Institutsname";

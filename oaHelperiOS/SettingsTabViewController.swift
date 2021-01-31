@@ -21,7 +21,10 @@ class SettingsTabViewController: UIViewController {
     @IBOutlet weak var openAccessButtonSwitch: UISwitch!
     @IBOutlet weak var recommendationSwitch: UISwitch!
     @IBOutlet weak var useProxySwitch: UISwitch!
+    @IBOutlet weak var useProxyLabel: UILabel!
     @IBOutlet weak var useOpenCitationsSwitch: UISwitch!
+    @IBOutlet weak var useIllSwitch: UISwitch!
+    @IBOutlet weak var useIllLabel: UILabel!
     
     // Mark: Buttons
     
@@ -150,15 +153,57 @@ class SettingsTabViewController: UIViewController {
         if(self.settings.getSettingsValue(key: "useProxy")){
             DispatchQueue.main.async {
                 self.useProxySwitch.isOn = true
-                self.setupProxyButton.isHidden = false
             }
         }
         else{
             DispatchQueue.main.async {
                 self.useProxySwitch.isOn = false
-                self.setupProxyButton.isHidden = true
             }
         }
+        // useIll
+        if(self.settings.getSettingsValue(key: "useIll")){
+            DispatchQueue.main.async {
+                self.useIllSwitch.isOn = true
+            }
+        }
+        else{
+            DispatchQueue.main.async {
+                self.useIllSwitch.isOn = false
+            }
+        }
+        
+        // enable / disable proxy / ill based on values
+        
+        if(self.settings.getSettingsStringValue(key: "proxyPrefix") == ""){
+            DispatchQueue.main.async {
+                self.useProxySwitch.isOn = false
+                self.useProxySwitch.isEnabled = false
+                self.useProxyLabel.isEnabled = false
+                
+            }
+        }
+        else{
+            DispatchQueue.main.async {
+                self.useProxySwitch.isEnabled = true;
+                self.useProxyLabel.isEnabled = true
+            }
+        }
+        
+        if(self.settings.getSettingsStringValue(key: "illUrl") == ""){
+            DispatchQueue.main.async {
+                self.useIllSwitch.isOn = false
+                self.useIllSwitch.isEnabled = false;
+                self.useIllLabel.isEnabled = false
+                
+            }
+        }
+        else{
+            DispatchQueue.main.async {
+                self.useIllSwitch.isEnabled = true
+                self.useIllLabel.isEnabled = true
+            }
+        }
+        
         // useOpenCitations
         if(self.settings.getSettingsValue(key: "openCitations")){
             DispatchQueue.main.async {
@@ -170,7 +215,7 @@ class SettingsTabViewController: UIViewController {
                 self.useOpenCitationsSwitch.isOn = false
             }
         }
-        
+
     }
     
     func readSettingsForSwitches(){
@@ -231,20 +276,12 @@ class SettingsTabViewController: UIViewController {
             useProxySwitch.isOn = false
         }
         
-        let proxyPrefix = self.settings.getSettingsStringValue(key: "proxyPrefix")
-        if(proxyPrefix == ""){
-            let setupProxyButtonTitle = NSLocalizedString("Setup Proxy", comment: "Setup Proxy if no Proxy Prefix present")
-            self.setupProxyButton.setTitle(setupProxyButtonTitle, for: .normal)
+        // useIll
+        if(self.settings.getSettingsValue(key: "useIll")){
+            useIllSwitch.isOn = true
         }
         else{
-            if(helper.validateProxyPrefix(urlString: proxyPrefix)){
-                let setupProxyButtonTitle = NSLocalizedString("Change Proxy", comment: "Change Proxy if valid Proxy Prefix Present")
-                self.setupProxyButton.setTitle(setupProxyButtonTitle, for: .normal)
-            }
-            else{
-                let setupProxyButtonTitle = NSLocalizedString("Setup Proxy", comment: "Setup Proxy if no Proxy Prefix present")
-                self.setupProxyButton.setTitle(setupProxyButtonTitle, for: .normal)
-            }
+            useIllSwitch.isOn = false
         }
         
         // useOpenCitations
@@ -370,11 +407,18 @@ class SettingsTabViewController: UIViewController {
     @IBAction func useProxyButtonSwitched(_ sender: Any) {
         if(self.useProxySwitch.isOn){
             self.settings.setSettingsValue(value: true, key: "useProxy")
-            self.setupProxyButton.isHidden = false
         }
         else{
             self.settings.setSettingsValue(value: false, key: "useProxy")
-            self.setupProxyButton.isHidden = true
+        }
+    }
+    
+    @IBAction func useIllButtonSwitched(_ sender: Any) {
+        if(self.useIllSwitch.isOn){
+            self.settings.setSettingsValue(value: true, key: "useIll")
+        }
+        else{
+            self.settings.setSettingsValue(value: false, key: "useIll")
         }
     }
     

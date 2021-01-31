@@ -206,7 +206,7 @@
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>Proxy Settings</string>
+			<string>Institute Settings</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -229,6 +229,24 @@
 			<string>Proxy Prefix</string>
 			<key>Key</key>
 			<string>proxyPrefix</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Use Inst. Request Form</string>
+			<key>Key</key>
+			<string>useIll</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Request Form URL</string>
+			<key>Key</key>
+			<string>illUrl</string>
 		</dict>
 		<dict>
 			<key>Type</key>

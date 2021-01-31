@@ -12,7 +12,7 @@ class ProxyFind {
     
     let helper = HelperClass()
         
-        func askForProxy(domain : String, completion: @escaping (Result<[ProxyInstitute], Error>) -> ()){
+    func askForProxy(domain : String, queryType: String, completion: @escaping (Result<[ProxyInstitute], Error>) -> ()){
             let apiKey = self.helper.getAPIKeyFromPlist(key: "coreRecommender")
             let apiEndPoint = self.helper.getAPIKeyFromPlist(key: "proxyApi")
             if (apiKey == "") {
@@ -38,7 +38,7 @@ class ProxyFind {
             request.httpMethod = "POST"
                     
             let parameters: [String: Any] = [
-                "domain" : domain
+                queryType : domain
             ]
             
             request.httpBody = parameters.percentEscaped().data(using: .utf8)
