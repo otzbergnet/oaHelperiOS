@@ -54,6 +54,8 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     var fromSelectUrl = false
     var showBookMarkButton = true
     var showOpenAccessButton = true
+    var useIll = false
+    var illUrl = ""
     var showRecommendations = true
     var showProxyButton = false
     
@@ -478,7 +480,20 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 self.paperIcon.image = UIImage(named: "paper_no")
                 if let encodedString = title.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
                     
-                    if(self.showOpenAccessButton){
+                    if(self.useIll && self.illUrl != ""){
+                        let mydoi = self.bookMark.doi
+                        self.textView.text = NSLocalizedString("We were unable to find an Open Access version of this article. You can click the Ask Your Library Button below, to try request it from your institution.", comment: "unable to find OA (ILL version)")
+                        if(self.recommendationText != ""){
+                            self.textView.text += "\n\n\(self.recommendationText)"
+                        }
+                        self.returnURLString = "\(self.illUrl)\(mydoi)"
+                        let titleTranslation = NSLocalizedString("Ask Your Library", comment: "No OA ILL Version")
+                        self.actionButton.setTitle(titleTranslation, for: .normal)
+                        self.actionButton.backgroundColor = UIColor(red: 0.102, green: 0.596, blue: 0.988, alpha: 1.00)
+                        self.urlAction = true
+                        self.selectAction = false
+                    }
+                    else if(self.showOpenAccessButton){
                         
                         let fiveYearsAgo = self.getFiveYearsAgo();
                         
@@ -637,6 +652,8 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         self.settings.ensureSettingsAreRegistered()
         self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
         self.showOpenAccessButton = self.settings.getSettingsValue(key: "open_access_button")
+        self.useIll = self.settings.getSettingsValue(key: "useIll")
+        self.illUrl = self.settings.getSettingsStringValue(key: "illUrl")
         self.showRecommendations = self.settings.getSettingsValue(key: "recommendation")
         if(self.settings.getSettingsValue(key: "useProxy") && self.settings.getSettingsStringValue(key: "proxyPrefix") != ""){
             self.showProxyButton = true
