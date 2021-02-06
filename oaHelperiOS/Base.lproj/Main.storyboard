@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GQy-uu-nA0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GQy-uu-nA0">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -317,7 +317,7 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="806"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="miY-0Z-9fT">
-                                        <rect key="frame" x="15" y="25" width="290" height="764"/>
+                                        <rect key="frame" x="15" y="25" width="290" height="810"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can change the most important settings here and in the settings app." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-U1-Sp5" userLabel="settingsExplainLabel">
                                                 <rect key="frame" x="0.0" y="0.0" width="290" height="44"/>
@@ -327,7 +327,7 @@
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="h60-9C-GdD">
-                                                <rect key="frame" x="0.0" y="69" width="290" height="488"/>
+                                                <rect key="frame" x="0.0" y="69" width="290" height="534"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Access Options" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1i-qs-LcB">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="30"/>
@@ -514,8 +514,29 @@
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2EU-K6-6Fu" userLabel="useOpenCitStackView">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="15t-e2-Acd" userLabel="useIllStackView">
                                                         <rect key="frame" x="0.0" y="457" width="290" height="31"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Inst. Request Form" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMt-tk-tdn" userLabel="Use Institutional Request Form">
+                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <bool key="isElement" value="NO"/>
+                                                                </accessibility>
+                                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="64q-jH-359">
+                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
+                                                                <accessibility key="accessibilityConfiguration" label="Use Proxy"/>
+                                                                <connections>
+                                                                    <action selector="useIllButtonSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="BOf-oH-n0b"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2EU-K6-6Fu" userLabel="useOpenCitStackView">
+                                                        <rect key="frame" x="0.0" y="503" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show OpenCitations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6i-ty-AYy">
                                                                 <rect key="frame" x="0.0" y="0.0" width="241" height="31"/>
@@ -538,7 +559,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Md-7U-bVi">
-                                                <rect key="frame" x="0.0" y="582" width="290" height="182"/>
+                                                <rect key="frame" x="0.0" y="628" width="290" height="182"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloudStatusLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QP7-jR-ut3">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="22"/>
@@ -587,7 +608,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="HgD-wu-57g"/>
                                                         </constraints>
-                                                        <state key="normal" title="Setup Proxy">
+                                                        <state key="normal" title="Setup Institution">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -638,7 +659,10 @@
                         <outlet property="resetBookMarksSwitch" destination="bep-E9-Ibv" id="qRw-aW-Ngk"/>
                         <outlet property="setupProxyButton" destination="2SW-lw-2NX" id="tWM-6h-lUf"/>
                         <outlet property="tellYourFriendsButton" destination="uDz-5C-BWW" id="eet-nS-K4g"/>
+                        <outlet property="useIllLabel" destination="uMt-tk-tdn" id="dMI-Ia-O6X"/>
+                        <outlet property="useIllSwitch" destination="64q-jH-359" id="Wul-0O-Opq"/>
                         <outlet property="useOpenCitationsSwitch" destination="rwa-cs-Bsc" id="SVD-w7-8ni"/>
+                        <outlet property="useProxyLabel" destination="Vra-TD-yuG" id="zir-xY-vcH"/>
                         <outlet property="useProxySwitch" destination="1An-xo-deb" id="13F-VR-6nO"/>
                         <segue destination="9Ep-hK-A3f" kind="popoverPresentation" identifier="ezProxySegue" popoverAnchorView="2SW-lw-2NX" id="nUq-Cn-NEb">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -724,10 +748,10 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done" smartDashesType="no" smartQuotesType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUc-rg-BjY">
-                                <rect key="frame" x="25" y="95" width="270" height="50"/>
+                                <rect key="frame" x="25" y="95" width="270" height="35"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Bub-uc-QH6"/>
+                                    <constraint firstAttribute="height" constant="35" id="Bub-uc-QH6"/>
                                 </constraints>
                                 <state key="normal" title="Save Proxy Prefix">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -736,25 +760,25 @@
                                     <action selector="saveProxyButtonTapped:" destination="9Ep-hK-A3f" eventType="touchUpInside" id="FuU-9E-xEX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Settings by Domain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qx5-tJ-hiD">
-                                <rect key="frame" x="15" y="180" width="290" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qx5-tJ-hiD">
+                                <rect key="frame" x="15" y="270" width="290" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="domainField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="institute domain, e.g. harvard.edu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mEF-9Q-afL" userLabel="domainField">
-                                <rect key="frame" x="25" y="211" width="270" height="34"/>
+                                <rect key="frame" x="25" y="339" width="270" height="34"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="search" smartDashesType="no" smartQuotesType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2G-g4-c2A">
-                                <rect key="frame" x="25" y="255" width="270" height="50"/>
+                                <rect key="frame" x="25" y="383" width="270" height="35"/>
                                 <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="NUd-HE-xhI"/>
+                                    <constraint firstAttribute="height" constant="35" id="NUd-HE-xhI"/>
                                 </constraints>
-                                <state key="normal" title="Search by domain"/>
+                                <state key="normal" title="Search Institute"/>
                                 <connections>
                                     <action selector="searchDomainButtonTapped:" destination="9Ep-hK-A3f" eventType="touchUpInside" id="8ic-Eg-JFj"/>
                                 </connections>
@@ -773,53 +797,103 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gz4-K1-Zpp">
-                                <rect key="frame" x="15" y="340" width="290" height="20.5"/>
+                                <rect key="frame" x="15" y="433" width="290" height="20.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request Form Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIp-Nk-j8g">
+                                <rect key="frame" x="14" y="145" width="280" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="illUrl" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. https://proxy.uni.edu/form?doi=" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hS9-np-m46" userLabel="proxyPrefix">
+                                <rect key="frame" x="25" y="176" width="270" height="34"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done" smartDashesType="no" smartQuotesType="no"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEQ-ht-Hai">
+                                <rect key="frame" x="25" y="220" width="270" height="35"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Dmw-rK-eYS"/>
+                                </constraints>
+                                <state key="normal" title="Save Request Form">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveIllButtonTapped:" destination="9Ep-hK-A3f" eventType="touchUpInside" id="9Ue-lx-1cb"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="T2A-Cp-Iqa">
+                                <rect key="frame" x="25" y="299" width="269" height="32"/>
+                                <segments>
+                                    <segment title="Domain"/>
+                                    <segment title="Name"/>
+                                </segments>
+                                <connections>
+                                    <action selector="searchTypeSegmentChanged:" destination="9Ep-hK-A3f" eventType="valueChanged" id="98y-FV-L2G"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jVY-vX-zg9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="gz4-K1-Zpp" firstAttribute="top" secondItem="Z2G-g4-c2A" secondAttribute="bottom" constant="15" id="0P9-ZV-1u9"/>
                             <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="jUc-rg-BjY" secondAttribute="trailing" constant="25" id="0yi-Lm-sHW"/>
                             <constraint firstItem="mEF-9Q-afL" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="25" id="3o5-QW-x6G"/>
                             <constraint firstItem="Z2G-g4-c2A" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="25" id="5gx-a1-CeT"/>
+                            <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="T2A-Cp-Iqa" secondAttribute="trailing" constant="26" id="6DN-xI-5OL"/>
                             <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="z94-xJ-2VE" secondAttribute="trailing" constant="25" id="7kt-dv-wzz"/>
                             <constraint firstItem="kxE-nz-zPg" firstAttribute="top" secondItem="S05-fC-VTy" secondAttribute="bottom" constant="10" id="8EB-jz-PzN"/>
                             <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="gz4-K1-Zpp" secondAttribute="trailing" constant="15" id="9dT-7a-aEs"/>
-                            <constraint firstItem="qx5-tJ-hiD" firstAttribute="top" secondItem="jUc-rg-BjY" secondAttribute="bottom" constant="35" id="C6K-Mf-tmS"/>
+                            <constraint firstItem="T2A-Cp-Iqa" firstAttribute="top" secondItem="qx5-tJ-hiD" secondAttribute="bottom" constant="8" symbolic="YES" id="EfS-18-yfy"/>
+                            <constraint firstItem="SIp-Nk-j8g" firstAttribute="top" secondItem="jUc-rg-BjY" secondAttribute="bottom" constant="15" id="Fiw-hF-Y2h"/>
                             <constraint firstItem="qx5-tJ-hiD" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="15" id="G5Y-WH-0zM"/>
                             <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="mEF-9Q-afL" secondAttribute="trailing" constant="25" id="IRB-Nu-O1F"/>
                             <constraint firstItem="z94-xJ-2VE" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="25" id="Ioh-6w-3bf"/>
                             <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="S05-fC-VTy" secondAttribute="trailing" constant="15" id="Jbe-jw-Qdb"/>
-                            <constraint firstItem="gz4-K1-Zpp" firstAttribute="top" secondItem="Z2G-g4-c2A" secondAttribute="bottom" constant="35" id="Kmj-D5-93d"/>
                             <constraint firstItem="jUc-rg-BjY" firstAttribute="top" secondItem="kxE-nz-zPg" secondAttribute="bottom" constant="10" id="MYp-q4-fZa"/>
                             <constraint firstItem="jUc-rg-BjY" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="25" id="N9v-Gj-BJq"/>
+                            <constraint firstItem="hS9-np-m46" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="25" id="PLK-UY-gPd"/>
+                            <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="iEQ-ht-Hai" secondAttribute="trailing" constant="25" id="SMn-B5-PTb"/>
+                            <constraint firstItem="iEQ-ht-Hai" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="25" id="T0W-HO-oan"/>
+                            <constraint firstItem="T2A-Cp-Iqa" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="25" id="VkT-4S-Wcc"/>
                             <constraint firstItem="jVY-vX-zg9" firstAttribute="bottom" secondItem="z94-xJ-2VE" secondAttribute="bottom" constant="20" id="VyX-uI-PSz"/>
                             <constraint firstItem="S05-fC-VTy" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="15" id="WbY-EA-Cpl"/>
                             <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="kxE-nz-zPg" secondAttribute="trailing" constant="25" id="cQG-Tp-gYs"/>
+                            <constraint firstItem="qx5-tJ-hiD" firstAttribute="top" secondItem="iEQ-ht-Hai" secondAttribute="bottom" constant="15" id="dhk-gx-0UB"/>
+                            <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="hS9-np-m46" secondAttribute="trailing" constant="25" id="eqo-P8-i1C"/>
                             <constraint firstItem="Z2G-g4-c2A" firstAttribute="top" secondItem="mEF-9Q-afL" secondAttribute="bottom" constant="10" id="lOL-SE-oIf"/>
                             <constraint firstItem="kxE-nz-zPg" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="25" id="mhI-8t-j4c"/>
+                            <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="SIp-Nk-j8g" secondAttribute="trailing" constant="26" id="nB6-5c-rt3"/>
                             <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="qx5-tJ-hiD" secondAttribute="trailing" constant="15" id="oP2-kb-bcK"/>
+                            <constraint firstItem="SIp-Nk-j8g" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="14" id="oTG-Df-CcH"/>
+                            <constraint firstItem="hS9-np-m46" firstAttribute="top" secondItem="SIp-Nk-j8g" secondAttribute="bottom" constant="10" id="pum-Vn-Lfx"/>
                             <constraint firstItem="S05-fC-VTy" firstAttribute="top" secondItem="jVY-vX-zg9" secondAttribute="top" constant="20" id="re7-cM-UNi"/>
+                            <constraint firstItem="mEF-9Q-afL" firstAttribute="top" secondItem="T2A-Cp-Iqa" secondAttribute="bottom" constant="9" id="tzB-yS-g2H"/>
                             <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="Z2G-g4-c2A" secondAttribute="trailing" constant="25" id="wT6-DR-eHe"/>
-                            <constraint firstItem="mEF-9Q-afL" firstAttribute="top" secondItem="qx5-tJ-hiD" secondAttribute="bottom" constant="10" id="yUR-R5-EH5"/>
                             <constraint firstItem="gz4-K1-Zpp" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="15" id="ygR-c5-DWR"/>
+                            <constraint firstItem="iEQ-ht-Hai" firstAttribute="top" secondItem="hS9-np-m46" secondAttribute="bottom" constant="10" id="zbF-Y1-oxr"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="z94-xJ-2VE" id="Lg0-uj-a6T"/>
+                        <outlet property="illUrlTextfield" destination="hS9-np-m46" id="fAf-we-199"/>
                         <outlet property="proxyPrefixTextfield" destination="kxE-nz-zPg" id="zUN-Ju-pjQ"/>
+                        <outlet property="saveIllButton" destination="iEQ-ht-Hai" id="Pok-In-ZTQ"/>
                         <outlet property="saveProxyButton" destination="jUc-rg-BjY" id="nPY-oj-rna"/>
                         <outlet property="searchDomainButton" destination="Z2G-g4-c2A" id="Z89-kW-loJ"/>
                         <outlet property="searchDomainTextfield" destination="mEF-9Q-afL" id="dR3-jg-iRp"/>
+                        <outlet property="searchTypeSegmentControl" destination="T2A-Cp-Iqa" id="CAQ-cv-E24"/>
                         <outlet property="statusLabel" destination="gz4-K1-Zpp" id="ano-HK-EHK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yqo-mT-uuE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1275" y="3596"/>
+            <point key="canvasLocation" x="-1275" y="3595.7746478873241"/>
         </scene>
         <!--Info Child View Controller-->
         <scene sceneID="tM6-7j-gHG">
@@ -1377,7 +1451,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                     <constraint firstItem="hFn-dy-2Xd" firstAttribute="top" secondItem="Ldk-r4-ZZV" secondAttribute="bottom" constant="5" id="RDJ-IB-LIY"/>
                                     <constraint firstItem="hFn-dy-2Xd" firstAttribute="leading" secondItem="iSb-6n-f6q" secondAttribute="leading" id="VRQ-wO-Crw"/>
                                     <constraint firstItem="w2g-Gf-A10" firstAttribute="top" secondItem="iSb-6n-f6q" secondAttribute="bottom" constant="2" id="WOg-Bc-BLL"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ldk-r4-ZZV" secondAttribute="trailing" constant="20" id="arK-ld-M4J">
+                                    <constraint firstAttribute="trailing" secondItem="Ldk-r4-ZZV" secondAttribute="trailing" constant="20" id="arK-ld-M4J">
                                         <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                                     </constraint>
                                     <constraint firstItem="bqf-wb-KsL" firstAttribute="top" secondItem="w2g-Gf-A10" secondAttribute="bottom" constant="15" id="g9e-HH-pQj"/>
@@ -1654,18 +1728,6 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
         <image name="icons8-statistics-75" width="25" height="25"/>
         <image name="image_read" width="25" height="25"/>
         <image name="info_icon" width="100" height="100"/>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

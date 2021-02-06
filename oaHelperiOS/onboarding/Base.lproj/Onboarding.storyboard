@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8K7-ro-il4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8K7-ro-il4">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -50,7 +51,7 @@ Swipe left to learn more.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUe-Ye-tIX">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUe-Ye-tIX">
                                 <rect key="frame" x="20" y="468" width="280" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -66,6 +67,7 @@ Swipe left to learn more.</string>
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="03B-Q0-N5b"/>
                         <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="pjO-AG-Swx" firstAttribute="top" secondItem="U1Z-Q0-66y" secondAttribute="bottom" constant="15" id="2dc-qN-GvW"/>
@@ -88,7 +90,6 @@ Swipe left to learn more.</string>
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="03B-Q0-N5b"/>
                     </view>
                     <connections>
                         <outlet property="skipButton" destination="PUe-Ye-tIX" id="sW2-uz-jCY"/>
@@ -132,7 +133,7 @@ Click the button below and we'll show you how!</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6v-qV-YFb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6v-qV-YFb">
                                 <rect key="frame" x="20" y="468" width="280" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -147,6 +148,7 @@ Click the button below and we'll show you how!</string>
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="GoW-sz-j4Z"/>
                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GoW-sz-j4Z" firstAttribute="trailing" secondItem="dNJ-v4-b9x" secondAttribute="trailing" constant="20" id="8XU-1J-RYw"/>
@@ -170,7 +172,6 @@ Click the button below and we'll show you how!</string>
                             </constraint>
                             <constraint firstItem="dNJ-v4-b9x" firstAttribute="top" secondItem="Q7h-4Q-89d" secondAttribute="bottom" constant="30" id="tXy-eV-gdP"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="GoW-sz-j4Z"/>
                     </view>
                     <connections>
                         <outlet property="openSafariButton" destination="r6v-qV-YFb" id="oW4-fY-zgD"/>
@@ -197,7 +198,7 @@ Click the button below and we'll show you how!</string>
                                     <constraint firstAttribute="width" constant="110" id="ekB-oc-IVT"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remote Access" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a21-Tn-iaz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Institutional Access" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a21-Tn-iaz">
                                 <rect key="frame" x="20" y="105" width="280" height="34.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34.5" id="gZ1-Qb-flJ"/>
@@ -206,15 +207,15 @@ Click the button below and we'll show you how!</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWu-w7-oVE">
-                                <rect key="frame" x="20" y="219.5" width="280" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWu-w7-oVE">
+                                <rect key="frame" x="20" y="260.5" width="280" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="VAv-e7-jdh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Setup Proxy">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="Setup Institute">
+                                    <color key="titleColor" systemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="safariButtonTapped:" destination="nAy-8S-5iL" eventType="touchUpInside" id="33F-Vp-nlf"/>
@@ -222,7 +223,7 @@ Click the button below and we'll show you how!</string>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Institute Domain, e.g. harvard.edu" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bS5-pZ-CQi">
-                                <rect key="frame" x="20" y="159.5" width="280" height="45"/>
+                                <rect key="frame" x="20" y="200.5" width="280" height="45"/>
                                 <color key="tintColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="1dY-fS-mLA"/>
@@ -231,38 +232,56 @@ Click the button below and we'll show you how!</string>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done" smartDashesType="no" smartQuotesType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsE-ZG-b1a">
-                                <rect key="frame" x="20" y="289.5" width="280" height="209"/>
+                                <rect key="frame" x="20" y="330.5" width="280" height="186"/>
                                 <string key="text">If your institute supports EZProxy for remote access, you can setup support in Open Access Helper with just a few clicks.
 
-Enter the domain (e.g. harvard.edu) of your university above and click the Setup Proxy button. You can make more changes in Settings!</string>
+If a Request Form is registered with us, this too can be shown. Search for your institute - it's that easy!</string>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oX9-0s-Xpw">
+                                <rect key="frame" x="20" y="154.5" width="280" height="32"/>
+                                <segments>
+                                    <segment title="Domain"/>
+                                    <segment title="Inst. Name"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentControlUsed:" destination="ERV-zR-lbB" eventType="valueChanged" id="34k-rc-zWS"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="TTS-e3-mQ7"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
                             <constraint firstItem="TTS-e3-mQ7" firstAttribute="trailing" secondItem="FWu-w7-oVE" secondAttribute="trailing" constant="20" id="3j7-Ql-2rE">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
-                            <constraint firstItem="TTS-e3-mQ7" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UsE-ZG-b1a" secondAttribute="bottom" constant="25" id="Gsd-lk-2xI"/>
+                            <constraint firstItem="TTS-e3-mQ7" firstAttribute="trailing" secondItem="oX9-0s-Xpw" secondAttribute="trailing" constant="20" id="GtC-M4-05w">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="TTS-e3-mQ7" firstAttribute="trailing" secondItem="a21-Tn-iaz" secondAttribute="trailing" constant="20" id="H0b-Jy-3FF"/>
                             <constraint firstItem="FWu-w7-oVE" firstAttribute="top" secondItem="bS5-pZ-CQi" secondAttribute="bottom" constant="15" id="Ioe-cb-dCO"/>
                             <constraint firstItem="FWu-w7-oVE" firstAttribute="leading" secondItem="TTS-e3-mQ7" secondAttribute="leading" constant="20" id="RU9-h4-E38">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
-                            <constraint firstItem="bS5-pZ-CQi" firstAttribute="top" secondItem="a21-Tn-iaz" secondAttribute="bottom" constant="20" id="T66-Hg-9vA"/>
+                            <constraint firstItem="TTS-e3-mQ7" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UsE-ZG-b1a" secondAttribute="bottom" constant="51.5" id="S2K-Vc-rx2"/>
                             <constraint firstItem="a21-Tn-iaz" firstAttribute="leading" secondItem="TTS-e3-mQ7" secondAttribute="leading" constant="20" id="UTr-Vz-tvQ"/>
                             <constraint firstItem="7dE-GM-Xyb" firstAttribute="centerX" secondItem="kdY-Yk-hGt" secondAttribute="centerX" id="Uh5-vw-qf0"/>
                             <constraint firstItem="UsE-ZG-b1a" firstAttribute="leading" secondItem="TTS-e3-mQ7" secondAttribute="leading" constant="20" id="ZhP-kI-rOQ">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
+                            <constraint firstItem="bS5-pZ-CQi" firstAttribute="top" secondItem="oX9-0s-Xpw" secondAttribute="bottom" constant="15" id="eKo-3T-MNl"/>
                             <constraint firstItem="UsE-ZG-b1a" firstAttribute="top" secondItem="FWu-w7-oVE" secondAttribute="bottom" constant="20" id="eYe-CO-Vp5"/>
                             <constraint firstItem="7dE-GM-Xyb" firstAttribute="top" secondItem="TTS-e3-mQ7" secondAttribute="top" constant="25" id="eoY-d9-PbD"/>
+                            <constraint firstItem="oX9-0s-Xpw" firstAttribute="top" secondItem="a21-Tn-iaz" secondAttribute="bottom" constant="15" id="f1Q-dM-OR0"/>
                             <constraint firstItem="TTS-e3-mQ7" firstAttribute="trailing" secondItem="bS5-pZ-CQi" secondAttribute="trailing" constant="20" id="hJK-Vg-PRu">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
                             <constraint firstItem="a21-Tn-iaz" firstAttribute="top" secondItem="7dE-GM-Xyb" secondAttribute="bottom" constant="30" id="j4h-Fv-ZrH"/>
+                            <constraint firstItem="oX9-0s-Xpw" firstAttribute="leading" secondItem="TTS-e3-mQ7" secondAttribute="leading" constant="20" id="lvd-AQ-8Jr">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="bS5-pZ-CQi" firstAttribute="leading" secondItem="TTS-e3-mQ7" secondAttribute="leading" constant="20" id="n6j-9i-LxV">
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
@@ -270,17 +289,17 @@ Enter the domain (e.g. harvard.edu) of your university above and click the Setup
                                 <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                             </constraint>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="TTS-e3-mQ7"/>
                     </view>
                     <connections>
                         <outlet property="domainTextField" destination="bS5-pZ-CQi" id="RLm-h5-ivU"/>
+                        <outlet property="searchTypeSegmentControl" destination="oX9-0s-Xpw" id="t61-gE-Ayz"/>
                         <outlet property="setupProxyButton" destination="FWu-w7-oVE" id="e7R-pG-CrX"/>
                         <outlet property="statusLabel" destination="a21-Tn-iaz" id="foM-qO-8F1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J1j-Kw-dNr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3754" y="-531"/>
+            <point key="canvasLocation" x="3753.75" y="-531.33802816901414"/>
         </scene>
         <!--Onboarding Four-->
         <scene sceneID="soe-Be-mCa">
@@ -314,7 +333,7 @@ Click "Close" below to get started and discover the entire feature set!</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLR-Ad-8Xk">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLR-Ad-8Xk">
                                 <rect key="frame" x="20" y="468" width="280" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -322,14 +341,15 @@ Click "Close" below to get started and discover the entire feature set!</string>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Close">
-                                    <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                    <color key="titleColor" systemColor="scrollViewTexturedBackgroundColor"/>
                                 </state>
                                 <connections>
                                     <action selector="doneButtonTapped:" destination="DiV-zX-Aaj" eventType="touchUpInside" id="9CH-6v-YdS"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="56x-PR-3Ss"/>
+                        <color key="backgroundColor" systemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ypY-dD-ifw" firstAttribute="top" secondItem="QLH-gV-0VU" secondAttribute="bottom" constant="30" id="KF2-sm-C9j"/>
                             <constraint firstItem="56x-PR-3Ss" firstAttribute="trailing" secondItem="ypY-dD-ifw" secondAttribute="trailing" constant="20" id="NfC-VI-hSA"/>
@@ -351,7 +371,6 @@ Click "Close" below to get started and discover the entire feature set!</string>
                             <constraint firstItem="QLH-gV-0VU" firstAttribute="centerX" secondItem="h0K-s5-Tpy" secondAttribute="centerX" id="gf8-AK-Qr6"/>
                             <constraint firstItem="56x-PR-3Ss" firstAttribute="bottom" secondItem="lLR-Ad-8Xk" secondAttribute="bottom" constant="50" id="rne-8g-JvK"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="56x-PR-3Ss"/>
                     </view>
                     <connections>
                         <outlet property="doneButton" destination="lLR-Ad-8Xk" id="zCP-uT-QdO"/>
@@ -405,7 +424,7 @@ Syncing is really complicated - so this is a beta feature for now...</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaA-at-RLi">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaA-at-RLi">
                                 <rect key="frame" x="20" y="468" width="280" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -438,6 +457,7 @@ Syncing is really complicated - so this is a beta feature for now...</string>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="BOY-ds-cCM"/>
                         <color key="backgroundColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xwc-XU-Ie2" firstAttribute="leading" secondItem="XO9-oE-WV4" secondAttribute="trailing" constant="9" id="42d-Xi-qZM"/>
@@ -486,7 +506,6 @@ Syncing is really complicated - so this is a beta feature for now...</string>
                             </constraint>
                             <constraint firstItem="XO9-oE-WV4" firstAttribute="top" secondItem="brv-EB-6Mr" secondAttribute="bottom" constant="15" id="wGm-Qe-owa"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="BOY-ds-cCM"/>
                     </view>
                     <connections>
                         <outlet property="bookMarkSwitch" destination="Mbe-Ny-seI" id="gmH-at-a0S"/>
@@ -521,7 +540,7 @@ Syncing is really complicated - so this is a beta feature for now...</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More Open Access" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIj-pF-X7n">
                                 <rect key="frame" x="20" y="105" width="280" height="35"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSF-zw-4Kh">
@@ -530,7 +549,7 @@ Syncing is really complicated - so this is a beta feature for now...</string>
 
 Open Access Button will only show for publications of the last five years. Similar Articles can take a few extra seconds to load.</string>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RUE-mQ-udI">
@@ -542,10 +561,10 @@ Open Access Button will only show for publications of the last five years. Simil
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Similar Articles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXp-ds-6Th">
                                 <rect key="frame" x="78" y="417.5" width="217" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdd-3y-GlC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdd-3y-GlC">
                                 <rect key="frame" x="20" y="468" width="280" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -568,10 +587,11 @@ Open Access Button will only show for publications of the last five years. Simil
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Open Access Button" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeE-yy-dii">
                                 <rect key="frame" x="78" y="376.5" width="217" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="qdk-bI-eKx"/>
                         <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wIj-pF-X7n" firstAttribute="top" secondItem="c1J-zc-xjX" secondAttribute="bottom" constant="30" id="3IN-1Q-ggK"/>
@@ -613,7 +633,6 @@ Open Access Button will only show for publications of the last five years. Simil
                             </constraint>
                             <constraint firstItem="tXp-ds-6Th" firstAttribute="leading" secondItem="RUE-mQ-udI" secondAttribute="trailing" constant="9" id="yfp-Uc-g1Q"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="qdk-bI-eKx"/>
                     </view>
                     <connections>
                         <outlet property="moreInfoButton" destination="zdd-3y-GlC" id="P6h-7m-uva"/>
@@ -633,5 +652,14 @@ Open Access Button will only show for publications of the last five years. Simil
         <image name="other_oa" width="220" height="220"/>
         <image name="search_oa" width="220" height="220"/>
         <image name="share_ob" width="220" height="220"/>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="scrollViewTexturedBackgroundColor">
+            <color red="0.43529411764705878" green="0.44313725490196082" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

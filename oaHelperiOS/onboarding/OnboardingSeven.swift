@@ -13,6 +13,7 @@ class OnboardingSeven: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var domainTextField: UITextField!
     @IBOutlet weak var setupProxyButton: UIButton!
     @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var searchTypeSegmentControl: UISegmentedControl!
     
     let proxyFind = ProxyFind()
     let settings = SettingsBundleHelper()
@@ -58,9 +59,15 @@ class OnboardingSeven: UIViewController, UITextFieldDelegate {
     
     func findProxy(){
         self.statusLabel.text = NSLocalizedString("Checking...", comment: "shown while checking")
+        let segmentControlValue = searchTypeSegmentControl.selectedSegmentIndex
+        var queryType = "domain"
+        if (segmentControlValue == 1){
+            queryType = "query"
+        }
         if let domain = domainTextField.text {
             if(domain.count > 0){
-                proxyFind.askForProxy(domain: domain) { (res) in
+                proxyFind.askForProxy(domain: domain, queryType: queryType) { (res) in
+                    print(res)
                     switch res{
                     case .success(let proxyList):
                         if(proxyList.count == 0){
@@ -72,13 +79,31 @@ class OnboardingSeven: UIViewController, UITextFieldDelegate {
                             if let proxyPrefix = proxyList.first?.proxyUrl.replacingOccurrences(of: "{targetUrl}", with: ""){
                                 DispatchQueue.main.async {
                                     self.settings.setSettingsStringValue(value: proxyPrefix, key: "proxyPrefix")
-                                    self.settings.setSettingsValue(value: true, key: "useProxy")
+                                    if(proxyPrefix != ""){
+                                        self.settings.setSettingsValue(value: true, key: "useProxy")
+                                    }
+                                    else{
+                                        self.settings.setSettingsValue(value: false, key: "useProxy")
+                                    }
+                                    
                                     if let instituteId = proxyList.first?.id{
                                         self.settings.setSettingsStringValue(value: instituteId, key: "instituteId")
                                     }
+                                    
+                                    if let illUrl = proxyList.first?.ill.replacingOccurrences(of: "{doi}", with: "") {
+                                        self.settings.setSettingsStringValue(value: illUrl, key: "illUrl")
+                                        if(illUrl != ""){
+                                            self.settings.setSettingsValue(value: true, key: "useIll")
+                                        }
+                                        else{
+                                            self.settings.setSettingsValue(value: false, key: "useIll")
+                                        }
+                                    }
+                                    
                                     self.statusLabel.text = NSLocalizedString("Success!", comment: "if proxy was successfully saved")
                                     self.domainTextField.isHidden = true
                                     self.setupProxyButton.isHidden = true
+                                    self.searchTypeSegmentControl.isHidden = true
                                 }
                             }
                             else{
@@ -114,4 +139,14 @@ class OnboardingSeven: UIViewController, UITextFieldDelegate {
         self.domainTextField.resignFirstResponder()
     }
 
+    @IBAction func segmentControlUsed(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            domainTextField.placeholder = "Institute Domain, e.g. harvard.edu"
+        case 1:
+            domainTextField.placeholder = "Partial Name, e.g. harva"
+        default:
+            print("I promise I was exhaustive")
+        }
+    }
 }
