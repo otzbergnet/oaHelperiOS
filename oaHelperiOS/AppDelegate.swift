@@ -47,6 +47,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         }
                     }
                 }
+                if let requestForm = queryItems.filter({$0.name == "ill"}).first{
+                    if let illUrl = requestForm.value{
+                        self.settings.setSettingsStringValue(value: illUrl, key: "illUrl")
+                        if(illUrl != ""){
+                            self.settings.setSettingsValue(value: true, key: "useIll")
+                        }
+                    }
+                }
                 if let instituteId = queryItems.filter({$0.name == "id"}).first{
                     if let id = instituteId.value{
                         self.settings.setSettingsStringValue(value: id, key: "instituteId")
