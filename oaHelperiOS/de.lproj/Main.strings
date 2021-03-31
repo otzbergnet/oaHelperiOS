@@ -291,3 +291,6 @@
 
 /* Class = "UIButton"; normalTitle = "Save Request Form"; ObjectID = "iEQ-ht-Hai"; */
 "iEQ-ht-Hai.normalTitle" = "Anfrageformular speichern";
+
+/* Class = "UILabel"; text = "Use Europe PMC for Search"; ObjectID = "kaG-e1-vMn"; */
+"kaG-e1-vMn.text" = "Nutze Europe PMC für Suche";

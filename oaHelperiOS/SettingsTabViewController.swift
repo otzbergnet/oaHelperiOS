@@ -25,6 +25,8 @@ class SettingsTabViewController: UIViewController {
     @IBOutlet weak var useOpenCitationsSwitch: UISwitch!
     @IBOutlet weak var useIllSwitch: UISwitch!
     @IBOutlet weak var useIllLabel: UILabel!
+    @IBOutlet weak var useEPMCLabel: UILabel!
+    @IBOutlet weak var useEPMCSwitch: UISwitch!
     
     // Mark: Buttons
     
@@ -215,6 +217,18 @@ class SettingsTabViewController: UIViewController {
                 self.useOpenCitationsSwitch.isOn = false
             }
         }
+        
+        // use Europe PMC
+        if(self.settings.getSettingsValue(key: "epmc")){
+            DispatchQueue.main.async {
+                self.useEPMCSwitch.isOn = true
+            }
+        }
+        else{
+            DispatchQueue.main.async {
+                self.useEPMCSwitch.isOn = false
+            }
+        }
 
     }
     
@@ -290,6 +304,14 @@ class SettingsTabViewController: UIViewController {
         }
         else{
             useOpenCitationsSwitch.isOn = false
+        }
+        
+        // useEPMC
+        if(self.settings.getSettingsValue(key: "epmc")){
+            useEPMCSwitch.isOn = true
+        }
+        else{
+            useEPMCSwitch.isOn = false
         }
         
     }
@@ -429,6 +451,16 @@ class SettingsTabViewController: UIViewController {
         }
         else{
             self.settings.setSettingsValue(value: false, key: "openCitations")
+        }
+    }
+    
+    @IBAction func useEPMCSwitched(_ sender: Any) {
+        if(self.useEPMCSwitch.isOn){
+            self.settings.setSettingsValue(value: true, key: "epmc")
+            
+        }
+        else{
+            self.settings.setSettingsValue(value: false, key: "epmc")
         }
     }
     

@@ -202,6 +202,20 @@
 			<key>DefaultValue</key>
 			<true/>
 		</dict>
+        <dict>
+            <key>Type</key>
+            <string>PSToggleSwitchSpecifier</string>
+            <key>Title</key>
+            <string>Use Europe PMC for search</string>
+            <key>Key</key>
+            <string>epmc</string>
+            <key>TrueValue</key>
+            <true/>
+            <key>FalseValue</key>
+            <false/>
+            <key>DefaultValue</key>
+            <false/>
+        </dict>
 		<dict>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>

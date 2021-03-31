@@ -317,7 +317,7 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="806"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="miY-0Z-9fT">
-                                        <rect key="frame" x="15" y="25" width="290" height="810"/>
+                                        <rect key="frame" x="15" y="25" width="290" height="856"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can change the most important settings here and in the settings app." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-U1-Sp5" userLabel="settingsExplainLabel">
                                                 <rect key="frame" x="0.0" y="0.0" width="290" height="44"/>
@@ -327,7 +327,7 @@
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="h60-9C-GdD">
-                                                <rect key="frame" x="0.0" y="69" width="290" height="534"/>
+                                                <rect key="frame" x="0.0" y="69" width="290" height="580"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Access Options" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1i-qs-LcB">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="30"/>
@@ -407,8 +407,25 @@
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ier-Fj-4Kw">
+                                                        <rect key="frame" x="0.0" y="183" width="290" height="31"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Europe PMC for Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaG-e1-vMn">
+                                                                <rect key="frame" x="0.0" y="0.0" width="241" height="31"/>
+                                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cmd-WN-tH8">
+                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="useEPMCSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="6nC-Wv-x9w"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmarks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lw-9P-kfI">
-                                                        <rect key="frame" x="0.0" y="183" width="290" height="30"/>
+                                                        <rect key="frame" x="0.0" y="229" width="290" height="30"/>
                                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                         <accessibility key="accessibilityConfiguration">
                                                             <bool key="isElement" value="NO"/>
@@ -421,7 +438,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="SRX-0E-F2u" userLabel="enableBookMarkStack">
-                                                        <rect key="frame" x="0.0" y="228" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="274" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34Y-wY-K30">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -441,7 +458,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="BYD-mR-Ret" userLabel="iCloudSyncStack">
-                                                        <rect key="frame" x="0.0" y="274" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="320" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Sync Bookmarks " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cD5-Oy-m8y">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -461,7 +478,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="MW7-y0-qje" userLabel="resetBookMarkStack">
-                                                        <rect key="frame" x="0.0" y="320" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="366" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Reset Bookmarks from iCloud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nL-4z-9Nt">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -481,7 +498,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Additional Features" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdK-Gg-8py">
-                                                        <rect key="frame" x="0.0" y="366" width="290" height="30"/>
+                                                        <rect key="frame" x="0.0" y="412" width="290" height="30"/>
                                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                         <accessibility key="accessibilityConfiguration">
                                                             <bool key="isElement" value="NO"/>
@@ -494,7 +511,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="DrX-CP-Dze" userLabel="useProxyStackView">
-                                                        <rect key="frame" x="0.0" y="411" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="457" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Proxy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vra-TD-yuG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -515,7 +532,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="15t-e2-Acd" userLabel="useIllStackView">
-                                                        <rect key="frame" x="0.0" y="457" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="503" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Inst. Request Form" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMt-tk-tdn" userLabel="Use Institutional Request Form">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -536,7 +553,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2EU-K6-6Fu" userLabel="useOpenCitStackView">
-                                                        <rect key="frame" x="0.0" y="503" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="549" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show OpenCitations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6i-ty-AYy">
                                                                 <rect key="frame" x="0.0" y="0.0" width="241" height="31"/>
@@ -559,7 +576,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Md-7U-bVi">
-                                                <rect key="frame" x="0.0" y="628" width="290" height="182"/>
+                                                <rect key="frame" x="0.0" y="674" width="290" height="182"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloudStatusLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QP7-jR-ut3">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="22"/>
@@ -659,6 +676,8 @@
                         <outlet property="resetBookMarksSwitch" destination="bep-E9-Ibv" id="qRw-aW-Ngk"/>
                         <outlet property="setupProxyButton" destination="2SW-lw-2NX" id="tWM-6h-lUf"/>
                         <outlet property="tellYourFriendsButton" destination="uDz-5C-BWW" id="eet-nS-K4g"/>
+                        <outlet property="useEPMCLabel" destination="kaG-e1-vMn" id="KMQ-La-jow"/>
+                        <outlet property="useEPMCSwitch" destination="cmd-WN-tH8" id="wEi-uW-Edt"/>
                         <outlet property="useIllLabel" destination="uMt-tk-tdn" id="dMI-Ia-O6X"/>
                         <outlet property="useIllSwitch" destination="64q-jH-359" id="Wul-0O-Opq"/>
                         <outlet property="useOpenCitationsSwitch" destination="rwa-cs-Bsc" id="SVD-w7-8ni"/>
