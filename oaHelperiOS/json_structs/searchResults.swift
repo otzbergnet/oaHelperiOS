@@ -28,4 +28,6 @@ class SearchResultRecords {
     var hasFT : Bool = false
     var linkUrl : String = ""
     var buttonLabel : String = ""
+    var smallButtonLabel : String = ""
+    var buttonColor : String = ""
 }

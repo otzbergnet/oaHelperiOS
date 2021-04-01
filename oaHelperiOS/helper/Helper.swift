@@ -210,34 +210,50 @@ class HelperClass : UIViewController{
         record.source = "Core"
         record.year = "\(sourceRecord.year ?? 0)"
         record.abstract = sourceRecord.description ?? ""
-        if let url = sourceRecord.downloadUrl{
-            if (url == ""){
-                record.hasFT = false
-                var arxivLink = ""
-                if let arxiv = sourceRecord.oai {
-                    if arxiv.contains("oai:arXiv.org:"){
-                        arxivLink = arxiv.replacingOccurrences(of: "oai:arXiv.org:", with: "https://arxiv.org/abs/")
-                    }
-                    if(arxivLink != ""){
-                        record.linkUrl = arxivLink
-                        record.buttonLabel = NSLocalizedString("View Record at arXiv.org", comment: "button, arXiv.org document")
-                    }
-                    else if let id = sourceRecord.id{
-                        record.linkUrl = "https://core.ac.uk/display/\(id)"
-                        record.buttonLabel = NSLocalizedString("View Record at core.ac.uk", comment: "button, core.ac.uk document")
-                    }
-                    else{
-                        record.linkUrl = ""
-                        record.buttonLabel = "Error"
-                    }
+        
+        if let recordId = sourceRecord.id {
+            record.hasFT = false
+            record.linkUrl = "https://core.ac.uk/display/\(recordId)"
+            record.buttonLabel = NSLocalizedString("View Record at core.ac.uk", comment: "button, core.ac.uk document")
+            record.smallButtonLabel = "core.ac.uk"
+            record.buttonColor = "blue"
+        }
+        
+        if let urlArray = sourceRecord.fulltextUrls{
+            if urlArray.count > 0 {
+                let url = urlArray[0]
+                var url1 = ""
+                if(urlArray.count > 1){
+                    url1 = urlArray[1]
                 }
-            }
-            else{
-                record.hasFT = true
-                record.linkUrl = url
-                record.buttonLabel = NSLocalizedString("Access Full Text", comment: "button, access full text")
+                
+                if(url1.contains("arxiv")){
+                    record.hasFT = true
+                    record.buttonLabel = NSLocalizedString("View Record at arXiv.org", comment: "button, arXiv.org document")
+                    record.smallButtonLabel = "arXiv.org"
+                    record.buttonColor = "red"
+                    record.linkUrl = url1
+                }
+                else{
+                    record.hasFT = false
+                    record.buttonLabel = NSLocalizedString("View Record at core.ac.uk", comment: "button, access full text")
+                    record.smallButtonLabel = "core.ac.uk"
+                    record.buttonColor = "blue"
+                    record.linkUrl = url
+                }
+                
             }
         }
+        if let downloadUrl = sourceRecord.downloadUrl{
+            if(downloadUrl.count > 0){
+                record.hasFT = true
+                record.buttonLabel = NSLocalizedString("Access Full Text", comment: "button, access full text")
+                record.smallButtonLabel = "Full Text"
+                record.buttonColor = "green"
+                record.linkUrl = downloadUrl
+            }
+        }
+
         
         return record
         
@@ -328,17 +344,23 @@ class HelperClass : UIViewController{
                 if (!goodLink && (url.availabilityCode == "OA" || url.availabilityCode == "Free") && url.documentStyle == "pdf"){
                     record.linkUrl = url.url ?? ""
                     record.buttonLabel = NSLocalizedString("Access Full Text", comment: "button, access full text")
+                    record.smallButtonLabel = "PDF"
+                    record.buttonColor = "green"
                     goodLink = true
                 }
                 else if(!goodLink && (url.availabilityCode == "OA" || url.availabilityCode == "Free") && url.documentStyle == "html"){
                     record.linkUrl = url.url ?? ""
                     record.buttonLabel = NSLocalizedString("Access Full Text", comment: "button, access full text")
+                    record.smallButtonLabel = "HTML"
+                    record.buttonColor = "green"
                 }
             }
         }
         if(record.linkUrl == ""){
             record.linkUrl = "https://europepmc.org/article/\(sourceRecord.source)/\(sourceRecord.id)"
             record.buttonLabel = NSLocalizedString("View Record at Europe PMC", comment: "button, EPMC Document")
+            record.smallButtonLabel = "Full Text"
+            record.buttonColor = "blue"
         }
         
         

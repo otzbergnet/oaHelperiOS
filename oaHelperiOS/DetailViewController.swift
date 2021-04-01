@@ -104,31 +104,34 @@ class DetailViewController: UIViewController {
         else{
             self.sourceLabel.text = record.source
         }
-        self.url = record.linkUrl
-        //        let label = NSLocalizedString("View Record at core.ac.uk", comment: "in this case used for string comparison")
-        //        if(coreRecord.buttonLabel == label){
-        //            accessButton.backgroundColor = blueColor
-        //            pdfButton.backgroundColor = blueColor
-        //            pdfButton.setTitle("core.ac.uk", for: .normal)
-        //            self.pdf = false
-        //        }
-        //        else if (coreRecord.buttonLabel.contains("arXiv.org")){
-        //            accessButton.backgroundColor = redColor
-        //            pdfButton.backgroundColor = greenColor
-        //            pdfButton.setTitle("arXiv.org", for: .normal)
-        //            self.pdf = false
-        //        }
-        //        else{
-        //            accessButton.backgroundColor = greenColor
-        //            pdfButton.backgroundColor = greenColor
-        //            pdfButton.setTitle("PDF", for: .normal)
-        //            self.pdf = true
-        //        }
-        //        if(coreRecord.url == "" ){
-        //            self.pdf = false
-        //            accessButton.isHidden = true
-        //        }
-        //
+        if(record.hasFT){
+            self.url = record.linkUrl
+            accessButton.backgroundColor = greenColor
+            pdfButton.setTitle("\(record.smallButtonLabel)", for: .normal)
+            self.pdf = true
+        }
+        else if (record.linkUrl == "") {
+            accessButton.isHidden = true
+            self.pdf = false
+        }
+        else{
+            self.url = record.linkUrl
+            accessButton.backgroundColor = greenColor
+            pdfButton.setTitle("\(record.smallButtonLabel)", for: .normal)
+            self.pdf = false
+        }
+        
+        switch record.buttonColor {
+        case "red":
+            accessButton.backgroundColor = redColor
+            pdfButton.backgroundColor = redColor
+        case "blue":
+            accessButton.backgroundColor = blueColor
+            pdfButton.backgroundColor = blueColor
+        default:
+            accessButton.backgroundColor = greenColor
+            pdfButton.backgroundColor = greenColor
+        }
         
         changeNavButtonColor(num: num)
     }
