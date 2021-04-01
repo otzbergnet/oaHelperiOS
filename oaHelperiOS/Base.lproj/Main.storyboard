@@ -206,7 +206,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="core_ac_uk" translatesAutoresizingMaskIntoConstraints="NO" id="qiK-UU-Nxp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="core_ac_uk" translatesAutoresizingMaskIntoConstraints="NO" id="qiK-UU-Nxp">
                                 <rect key="frame" x="117" y="439" width="86" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="86" id="0mW-ib-iBc"/>
@@ -297,6 +297,8 @@
                         <outlet property="oahelperLogo" destination="U0W-S4-Hpn" id="9Rk-9O-w07"/>
                         <outlet property="offlineLabel" destination="3S3-po-hYW" id="u2P-iv-abg"/>
                         <outlet property="searchButton" destination="JJr-Ge-nca" id="x60-xD-WfN"/>
+                        <outlet property="searchProviderLogo" destination="qiK-UU-Nxp" id="RkG-gu-hsh"/>
+                        <outlet property="searchProviderMention" destination="i0s-Th-Qsb" id="tNL-5f-wwR"/>
                         <outlet property="textField" destination="He3-yf-kv9" id="18E-Ge-1YB"/>
                         <segue destination="PDw-ar-iKr" kind="show" identifier="searchSegue" id="QaW-6b-mlT"/>
                     </connections>
@@ -1731,7 +1733,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Xbo-Rx-qqx"/>
+        <segue reference="QaW-6b-mlT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

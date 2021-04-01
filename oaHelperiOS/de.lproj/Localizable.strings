@@ -329,3 +329,9 @@
 
 /* unable to find OA (ILL version) */
 "We were unable to find an Open Access version of this article. You can click the Ask Your Library Button below, to try request it from your institution." = "Wir konnten keine Open Access Version des Artikels finden. Sie können die 'Bei der Bibliothek anfragen' Schaltfläche nutzen, um eine Anfrage an die Bibliothek zu senden.";
+
+/* shows as soon as search is submitted */
+"Searching Europe PMC for you" = "Suche wird in Europe PMC durchgeführt";
+
+/* button, EPMC Document */
+"View Record at Europe PMC" = "Datensatz bei Europe PMC anzeigen";

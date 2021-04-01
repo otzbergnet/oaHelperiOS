@@ -185,7 +185,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
                 case .success(let data):
                     DispatchQueue.main.async {
                         self.settings.incrementOACount(key : "oa_search")
-                        self.apiData = data
+                        //self.apiData = data
                         self.effectView.removeFromSuperview()
                         self.performSegue(withIdentifier: "advancedSearchResults", sender: nil)
                     }

@@ -13,27 +13,31 @@ class TableViewController: UITableViewController {
     
     var searchTerm = ""
     var apiData = Data()
+    var searchResults = SearchResult()
     var papers = [Papers]()
     var coreRecords = [Items]()
+    var epmcRecords = [EpmcItems]()
     var hits = ""
     var page = 1
     var maxPage = 1.00
     var search = ""
     
     var hc = HelperClass()
+    var settings = SettingsBundleHelper()
+    var isEPMC = false
     let notification = UINotificationFeedbackGenerator()
     
     var loadingData = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.coreRecords = handleCoreData(data: self.apiData)
         
-        self.title = self.hits
+        self.title = "\(self.searchResults.hitCount)"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.title = self.hits
+        self.title = "\(self.searchResults.hitCount)"
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -47,27 +51,19 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.coreRecords.count
+        self.searchResults.records.count
+        
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dataCell", for: indexPath) as! TableViewCell
-        let paper = self.coreRecords[indexPath.row]
-        let title = paper.title ?? ""
-        let abstract = paper.description ?? ""
-        var yearAbstract = "\(hc.cleanAbstract(txt: abstract))"
-        if let year = paper.datePublished {
-            yearAbstract = "(\(year.prefix(4))) \(hc.cleanAbstract(txt: abstract))"
-        }
-        //sets icon incorrectly, needs to be reviewed
-        if let urls = paper.downloadUrl{
-            if(urls != ""){
-                cell.iconImageView.image = UIImage(named: "pdf_icon")
-            }
-            else{
-                cell.iconImageView.image = UIImage(named: "core_icon")
-            }
+        let paper = self.searchResults.records[indexPath.row]
+        let title = paper.title
+        let abstract = paper.abstract
+        let yearAbstract = "(\(paper.year)) \(hc.cleanAbstract(txt: abstract))"
+        if(paper.hasFT){
+            cell.iconImageView.image = UIImage(named: "pdf_icon")
         }
         else{
             cell.iconImageView.image = UIImage(named: "core_icon")
@@ -76,6 +72,7 @@ class TableViewController: UITableViewController {
         cell.titleLabel.text = title
         cell.detailLabel.text = yearAbstract
         return cell
+        
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -87,13 +84,12 @@ class TableViewController: UITableViewController {
             self.tableView.tableFooterView = spinner
             self.tableView.tableFooterView?.backgroundColor = UIColor(red: 0.984, green: 0.627, blue: 0.216, alpha: 1.00)
             self.tableView.tableFooterView?.isHidden = false
-            self.checkCore(search: self.search)
+            //self.checkCore(search: self.search)
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         
         self.performSegue(withIdentifier: "detailView", sender: indexPath.row)
     }
@@ -135,20 +131,21 @@ class TableViewController: UITableViewController {
             self.loadingData = false
             switch res {
             case .success(let data):
-                //print("we are done with a search")
-                DispatchQueue.main.async {
-                    
-                    let myItems = self.handleCoreData(data: data)
-                    if (myItems.count > 0){
-                        for item in myItems{
-                           self.coreRecords.append(item)
-                        }
-                        self.tableView.tableFooterView?.removeFromSuperview()
-                        self.tableView.reloadData()
-                    }
-                    
-                    
-                }
+                    print(data)
+            //print("we are done with a search")
+//                DispatchQueue.main.async {
+//
+//                    let myItems = self.handleCoreData(data: data)
+//                    if (myItems.count > 0){
+//                        for item in myItems{
+//                           self.coreRecords.append(item)
+//                        }
+//                        self.tableView.tableFooterView?.removeFromSuperview()
+//                        self.tableView.reloadData()
+//                    }
+//
+//
+//                }
             case .failure(let error):
                 print(error)
             }
@@ -198,12 +195,56 @@ class TableViewController: UITableViewController {
         }
     }
     
+    func handleEPMCData(data: Data) -> [EpmcItems]{
+        do{
+            let epmcData = try JSONDecoder().decode(EPMC.self, from: data)
+            if let totalHits = epmcData.hitCount {
+                if (totalHits > 0) {
+                    let tmpMaxPage = Double(Double(totalHits) / 50)
+                    self.maxPage = tmpMaxPage.rounded(.up)
+                    let formatedNumber = formatThousandSeperators(number: "\(totalHits)")
+                    let hitCountText = String(format: NSLocalizedString("%@ Hits", comment: "Hit count indicator"), formatedNumber)
+                    self.hits = hitCountText
+                    self.title = hitCountText
+                    if let epmcRecords = epmcData.resultList?.result{
+                        return epmcRecords
+                    }
+                    else{
+                        return []
+                    }
+                }
+                else{
+                    let title = NSLocalizedString("😢 No Results", comment: "No results message")
+                    let message = NSLocalizedString("Sadly there were no results for your search. Please check your search terms or rephrase your query and try again.", comment: "message for no hits")
+                    notification.notificationOccurred(.warning)
+                    showErrorAlert(title: title, message: message)
+                    return []
+                }
+            }
+            else{
+                let title = NSLocalizedString("😢 No Results", comment: "No results message")
+                let message = NSLocalizedString("Sadly there were no results for your search. Please check your search terms or rephrase your query and try again.", comment: "message for no hits")
+                notification.notificationOccurred(.warning)
+                showErrorAlert(title: title, message: message)
+                return []
+            }
+        }
+        catch let jsonError{
+            let title = NSLocalizedString("❗This wasn't meant to happen", comment: "unforseen error at data decoding")
+            let message = NSLocalizedString("We encountered an error, which we thought you'd never see. Sorry about that. Please try again!", comment: "body for alert, when there was an error")
+            notification.notificationOccurred(.error)
+            showErrorAlert(title: title, message: message)
+            print(jsonError)
+            return []
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.title = NSLocalizedString("Search Results", comment: "Search Results String used as back-button")
         let detailData = sender as! Int
         if segue.identifier == "detailView" {
             if let nextViewController = segue.destination as? DetailViewController {
-                nextViewController.coreRecords = coreRecords
+                nextViewController.searchResults = self.searchResults
                 nextViewController.num = detailData
             }
         }
