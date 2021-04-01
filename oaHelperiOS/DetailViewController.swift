@@ -26,6 +26,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var abstractNewLabel: UITextView!
+    @IBOutlet weak var abstractHeader: UILabel!
     
     // MARK: Buttons
     
@@ -87,7 +88,14 @@ class DetailViewController: UIViewController {
         else{
             authorLabel.text = ""
         }
-        abstractNewLabel.text = hc.cleanAbstract(txt: record.abstract)
+        let abstract = hc.cleanAbstract(txt: record.abstract)
+        abstractNewLabel.text = abstract
+        if (abstract == ""){
+            self.abstractHeader.isHidden = true
+        }
+        else{
+            self.abstractHeader.isHidden = false
+        }
         abstractNewLabel.sizeToFit()
         accessButton.setTitle(record.buttonLabel, for: .normal)
         if(record.source == "Core"){

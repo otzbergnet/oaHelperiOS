@@ -1518,6 +1518,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="abstractHeader" destination="iSb-6n-f6q" id="Wj3-SM-Lub"/>
                         <outlet property="abstractNewLabel" destination="w2g-Gf-A10" id="P3J-8g-WhT"/>
                         <outlet property="accessButton" destination="bqf-wb-KsL" id="8IK-Sy-Tyz"/>
                         <outlet property="authorLabel" destination="hFn-dy-2Xd" id="p9G-Tf-TeV"/>
