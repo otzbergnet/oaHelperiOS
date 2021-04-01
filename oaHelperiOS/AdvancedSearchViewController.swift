@@ -342,6 +342,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         self.articleTitle.text = nil
         self.authorLastName.text = nil
         self.publicationYearFrom.text = nil
+        self.publicationYearTo.text = nil
         //self.language.text = nil
     }
     
