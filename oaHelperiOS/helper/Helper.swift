@@ -12,7 +12,7 @@ class HelperClass : UIViewController{
 
     
     func cleanAbstract(txt: String) -> String{
-        let toClean = ["&lt;p&gt;", "&lt;em&gt;", "&lt;/p&gt;", "&lt;/em&gt;", "\\ud", "&gt", "<p>", "<it>", "</it>", "&lt;em", "Abstract</p>"]
+        let toClean = ["&lt;p&gt;", "&lt;em&gt;", "&lt;/p&gt;", "&lt;/em&gt;", "\\ud", "&gt", "<p>", "<it>", "</it>", "&lt;em", "Abstract</p>", "<i>", "</i>", "<h4>", "</h4>"]
         var mytxt = txt;
         for token in toClean{
             mytxt = mytxt.replacingOccurrences(of: token, with: "")
@@ -347,9 +347,12 @@ class HelperClass : UIViewController{
                 record.source += "\(journalTitle)"
             }
         }
-        if (sourceRecord.pubYear != ""){
-            record.source += " (\(sourceRecord.pubYear ?? ""))"
+        if let year = sourceRecord.pubYear {
+            if (year != ""){
+                record.source += " (\(year))"
+            }
         }
+        
         if let volume = sourceRecord.journalInfo?.volume {
             if (volume != "") {
                 record.source += ", Vol. \(volume)"
