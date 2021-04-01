@@ -294,3 +294,6 @@
 
 /* Class = "UILabel"; text = "Use Europe PMC for Search"; ObjectID = "kaG-e1-vMn"; */
 "kaG-e1-vMn.text" = "Nutze Europe PMC für Suche";
+
+/* Class = "UILabel"; text = "sourceLabel"; ObjectID = "FiM-6H-4ye"; */
+"FiM-6H-4ye.text" = "sourceLabel";
