@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var abstractNewLabel: UITextView!
