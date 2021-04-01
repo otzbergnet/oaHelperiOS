@@ -336,6 +336,30 @@ class HelperClass : UIViewController{
             record.buttonLabel = NSLocalizedString("View Record at Europe PMC", comment: "button, EPMC Document")
         }
         
+        
+        if let journalTitle = sourceRecord.journalInfo?.journal.title{
+            if (journalTitle != ""){
+                record.source += "\(journalTitle)"
+            }
+        }
+        if (sourceRecord.pubYear != "0"){
+            record.source += " (\(sourceRecord.pubYear ?? ""))"
+        }
+        if let volume = sourceRecord.journalInfo?.volume {
+            if (volume != "") {
+                record.source += ", Vol. \(volume)"
+            }
+        }
+        if let issue = sourceRecord.journalInfo?.issue {
+            if (issue != ""){
+                record.source += ", Iss. \(issue)"
+            }
+        }
+        if let pages = sourceRecord.pageInfo {
+            if (pages != ""){
+                record.source += ", p. \(pages)"
+            }
+        }
         return record
         
     }

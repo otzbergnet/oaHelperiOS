@@ -77,43 +77,50 @@ class DetailViewController: UIViewController {
     // MARK: - Data Handling
     
     func createDetailData(num : Int){
+        let record = searchResults.records[num]
         self.title = "\(self.num+1)/\(self.searchResults.records.count)"
-        titleLabel.text = searchResults.records[num].title
+        titleLabel.text = record.title
         let byText = NSLocalizedString("By: ", comment: "By is shown just before authors")
-        if(searchResults.records[num].author != ""){
-            authorLabel.text = "\(byText) \(searchResults.records[num].author)"
+        if(record.author != ""){
+            authorLabel.text = "\(byText) \(record.author)"
         }
         else{
             authorLabel.text = ""
         }
-        abstractNewLabel.text = hc.cleanAbstract(txt: searchResults.records[num].abstract)
+        abstractNewLabel.text = hc.cleanAbstract(txt: record.abstract)
         abstractNewLabel.sizeToFit()
-        accessButton.setTitle(searchResults.records[num].buttonLabel, for: .normal)
-        self.url = searchResults.records[num].linkUrl
-//        let label = NSLocalizedString("View Record at core.ac.uk", comment: "in this case used for string comparison")
-//        if(coreRecord.buttonLabel == label){
-//            accessButton.backgroundColor = blueColor
-//            pdfButton.backgroundColor = blueColor
-//            pdfButton.setTitle("core.ac.uk", for: .normal)
-//            self.pdf = false
-//        }
-//        else if (coreRecord.buttonLabel.contains("arXiv.org")){
-//            accessButton.backgroundColor = redColor
-//            pdfButton.backgroundColor = greenColor
-//            pdfButton.setTitle("arXiv.org", for: .normal)
-//            self.pdf = false
-//        }
-//        else{
-//            accessButton.backgroundColor = greenColor
-//            pdfButton.backgroundColor = greenColor
-//            pdfButton.setTitle("PDF", for: .normal)
-//            self.pdf = true
-//        }
-//        if(coreRecord.url == "" ){
-//            self.pdf = false
-//            accessButton.isHidden = true
-//        }
-//
+        accessButton.setTitle(record.buttonLabel, for: .normal)
+        if(record.source == "Core"){
+            self.sourceLabel.text = ""
+        }
+        else{
+            self.sourceLabel.text = record.source
+        }
+        self.url = record.linkUrl
+        //        let label = NSLocalizedString("View Record at core.ac.uk", comment: "in this case used for string comparison")
+        //        if(coreRecord.buttonLabel == label){
+        //            accessButton.backgroundColor = blueColor
+        //            pdfButton.backgroundColor = blueColor
+        //            pdfButton.setTitle("core.ac.uk", for: .normal)
+        //            self.pdf = false
+        //        }
+        //        else if (coreRecord.buttonLabel.contains("arXiv.org")){
+        //            accessButton.backgroundColor = redColor
+        //            pdfButton.backgroundColor = greenColor
+        //            pdfButton.setTitle("arXiv.org", for: .normal)
+        //            self.pdf = false
+        //        }
+        //        else{
+        //            accessButton.backgroundColor = greenColor
+        //            pdfButton.backgroundColor = greenColor
+        //            pdfButton.setTitle("PDF", for: .normal)
+        //            self.pdf = true
+        //        }
+        //        if(coreRecord.url == "" ){
+        //            self.pdf = false
+        //            accessButton.isHidden = true
+        //        }
+        //
         
         changeNavButtonColor(num: num)
     }
