@@ -14,6 +14,7 @@ class SearchResult{
     var maxPage : Int = 0
     var page : Int = 0
     var token : String = ""
+    var searchTerm : String = ""
     var records = [SearchResultRecords]()
 }
 

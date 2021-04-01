@@ -240,7 +240,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
    
     func checkEPMC(search: String){
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        self.helper.checkEPMC(search: search, nextCursorMark: "*") { (res) in
+        self.helper.checkEPMC(search: search, nextCursorMark: "*", page: 1) { (res) in
             DispatchQueue.main.async {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }

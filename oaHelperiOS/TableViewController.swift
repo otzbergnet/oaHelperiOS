@@ -38,6 +38,8 @@ class TableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.title = "\(self.searchResults.hitCount)"
+        self.page = self.searchResults.page
+        self.maxPage = Double(self.searchResults.maxPage)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -76,7 +78,7 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let lastElement = self.coreRecords.count - 1
+        let lastElement = self.searchResults.records.count - 1
         if !loadingData && indexPath.row == (lastElement - 25) && self.page < Int(self.maxPage){
             let spinner = UIActivityIndicatorView(style: .gray)
             spinner.startAnimating()
@@ -84,7 +86,52 @@ class TableViewController: UITableViewController {
             self.tableView.tableFooterView = spinner
             self.tableView.tableFooterView?.backgroundColor = UIColor(red: 0.984, green: 0.627, blue: 0.216, alpha: 1.00)
             self.tableView.tableFooterView?.isHidden = false
-            //self.checkCore(search: self.search)
+            let isEPMC = self.settings.getSettingsValue(key: "epmc")
+            if (isEPMC){
+                self.loadingData = true
+                self.hc.checkEPMC(search: self.searchResults.searchTerm, nextCursorMark: self.searchResults.token, page: self.searchResults.page+1, completion: { (res) in
+                    switch res {
+                    case .success(let data):
+                        self.searchResults.token = data.token
+                        print(data.token)
+                        self.searchResults.page = data.page
+                        print(data.page)
+                        for record in data.records {
+                            self.searchResults.records.append(record)
+                        }
+                        DispatchQueue.main.async {
+                            self.loadingData = false
+                            self.tableView.tableFooterView?.removeFromSuperview()
+                            self.tableView.reloadData()
+                        }
+                    case .failure(let error):
+                        print(error)
+                        self.showErrorAlert(title: "😞 An error occured", message: "Unfortunately an error occured while the app attempted to retrieve more recods from EPMC")
+                    }
+                })
+            }
+            else{
+                self.loadingData = true
+                let apiKey = self.hc.getAPIKeyFromPlist(key: "core")
+                self.hc.checkCore(search: self.searchResults.searchTerm, apiKey: apiKey, page: self.searchResults.page+1, completion: { (res) in
+                    switch res {
+                    case .success(let data):
+                        self.searchResults.page = data.page
+                        print(data.page)
+                        for record in data.records {
+                            self.searchResults.records.append(record)
+                        }
+                        DispatchQueue.main.async {
+                            self.loadingData = false
+                            self.tableView.tableFooterView?.removeFromSuperview()
+                            self.tableView.reloadData()
+                        }
+                    case .failure(let error):
+                        print(error)
+                        self.showErrorAlert(title: "😞 An error occured", message: "Unfortunately an error occured while the app attempted to retrieve more recods from EPMC")
+                    }
+                })
+            }
         }
     }
     

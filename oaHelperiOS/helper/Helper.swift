@@ -156,6 +156,8 @@ class HelperClass : UIViewController{
                                 searchResults.service = "core"
                                 searchResults.hitCount = totalHits
                                 searchResults.maxPage = Int(tmpMaxPage.rounded(.up))
+                                searchResults.page = page
+                                searchResults.searchTerm = search
                                 if let coreRecords = coreData.data{
                                     for record in coreRecords {
                                         searchResults.records.append(self.makeRecordsFromCore(sourceRecord: record))
@@ -242,7 +244,7 @@ class HelperClass : UIViewController{
     }
     
     
-    func checkEPMC(search: String, nextCursorMark: String, completion: @escaping (Result<SearchResult, Error>) -> ()) {
+    func checkEPMC(search: String, nextCursorMark: String, page: Int, completion: @escaping (Result<SearchResult, Error>) -> ()) {
         if let encodedString = search.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
             
             let jsonUrlString = "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\(encodedString)+AND+(HAS_FT:Y)&format=json&synonym=yes&pageSize=50&resultType=core&cursorMark=\(nextCursorMark)"
@@ -267,8 +269,11 @@ class HelperClass : UIViewController{
                                 let tmpMaxPage = Double(Double(totalHits) / 50)
                                 let searchResults = SearchResult()
                                 searchResults.service = "epmc"
+                                searchResults.token = epmcData.nextCursorMark ?? ""
+                                searchResults.searchTerm = search
                                 searchResults.hitCount = totalHits
                                 searchResults.maxPage = Int(tmpMaxPage.rounded(.up))
+                                searchResults.page = page
                                 if let epmcRecords = epmcData.resultList?.result{
                                     
                                     for record in epmcRecords {
