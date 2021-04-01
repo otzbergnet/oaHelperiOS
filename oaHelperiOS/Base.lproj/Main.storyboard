@@ -143,6 +143,7 @@
                         <outlet property="publicationYearFrom" destination="VQT-jJ-laO" id="izf-JM-1Ci"/>
                         <outlet property="publicationYearTo" destination="4Su-Au-oDM" id="T8R-vn-uac"/>
                         <outlet property="searchButton" destination="4Tl-nX-NTX" id="dBB-LY-eom"/>
+                        <outlet property="searchProviderLogo" destination="oya-jY-1IV" id="veC-45-moc"/>
                         <segue destination="PDw-ar-iKr" kind="show" identifier="advancedSearchResults" id="Xbo-Rx-qqx"/>
                     </connections>
                 </viewController>
@@ -1743,7 +1744,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QaW-6b-mlT"/>
+        <segue reference="Xbo-Rx-qqx"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
