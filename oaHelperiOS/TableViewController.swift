@@ -63,7 +63,11 @@ class TableViewController: UITableViewController {
         let paper = self.searchResults.records[indexPath.row]
         let title = paper.title
         let abstract = paper.abstract
-        let yearAbstract = "(\(paper.year)) \(hc.cleanAbstract(txt: abstract))"
+        var yearAbstract = ""
+        if (paper.year != ""){
+            yearAbstract += "(\(paper.year)) "
+        }
+        yearAbstract += "\(hc.cleanAbstract(txt: abstract))"
         if(paper.hasFT){
             cell.iconImageView.image = UIImage(named: "pdf_icon")
         }
@@ -93,9 +97,7 @@ class TableViewController: UITableViewController {
                     switch res {
                     case .success(let data):
                         self.searchResults.token = data.token
-                        print(data.token)
                         self.searchResults.page = data.page
-                        print(data.page)
                         for record in data.records {
                             self.searchResults.records.append(record)
                         }
