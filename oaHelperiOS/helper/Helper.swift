@@ -342,7 +342,7 @@ class HelperClass : UIViewController{
                 record.source += "\(journalTitle)"
             }
         }
-        if (sourceRecord.pubYear != "0"){
+        if (sourceRecord.pubYear != ""){
             record.source += " (\(sourceRecord.pubYear ?? ""))"
         }
         if let volume = sourceRecord.journalInfo?.volume {
