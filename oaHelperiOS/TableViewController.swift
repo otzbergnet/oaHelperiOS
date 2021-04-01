@@ -32,12 +32,12 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "\(self.searchResults.hitCount)"
+        self.title = "\(formatThousandSeperators(number: "\(self.searchResults.hitCount)")) Hits"
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.title = "\(self.searchResults.hitCount)"
+        self.title = "\(formatThousandSeperators(number: "\(self.searchResults.hitCount)")) Hits"
         self.page = self.searchResults.page
         self.maxPage = Double(self.searchResults.maxPage)
     }
@@ -65,7 +65,15 @@ class TableViewController: UITableViewController {
         let abstract = paper.abstract
         var yearAbstract = ""
         if (paper.year != ""){
-            yearAbstract += "(\(paper.year)) "
+            if let intYear = Int(paper.year){
+                if intYear < 2030 {
+                    yearAbstract += "(\(intYear)) "
+                }
+            }
+            else{
+                yearAbstract += "(\(paper.year)) "
+            }
+            
         }
         yearAbstract += "\(hc.cleanAbstract(txt: abstract))"
         if(paper.hasFT){
@@ -96,19 +104,21 @@ class TableViewController: UITableViewController {
                 self.hc.checkEPMC(search: self.searchResults.searchTerm, nextCursorMark: self.searchResults.token, page: self.searchResults.page+1, completion: { (res) in
                     switch res {
                     case .success(let data):
-                        self.searchResults.token = data.token
-                        self.searchResults.page = data.page
-                        for record in data.records {
-                            self.searchResults.records.append(record)
-                        }
                         DispatchQueue.main.async {
+                            self.searchResults.token = data.token
+                            self.searchResults.page = data.page
+                            for record in data.records {
+                                self.searchResults.records.append(record)
+                            }
                             self.loadingData = false
                             self.tableView.tableFooterView?.removeFromSuperview()
                             self.tableView.reloadData()
                         }
                     case .failure(let error):
-                        print(error)
-                        self.showErrorAlert(title: "😞 An error occured", message: "Unfortunately an error occured while the app attempted to retrieve more recods from EPMC")
+                        DispatchQueue.main.async {
+                            print(error)
+                            self.showErrorAlert(title: "😞 An error occured", message: "Unfortunately an error occured while the app attempted to retrieve more recods from Europe PMC")
+                        }
                     }
                 })
             }
@@ -118,19 +128,20 @@ class TableViewController: UITableViewController {
                 self.hc.checkCore(search: self.searchResults.searchTerm, apiKey: apiKey, page: self.searchResults.page+1, completion: { (res) in
                     switch res {
                     case .success(let data):
-                        self.searchResults.page = data.page
-                        print(data.page)
-                        for record in data.records {
-                            self.searchResults.records.append(record)
-                        }
                         DispatchQueue.main.async {
+                            self.searchResults.page = data.page
+                            for record in data.records {
+                                self.searchResults.records.append(record)
+                            }
                             self.loadingData = false
                             self.tableView.tableFooterView?.removeFromSuperview()
                             self.tableView.reloadData()
                         }
                     case .failure(let error):
-                        print(error)
-                        self.showErrorAlert(title: "😞 An error occured", message: "Unfortunately an error occured while the app attempted to retrieve more recods from EPMC")
+                        DispatchQueue.main.async {
+                            print(error)
+                            self.showErrorAlert(title: "😞 An error occured", message: "Unfortunately an error occured while the app attempted to retrieve more recods from CORE.ac.uk")
+                        }
                     }
                 })
             }
