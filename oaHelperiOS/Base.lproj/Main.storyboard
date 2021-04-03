@@ -796,7 +796,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2G-g4-c2A">
                                 <rect key="frame" x="25" y="383" width="270" height="35"/>
-                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="NUd-HE-xhI"/>
                                 </constraints>
@@ -1082,9 +1082,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N1M-Nc-NMQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" systemColor="systemOrangeColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="darkTextColor"/>
+                            <color key="textColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -1552,7 +1551,15 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Wr-73-lqh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="g5z-3U-3YA" kind="relationship" relationship="viewControllers" id="N3b-CV-iva"/>
@@ -1575,9 +1582,8 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="F0i-js-t6A">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" systemColor="systemOrangeColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="darkTextColor"/>
+                            <color key="textColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1597,9 +1603,8 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fok-h4-5so">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" systemColor="systemOrangeColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="darkTextColor"/>
+                            <color key="textColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -1706,9 +1711,8 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dyq-dg-YKc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" systemColor="systemOrangeColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="darkTextColor"/>
+                            <color key="textColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1729,9 +1733,8 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dh5-cq-xxL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" systemColor="systemOrangeColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="darkTextColor"/>
+                            <color key="textColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1747,7 +1750,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
     <inferredMetricsTieBreakers>
         <segue reference="Xbo-Rx-qqx"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <color key="tintColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="core_ac_uk" width="171" height="95"/>
         <image name="core_icon" width="221" height="300"/>
@@ -1761,9 +1764,6 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
         <image name="icons8-statistics-75" width="25" height="25"/>
         <image name="image_read" width="25" height="25"/>
         <image name="info_icon" width="100" height="100"/>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -1781,9 +1781,6 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemFillColor">
             <color red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
