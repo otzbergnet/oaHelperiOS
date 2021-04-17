@@ -514,7 +514,7 @@ class ZoteroAPI: NSObject {
         let collectionId = settings.getSettingsStringValue(key: "collectionID")
         let oauthToken = settings.getSettingsStringValue(key: "oauth_token")
 
-        let url = "https://api.zotero.org/users/\(userId)/collections/\(collectionId)/items?key=eoU0CP7syvZMHGzkSBNGFslM"
+        let url = "https://api.zotero.org/users/\(userId)/collections/\(collectionId)/items"
         guard let baseURL = URL(string: url) else {
             completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "badUrl"])))
             return
@@ -554,6 +554,53 @@ class ZoteroAPI: NSObject {
         }
         task.resume()
     
+    }
+    
+    func deleteZoteroItem(key: String, version: Int, completion: @escaping (Result<Bool, NSError>) -> ()) {
+        
+        // items must be deleted as the userid level not the collection level. if you delete them from the collection id level they'll just be removed from the collection
+        
+        let settings = SettingsBundleHelper()
+        let userId = settings.getSettingsStringValue(key: "userID")
+        let oauthToken = settings.getSettingsStringValue(key: "oauth_token")
+
+        let url = "https://api.zotero.org/users/\(userId)/items/\(key)"
+        guard let baseURL = URL(string: url) else {
+            completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "badUrl"])))
+            return
+        }
+
+        var urlRequest = URLRequest(url: baseURL)
+        urlRequest.httpMethod = "DELETE"
+        urlRequest.setValue(oauthToken, forHTTPHeaderField: "Zotero-API-Key")
+        urlRequest.setValue("\(version)", forHTTPHeaderField: "If-Unmodified-Since-Version")
+
+        let urlconfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: urlconfig, delegate: self as? URLSessionDelegate, delegateQueue: nil)
+        let task = session.dataTask(with: urlRequest) {(data, response, error) in
+            guard let response = response as? HTTPURLResponse else {
+                completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "failedHTTPResponse"])))
+                return
+            }
+
+            let status = response.statusCode
+            switch(status){
+            case 204:
+                completion(.success(true))
+            case 409:
+                completion(.failure(NSError(domain: "", code: 409, userInfo: ["description" : "Conflict - The target library is locked."])))
+            case 412:
+                completion(.failure(NSError(domain: "", code: 412, userInfo: ["description" : "The item has changed since retrieval"])))
+            case 418:
+                completion(.failure(NSError(domain: "", code: 418, userInfo: ["description" : "If-Unmodified-Since-Version was not provided."])))
+            default:
+                completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "base request - status \(status)."])))
+            }
+
+        }
+        task.resume()
+    
+        
     }
     
     private func randomString(length: Int) -> String {

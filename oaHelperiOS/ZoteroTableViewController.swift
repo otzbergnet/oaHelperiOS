@@ -124,26 +124,54 @@ class ZoteroTableViewController: UITableViewController {
         }
     }
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            let itemId = indexPath.row
+            let key = self.zoteroItems[itemId].key
+            let version = self.zoteroItems[itemId].version
+            zoteroAPI.deleteZoteroItem(key: key, version: version) { (res) in
+                switch(res){
+                case .success(let success):
+                    if(success){
+                        DispatchQueue.main.async {
+                            self.zoteroItems.remove(at: indexPath.row)
+                            tableView.deleteRows(at: [indexPath], with: .fade)
+                        }
+                    }
+                    else{
+                        DispatchQueue.main.async {
+                            let alertTitle = NSLocalizedString("Error", comment: "shown when zotero item could not be deleted")
+                            let alertMessage = NSLocalizedString("Something went wrong, while we attempted to delete the item. Please try again and contact me, if this happens again", comment: "shown when zotero item could not be deleted")
+                            self.showErrorAlert(alertTitle: alertTitle, alertMessage: alertMessage, okButton: "OK")
+                        }
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
-    */
+    
 
+    func showErrorAlert(alertTitle : String, alertMessage : String, okButton : String){
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: okButton, style: UIAlertAction.Style.default, handler: {(action:UIAlertAction!) in
+            //self.syncButton.isHidden = true
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {

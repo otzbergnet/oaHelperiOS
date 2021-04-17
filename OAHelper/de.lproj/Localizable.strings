@@ -375,3 +375,9 @@
 
 /* shown as soon as we attempt to send to Zotero */
 "😞 Oh No! Adding the record to Zotero failed" = "😞 Oh Nein! Ich konnte den Datensatz nicht bei Zotero speicher.";
+
+/* shown when zotero item could not be deleted */
+"Error" = "Fehler";
+
+/* shown when zotero item could not be deleted */
+"Something went wrong, while we attempted to delete the item. Please try again and contact me, if this happens again" = "Beim Löschen des Eintrags ist etwas schief gelaufen. Bitte versuche es erneut und kontaktiere mich, falls es weiterhin nicht geht";
