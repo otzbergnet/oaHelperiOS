@@ -297,3 +297,21 @@
 
 /* Class = "UILabel"; text = "sourceLabel"; ObjectID = "FiM-6H-4ye"; */
 "FiM-6H-4ye.text" = "sourceLabel";
+
+/* Class = "UILabel"; text = "Store Bookmarks in Zotero"; ObjectID = "ggA-dZ-5Vw"; */
+"ggA-dZ-5Vw.text" = "Bookmarks in Zotero speichern";
+
+/* Class = "UIButton"; normalTitle = "Setup"; ObjectID = "BtL-c7-dY9"; */
+"BtL-c7-dY9.normalTitle" = "Bookmarks einrichten";
+
+/* Class = "UIButton"; normalTitle = "Zotero Bookmarks"; ObjectID = "jLS-3a-yYz"; */
+"jLS-3a-yYz.normalTitle" = "Zotero Bookmarks";
+
+/* Class = "UIButton"; normalTitle = "iCloud Bookmarks"; ObjectID = "uSz-5f-h5W"; */
+"uSz-5f-h5W.normalTitle" = "iCloud Bookmarks";
+
+/* Class = "UILabel"; text = "Store Bookmarks in Zotero"; ObjectID = "z9Y-mc-Wwe"; */
+"z9Y-mc-Wwe.text" = "Bookmarks in Zotero speichern";
+
+/* Class = "UILabel"; text = "zoteroLabel"; ObjectID = "HcJ-HF-Db6"; */
+"HcJ-HF-Db6.text" = "zoteroLabel";

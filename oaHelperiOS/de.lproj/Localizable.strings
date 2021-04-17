@@ -335,3 +335,39 @@
 
 /* button, EPMC Document */
 "View Record at Europe PMC" = "Datensatz bei Europe PMC anzeigen";
+
+/* shown while checking collection */
+"Checking if Open Access Helper Collection exists" = "Prüfe, ob Open Access Helper Collection bereits vorhanden ist";
+
+/* shown while creating collection */
+"Creating the Open Access Helper Collection" = "ERstelle die Open Access Helper Collection";
+
+/* shown at start of finish Token Exchange */
+"Finishing Zotero Authentication" = "Die Zotero Zugriffsberechtigungen werden fianlisiert";
+
+/* part of Hello, <zoterouser>...string */
+"Hello, " = "Hallo ";
+
+/* shown when creating a collection fails */
+"Oops - something went wrong while creating the Open Access Helper Collection" = "Oh nein - da ist leider beim erstellen der Open Access Helper Collection schiefgelaufen";
+
+/* shown when authentication failed */
+"Something went wrong 😞 \n\n Try again?!" = "Leider ist etwas schief gelaufen 😞 \n\n Nochmal probieren?";
+
+/* part of Hello, <zoterouser>...string */
+"You can now start using this feature." = "Die Zotero Integration ist nun einsatzbereit";
+
+/* Add to Zotero */
+"Add to Zotero" = "In Zotero speichern";
+
+/* shown as soon as Add to Zotero is tapped */
+"Hold on tight - I am getting Meta Data from CrossRef..." = "Warte kurz - ich hole mir die Metadaten von CrossRef...";
+
+/* shown as soon as we attempt to send to Zotero */
+"Successfully added the record to Zotero!" = "Der Datensatz wurde erfolgreich bei Zotero gespeichert!";
+
+/* shown as soon as we attempt to send to Zotero */
+"Things are looking good - sending the record to Zotero..." = "Das sieht gut aus - übergebe den Datensatz an Zotero...";
+
+/* shown as soon as we attempt to send to Zotero */
+"😞 Oh No! Adding the record to Zotero failed" = "😞 Oh Nein! Ich konnte den Datensatz nicht bei Zotero speicher.";

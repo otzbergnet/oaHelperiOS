@@ -11,15 +11,18 @@ import CloudKit
 
 class NoBookMarkSupportViewController: UIViewController {
     
-
+    
     @IBOutlet weak var bookMarkSwitch: UISwitch!
     @IBOutlet weak var iCloudSwitch: UISwitch!
     @IBOutlet weak var iCloudSwitchLabel: UILabel!
+    @IBOutlet weak var zoteroSwitch: UISwitch!
+    
     @IBOutlet weak var openSettingsButton: UIButton!
     @IBOutlet weak var iCloudStatusLabel: UILabel!
     
     let settings = SettingsBundleHelper()
     let dataSync = DataSync()
+    let zoteroAPI = ZoteroAPI()
     
     let selection = UISelectionFeedbackGenerator()
     
@@ -29,7 +32,7 @@ class NoBookMarkSupportViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         openSettingsButton.layer.cornerRadius = 10
-
+        
         if(self.settings.getSettingsValue(key: "bookmarks")){
             bookMarkSwitch.isOn = true
         }
@@ -130,6 +133,29 @@ class NoBookMarkSupportViewController: UIViewController {
         self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
     }
     
+    func openOAuthUrl(url: String) {
+        DispatchQueue.main.async {
+            if let link = URL(string: url) {
+                UIApplication.shared.open(link)
+            }
+        }
+    }
+    
+    func startZoteroOAuth(){
+        self.settings.setSettingsValue(value: true, key: "activeOAuth")
+        zoteroAPI.oAuthRequestToken(start: true) { (res) in
+            switch(res) {
+            case .success(let token):
+                self.settings.setSettingsStringValue(value: token.requestToken, key: "requestToken")
+                self.settings.setSettingsStringValue(value: token.requestTokenSecret, key: "requestTokenSecret")
+                let url = "https://www.zotero.org/oauth/authorize?oauth_token=\(token.requestToken)&library_access=1&notes_access=1&write_access=1&all_groups=write"
+                self.openOAuthUrl(url: url)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     
     @IBAction func bookMarksSwitched(_ sender: Any) {
         if(self.bookMarkSwitch.isOn){
@@ -154,6 +180,18 @@ class NoBookMarkSupportViewController: UIViewController {
         }
         else{
             self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
+        }
+    }
+    
+    @IBAction func zoteroSwitched(_ sender: Any) {
+        if(self.zoteroSwitch.isOn){
+            self.settings.setSettingsValue(value: false, key: "bookmarks")
+            self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
+            self.settings.setSettingsValue(value: true, key: "zotero")
+            self.startZoteroOAuth()
+        }
+        else{
+            self.settings.setSettingsValue(value: false, key: "zotero")
         }
     }
     

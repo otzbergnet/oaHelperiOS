@@ -130,6 +130,20 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
+			<string>Store Bookmarks in Zotero</string>
+			<key>Key</key>
+			<string>zotero</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
+			<false/>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
 			<string>Reset Bookmarks from iCloud</string>
 			<key>Key</key>
 			<string>reset_bookmarks_icloud</string>
@@ -202,20 +216,20 @@
 			<key>DefaultValue</key>
 			<true/>
 		</dict>
-        <dict>
-            <key>Type</key>
-            <string>PSToggleSwitchSpecifier</string>
-            <key>Title</key>
-            <string>Use Europe PMC for search</string>
-            <key>Key</key>
-            <string>epmc</string>
-            <key>TrueValue</key>
-            <true/>
-            <key>FalseValue</key>
-            <false/>
-            <key>DefaultValue</key>
-            <false/>
-        </dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Use Europe PMC for search</string>
+			<key>Key</key>
+			<string>epmc</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
+			<false/>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
@@ -271,6 +285,52 @@
 			<string>instituteId</string>
 			<key>DefaultValue</key>
 			<string>-</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Zotero Settings Details</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>API Key</string>
+			<key>Key</key>
+			<string>oauth_token</string>
+			<key>DefaultValue</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>User ID</string>
+			<key>Key</key>
+			<string>userID</string>
+			<key>DefaultValue</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>User Name</string>
+			<key>Key</key>
+			<string>username</string>
+			<key>DefaultValue</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Collection ID</string>
+			<key>Key</key>
+			<string>collectionID</string>
+			<key>DefaultValue</key>
+			<string></string>
 		</dict>
 	</array>
 </dict>

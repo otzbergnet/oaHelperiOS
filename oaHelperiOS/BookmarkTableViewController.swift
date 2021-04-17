@@ -55,9 +55,9 @@ class BookmarkTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if(self.settings.getSettingsValue(key: "bookmarks") == false){
-            performSegue(withIdentifier: "noBookMarkPopover", sender: self)
-        }
+//        if(self.settings.getSettingsValue(key: "bookmarks") == false){
+//            performSegue(withIdentifier: "noBookMarkPopover", sender: self)
+//        }
         self.networkAvailable()
         self.bookMarkList = self.bookMarkData.getAllBookMarks()
         self.settings.setBookMarkCount(bookMarkCount : self.bookMarkList.count)

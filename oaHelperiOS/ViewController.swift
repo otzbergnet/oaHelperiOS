@@ -65,6 +65,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.settings.ensureSettingsAreRegistered()
+        
+        if(self.settings.getSettingsValue(key: "oauthreturn") && self.settings.getSettingsValue(key: "activeOAuth")){
+            self.performSegue(withIdentifier: "zoteroauth", sender: self)
+        }
 
         //search button should have corner radius and offlineLabel should be empty
         searchButton.layer.cornerRadius = 10
