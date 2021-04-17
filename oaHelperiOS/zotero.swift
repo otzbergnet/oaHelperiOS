@@ -416,7 +416,17 @@ class ZoteroAPI: NSObject {
 
     }
     
-    func convertCrossRef2Zotero(record: CrossRef, url: String) -> ZoteroJournalArticle{
+    func convertCrossRef2Zotero(record: CrossRef, url: String, pdf: String) -> ZoteroJournalArticle{
+        var zExtra = ""
+        var zUrl = ""
+        if(pdf != ""){
+            zUrl = pdf
+            zExtra = "From: \(url)"
+        }
+        else{
+            zUrl = url
+        }
+        
         let settings = SettingsBundleHelper()
         let zoteroJournalArticle = ZoteroJournalArticle(
             itemType: "journalArticle",
@@ -436,14 +446,14 @@ class ZoteroAPI: NSObject {
             doi: record.message.doi,
             issn: record.message.issn?.first?.description ?? "",
             shortTitle: "",
-            url: url,
+            url: zUrl,
             accessDate: self.makeZoteroDate(),
             archive: "",
             archiveLocation: "",
             libraryCatalog: "",
             callNumber: "",
             rights: "",
-            extra: "",
+            extra: zExtra,
             collections: [settings.getSettingsStringValue(key: "collectionID")],
             tags: self.makeZoteroTag(record: record)
         )
@@ -494,6 +504,56 @@ class ZoteroAPI: NSObject {
         let formatter = ISO8601DateFormatter()
         let string = formatter.string(from: Date())
         return string
+    }
+    
+    
+    func getZoteroItems(name: String, completion: @escaping (Result<[ZoteroItem], NSError>) -> ()) {
+
+        let settings = SettingsBundleHelper()
+        let userId = settings.getSettingsStringValue(key: "userID")
+        let collectionId = settings.getSettingsStringValue(key: "collectionID")
+        let oauthToken = settings.getSettingsStringValue(key: "oauth_token")
+
+        let url = "https://api.zotero.org/users/\(userId)/collections/\(collectionId)/items?key=eoU0CP7syvZMHGzkSBNGFslM"
+        guard let baseURL = URL(string: url) else {
+            completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "badUrl"])))
+            return
+        }
+
+        var urlRequest = URLRequest(url: baseURL)
+        urlRequest.httpMethod = "GET"
+        urlRequest.setValue(oauthToken, forHTTPHeaderField: "Zotero-API-Key")
+
+        let urlconfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: urlconfig, delegate: self as? URLSessionDelegate, delegateQueue: nil)
+        let task = session.dataTask(with: urlRequest) {(data, response, error) in
+            guard let response = response as? HTTPURLResponse else {
+                completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "failedHTTPResponse"])))
+                return
+            }
+
+            guard response.statusCode == 200 else{
+                completion(.failure(NSError(domain: "", code: response.statusCode, userInfo: ["description" : "notOK"])))
+                return
+            }
+
+            guard let data = data else {
+                completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "dataNotPresent"])))
+                return
+            }
+
+            do {
+                let zoteroItems = try JSONDecoder().decode([ZoteroItem].self, from: data)
+                completion(.success(zoteroItems))
+            }
+            catch let jsonError{
+                print("JSON String: \(String(data: data, encoding: .utf8) ?? "JSON ERROR COULD NOT PRINT")")
+                completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : jsonError])))
+            }
+
+        }
+        task.resume()
+    
     }
     
     private func randomString(length: Int) -> String {

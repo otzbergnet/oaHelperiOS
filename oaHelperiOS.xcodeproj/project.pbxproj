@@ -54,6 +54,8 @@
 		2DAA751C26249C2300654879 /* zoteroStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA751B26249C2300654879 /* zoteroStructs.swift */; };
 		2DAA751F26249C4100654879 /* zoteroStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA751B26249C2300654879 /* zoteroStructs.swift */; };
 		2DAA75222624ACC000654879 /* zotero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5C09C2621F8E4002E967F /* zotero.swift */; };
+		2DACBB51262AD3D400E4AB1E /* ZoteroTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DACBB50262AD3D400E4AB1E /* ZoteroTableViewController.swift */; };
+		2DACBB55262AD8D100E4AB1E /* ZoteroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DACBB54262AD8D100E4AB1E /* ZoteroTableViewCell.swift */; };
 		2DAD65652392A92C00940419 /* coreRecommenderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */; };
 		2DAD65662392A92C00940419 /* coreRecommenderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */; };
 		2DAD65682392AA0B00940419 /* RecommenderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65672392AA0B00940419 /* RecommenderHelper.swift */; };
@@ -164,6 +166,8 @@
 		2DA6ECAD2425D44B00B5369A /* OpenCitationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCitationHelper.swift; sourceTree = "<group>"; };
 		2DA78879222C0A680025CB13 /* OnboardingFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFive.swift; sourceTree = "<group>"; };
 		2DAA751B26249C2300654879 /* zoteroStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zoteroStructs.swift; sourceTree = "<group>"; };
+		2DACBB50262AD3D400E4AB1E /* ZoteroTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoteroTableViewController.swift; sourceTree = "<group>"; };
+		2DACBB54262AD8D100E4AB1E /* ZoteroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoteroTableViewCell.swift; sourceTree = "<group>"; };
 		2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreRecommenderStruct.swift; sourceTree = "<group>"; };
 		2DAD65672392AA0B00940419 /* RecommenderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommenderHelper.swift; sourceTree = "<group>"; };
 		2DAD656A2392AC6200940419 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -275,6 +279,8 @@
 				2D787BDC229E3CA900AAE269 /* AdvancedSearchViewController.swift */,
 				2DFF67B821C2ED6F00120363 /* TableViewController.swift */,
 				2D30FC5C21E4715F00C4060D /* TableViewCell.swift */,
+				2DACBB50262AD3D400E4AB1E /* ZoteroTableViewController.swift */,
+				2DACBB54262AD8D100E4AB1E /* ZoteroTableViewCell.swift */,
 				2D28376E21C61821008D6C89 /* DetailViewController.swift */,
 				2D24C2812222A3BF0012B8E1 /* BookmarkTableViewController.swift */,
 				2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */,
@@ -593,6 +599,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DACBB55262AD8D100E4AB1E /* ZoteroTableViewCell.swift in Sources */,
 				2DC0C19D23F1956D00A725AC /* proxyStruct.swift in Sources */,
 				2D30FC5D21E4715F00C4060D /* TableViewCell.swift in Sources */,
 				2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */,
@@ -609,6 +616,7 @@
 				2DC0C19F23F195FB00A725AC /* ProxyFind.swift in Sources */,
 				2D8BA9D9227CC77100A0600E /* DetailNewsViewController.swift in Sources */,
 				2DC5C0A3262306DD002E967F /* crossRefStruct.swift in Sources */,
+				2DACBB51262AD3D400E4AB1E /* ZoteroTableViewController.swift in Sources */,
 				2DAA751C26249C2300654879 /* zoteroStructs.swift in Sources */,
 				2DAE4AF5227F46A30037DB69 /* NewsItemData.swift in Sources */,
 				2D575C4923A42B2000D1038F /* OnboardingSix.swift in Sources */,

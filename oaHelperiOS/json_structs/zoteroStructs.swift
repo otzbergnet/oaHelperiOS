@@ -95,3 +95,35 @@ struct ZoteroWebPage : Codable {
     var collections: [String]
     var tags: [ZoteroTag]
 }
+
+// for [ZoteroItem] in search results
+
+struct ZoteroItem  : Codable {
+    var key: String
+    var version: Int
+    var links: ZoteroLinks
+    var data: ZoteroData
+}
+
+struct ZoteroLinks  : Codable {
+    var alternate: ZoteroAlternate
+}
+
+struct ZoteroAlternate  : Codable {
+    var href: String
+}
+
+struct ZoteroData  : Codable {
+    var key: String
+    var itemType: String
+    var title: String
+    var creators: [ZoteroCreator]?
+    var publicationTitle: String?
+    var volume: String?
+    var issue: String?
+    var pages: String?
+    var date: String?
+    var doi: String?
+    var issn: String?
+    var url: String?
+}

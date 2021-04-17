@@ -1158,7 +1158,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
                     self.activityIndicator.isHidden = true
-                    let zRecord = self.zoteroAPI.convertCrossRef2Zotero(record: crossRef, url: self.bookMark.pdf)
+                    let zRecord = self.zoteroAPI.convertCrossRef2Zotero(record: crossRef, url: self.bookMark.url, pdf: self.bookMark.pdf)
                     self.add2Zotero(record: zRecord)
                 }
             case .failure(let error):
