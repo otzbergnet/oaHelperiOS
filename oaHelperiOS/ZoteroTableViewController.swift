@@ -39,6 +39,14 @@ class ZoteroTableViewController: UITableViewController {
                     self.settings.setSettingsStringValue(value: "", key: "collectionID")
                     // show error message
                     errorMessage = NSLocalizedString("Zotero informed us that your API key is no longer valid. You will need to reauthenticate", comment: "shown getZoteroItems error")
+                case 404:
+                    // 404 not found, the collection is not there or the user id is invalid best to reset
+                    self.settings.setSettingsValue(value: false, key: "zotero")
+                    self.settings.setSettingsStringValue(value: "", key: "userID")
+                    self.settings.setSettingsStringValue(value: "", key: "oauth_token")
+                    self.settings.setSettingsStringValue(value: "", key: "collectionID")
+                    // show error message
+                    errorMessage = NSLocalizedString("Access your data was not possible. I've disabled the Zotero integration and recommend that you re-authenticate.", comment: "shown getZoteroItems error")
                 case 429:
                     errorMessage = NSLocalizedString("Apparently we made too many request - please pause your activity for a little while and try again much later", comment: "shown getZoteroItems error")
                 case 500:
@@ -47,6 +55,7 @@ class ZoteroTableViewController: UITableViewController {
                     errorMessage = NSLocalizedString("Zotero is currently unable to handle your request - please try again later", comment: "shown getZoteroItems error")
                 default:
                     errorMessage = NSLocalizedString("An unknown error occured - please try again later", comment: "shown getZoteroItems error")
+                    errorMessage += "\n\n\(error.localizedDescription) \(error.code)"
                 }
                 DispatchQueue.main.async {
                     self.showErrorAlert(alertTitle : errorTitle, alertMessage : errorMessage, okButton : "OK")

@@ -319,8 +319,8 @@ class ZoteroAPI: NSObject {
                 let collection = try JSONDecoder().decode(CreateZoteroCollection.self, from: data)
                 var exists = false
                 if let success = collection.success {
-                    if success.the0 != "" {
-                        settings.setSettingsStringValue(value: success.the0, key: "collectionID")
+                    if let the0 = success.the0 {
+                        settings.setSettingsStringValue(value: the0, key: "collectionID")
                         exists = true
                     }
                 }
@@ -379,10 +379,9 @@ class ZoteroAPI: NSObject {
                     completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "failedHTTPResponse"])))
                     return
                 }
-                
                 guard response.statusCode == 200 else{
-                    print(String(decoding: data!, as: UTF8.self))
-                    completion(.failure(NSError(domain: "", code: response.statusCode, userInfo: ["description" : "notOK"])))
+                    //print(String(decoding: data!, as: UTF8.self))
+                    completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "notOK"])))
                     return
                 }
                 
@@ -395,8 +394,22 @@ class ZoteroAPI: NSObject {
                     let item = try JSONDecoder().decode(CreateZoteroCollection.self, from: data)
                     var exists = false
                     if let success = item.success {
-                        if success.the0 != "" {
+                        if success.the0 != nil {
                             exists = true
+                        }
+                    }
+                    if let failed = item.failed {
+                        if failed.the0 != nil {
+                            exists = false
+                            if let code = failed.the0?.code {
+                                if let message = failed.the0?.message {
+                                    completion(.failure(NSError(domain: "", code: code, userInfo: ["description" : "\(message)"])))
+                                }
+                                else{
+                                    completion(.failure(NSError(domain: "", code: code, userInfo: ["description" : "unknown message"])))
+                                }
+                            }
+                            return
                         }
                     }
                     
@@ -414,6 +427,25 @@ class ZoteroAPI: NSObject {
         }
 
 
+    }
+    
+    func getFailedReason(data: Data, response: HTTPURLResponse) -> ZoteroFailureObject {
+        do {
+            let item = try JSONDecoder().decode(CreateZoteroCollection.self, from: data)
+            if let failed = item.failed?.the0{
+                return failed
+            }
+            else{
+                let failed = ZoteroFailureObject(code: 200, message: "not failed at all")
+                return failed
+            }
+            
+        }
+        catch let jsonError{
+            let failed = ZoteroFailureObject(code: 400, message: "jsonError \(jsonError)")
+            return failed
+        }
+        
     }
     
     func convertCrossRef2Zotero(record: CrossRef, url: String, pdf: String) -> ZoteroJournalArticle{

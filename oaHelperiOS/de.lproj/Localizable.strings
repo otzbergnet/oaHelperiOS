@@ -370,7 +370,7 @@
 "Things are looking good - sending the record to Zotero..." = "Das sieht gut aus - übergebe den Datensatz an Zotero...";
 
 /* shown as soon as we attempt to send to Zotero */
-"😞 Oh No! Adding the record to Zotero failed" = "😞 Oh Nein! Ich konnte den Datensatz nicht bei Zotero speicher.";
+"😞 Oh No! Adding the record to Zotero failed" = "😞 Oh Nein! Ich konnte den Datensatz nicht bei Zotero speichern.";
 
 /* shown when zotero item could not be deleted */
 "Error" = "Fehler";
@@ -404,3 +404,33 @@
 
 /* shown getZoteroItems error */
 "Zotero informed us that your API key is no longer valid. You will need to reauthenticate" = "Zotero gibt an, dass der API Key nicht mehr gültig ist. Du wirst Open Access Helper erneut mit Zotero verbinden müssen";
+
+/* shown getZoteroItems error */
+"Access your data was not possible. I've disabled the Zotero integration and recommend that you re-authenticate." = "Der Zugang zu Deinen Daten war nicht möglich. Ich habe die Zotero-Integration deaktiviert und empfehle, dass Du die Verbindung erneut herstellst.";
+
+/* shown getZoteroItems error */
+"Zotero informed us there was a conflict with your request - the exact error is shown below. Pleae contact support to get assistance, if this error persists" = "Zotero bereichtet, dass es zu einem Konflikt gekommen ist. Der genaue Fehler wird unten gezeigt. Bitte kontaktiere den Support, um Hilfe zu erhalten, sofern der Fehler erneut auftritt.";
+
+/* shown getZoteroItems error */
+"Zotero reports the target Zotero Collection missing. You will need to reauthenticate please." = "Zotero gibt an, dass die Open Access Helper Collection nicht mehr existiert. Du musst Dich bitte neu anmelden.";
+
+/* shown getZoteroItems error */
+"Zotero reports the target Zotero Collection missing. I've recreated it for you, but you will need to try to add the bookmark again" = "Zotero gibt an, dass die Open Access Helper Collection nicht mehr existiert. Ich habe diese wieder angelegt, aber Du musst das Bookmark bitte neu erstellen.";
+
+/* shown of recreating collection fails */
+"\n\nFailed to recreate the collection" = "\n\nLeider konnte ich die Collection nicht erneut anlegen";
+
+/* shown of recreating collection succeeds */
+"\n\nSuccessfully recreated the collection" = "\n\nDie Collection wurde erfolgreich angelegt.";
+
+/* shown getZoteroItems error */
+"Zotero reports the target Zotero Collection missing. I've tried to recreate it for you, please try adding the bookmark again in a few moments. If this problem persists, please contact support." = "Zotero gibt an, dass die Open Access Helper Collection nicht mehr existiert. Ich habe versucht diese neu anzulegen, aber Du musst das Bookmark bitte neu anlegen. Wenn das Problem weiter besteht, sprich bitte mit dem Support.";
+
+/* shown of recreating collection fails */
+"\n\nFailed to recreate the collection. Please consider contacting support." = "\n\nIch konnte die Collection nicht erneut anlegen. Bitte kontaktiere den Support.";
+
+/* shown of recreating collection succeeds */
+"\n\nSuccessfully recreated the collection. Please attempt to add the bookmark again" = "\n\nIch habe die Collection erfolgreich wieder angelegt. Bitte versuche erneut das Bookmark hinzuzufügen.";
+
+/* shown getZoteroItems error */
+"Zotero reports the target Zotero Collection missing. I'll try to recreate it for you." = "Zotero gibt an, dass die Open Access Helper Collection nicht mehr existiert. Ich werde versuchen diese wieder anzulegen.";

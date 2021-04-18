@@ -589,8 +589,8 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 print(exists)
                 self.executeCancel(action: "bookmarked")
             case .failure(let error):
-                self.zoteroUpdateUserInterface3()
-                print(error)
+                let errorMessage = self.handleZoteroError(error: error)
+                self.zoteroUpdateUserInterface3(text: errorMessage)
             }
         }
     }
@@ -603,10 +603,59 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 print(exists)
                 self.executeCancel(action: "bookmarked")
             case .failure(let error):
-                self.zoteroUpdateUserInterface3()
-                print(error)
+                let errorMessage = self.handleZoteroError(error: error)
+                self.zoteroUpdateUserInterface3(text: errorMessage)
             }
         }
+    }
+    
+    func handleZoteroError(error: NSError) -> String{
+        var errorMessage = ""
+        switch(error.code){
+        case 403:
+            // 403 forbidden, the API key is gone or invalid
+            self.settings.setSettingsValue(value: false, key: "zotero")
+            self.settings.setSettingsStringValue(value: "", key: "userID")
+            self.settings.setSettingsStringValue(value: "", key: "oauth_token")
+            self.settings.setSettingsStringValue(value: "", key: "collectionID")
+            // show error message
+            errorMessage = NSLocalizedString("Zotero informed us that your API key is no longer valid. You will need to reauthenticate", comment: "shown getZoteroItems error")
+        case 409:
+            // show error message
+            if(error.userInfo.description.contains("Collection") && error.userInfo.description.contains("not found")){
+                zoteroAPI.createCollection(name: "Open Access Helper") { (res) in
+                    switch(res){
+                    case .success(let success):
+                        print(success)
+                        DispatchQueue.main.async {
+                            self.textView.text += NSLocalizedString("\n\nSuccessfully recreated the collection. Please attempt to add the bookmark again", comment: "shown of recreating collection succeeds")
+                        }
+                        
+                    case .failure(let error):
+                        print(error)
+                        DispatchQueue.main.async {
+                            self.textView.text = NSLocalizedString("\n\nFailed to recreate the collection. Please consider contacting support.", comment: "shown of recreating collection fails")
+                        }
+                    }
+                }
+                errorMessage = NSLocalizedString("Zotero reports the target Zotero Collection missing. I'll try to recreate it for you.", comment: "shown getZoteroItems error")
+            }
+            else{
+                errorMessage = NSLocalizedString("Zotero informed us there was a conflict with your request - the exact error is shown below. Pleae contact support to get assistance, if this error persists", comment: "shown getZoteroItems error")
+                errorMessage += "\n\(error.userInfo.description)"
+            }
+            
+        case 429:
+            errorMessage = NSLocalizedString("Apparently we made too many request - please pause your activity for a little while and try again much later", comment: "shown getZoteroItems error")
+        case 500:
+            errorMessage = NSLocalizedString("Zotero encountered an Intern Server Error - please try again later", comment: "shown getZoteroItems error")
+        case 503:
+            errorMessage = NSLocalizedString("Zotero is currently unable to handle your request - please try again later", comment: "shown getZoteroItems error")
+        default:
+            errorMessage = NSLocalizedString("An unknown error occured - please try again later", comment: "shown getZoteroItems error")
+            errorMessage += "\n\n\(error.code) \(error.userInfo.description)"
+        }
+        return errorMessage
     }
     
     //MARK: Identify DOIs
@@ -1145,9 +1194,14 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
-    func zoteroUpdateUserInterface3(){
+    func zoteroUpdateUserInterface3(text: String){
         DispatchQueue.main.async {
             self.textView.text = NSLocalizedString("😞 Oh No! Adding the record to Zotero failed", comment: "shown as soon as we attempt to send to Zotero")
+            if text != "" {
+                self.textView.text += "\n\n\(text)"
+            }
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
         }
     }
     

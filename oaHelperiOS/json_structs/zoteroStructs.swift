@@ -38,13 +38,26 @@ struct ZoteroCollectionItem : Decodable{
 
 struct CreateZoteroCollection : Decodable {
     let success: CreateCollectionSuccess?
+    let failed: CreateCollectionFailure?
 }
 
 struct CreateCollectionSuccess : Decodable {
-    let the0: String
+    let the0: String?
     enum CodingKeys: String, CodingKey {
         case the0 = "0"
     }
+}
+
+struct CreateCollectionFailure : Decodable{
+    let the0: ZoteroFailureObject?
+    enum CodingKeys: String, CodingKey{
+        case the0 = "0"
+    }
+}
+
+struct ZoteroFailureObject : Decodable {
+    let code: Int?
+    let message: String?
 }
 
 struct ZoteroJournalArticle : Codable {
