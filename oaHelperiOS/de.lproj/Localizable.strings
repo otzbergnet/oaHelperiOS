@@ -377,3 +377,30 @@
 
 /* shown when zotero item could not be deleted */
 "Something went wrong, while we attempted to delete the item. Please try again and contact me, if this happens again" = "Beim Löschen des Eintrags ist etwas schief gelaufen. Bitte versuche es erneut und kontaktiere mich, falls es weiterhin nicht geht";
+
+/* shown getZoteroItems error */
+"An unknown error occured" = "Ein unbekanner Fehler ist aufgetreten";
+
+/* shown getZoteroItems error */
+"An unknown error occured - please try again later" = "Ein unbekannter Fehler ist aufgetreten. Bitte versuche es später erneut.";
+
+/* shown getZoteroItems error */
+"Apprently we made too many request - please pause your activity for a little while and try again much later" = "Scheinbar haben wir zu viele Anfragen an Zotero gesendet. Mach eine Pause und versuch es später erneut.";
+
+/* shown getZoteroItems error */
+"Zotero API error" = "Zotero API Fehler";
+
+/* shown getZoteroItems error */
+"Zotero encountered an Intern Server Error - please try again later" = "Bei Zotero ist ein Serverfehler aufgetreten - bitte versuche es später erneut";
+
+/* shown getZoteroItems error */
+"Zotero informed us that your API key is no longer valid" = "Zotero gibt an, dass der API Key nicht mehr gültig ist";
+
+/* shown getZoteroItems error */
+"Zotero is currently unable to handle your request - please try again later" = "Zotero kann Deine Anfrage zur Zeit nicht bearbeiten";
+
+/* shown getZoteroItems error */
+"Apparently we made too many request - please pause your activity for a little while and try again much later" = "Scheinbar haben wir zu viele Anfragen an Zotero gesendet. Mach eine Pause und versuch es später erneut.";
+
+/* shown getZoteroItems error */
+"Zotero informed us that your API key is no longer valid. You will need to reauthenticate" = "Zotero gibt an, dass der API Key nicht mehr gültig ist. Du wirst Open Access Helper erneut mit Zotero verbinden müssen";

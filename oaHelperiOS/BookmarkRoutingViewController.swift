@@ -29,9 +29,16 @@ class BookmarkRoutingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         zoteroLogo.isHidden = true
+        
+        bookmarkButton.layer.cornerRadius = 10
         bookmarkButton.isHidden = true
+        
+        setupButton.layer.cornerRadius = 10
         setupButton.isHidden = true
+        
+        zoteroButton.layer.cornerRadius = 10
         zoteroLabel.isHidden = true
+        
         if(self.settings.getSettingsValue(key: "oauthreturn") && self.settings.getSettingsValue(key: "activeOAuth")){
             finishTokenExchange()
         }

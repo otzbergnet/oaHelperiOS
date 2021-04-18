@@ -91,6 +91,7 @@
 		2DE8F35C2221D022000B27A1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DE8F3592221D022000B27A1 /* Model.xcdatamodeld */; };
 		2DE8F35F2221D076000B27A1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D15F9A321E0C5A300FF8B46 /* Helper.swift */; };
 		2DE8F3602221D079000B27A1 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */; };
+		2DEFE475262C3D1200691C23 /* ZoteroConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEFE474262C3D1200691C23 /* ZoteroConnectViewController.swift */; };
 		2DF95CE0221DC9CE00F11220 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DF95CDF221DC9CE00F11220 /* Settings.bundle */; };
 		2DF95CE1221DC9CE00F11220 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DF95CDF221DC9CE00F11220 /* Settings.bundle */; };
 		2DF95CE3221DD41800F11220 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */; };
@@ -196,6 +197,7 @@
 		2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		2DE8114821C962180052698C /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		2DE8F35A2221D022000B27A1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		2DEFE474262C3D1200691C23 /* ZoteroConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoteroConnectViewController.swift; sourceTree = "<group>"; };
 		2DF95CDF221DC9CE00F11220 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		2DF9FC2024247C30007C7D75 /* openCitationStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = openCitationStruct.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				2DF95CDF221DC9CE00F11220 /* Settings.bundle */,
 				2DC5C0982621E1F5002E967F /* BookmarkRoutingViewController.swift */,
 				2DC5C09C2621F8E4002E967F /* zotero.swift */,
+				2DEFE474262C3D1200691C23 /* ZoteroConnectViewController.swift */,
 			);
 			path = oaHelperiOS;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				2DE8114921C962180052698C /* OnboardingController.swift in Sources */,
 				2DAD656B2392AC6200940419 /* Extensions.swift in Sources */,
 				2DBF96FC2271689B005C182D /* SettingsTabViewController.swift in Sources */,
+				2DEFE475262C3D1200691C23 /* ZoteroConnectViewController.swift in Sources */,
 				2DA6ECAE2425D44B00B5369A /* OpenCitationHelper.swift in Sources */,
 				2DFF67B921C2ED6F00120363 /* TableViewController.swift in Sources */,
 				2D28376D21C55AB1008D6C89 /* coreStruct.swift in Sources */,
