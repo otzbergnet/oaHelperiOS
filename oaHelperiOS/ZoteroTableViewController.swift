@@ -13,6 +13,7 @@ class ZoteroTableViewController: UITableViewController {
 
     let zoteroAPI = ZoteroAPI()
     var zoteroItems = [ZoteroItem]()
+    let settings = SettingsBundleHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,29 @@ class ZoteroTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
             case .failure(let error):
-                print(error)
+                var errorMessage = NSLocalizedString("An unknown error occured", comment: "shown getZoteroItems error")
+                let errorTitle = NSLocalizedString("Zotero API error", comment: "shown getZoteroItems error")
+                switch(error.code){
+                case 403:
+                    // 403 forbidden, the API key is gone or invalid
+                    self.settings.setSettingsValue(value: false, key: "zotero")
+                    self.settings.setSettingsStringValue(value: "", key: "userID")
+                    self.settings.setSettingsStringValue(value: "", key: "oauth_token")
+                    self.settings.setSettingsStringValue(value: "", key: "collectionID")
+                    // show error message
+                    errorMessage = NSLocalizedString("Zotero informed us that your API key is no longer valid. You will need to reauthenticate", comment: "shown getZoteroItems error")
+                case 429:
+                    errorMessage = NSLocalizedString("Apparently we made too many request - please pause your activity for a little while and try again much later", comment: "shown getZoteroItems error")
+                case 500:
+                    errorMessage = NSLocalizedString("Zotero encountered an Intern Server Error - please try again later", comment: "shown getZoteroItems error")
+                case 503:
+                    errorMessage = NSLocalizedString("Zotero is currently unable to handle your request - please try again later", comment: "shown getZoteroItems error")
+                default:
+                    errorMessage = NSLocalizedString("An unknown error occured - please try again later", comment: "shown getZoteroItems error")
+                }
+                DispatchQueue.main.async {
+                    self.showErrorAlert(alertTitle : errorTitle, alertMessage : errorMessage, okButton : "OK")
+                }
             }
         }
     }
