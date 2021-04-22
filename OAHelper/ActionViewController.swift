@@ -586,7 +586,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             switch(res){
             case .success( _):
                 self.zoteroUpdateUserInterface2()
-                let seconds = 1.5
+                let seconds = 1.0
                 DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
                     self.executeCancel(action: "bookmarked")
                 }
@@ -602,7 +602,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             switch(res){
             case .success( _):
                 self.zoteroUpdateUserInterface2()
-                let seconds = 1.5
+                let seconds = 1.0
                 DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
                     self.executeCancel(action: "bookmarked")
                 }
