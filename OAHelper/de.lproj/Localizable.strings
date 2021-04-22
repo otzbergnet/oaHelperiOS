@@ -438,3 +438,27 @@
 
 /* shown getZoteroItems error */
 "Zotero reports the target Zotero Collection missing. I'll try to recreate it for you." = "Zotero gibt an, dass die Open Access Helper Collection nicht mehr existiert. Ich werde versuchen diese erneut anzulegen.";
+
+/* shown as soon as Add to Zotero is tapped */
+"\n\nHold on tight - I am getting Meta Data from CrossRef..." = "\n\nEinen kleinen Moment, bitte! Ich hole die Metadaten bei CrossRef ab...";
+
+/* shown as soon as we attempt to send to Zotero */
+"\n\nSuccessfully added the record to Zotero!" = "\n\nDer Datensatz wurde erfolgreich an Zotero übergeben!";
+
+/* shown as soon as we attempt to send to Zotero */
+"\n\nThings are looking good - sending the record to Zotero..." = "\n\nDas sieht gut aus - ich übergebe den Datensatz jetzt an Zotero...";
+
+/* shown as soon as we attempt to send to Zotero */
+"\n\n😞 Oh No! Adding the record to Zotero failed" = "\n\n😞 Oh Nein! Der Datensatz konnte nicht an Zotero übergeben werden";
+
+/* shown as soon as we attempt to send to Zotero */
+"\nSuccessfully added the record to Zotero!" = "\nDer Datensatz wurde erfolgreich an Zotero übergeben!";
+
+/* shown as soon as we attempt to send to Zotero */
+"\nThings are looking good - sending the record to Zotero..." = "\nDas sieht gut aus - ich übergebe den Datensatz an Zotero...";
+
+/* shown as soon as we attempt to send to Zotero */
+"\n😞 Oh No! Adding the record to Zotero failed" = "\n😞 Oh Nein! Der Datensatz konnte nicht an Zotero übergeben werden";
+
+/* shown as soon as Add to Zotero is tapped */
+"\nHold on tight - I am getting Metadata from CrossRef..." = "\nWarte einen Moment - ich hole die Metadaten bei CrossRef ab...";

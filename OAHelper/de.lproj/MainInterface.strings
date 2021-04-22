@@ -42,3 +42,6 @@
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "BXa-60-4gA"; */
 "BXa-60-4gA.normalTitle" = "Citation Count Button";
+
+/* Class = "UINavigationItem"; title = "Open Access Helper"; ObjectID = "3HJ-uW-3hn"; */
+"3HJ-uW-3hn.title" = "Open Access Helper";

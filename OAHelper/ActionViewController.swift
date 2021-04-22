@@ -584,10 +584,12 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         self.zoteroUpdateUserInterface1()
         zoteroAPI.addZoteroItem(record: record) { (res) in
             switch(res){
-            case .success(let exists):
+            case .success( _):
                 self.zoteroUpdateUserInterface2()
-                print(exists)
-                self.executeCancel(action: "bookmarked")
+                let seconds = 1.5
+                DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                    self.executeCancel(action: "bookmarked")
+                }
             case .failure(let error):
                 let errorMessage = self.handleZoteroError(error: error)
                 self.zoteroUpdateUserInterface3(text: errorMessage)
@@ -598,10 +600,12 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     func addWeb2Zotero(record: ZoteroWebPage){
         zoteroAPI.addZoteroItem(webPage: record) { (res) in
             switch(res){
-            case .success(let exists):
+            case .success( _):
                 self.zoteroUpdateUserInterface2()
-                print(exists)
-                self.executeCancel(action: "bookmarked")
+                let seconds = 1.5
+                DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                    self.executeCancel(action: "bookmarked")
+                }
             case .failure(let error):
                 let errorMessage = self.handleZoteroError(error: error)
                 self.zoteroUpdateUserInterface3(text: errorMessage)
@@ -1178,25 +1182,29 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             self.openCitationsLogo.isHidden = true
             self.openCitationsCountButton.isHidden = true
             self.hideAllRecommenderRelatedStuff()
-            self.textView.text = NSLocalizedString("Hold on tight - I am getting Meta Data from CrossRef...", comment: "shown as soon as Add to Zotero is tapped")
+            self.textView.font = .systemFont(ofSize: 16)
+            self.textView.text = NSLocalizedString("\nHold on tight - I am getting Metadata from CrossRef...", comment: "shown as soon as Add to Zotero is tapped")
         }
     }
     
     func zoteroUpdateUserInterface1(){
         DispatchQueue.main.async {
-            self.textView.text = NSLocalizedString("Things are looking good - sending the record to Zotero...", comment: "shown as soon as we attempt to send to Zotero")
+            self.textView.font = .systemFont(ofSize: 16)
+            self.textView.text = NSLocalizedString("\nThings are looking good - sending the record to Zotero...", comment: "shown as soon as we attempt to send to Zotero")
         }
     }
     
     func zoteroUpdateUserInterface2(){
         DispatchQueue.main.async {
-            self.textView.text = NSLocalizedString("Successfully added the record to Zotero!", comment: "shown as soon as we attempt to send to Zotero")
+            self.textView.font = .systemFont(ofSize: 16)
+            self.textView.text = NSLocalizedString("\nSuccessfully added the record to Zotero!", comment: "shown as soon as we attempt to send to Zotero")
         }
     }
     
     func zoteroUpdateUserInterface3(text: String){
         DispatchQueue.main.async {
-            self.textView.text = NSLocalizedString("😞 Oh No! Adding the record to Zotero failed", comment: "shown as soon as we attempt to send to Zotero")
+            self.textView.font = .systemFont(ofSize: 16)
+            self.textView.text = NSLocalizedString("\n😞 Oh No! Adding the record to Zotero failed", comment: "shown as soon as we attempt to send to Zotero")
             if text != "" {
                 self.textView.text += "\n\n\(text)"
             }
