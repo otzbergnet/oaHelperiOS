@@ -51,6 +51,11 @@ class BookmarkRoutingViewController: UIViewController {
         else{
             performSegue(withIdentifier: "noBookmark", sender: self)
         }
+        if #available(iOS 13.4, *) {
+            bookmarkButton.isPointerInteractionEnabled = true
+            setupButton.isPointerInteractionEnabled = true
+            zoteroButton.isPointerInteractionEnabled = true
+        }
     }
     
     func doZoteroDisplay(){

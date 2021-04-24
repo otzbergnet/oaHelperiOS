@@ -302,7 +302,6 @@
                         <outlet property="searchProviderMention" destination="i0s-Th-Qsb" id="tNL-5f-wwR"/>
                         <outlet property="textField" destination="He3-yf-kv9" id="18E-Ge-1YB"/>
                         <segue destination="PDw-ar-iKr" kind="show" identifier="searchSegue" id="QaW-6b-mlT"/>
-                        <segue destination="fOp-YP-j66" kind="show" identifier="zoteroauth" id="vmN-5q-30V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -2035,7 +2034,6 @@ Got questions? https://www.oahelper.org/zotero</string>
     <inferredMetricsTieBreakers>
         <segue reference="QaW-6b-mlT"/>
         <segue reference="j4p-ul-eyh"/>
-        <segue reference="vmN-5q-30V"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>

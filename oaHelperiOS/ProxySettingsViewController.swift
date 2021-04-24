@@ -46,6 +46,7 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
             saveProxyButton.isPointerInteractionEnabled = true
             searchDomainButton.isPointerInteractionEnabled = true
             cancelButton.isPointerInteractionEnabled = true
+            saveIllButton.isPointerInteractionEnabled = true
         }
     }
     

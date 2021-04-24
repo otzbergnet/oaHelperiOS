@@ -30,6 +30,10 @@ class ZoteroConnectViewController: UIViewController {
             updateTextView()
         }
         
+        if #available(iOS 13.4, *) {
+            connectZoteroButton.isPointerInteractionEnabled = true
+            goToBookmarksButton.isPointerInteractionEnabled = true
+        }
     }
     
     func openOAuthUrl(url: String) {

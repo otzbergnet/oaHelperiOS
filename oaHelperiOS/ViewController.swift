@@ -67,7 +67,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.settings.ensureSettingsAreRegistered()
         
         if(self.settings.getSettingsValue(key: "oauthreturn") && self.settings.getSettingsValue(key: "activeOAuth")){
-            self.performSegue(withIdentifier: "zoteroauth", sender: self)
+            self.tabBarController?.selectedIndex = 1
         }
 
         //search button should have corner radius and offlineLabel should be empty
