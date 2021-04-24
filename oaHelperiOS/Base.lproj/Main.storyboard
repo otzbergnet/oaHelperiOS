@@ -708,6 +708,7 @@
                         <segue destination="9Ep-hK-A3f" kind="popoverPresentation" identifier="ezProxySegue" popoverAnchorView="2SW-lw-2NX" id="nUq-Cn-NEb">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
+                        <segue destination="cN4-07-uvj" kind="show" identifier="settings2zoteroSegue" id="KWP-rp-91a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J3r-ei-pOe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -808,27 +809,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="domainField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="institute domain, e.g. harvard.edu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mEF-9Q-afL" userLabel="domainField">
-                                <rect key="frame" x="25" y="339" width="325" height="34"/>
+                                <rect key="frame" x="25" y="339" width="325" height="35"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="D4E-XY-oeS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="search" smartDashesType="no" smartQuotesType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2G-g4-c2A">
-                                <rect key="frame" x="25" y="383" width="325" height="35"/>
+                                <rect key="frame" x="25" y="384" width="325" height="35"/>
                                 <color key="backgroundColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="NUd-HE-xhI"/>
                                 </constraints>
-                                <state key="normal" title="Search Institute"/>
+                                <state key="normal" title="Search Institute">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="searchDomainButtonTapped:" destination="9Ep-hK-A3f" eventType="touchUpInside" id="8ic-Eg-JFj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z94-xJ-2VE">
-                                <rect key="frame" x="25" y="577" width="325" height="50"/>
+                                <rect key="frame" x="25" y="592" width="325" height="35"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="54P-ww-3KB"/>
+                                    <constraint firstAttribute="height" constant="35" id="54P-ww-3KB"/>
                                 </constraints>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -838,7 +844,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gz4-K1-Zpp">
-                                <rect key="frame" x="15" y="433" width="345" height="20.5"/>
+                                <rect key="frame" x="15" y="434" width="345" height="20.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -884,6 +890,7 @@
                         <constraints>
                             <constraint firstItem="gz4-K1-Zpp" firstAttribute="top" secondItem="Z2G-g4-c2A" secondAttribute="bottom" constant="15" id="0P9-ZV-1u9"/>
                             <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="jUc-rg-BjY" secondAttribute="trailing" constant="25" id="0yi-Lm-sHW"/>
+                            <constraint firstItem="z94-xJ-2VE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gz4-K1-Zpp" secondAttribute="bottom" constant="5" id="1uu-Ut-Nsj"/>
                             <constraint firstItem="mEF-9Q-afL" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="25" id="3o5-QW-x6G"/>
                             <constraint firstItem="Z2G-g4-c2A" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="25" id="5gx-a1-CeT"/>
                             <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="T2A-Cp-Iqa" secondAttribute="trailing" constant="26" id="6DN-xI-5OL"/>
@@ -1264,8 +1271,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yKM-TL-piv">
                                 <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sy-qI-YpN">
+                                        <rect key="frame" x="15" y="15" width="345" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AE-wr-UX8">
-                                        <rect key="frame" x="15" y="8" width="345" height="184.5"/>
+                                        <rect key="frame" x="15" y="75.5" width="345" height="184.5"/>
                                         <string key="text">This feature is currently not enabled.
 
 Easily keep track of Open Access versions of articles, as we'll bookmark the URL of the Open Access copy rather than just the URL of the article. 
@@ -1276,7 +1289,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Zyc-7x-ecY" userLabel="enableBookmarksStack">
-                                        <rect key="frame" x="15" y="234" width="345" height="31"/>
+                                        <rect key="frame" x="15" y="286.5" width="345" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDj-8Q-Y1N">
                                                 <rect key="frame" x="0.0" y="0.0" width="287" height="31"/>
@@ -1297,7 +1310,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="97z-Se-YN7" userLabel="iCloudSyncBookmarksStack">
-                                        <rect key="frame" x="15" y="307" width="345" height="31"/>
+                                        <rect key="frame" x="15" y="344.5" width="345" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Sync Bookmarks " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwD-N7-YbI">
                                                 <rect key="frame" x="0.0" y="0.0" width="287" height="31"/>
@@ -1318,7 +1331,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jr9-Wg-DXd">
-                                        <rect key="frame" x="15" y="379.5" width="345" height="31"/>
+                                        <rect key="frame" x="15" y="402.5" width="345" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Bookmarks in Zotero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggA-dZ-5Vw">
                                                 <rect key="frame" x="0.0" y="0.0" width="296" height="31"/>
@@ -1335,13 +1348,13 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEY-vv-WBU">
-                                        <rect key="frame" x="15" y="452.5" width="345" height="22"/>
+                                        <rect key="frame" x="15" y="460" width="345" height="22"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdj-kF-7Wg">
-                                        <rect key="frame" x="15" y="516" width="345" height="50"/>
+                                        <rect key="frame" x="15" y="509" width="345" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="UZf-fc-eN2"/>
@@ -1356,7 +1369,10 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                         </connections>
                                     </button>
                                 </subviews>
-                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="15" bottom="8" trailing="15"/>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="15" leading="15" bottom="15" trailing="15"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <directionalEdgeInsets key="directionalLayoutMargins" top="35" leading="75" bottom="35" trailing="75"/>
+                                </variation>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Y24-KQ-war"/>
@@ -1398,18 +1414,36 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                     <constraint firstAttribute="height" constant="100" id="tkP-wn-DdK"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3n-oC-6YX">
-                                <rect key="frame" x="20" y="528" width="335" height="50"/>
-                                <color key="backgroundColor" red="0.70763713120000005" green="0.2168237865" blue="0.1882048845" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="xoS-tu-Qdn"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Connect to Zotero"/>
-                                <connections>
-                                    <action selector="connectZoteroTapped:" destination="cN4-07-uvj" eventType="touchUpInside" id="fAB-7m-Gwh"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hOB-2w-oJy">
+                                <rect key="frame" x="20" y="503" width="335" height="105"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahM-Qk-Nvk">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="geU-ip-PFO"/>
+                                        </constraints>
+                                        <state key="normal" title="Use Zotero Bookmarks Now">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="zoteroBookmarksButtonTapped:" destination="cN4-07-uvj" eventType="touchUpInside" id="0ch-wp-RiP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3n-oC-6YX">
+                                        <rect key="frame" x="0.0" y="55" width="335" height="50"/>
+                                        <color key="backgroundColor" red="0.70763713120000005" green="0.2168237865" blue="0.1882048845" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="xoS-tu-Qdn"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Connect to Zotero"/>
+                                        <connections>
+                                            <action selector="connectZoteroTapped:" destination="cN4-07-uvj" eventType="touchUpInside" id="fAB-7m-Gwh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Zotero_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="jhT-mY-EOD">
                                 <rect key="frame" x="137.5" y="167" width="100" height="30"/>
                                 <constraints>
@@ -1418,15 +1452,15 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="ad2-YF-HXI">
-                                <rect key="frame" x="20" y="207" width="335" height="306"/>
+                                <rect key="frame" x="20" y="207" width="335" height="281"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Before you can start saving Bookmarks, we need to connect to Zotero! 
+                                <string key="text">Before you can start saving Bookmarks, we need to connect to Zotero! 
 
 When you tap the button below, I'll take you to Zotero to login. You'll be asked to accept or adjust permissions. As soon as you have approved access, you'll be taken back here.
 
 Once you are back, I’ll add a new collection "Open Access Helper" to Zotero. Any reference, which you bookmark, will be added to this collection. You can view these references by clicking Bookmarks in this app, or by accessing the folder in Zotero.
 
-Got questions? https://www.oahelper.org/zotero</mutableString>
+Got questions? https://www.oahelper.org/zotero</string>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1436,22 +1470,35 @@ Got questions? https://www.oahelper.org/zotero</mutableString>
                         <viewLayoutGuide key="safeArea" id="bHV-MO-RaL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="X3n-oC-6YX" firstAttribute="top" secondItem="ad2-YF-HXI" secondAttribute="bottom" constant="15" id="7VI-TI-FgH"/>
-                            <constraint firstItem="7pV-Ll-BKx" firstAttribute="top" secondItem="bHV-MO-RaL" secondAttribute="top" constant="15" id="GxM-2w-QOM"/>
+                            <constraint firstItem="7pV-Ll-BKx" firstAttribute="top" secondItem="bHV-MO-RaL" secondAttribute="top" constant="15" id="GxM-2w-QOM">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="hOB-2w-oJy" firstAttribute="leading" secondItem="bHV-MO-RaL" secondAttribute="leading" constant="20" id="Jxl-Cz-kO6">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="7pV-Ll-BKx" firstAttribute="centerX" secondItem="FHt-qG-lUi" secondAttribute="centerX" id="MD6-Hh-hME"/>
-                            <constraint firstItem="bHV-MO-RaL" firstAttribute="trailing" secondItem="ad2-YF-HXI" secondAttribute="trailing" constant="20" id="Qd1-7V-sWG"/>
-                            <constraint firstItem="ad2-YF-HXI" firstAttribute="leading" secondItem="bHV-MO-RaL" secondAttribute="leading" constant="20" id="cga-Oo-Tsn"/>
+                            <constraint firstItem="bHV-MO-RaL" firstAttribute="trailing" secondItem="ad2-YF-HXI" secondAttribute="trailing" constant="20" id="Qd1-7V-sWG">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="bHV-MO-RaL" firstAttribute="bottom" secondItem="hOB-2w-oJy" secondAttribute="bottom" constant="10" id="Vhc-OP-LCs">
+                                <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                            </constraint>
+                            <constraint firstItem="bHV-MO-RaL" firstAttribute="trailing" secondItem="hOB-2w-oJy" secondAttribute="trailing" constant="20" id="Z70-QS-GIf">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="ad2-YF-HXI" firstAttribute="leading" secondItem="bHV-MO-RaL" secondAttribute="leading" constant="20" id="cga-Oo-Tsn">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
                             <constraint firstItem="jhT-mY-EOD" firstAttribute="top" secondItem="7pV-Ll-BKx" secondAttribute="bottom" constant="8" symbolic="YES" id="gUe-26-s5f"/>
-                            <constraint firstItem="X3n-oC-6YX" firstAttribute="leading" secondItem="bHV-MO-RaL" secondAttribute="leading" constant="20" id="iSl-71-UiE"/>
                             <constraint firstItem="ad2-YF-HXI" firstAttribute="top" secondItem="jhT-mY-EOD" secondAttribute="bottom" constant="10" id="jO4-r7-Wtj"/>
-                            <constraint firstItem="bHV-MO-RaL" firstAttribute="bottom" secondItem="X3n-oC-6YX" secondAttribute="bottom" constant="40" id="kCs-Du-O97"/>
                             <constraint firstItem="jhT-mY-EOD" firstAttribute="centerX" secondItem="FHt-qG-lUi" secondAttribute="centerX" id="pE5-Ws-5i7"/>
-                            <constraint firstItem="bHV-MO-RaL" firstAttribute="trailing" secondItem="X3n-oC-6YX" secondAttribute="trailing" constant="20" id="syO-DK-xOf"/>
+                            <constraint firstItem="hOB-2w-oJy" firstAttribute="top" secondItem="ad2-YF-HXI" secondAttribute="bottom" constant="15" id="xFd-N4-2mL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eKJ-Nz-N7T"/>
                     <connections>
                         <outlet property="connectZoteroButton" destination="X3n-oC-6YX" id="h2e-DI-EIC"/>
+                        <outlet property="goToBookmarksButton" destination="ahM-Qk-Nvk" id="TnF-I4-R7i"/>
                         <outlet property="instructionTextView" destination="ad2-YF-HXI" id="bjl-Kn-f4r"/>
                     </connections>
                 </viewController>
@@ -1987,6 +2034,7 @@ Got questions? https://www.oahelper.org/zotero</mutableString>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="QaW-6b-mlT"/>
+        <segue reference="j4p-ul-eyh"/>
         <segue reference="vmN-5q-30V"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2013,6 +2061,9 @@ Got questions? https://www.oahelper.org/zotero</mutableString>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

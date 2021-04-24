@@ -15,54 +15,19 @@ class ZoteroTableViewController: UITableViewController {
     var zoteroItems = [ZoteroItem]()
     let settings = SettingsBundleHelper()
     
+    var strLabel = UILabel()
+    var activityIndicator = UIActivityIndicatorView()
+    let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Zotero Bookmarks"
         self.navigationItem.setHidesBackButton(true, animated: true)
-
-        zoteroAPI.getZoteroItems(name: "test") { (res) in
-            switch(res) {
-            case .success(let data):
-                self.zoteroItems = data
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            case .failure(let error):
-                var errorMessage = NSLocalizedString("An unknown error occured", comment: "shown getZoteroItems error")
-                let errorTitle = NSLocalizedString("Zotero API error", comment: "shown getZoteroItems error")
-                switch(error.code){
-                case 403:
-                    // 403 forbidden, the API key is gone or invalid
-                    self.settings.setSettingsValue(value: false, key: "zotero")
-                    self.settings.setSettingsStringValue(value: "", key: "userID")
-                    self.settings.setSettingsStringValue(value: "", key: "oauth_token")
-                    self.settings.setSettingsStringValue(value: "", key: "collectionID")
-                    // show error message
-                    errorMessage = NSLocalizedString("Zotero informed us that your API key is no longer valid. You will need to reauthenticate", comment: "shown getZoteroItems error")
-                case 404:
-                    // 404 not found, the collection is not there or the user id is invalid best to reset
-                    self.settings.setSettingsValue(value: false, key: "zotero")
-                    self.settings.setSettingsStringValue(value: "", key: "userID")
-                    self.settings.setSettingsStringValue(value: "", key: "oauth_token")
-                    self.settings.setSettingsStringValue(value: "", key: "collectionID")
-                    // show error message
-                    errorMessage = NSLocalizedString("Access your data was not possible. I've disabled the Zotero integration and recommend that you re-authenticate.", comment: "shown getZoteroItems error")
-                case 429:
-                    errorMessage = NSLocalizedString("Apparently we made too many request - please pause your activity for a little while and try again much later", comment: "shown getZoteroItems error")
-                case 500:
-                    errorMessage = NSLocalizedString("Zotero encountered an Intern Server Error - please try again later", comment: "shown getZoteroItems error")
-                case 503:
-                    errorMessage = NSLocalizedString("Zotero is currently unable to handle your request - please try again later", comment: "shown getZoteroItems error")
-                default:
-                    errorMessage = NSLocalizedString("An unknown error occured - please try again later", comment: "shown getZoteroItems error")
-                    errorMessage += "\n\n\(error.localizedDescription) \(error.code)"
-                }
-                DispatchQueue.main.async {
-                    self.showErrorAlert(alertTitle : errorTitle, alertMessage : errorMessage, okButton : "OK")
-                }
-            }
-        }
+        print(self.zoteroItems.count)
+        self.doZoteroSync()
+        
     }
+    
 
     // MARK: - Table view data source
 
@@ -229,4 +194,83 @@ class ZoteroTableViewController: UITableViewController {
     }
     */
 
+    func activityIndicator(_ title: String) {
+        
+        strLabel.removeFromSuperview()
+        activityIndicator.removeFromSuperview()
+        effectView.removeFromSuperview()
+        let width = 275
+        let height = 75
+        let height2 = height + (height/3*2)
+        
+        strLabel = UILabel(frame: CGRect(x: 0, y: 35, width: width, height: height))
+        strLabel.text = title
+        strLabel.font = .systemFont(ofSize: 14, weight: .medium)
+        strLabel.textColor = UIColor(white: 0.9, alpha: 0.7)
+        strLabel.textAlignment = .center;
+        
+        effectView.frame = CGRect(x: view.frame.midX - CGFloat(width/2), y: view.frame.midY - CGFloat(height*2) , width: CGFloat(width), height: CGFloat(height2))
+        effectView.layer.cornerRadius = 15
+        effectView.layer.masksToBounds = true
+        
+        activityIndicator = UIActivityIndicatorView(style: .white)
+        activityIndicator.frame = CGRect(x: width/2-23, y: 15, width: 46, height: 46)
+        activityIndicator.startAnimating()
+        
+        effectView.contentView.addSubview(activityIndicator)
+        effectView.contentView.addSubview(strLabel)
+        view.addSubview(effectView)
+        self.view.layoutIfNeeded()
+
+    }
+    
+    func doZoteroSync() {
+        DispatchQueue.main.async {
+            self.activityIndicator("Getting Bookmarks from Zotero")
+        }
+        zoteroAPI.getZoteroItems(name: "test") { (res) in
+            switch(res) {
+            case .success(let data):
+                self.zoteroItems = data
+                DispatchQueue.main.async {
+                    self.effectView.removeFromSuperview()
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                var errorMessage = NSLocalizedString("An unknown error occured", comment: "shown getZoteroItems error")
+                let errorTitle = NSLocalizedString("Zotero API error", comment: "shown getZoteroItems error")
+                switch(error.code){
+                case 403:
+                    // 403 forbidden, the API key is gone or invalid
+                    self.settings.setSettingsValue(value: false, key: "zotero")
+                    self.settings.setSettingsStringValue(value: "", key: "userID")
+                    self.settings.setSettingsStringValue(value: "", key: "oauth_token")
+                    self.settings.setSettingsStringValue(value: "", key: "collectionID")
+                    // show error message
+                    errorMessage = NSLocalizedString("Zotero informed us that your API key is no longer valid. You will need to reauthenticate", comment: "shown getZoteroItems error")
+                case 404:
+                    // 404 not found, the collection is not there or the user id is invalid best to reset
+                    self.settings.setSettingsValue(value: false, key: "zotero")
+                    self.settings.setSettingsStringValue(value: "", key: "userID")
+                    self.settings.setSettingsStringValue(value: "", key: "oauth_token")
+                    self.settings.setSettingsStringValue(value: "", key: "collectionID")
+                    // show error message
+                    errorMessage = NSLocalizedString("Access your data was not possible. I've disabled the Zotero integration and recommend that you re-authenticate.", comment: "shown getZoteroItems error")
+                case 429:
+                    errorMessage = NSLocalizedString("Apparently we made too many request - please pause your activity for a little while and try again much later", comment: "shown getZoteroItems error")
+                case 500:
+                    errorMessage = NSLocalizedString("Zotero encountered an Intern Server Error - please try again later", comment: "shown getZoteroItems error")
+                case 503:
+                    errorMessage = NSLocalizedString("Zotero is currently unable to handle your request - please try again later", comment: "shown getZoteroItems error")
+                default:
+                    errorMessage = NSLocalizedString("An unknown error occured - please try again later", comment: "shown getZoteroItems error")
+                    errorMessage += "\n\n\(error.localizedDescription) \(error.code)"
+                }
+                DispatchQueue.main.async {
+                    self.effectView.removeFromSuperview()
+                    self.showErrorAlert(alertTitle : errorTitle, alertMessage : errorMessage, okButton : "OK")
+                }
+            }
+        }
+    }
 }

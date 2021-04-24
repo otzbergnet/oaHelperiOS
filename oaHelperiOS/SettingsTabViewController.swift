@@ -493,6 +493,7 @@ class SettingsTabViewController: UIViewController {
             self.settings.setSettingsValue(value: true, key: "zotero")
             self.settings.setSettingsValue(value: false, key: "bookmarks")
             self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
+            performSegue(withIdentifier: "settings2zoteroSegue", sender: nil)
         }
         else{
             self.settings.setSettingsValue(value: false, key: "zotero")

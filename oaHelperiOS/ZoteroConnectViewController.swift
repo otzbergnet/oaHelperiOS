@@ -11,6 +11,7 @@ import UIKit
 class ZoteroConnectViewController: UIViewController {
 
     @IBOutlet weak var connectZoteroButton: UIButton!
+    @IBOutlet weak var goToBookmarksButton: UIButton!
     @IBOutlet weak var instructionTextView: UITextView!
     
     
@@ -21,6 +22,13 @@ class ZoteroConnectViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         connectZoteroButton.layer.cornerRadius = 10
+        goToBookmarksButton.layer.cornerRadius = 10
+        goToBookmarksButton.isHidden = true
+        if (zoteroAPI.isSetup()){
+            //self.performSegue(withIdentifier: "zoteroconnect2routing", sender: nil)
+            goToBookmarksButton.isHidden = false
+            updateTextView()
+        }
         
     }
     
@@ -47,6 +55,10 @@ class ZoteroConnectViewController: UIViewController {
         }
     }
     
+    func updateTextView(){
+        self.instructionTextView.text = NSLocalizedString("Thank you for enabling Zotero Bookmarks!\n\nIt appears that we have your settings on file already!\n\nIf you have previously setup Zotero, you can click the blue \"Use Zotero Bookmarks Now\" button.\n\nIf you haven't, please click the red \"Connect to Zotero\" Button.", comment: "shown, if zotero settings present already")
+    }
+    
     @IBAction func connectZoteroTapped(_ sender: Any) {
         self.settings.setSettingsValue(value: false, key: "bookmarks")
         self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
@@ -54,4 +66,7 @@ class ZoteroConnectViewController: UIViewController {
         self.startZoteroOAuth()
     }
     
+    @IBAction func zoteroBookmarksButtonTapped(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 1
+    }
 }

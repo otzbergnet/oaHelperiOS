@@ -327,3 +327,9 @@
 
 /* Class = "UITextView"; text = "Before you can start saving Bookmarks, we need to connect to Zotero! \n\nWhen you tap the button below, I'll take you to Zotero to login. You'll be asked to accept or adjust permissions. As soon as you have approved access, you'll be taken back here.\n\nOnce you are back, I’ll add a new collection \"Open Access Helper\" to Zotero. Any reference, which you bookmark, will be added to this collection. You can view these references by clicking Bookmarks in this app, or by accessing the folder in Zotero.\n\nGot questions? https://www.oahelper.org/zotero"; ObjectID = "ad2-YF-HXI"; */
 "ad2-YF-HXI.text" = "Bevor Du Bookmarks anlegen kannst, müssen wir uns mit Zotero verbinden!\n\nDie Schaltfläche unten wird Dich zu Zotero weiterleiten. Dort wirst Du gebeten die Zugangsrechte für Open Access Helper zu bestätigen, oder anzupassen. Nach dem Speichern wirst Du wieder hierher geführt.\n\nSobald Du wieder hier bist, wird eine neue Collection “Open Access Helper” in Zotero angelegt. Dort speichern wir alle Bookmarks und Du kannst diese über die Bookmarks hier oder die Collection in Zotero anzeigen.\n\nDu hast fragen? https://www.oahelper.org/zotero ";
+
+/* Class = "UILabel"; text = "Bookmarks"; ObjectID = "6sy-qI-YpN"; */
+"6sy-qI-YpN.text" = "Bookmarks";
+
+/* Class = "UIButton"; normalTitle = "Use Zotero Bookmarks Now"; ObjectID = "ahM-Qk-Nvk"; */
+"ahM-Qk-Nvk.normalTitle" = "Zotero Bookmarks jetzt nutzen";

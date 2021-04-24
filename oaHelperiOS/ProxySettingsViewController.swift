@@ -34,7 +34,7 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
         saveProxyButton.layer.cornerRadius = 5
         searchDomainButton.layer.cornerRadius = 5
         saveIllButton.layer.cornerRadius = 5
-        cancelButton.layer.cornerRadius = 10
+        cancelButton.layer.cornerRadius = 5
         
         statusLabel.text = ""
         self.proxyPrefixTextfield.delegate = self

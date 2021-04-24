@@ -217,7 +217,23 @@ class ZoteroAPI: NSObject {
         settings.setSettingsStringValue(value: "", key: "username")
     }
     
+    func isSetup() -> Bool {
+        let settings = SettingsBundleHelper()
+        let oauth_token = settings.getSettingsStringValue(key: "oauth_token")
+        let collectionId = settings.getSettingsStringValue(key: "collectionID")
+        let userId = settings.getSettingsStringValue(key: "userID")
+        let username = settings.getSettingsStringValue(key: "username")
+        
+        if (oauth_token == "" || collectionId == "" || userId == "" || username == ""){
+            return false
+        }
+        else{
+            return true
+        }
+    }
+    
     func collectionExists(name: String, completion: @escaping (Result<Bool, NSError>) -> ()) {
+        
         let settings = SettingsBundleHelper()
         let userId = settings.getSettingsStringValue(key: "userID")
         let oauthToken = settings.getSettingsStringValue(key: "oauth_token")
@@ -338,6 +354,10 @@ class ZoteroAPI: NSObject {
     }
     
     func addZoteroItem(record: ZoteroJournalArticle? = nil, webPage: ZoteroWebPage? = nil, completion: @escaping (Result<Bool, NSError>) -> ()) {
+        if (!self.isSetup()){
+            completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "not setup"])))
+            return
+        }
         if record == nil && webPage == nil {
             completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "you need either an article record or a webpage record object"])))
             return
@@ -540,7 +560,10 @@ class ZoteroAPI: NSObject {
     
     
     func getZoteroItems(name: String, completion: @escaping (Result<[ZoteroItem], NSError>) -> ()) {
-
+        if (!self.isSetup()){
+            completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "not setup"])))
+            return
+        }
         let settings = SettingsBundleHelper()
         let userId = settings.getSettingsStringValue(key: "userID")
         let collectionId = settings.getSettingsStringValue(key: "collectionID")
@@ -589,7 +612,10 @@ class ZoteroAPI: NSObject {
     }
     
     func deleteZoteroItem(key: String, version: Int, completion: @escaping (Result<Bool, NSError>) -> ()) {
-        
+        if (!self.isSetup()){
+            completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "not setup"])))
+            return
+        }
         // items must be deleted as the userid level not the collection level. if you delete them from the collection id level they'll just be removed from the collection
         
         let settings = SettingsBundleHelper()

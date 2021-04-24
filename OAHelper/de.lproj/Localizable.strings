@@ -462,3 +462,6 @@
 
 /* shown as soon as Add to Zotero is tapped */
 "\nHold on tight - I am getting Metadata from CrossRef..." = "\nEinen kleinen Moment, bitte! Ich hole die Metadaten bei CrossRef ab...";
+
+/* shown, if zotero settings present already */
+"Thank you for enabling Zotero Bookmarks!\n\nIt appears that we have your settings on file already!\n\nIf you have previously setup Zotero, you can click the blue \"Use Zotero Bookmarks Now\" button.\n\nIf you haven't, please click the red \"Connect to Zotero\" Button." = "Danke, dass Sie Zotero Bookmarks aktiviert haben!\n\nEs scheint, als ob Ihre Details bereits gespeichert sind!\n\nSofern Sie Zotero zuvor bereits eingerichtet haben, klicken Sie die blaue \"Zotero Bookmarks jetzt aufrufen\" Schaltfläche.\n\nWenn Sie das noch nicht gemacht haben, klicken Sie bitte die rote \"Mit Zotero verbinden\" Schaltfläche.";
