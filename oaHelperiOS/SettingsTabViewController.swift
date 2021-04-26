@@ -25,6 +25,10 @@ class SettingsTabViewController: UIViewController {
     @IBOutlet weak var useOpenCitationsSwitch: UISwitch!
     @IBOutlet weak var useIllSwitch: UISwitch!
     @IBOutlet weak var useIllLabel: UILabel!
+    @IBOutlet weak var useEPMCLabel: UILabel!
+    @IBOutlet weak var useEPMCSwitch: UISwitch!
+    @IBOutlet weak var zoteroSwitch: UISwitch!
+    
     
     // Mark: Buttons
     
@@ -215,6 +219,30 @@ class SettingsTabViewController: UIViewController {
                 self.useOpenCitationsSwitch.isOn = false
             }
         }
+        
+        // use Europe PMC
+        if(self.settings.getSettingsValue(key: "epmc")){
+            DispatchQueue.main.async {
+                self.useEPMCSwitch.isOn = true
+            }
+        }
+        else{
+            DispatchQueue.main.async {
+                self.useEPMCSwitch.isOn = false
+            }
+        }
+        
+        // use zotero
+        if(self.settings.getSettingsValue(key: "zotero")){
+            DispatchQueue.main.async {
+                self.zoteroSwitch.isOn = true
+            }
+        }
+        else{
+            DispatchQueue.main.async {
+                self.zoteroSwitch.isOn = false
+            }
+        }
 
     }
     
@@ -292,6 +320,22 @@ class SettingsTabViewController: UIViewController {
             useOpenCitationsSwitch.isOn = false
         }
         
+        // useEPMC
+        if(self.settings.getSettingsValue(key: "epmc")){
+            useEPMCSwitch.isOn = true
+        }
+        else{
+            useEPMCSwitch.isOn = false
+        }
+        
+        // use zotero
+        if(self.settings.getSettingsValue(key: "zotero")){
+            zoteroSwitch.isOn = true
+        }
+        else{
+            zoteroSwitch.isOn = false
+        }
+        
     }
     
     /*
@@ -345,6 +389,7 @@ class SettingsTabViewController: UIViewController {
     @IBAction func bookMarksSwitched(_ sender: UISwitch!) {
         if(self.bookMarkSwitch.isOn){
             self.settings.setSettingsValue(value: true, key: "bookmarks")
+            self.settings.setSettingsValue(value: false, key: "zotero")
         }
         else{
             self.settings.setSettingsValue(value: false, key: "bookmarks")
@@ -356,6 +401,7 @@ class SettingsTabViewController: UIViewController {
         if(self.iCloudSwitch.isOn){
             self.settings.setSettingsValue(value: true, key: "bookmarks_icloud")
             self.settings.setSettingsValue(value: true, key: "bookmarks")
+            self.settings.setSettingsValue(value: false, key: "zotero")
             self.dataSync.hasCustomZone(){ (test) in
                 if(!test){
                     //NSLOG("I don't have custom zone and could not create")
@@ -429,6 +475,28 @@ class SettingsTabViewController: UIViewController {
         }
         else{
             self.settings.setSettingsValue(value: false, key: "openCitations")
+        }
+    }
+    
+    @IBAction func useEPMCSwitched(_ sender: Any) {
+        if(self.useEPMCSwitch.isOn){
+            self.settings.setSettingsValue(value: true, key: "epmc")
+            
+        }
+        else{
+            self.settings.setSettingsValue(value: false, key: "epmc")
+        }
+    }
+    
+    @IBAction func zoteroSwitched(_ sender: Any) {
+        if(self.zoteroSwitch.isOn){
+            self.settings.setSettingsValue(value: true, key: "zotero")
+            self.settings.setSettingsValue(value: false, key: "bookmarks")
+            self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
+            performSegue(withIdentifier: "settings2zoteroSegue", sender: nil)
+        }
+        else{
+            self.settings.setSettingsValue(value: false, key: "zotero")
         }
     }
     

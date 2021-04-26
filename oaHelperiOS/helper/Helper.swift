@@ -9,10 +9,10 @@
 import UIKit
 
 class HelperClass : UIViewController{
-  
+
     
     func cleanAbstract(txt: String) -> String{
-        let toClean = ["&lt;p&gt;", "&lt;em&gt;", "&lt;/p&gt;", "&lt;/em&gt;", "\\ud", "&gt", "<p>", "<it>", "</it>", "&lt;em", "Abstract</p>"]
+        let toClean = ["&lt;p&gt;", "&lt;em&gt;", "&lt;/p&gt;", "&lt;/em&gt;", "\\ud", "&gt", "<p>", "<it>", "</it>", "&lt;em", "Abstract</p>", "<i>", "</i>", "<h4>", "</h4>"]
         var mytxt = txt;
         for token in toClean{
             mytxt = mytxt.replacingOccurrences(of: token, with: "")
@@ -124,13 +124,146 @@ class HelperClass : UIViewController{
         }
         return ""
     }
-    
-    func checkCore(search: String, apiKey: String, page: Int, completion: @escaping (Result<Data, Error>) -> ()) {
         
+    
+    func checkCore(search: String, apiKey: String, page: Int, completion: @escaping (Result<SearchResult, Error>) -> ()) {
+
+        if let encodedString = search.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
+
+            let jsonUrlString = "https://core.ac.uk/api-v2/articles/search/\(encodedString)?page=\(page)&pageSize=50&metadata=true&fulltext=false&citations=false&similar=false&duplicate=false&urls=true&faithfulMetadata=false&apiKey=\(apiKey)"
+            
+            guard let url = URL(string: jsonUrlString) else {
+                return
+            }
+
+            var request = URLRequest(url: url)
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+                if let error = error{
+                    //we got an error, let's tell the user
+                    completion(.failure(NSError(domain: "", code: 444, userInfo: ["description" : "\(error.localizedDescription)"])))
+                    print(error)
+                }
+                if let data = data {
+                    //this worked just fine
+                    do{
+                        let coreData = try JSONDecoder().decode(Core.self, from: data)
+                        if(coreData.status == "OK"){
+                            if let totalHits = coreData.totalHits{
+                                let tmpMaxPage = Double(Double(totalHits) / 50)
+                                
+                                let searchResults = SearchResult()
+                                searchResults.service = "core"
+                                searchResults.hitCount = totalHits
+                                searchResults.maxPage = Int(tmpMaxPage.rounded(.up))
+                                searchResults.page = page
+                                searchResults.searchTerm = search
+                                if let coreRecords = coreData.data{
+                                    for record in coreRecords {
+                                        searchResults.records.append(self.makeRecordsFromCore(sourceRecord: record))
+                                    }
+                                    completion(.success(searchResults))
+                                }
+                                else{
+                                    completion(.failure(NSError(domain: "", code: 443, userInfo: ["description" : "failed to get data"])))
+                                    return
+                                }
+                            }
+                            else{
+                                completion(.failure(NSError(domain: "", code: 442, userInfo: ["description" : "no results"])))
+                                return
+                            }
+                        }
+                        else{
+                            completion(.failure(NSError(domain: "", code: 442, userInfo: ["description" : "no results"])))
+                            return
+                        }
+                        
+                    }
+                    catch let jsonError{
+                        print(jsonError)
+                        print("Core json error")
+                        completion(.failure(NSError(domain: "", code: 441, userInfo: ["description" : "json decode error"])))
+                        return
+                    }
+                }
+                else{
+                    //another error
+                    completion(.failure(NSError(domain: "", code: 440, userInfo: ["description" : "failed to get data"])))
+                    return
+                }
+
+            }
+            task.resume()
+        }
+
+    }
+    
+    func makeRecordsFromCore(sourceRecord: Items) -> SearchResultRecords{
+        let record = SearchResultRecords()
+        record.title = sourceRecord.title ?? ""
+        if let authorArray = sourceRecord.authors{
+            for author in authorArray {
+                record.author += "\(author);"
+            }
+        }
+        record.source = "Core"
+        record.year = "\(sourceRecord.year ?? 0)"
+        record.abstract = sourceRecord.description ?? ""
+        
+        if let recordId = sourceRecord.id {
+            record.hasFT = false
+            record.linkUrl = "https://core.ac.uk/display/\(recordId)"
+            record.buttonLabel = NSLocalizedString("View Record at core.ac.uk", comment: "button, core.ac.uk document")
+            record.smallButtonLabel = "core.ac.uk"
+            record.buttonColor = "blue"
+        }
+        
+        if let urlArray = sourceRecord.fulltextUrls{
+            if urlArray.count > 0 {
+                let url = urlArray[0]
+                var url1 = ""
+                if(urlArray.count > 1){
+                    url1 = urlArray[1]
+                }
+                
+                if(url1.contains("arxiv")){
+                    record.hasFT = true
+                    record.buttonLabel = NSLocalizedString("View Record at arXiv.org", comment: "button, arXiv.org document")
+                    record.smallButtonLabel = "arXiv.org"
+                    record.buttonColor = "red"
+                    record.linkUrl = url1
+                }
+                else{
+                    record.hasFT = false
+                    record.buttonLabel = NSLocalizedString("View Record at core.ac.uk", comment: "button, access full text")
+                    record.smallButtonLabel = "core.ac.uk"
+                    record.buttonColor = "blue"
+                    record.linkUrl = url
+                }
+                
+            }
+        }
+        if let downloadUrl = sourceRecord.downloadUrl{
+            if(downloadUrl.count > 0){
+                record.hasFT = true
+                record.buttonLabel = NSLocalizedString("Access Full Text", comment: "button, access full text")
+                record.smallButtonLabel = "Full Text"
+                record.buttonColor = "green"
+                record.linkUrl = downloadUrl
+            }
+        }
+
+        
+        return record
+        
+    }
+    
+    
+    func checkEPMC(search: String, nextCursorMark: String, page: Int, completion: @escaping (Result<SearchResult, Error>) -> ()) {
         if let encodedString = search.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
             
-            let jsonUrlString = "https://core.ac.uk/api-v2/articles/search/\(encodedString)?page=\(page)&pageSize=50&metadata=true&fulltext=false&citations=false&similar=false&duplicate=false&urls=true&faithfulMetadata=false&apiKey=\(apiKey)"
-            //print(jsonUrlString)
+            let jsonUrlString = "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\(encodedString)+AND+(HAS_FT:Y)&format=json&synonym=yes&pageSize=50&resultType=core&cursorMark=\(nextCursorMark)"
             guard let url = URL(string: jsonUrlString) else {
                 return
             }
@@ -145,7 +278,46 @@ class HelperClass : UIViewController{
                 }
                 if let data = data {
                     //this worked just fine
-                    completion(.success(data))
+                    do{
+                        let epmcData = try JSONDecoder().decode(EPMC.self, from: data)
+                        if let totalHits = epmcData.hitCount {
+                            if (totalHits > 0) {
+                                let tmpMaxPage = Double(Double(totalHits) / 50)
+                                let searchResults = SearchResult()
+                                searchResults.service = "epmc"
+                                searchResults.token = epmcData.nextCursorMark ?? ""
+                                searchResults.searchTerm = search
+                                searchResults.hitCount = totalHits
+                                searchResults.maxPage = Int(tmpMaxPage.rounded(.up))
+                                searchResults.page = page
+                                if let epmcRecords = epmcData.resultList?.result{
+                                    
+                                    for record in epmcRecords {
+                                        searchResults.records.append(self.makeRecordsFromEPMC(sourceRecord: record))
+                                    }
+                                    completion(.success(searchResults))
+                                }
+                                else{
+                                    completion(.failure(NSError(domain: "", code: 443, userInfo: ["description" : "failed to get data"])))
+                                    return
+                                }
+                            }
+                            else{
+                                completion(.failure(NSError(domain: "", code: 442, userInfo: ["description" : "no results"])))
+                                return
+                            }
+                        }
+                        else{
+                            completion(.failure(NSError(domain: "", code: 442, userInfo: ["description" : "no results"])))
+                            return
+                        }
+                        
+                    }
+                    catch let jsonError{
+                        print(jsonError)
+                        completion(.failure(NSError(domain: "", code: 441, userInfo: ["description" : "json decode error"])))
+                        return
+                    }
                 }
                 else{
                     //another error
@@ -156,6 +328,69 @@ class HelperClass : UIViewController{
             }
             task.resume()
         }
+    }
+    
+    func makeRecordsFromEPMC(sourceRecord: EpmcItems) -> SearchResultRecords{
+        let record = SearchResultRecords()
+        record.title = sourceRecord.title ?? ""
+        record.author = sourceRecord.authorString ?? ""
+        //record.source = "Core"
+        record.year = sourceRecord.pubYear ?? ""
+        record.abstract = sourceRecord.abstractText ?? ""
+        record.hasFT = true
+        var goodLink = false
+        if let urlList = sourceRecord.fullTextUrlList?.fullTextUrl {
+            for url in urlList {
+                if (!goodLink && (url.availabilityCode == "OA" || url.availabilityCode == "Free") && url.documentStyle == "pdf"){
+                    record.linkUrl = url.url ?? ""
+                    record.buttonLabel = NSLocalizedString("Access Full Text", comment: "button, access full text")
+                    record.smallButtonLabel = "PDF"
+                    record.buttonColor = "green"
+                    goodLink = true
+                }
+                else if(!goodLink && (url.availabilityCode == "OA" || url.availabilityCode == "Free") && url.documentStyle == "html"){
+                    record.linkUrl = url.url ?? ""
+                    record.buttonLabel = NSLocalizedString("Access Full Text", comment: "button, access full text")
+                    record.smallButtonLabel = "HTML"
+                    record.buttonColor = "green"
+                }
+            }
+        }
+        if(record.linkUrl == ""){
+            record.linkUrl = "https://europepmc.org/article/\(sourceRecord.source)/\(sourceRecord.id)"
+            record.buttonLabel = NSLocalizedString("View Record at Europe PMC", comment: "button, EPMC Document")
+            record.smallButtonLabel = "Full Text"
+            record.buttonColor = "blue"
+        }
+        
+        
+        if let journalTitle = sourceRecord.journalInfo?.journal.title{
+            if (journalTitle != ""){
+                record.source += "\(journalTitle)"
+            }
+        }
+        if let year = sourceRecord.pubYear {
+            if (year != ""){
+                record.source += " (\(year))"
+            }
+        }
+        
+        if let volume = sourceRecord.journalInfo?.volume {
+            if (volume != "") {
+                record.source += ", Vol. \(volume)"
+            }
+        }
+        if let issue = sourceRecord.journalInfo?.issue {
+            if (issue != ""){
+                record.source += ", Iss. \(issue)"
+            }
+        }
+        if let pages = sourceRecord.pageInfo {
+            if (pages != ""){
+                record.source += ", p. \(pages)"
+            }
+        }
+        return record
         
     }
     

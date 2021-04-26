@@ -40,12 +40,22 @@
 		2D652B232275A6D400A46F37 /* newsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D652B222275A6D400A46F37 /* newsStruct.swift */; };
 		2D787BDD229E3CA900AAE269 /* AdvancedSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D787BDC229E3CA900AAE269 /* AdvancedSearchViewController.swift */; };
 		2D8BA9D9227CC77100A0600E /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BA9D8227CC77100A0600E /* DetailNewsViewController.swift */; };
+		2D9D39352614EF4C00EA4F19 /* searchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D97C42E2614C81D00BE8236 /* searchResults.swift */; };
+		2D9D39382614EFE100EA4F19 /* searchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D97C42E2614C81D00BE8236 /* searchResults.swift */; };
+		2D9D393B2614EFE400EA4F19 /* epmcStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA4921826148BE600019D7A /* epmcStruct.swift */; };
+		2D9D393E2614EFFE00EA4F19 /* coreStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D28376C21C55AB1008D6C89 /* coreStruct.swift */; };
 		2DA19A9C23F28BED0096BFD2 /* OnboardingSeven.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA19A9B23F28BED0096BFD2 /* OnboardingSeven.swift */; };
 		2DA19A9E23F28CC70096BFD2 /* OnboardingOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA19A9D23F28CC70096BFD2 /* OnboardingOne.swift */; };
+		2DA4921926148BE600019D7A /* epmcStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA4921826148BE600019D7A /* epmcStruct.swift */; };
 		2DA6ECAE2425D44B00B5369A /* OpenCitationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA6ECAD2425D44B00B5369A /* OpenCitationHelper.swift */; };
 		2DA6ECAF2425D66200B5369A /* OpenCitationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA6ECAD2425D44B00B5369A /* OpenCitationHelper.swift */; };
 		2DA6ECB02425DAC400B5369A /* openCitationStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF9FC2024247C30007C7D75 /* openCitationStruct.swift */; };
 		2DA7887A222C0A680025CB13 /* OnboardingFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78879222C0A680025CB13 /* OnboardingFive.swift */; };
+		2DAA751C26249C2300654879 /* zoteroStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA751B26249C2300654879 /* zoteroStructs.swift */; };
+		2DAA751F26249C4100654879 /* zoteroStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA751B26249C2300654879 /* zoteroStructs.swift */; };
+		2DAA75222624ACC000654879 /* zotero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5C09C2621F8E4002E967F /* zotero.swift */; };
+		2DACBB51262AD3D400E4AB1E /* ZoteroTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DACBB50262AD3D400E4AB1E /* ZoteroTableViewController.swift */; };
+		2DACBB55262AD8D100E4AB1E /* ZoteroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DACBB54262AD8D100E4AB1E /* ZoteroTableViewCell.swift */; };
 		2DAD65652392A92C00940419 /* coreRecommenderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */; };
 		2DAD65662392A92C00940419 /* coreRecommenderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */; };
 		2DAD65682392AA0B00940419 /* RecommenderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD65672392AA0B00940419 /* RecommenderHelper.swift */; };
@@ -65,6 +75,10 @@
 		2DC0C19D23F1956D00A725AC /* proxyStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0C19C23F1956D00A725AC /* proxyStruct.swift */; };
 		2DC0C19F23F195FB00A725AC /* ProxyFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0C19E23F195FB00A725AC /* ProxyFind.swift */; };
 		2DC23452229CE46400D0BEA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC23451229CE46400D0BEA7 /* Assets.xcassets */; };
+		2DC5C0992621E1F5002E967F /* BookmarkRoutingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5C0982621E1F5002E967F /* BookmarkRoutingViewController.swift */; };
+		2DC5C09D2621F8E4002E967F /* zotero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5C09C2621F8E4002E967F /* zotero.swift */; };
+		2DC5C0A3262306DD002E967F /* crossRefStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5C0A2262306DD002E967F /* crossRefStruct.swift */; };
+		2DC5C0A4262306DD002E967F /* crossRefStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5C0A2262306DD002E967F /* crossRefStruct.swift */; };
 		2DD08CEA21BC31ED00D0B3C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD08CE921BC31ED00D0B3C0 /* AppDelegate.swift */; };
 		2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD08CEB21BC31ED00D0B3C0 /* ViewController.swift */; };
 		2DD08CEF21BC31ED00D0B3C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DD08CED21BC31ED00D0B3C0 /* Main.storyboard */; };
@@ -77,6 +91,7 @@
 		2DE8F35C2221D022000B27A1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DE8F3592221D022000B27A1 /* Model.xcdatamodeld */; };
 		2DE8F35F2221D076000B27A1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D15F9A321E0C5A300FF8B46 /* Helper.swift */; };
 		2DE8F3602221D079000B27A1 /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */; };
+		2DEFE475262C3D1200691C23 /* ZoteroConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEFE474262C3D1200691C23 /* ZoteroConnectViewController.swift */; };
 		2DF95CE0221DC9CE00F11220 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DF95CDF221DC9CE00F11220 /* Settings.bundle */; };
 		2DF95CE1221DC9CE00F11220 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DF95CDF221DC9CE00F11220 /* Settings.bundle */; };
 		2DF95CE3221DD41800F11220 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */; };
@@ -145,10 +160,15 @@
 		2D652B222275A6D400A46F37 /* newsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsStruct.swift; sourceTree = "<group>"; };
 		2D787BDC229E3CA900AAE269 /* AdvancedSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSearchViewController.swift; sourceTree = "<group>"; };
 		2D8BA9D8227CC77100A0600E /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
+		2D97C42E2614C81D00BE8236 /* searchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchResults.swift; sourceTree = "<group>"; };
 		2DA19A9B23F28BED0096BFD2 /* OnboardingSeven.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSeven.swift; sourceTree = "<group>"; };
 		2DA19A9D23F28CC70096BFD2 /* OnboardingOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingOne.swift; sourceTree = "<group>"; };
+		2DA4921826148BE600019D7A /* epmcStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = epmcStruct.swift; sourceTree = "<group>"; };
 		2DA6ECAD2425D44B00B5369A /* OpenCitationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCitationHelper.swift; sourceTree = "<group>"; };
 		2DA78879222C0A680025CB13 /* OnboardingFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFive.swift; sourceTree = "<group>"; };
+		2DAA751B26249C2300654879 /* zoteroStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zoteroStructs.swift; sourceTree = "<group>"; };
+		2DACBB50262AD3D400E4AB1E /* ZoteroTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoteroTableViewController.swift; sourceTree = "<group>"; };
+		2DACBB54262AD8D100E4AB1E /* ZoteroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoteroTableViewCell.swift; sourceTree = "<group>"; };
 		2DAD65642392A92C00940419 /* coreRecommenderStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreRecommenderStruct.swift; sourceTree = "<group>"; };
 		2DAD65672392AA0B00940419 /* RecommenderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommenderHelper.swift; sourceTree = "<group>"; };
 		2DAD656A2392AC6200940419 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -163,6 +183,9 @@
 		2DC0C19C23F1956D00A725AC /* proxyStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = proxyStruct.swift; sourceTree = "<group>"; };
 		2DC0C19E23F195FB00A725AC /* ProxyFind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyFind.swift; sourceTree = "<group>"; };
 		2DC23451229CE46400D0BEA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2DC5C0982621E1F5002E967F /* BookmarkRoutingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkRoutingViewController.swift; sourceTree = "<group>"; };
+		2DC5C09C2621F8E4002E967F /* zotero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = zotero.swift; sourceTree = "<group>"; };
+		2DC5C0A2262306DD002E967F /* crossRefStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = crossRefStruct.swift; sourceTree = "<group>"; };
 		2DD08CE621BC31ED00D0B3C0 /* oaHelperiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oaHelperiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD08CE921BC31ED00D0B3C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DD08CEB21BC31ED00D0B3C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +197,7 @@
 		2DE0701A21E08B8700D39D99 /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		2DE8114821C962180052698C /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		2DE8F35A2221D022000B27A1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		2DEFE474262C3D1200691C23 /* ZoteroConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoteroConnectViewController.swift; sourceTree = "<group>"; };
 		2DF95CDF221DC9CE00F11220 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2DF95CE2221DD41800F11220 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		2DF9FC2024247C30007C7D75 /* openCitationStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = openCitationStruct.swift; sourceTree = "<group>"; };
@@ -257,8 +281,10 @@
 				2D787BDC229E3CA900AAE269 /* AdvancedSearchViewController.swift */,
 				2DFF67B821C2ED6F00120363 /* TableViewController.swift */,
 				2D30FC5C21E4715F00C4060D /* TableViewCell.swift */,
-				2D28376E21C61821008D6C89 /* DetailViewController.swift */,
 				2D24C2812222A3BF0012B8E1 /* BookmarkTableViewController.swift */,
+				2DACBB50262AD3D400E4AB1E /* ZoteroTableViewController.swift */,
+				2DACBB54262AD8D100E4AB1E /* ZoteroTableViewCell.swift */,
+				2D28376E21C61821008D6C89 /* DetailViewController.swift */,
 				2DBF96F92270E59D005C182D /* NoBookMarkSupportViewController.swift */,
 				2DBF96FB2271689B005C182D /* SettingsTabViewController.swift */,
 				2DC0C19A23F1840B00A725AC /* ProxySettingsViewController.swift */,
@@ -272,6 +298,9 @@
 				2D06545D21D357BB009586B3 /* apikey.plist */,
 				2D06546E21D3DF50009586B3 /* Localizable.strings */,
 				2DF95CDF221DC9CE00F11220 /* Settings.bundle */,
+				2DC5C0982621E1F5002E967F /* BookmarkRoutingViewController.swift */,
+				2DC5C09C2621F8E4002E967F /* zotero.swift */,
+				2DEFE474262C3D1200691C23 /* ZoteroConnectViewController.swift */,
 			);
 			path = oaHelperiOS;
 			sourceTree = "<group>";
@@ -323,6 +352,10 @@
 				2DD08CFB21BC350800D0B3C0 /* oadoiStruct.swift */,
 				2DC0C19C23F1956D00A725AC /* proxyStruct.swift */,
 				2DF9FC2024247C30007C7D75 /* openCitationStruct.swift */,
+				2DA4921826148BE600019D7A /* epmcStruct.swift */,
+				2D97C42E2614C81D00BE8236 /* searchResults.swift */,
+				2DC5C0A2262306DD002E967F /* crossRefStruct.swift */,
+				2DAA751B26249C2300654879 /* zoteroStructs.swift */,
 			);
 			path = json_structs;
 			sourceTree = "<group>";
@@ -546,12 +579,18 @@
 				2D240DF121BC5A8F000BB29B /* ActionViewController.swift in Sources */,
 				2DE8F35C2221D022000B27A1 /* Model.xcdatamodeld in Sources */,
 				2DA6ECB02425DAC400B5369A /* openCitationStruct.swift in Sources */,
+				2DC5C0A4262306DD002E967F /* crossRefStruct.swift in Sources */,
+				2D9D393E2614EFFE00EA4F19 /* coreStruct.swift in Sources */,
 				2DF95CE4221DD41800F11220 /* SettingsBundleHelper.swift in Sources */,
+				2D9D39382614EFE100EA4F19 /* searchResults.swift in Sources */,
+				2DAA751F26249C4100654879 /* zoteroStructs.swift in Sources */,
 				2DAD65662392A92C00940419 /* coreRecommenderStruct.swift in Sources */,
 				2D24C280222267DB0012B8E1 /* BookMarkData.swift in Sources */,
 				2DAD65692392AA0B00940419 /* RecommenderHelper.swift in Sources */,
 				2DAD656C2392AC6200940419 /* Extensions.swift in Sources */,
+				2DAA75222624ACC000654879 /* zotero.swift in Sources */,
 				2DB47C2123A6502B004E44FA /* Timer.swift in Sources */,
+				2D9D393B2614EFE400EA4F19 /* epmcStruct.swift in Sources */,
 				2D240E0321BCE6E7000BB29B /* oadoiStruct.swift in Sources */,
 				2DE8F35F2221D076000B27A1 /* Helper.swift in Sources */,
 				2D446A8022E8D2EA001ECFA0 /* coreDiscoveryStruct.swift in Sources */,
@@ -563,6 +602,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DACBB55262AD8D100E4AB1E /* ZoteroTableViewCell.swift in Sources */,
 				2DC0C19D23F1956D00A725AC /* proxyStruct.swift in Sources */,
 				2D30FC5D21E4715F00C4060D /* TableViewCell.swift in Sources */,
 				2DD08CEC21BC31ED00D0B3C0 /* ViewController.swift in Sources */,
@@ -578,19 +618,27 @@
 				2DA19A9E23F28CC70096BFD2 /* OnboardingOne.swift in Sources */,
 				2DC0C19F23F195FB00A725AC /* ProxyFind.swift in Sources */,
 				2D8BA9D9227CC77100A0600E /* DetailNewsViewController.swift in Sources */,
+				2DC5C0A3262306DD002E967F /* crossRefStruct.swift in Sources */,
+				2DACBB51262AD3D400E4AB1E /* ZoteroTableViewController.swift in Sources */,
+				2DAA751C26249C2300654879 /* zoteroStructs.swift in Sources */,
 				2DAE4AF5227F46A30037DB69 /* NewsItemData.swift in Sources */,
 				2D575C4923A42B2000D1038F /* OnboardingSix.swift in Sources */,
+				2DA4921926148BE600019D7A /* epmcStruct.swift in Sources */,
 				2D24C2822222A3BF0012B8E1 /* BookmarkTableViewController.swift in Sources */,
+				2DC5C0992621E1F5002E967F /* BookmarkRoutingViewController.swift in Sources */,
 				2DE8F35B2221D022000B27A1 /* Model.xcdatamodeld in Sources */,
 				2DB47C2023A6502B004E44FA /* Timer.swift in Sources */,
+				2D9D39352614EF4C00EA4F19 /* searchResults.swift in Sources */,
 				2DB43AAD23F31022007B2F3C /* BartyCrouch.swift in Sources */,
 				2DE0701B21E08B8700D39D99 /* CopyableLabel.swift in Sources */,
 				2DAD65652392A92C00940419 /* coreRecommenderStruct.swift in Sources */,
 				2DD08CFC21BC350800D0B3C0 /* oadoiStruct.swift in Sources */,
 				2D5F91812222582F00D493BE /* BookMarkData.swift in Sources */,
+				2DC5C09D2621F8E4002E967F /* zotero.swift in Sources */,
 				2DE8114921C962180052698C /* OnboardingController.swift in Sources */,
 				2DAD656B2392AC6200940419 /* Extensions.swift in Sources */,
 				2DBF96FC2271689B005C182D /* SettingsTabViewController.swift in Sources */,
+				2DEFE475262C3D1200691C23 /* ZoteroConnectViewController.swift in Sources */,
 				2DA6ECAE2425D44B00B5369A /* OpenCitationHelper.swift in Sources */,
 				2DFF67B921C2ED6F00120363 /* TableViewController.swift in Sources */,
 				2D28376D21C55AB1008D6C89 /* coreStruct.swift in Sources */,
@@ -693,7 +741,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2021.1;
+				MARKETING_VERSION = 2021.3;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS.OAHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -719,7 +767,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2021.1;
+				MARKETING_VERSION = 2021.3;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS.OAHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -864,7 +912,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2021.1;
+				MARKETING_VERSION = 2021.3;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -888,7 +936,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2021.1;
+				MARKETING_VERSION = 2021.3;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

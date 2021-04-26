@@ -58,6 +58,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     var illUrl = ""
     var showRecommendations = true
     var showProxyButton = false
+    var zoteroTapped = false
     
     //MARK: Initialize Helper Classes
     
@@ -65,6 +66,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     let helper = HelperClass()
     let bookMark = BookMarkObject()
     let bookMarkData = BookMarkData()
+    let zoteroAPI = ZoteroAPI()
     
     //MARK: Setup Core Recommender Related Variables
     
@@ -281,7 +283,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 DispatchQueue.main.async {
                     self.textView.text += "\n\(doiString)"
                 }
-                //                print("up to checkunpaywall \(timer.stop()) seconds.")
+                // print("up to checkunpaywall \(timer.stop()) seconds.")
                 self.checkUnpaywall(doi: doiString)
                 
             }
@@ -545,6 +547,121 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+
+    func getCrossRefData(doi: String, completion: @escaping (Result<CrossRef, NSError>) -> ()) {
+        let jsonUrlString = "https://api.crossref.org/works/\(doi)?mailto=info@oahelper.org"
+        guard let url = URL(string: jsonUrlString) else {
+            //must return ERROR
+            completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "urlInvalid"])))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            if let error = error{
+                completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "\(error)"])))
+            }
+            if let data = data {
+                do{
+                    let crossRef = try JSONDecoder().decode(CrossRef.self, from: data)
+                    completion(.success(crossRef))
+                }
+                catch let error {
+                    completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "could not decode CrossRef Object \(error)"])))
+                }
+
+            }
+            else{
+                //must return ERROR
+                completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "dataNotPresent"])))
+            }
+            
+        }
+        
+        task.resume()
+    }
+    
+    func add2Zotero(record: ZoteroJournalArticle) {
+        self.zoteroUpdateUserInterface1()
+        zoteroAPI.addZoteroItem(record: record) { (res) in
+            switch(res){
+            case .success( _):
+                self.zoteroUpdateUserInterface2()
+                let seconds = 1.0
+                DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                    self.executeCancel(action: "bookmarked")
+                }
+            case .failure(let error):
+                let errorMessage = self.handleZoteroError(error: error)
+                self.zoteroUpdateUserInterface3(text: errorMessage)
+            }
+        }
+    }
+    
+    func addWeb2Zotero(record: ZoteroWebPage){
+        zoteroAPI.addZoteroItem(webPage: record) { (res) in
+            switch(res){
+            case .success( _):
+                self.zoteroUpdateUserInterface2()
+                let seconds = 1.0
+                DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                    self.executeCancel(action: "bookmarked")
+                }
+            case .failure(let error):
+                let errorMessage = self.handleZoteroError(error: error)
+                self.zoteroUpdateUserInterface3(text: errorMessage)
+            }
+        }
+    }
+    
+    func handleZoteroError(error: NSError) -> String{
+        var errorMessage = ""
+        switch(error.code){
+        case 403:
+            // 403 forbidden, the API key is gone or invalid
+            self.settings.setSettingsValue(value: false, key: "zotero")
+            self.settings.setSettingsStringValue(value: "", key: "userID")
+            self.settings.setSettingsStringValue(value: "", key: "oauth_token")
+            self.settings.setSettingsStringValue(value: "", key: "collectionID")
+            // show error message
+            errorMessage = NSLocalizedString("Zotero informed us that your API key is no longer valid. You will need to reauthenticate", comment: "shown getZoteroItems error")
+        case 409:
+            // show error message
+            if(error.userInfo.description.contains("Collection") && error.userInfo.description.contains("not found")){
+                zoteroAPI.createCollection(name: "Open Access Helper") { (res) in
+                    switch(res){
+                    case .success(let success):
+                        print(success)
+                        DispatchQueue.main.async {
+                            self.textView.text += NSLocalizedString("\n\nSuccessfully recreated the collection. Please attempt to add the bookmark again", comment: "shown of recreating collection succeeds")
+                        }
+                        
+                    case .failure(let error):
+                        print(error)
+                        DispatchQueue.main.async {
+                            self.textView.text = NSLocalizedString("\n\nFailed to recreate the collection. Please consider contacting support.", comment: "shown of recreating collection fails")
+                        }
+                    }
+                }
+                errorMessage = NSLocalizedString("Zotero reports the target Zotero Collection missing. I'll try to recreate it for you.", comment: "shown getZoteroItems error")
+            }
+            else{
+                errorMessage = NSLocalizedString("Zotero informed us there was a conflict with your request - the exact error is shown below. Pleae contact support to get assistance, if this error persists", comment: "shown getZoteroItems error")
+                errorMessage += "\n\(error.userInfo.description)"
+            }
+            
+        case 429:
+            errorMessage = NSLocalizedString("Apparently we made too many request - please pause your activity for a little while and try again much later", comment: "shown getZoteroItems error")
+        case 500:
+            errorMessage = NSLocalizedString("Zotero encountered an Intern Server Error - please try again later", comment: "shown getZoteroItems error")
+        case 503:
+            errorMessage = NSLocalizedString("Zotero is currently unable to handle your request - please try again later", comment: "shown getZoteroItems error")
+        default:
+            errorMessage = NSLocalizedString("An unknown error occured - please try again later", comment: "shown getZoteroItems error")
+            errorMessage += "\n\n\(error.code) \(error.userInfo.description)"
+        }
+        return errorMessage
+    }
+    
     //MARK: Identify DOIs
     
     /* This is used when a string of text is selected to identify, if it contains DOIs*/
@@ -650,7 +767,12 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     
     func getAndSetBasicSettings(){
         self.settings.ensureSettingsAreRegistered()
-        self.showBookMarkButton = self.settings.getSettingsValue(key: "bookmarks")
+        if(self.settings.getSettingsValue(key: "bookmarks") || self.settings.getSettingsValue(key: "zotero")){
+            self.showBookMarkButton = true
+        }
+        else{
+            self.showBookMarkButton = false
+        }
         self.showOpenAccessButton = self.settings.getSettingsValue(key: "open_access_button")
         self.useIll = self.settings.getSettingsValue(key: "useIll")
         self.illUrl = self.settings.getSettingsStringValue(key: "illUrl")
@@ -849,6 +971,11 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     func showBookMarkButtonFunction(){
         if(self.showBookMarkButton){
             self.addBookMarkButton.isHidden = false
+            if(self.settings.getSettingsValue(key: "zotero")){
+                let addBookmarkButtonText = NSLocalizedString("Add to Zotero", comment: "Add to Zotero")
+                self.addBookMarkButton.setTitle(addBookmarkButtonText, for: .normal)
+                self.addBookMarkButton.backgroundColor = UIColor(red: 223/255, green: 36/255, blue: 63/255, alpha: 1)
+            }
         }
         else{
             self.hideBookmarkButtonCompletely()
@@ -910,7 +1037,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 }
                 //                print("core recommends code \(coreRecommends.code)")
                 
-                if(coreRecommends.data.count > 0){
+                if(coreRecommends.data.count > 0 && !self.zoteroTapped){
                     //                    print("there were results")
                     
                     DispatchQueue.main.async {
@@ -1043,6 +1170,70 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    func zoteroUpdateUserInterface(){
+        DispatchQueue.main.async {
+            self.zoteroTapped = true
+            self.actionButton.isHidden = true
+            self.addBookMarkButton.isHidden = true
+            self.activityIndicator.isHidden = false
+            self.activityIndicator.startAnimating()
+            self.oaTypeLabel.isHidden = true
+            self.oaLogo.isHidden = true
+            self.openCitationsLogo.isHidden = true
+            self.openCitationsCountButton.isHidden = true
+            self.hideAllRecommenderRelatedStuff()
+            self.textView.font = .systemFont(ofSize: 16)
+            self.textView.text = NSLocalizedString("\nHold on tight - I am getting Metadata from CrossRef...", comment: "shown as soon as Add to Zotero is tapped")
+        }
+    }
+    
+    func zoteroUpdateUserInterface1(){
+        DispatchQueue.main.async {
+            self.textView.font = .systemFont(ofSize: 16)
+            self.textView.text = NSLocalizedString("\nThings are looking good - sending the record to Zotero...", comment: "shown as soon as we attempt to send to Zotero")
+        }
+    }
+    
+    func zoteroUpdateUserInterface2(){
+        DispatchQueue.main.async {
+            self.textView.font = .systemFont(ofSize: 16)
+            self.textView.text = NSLocalizedString("\nSuccessfully added the record to Zotero!", comment: "shown as soon as we attempt to send to Zotero")
+        }
+    }
+    
+    func zoteroUpdateUserInterface3(text: String){
+        DispatchQueue.main.async {
+            self.textView.font = .systemFont(ofSize: 16)
+            self.textView.text = NSLocalizedString("\n😞 Oh No! Adding the record to Zotero failed", comment: "shown as soon as we attempt to send to Zotero")
+            if text != "" {
+                self.textView.text += "\n\n\(text)"
+            }
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+        }
+    }
+    
+    func doCrossRefAddition(){
+        self.getCrossRefData(doi: self.bookMark.doi) { (res) in
+            switch(res){
+            case .success(let crossRef):
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.isHidden = true
+                    let zRecord = self.zoteroAPI.convertCrossRef2Zotero(record: crossRef, url: self.bookMark.url, pdf: self.bookMark.pdf)
+                    self.add2Zotero(record: zRecord)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func doWebPageAddition(){
+        let webPageObject = zoteroAPI.makeZoteroWebPage(title: bookMark.title, url: bookMark.url)
+        self.addWeb2Zotero(record: webPageObject)
+    }
+    
     //    @objc func openURL(_ url: URL) {
     //        return
     //    }
@@ -1080,10 +1271,24 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @IBAction func addBookMarkTapped(_ sender: Any) {
-        self.bookMarkData.saveBookMark(bookmark: self.bookMark){ (success: Bool) in
-            print("saved")
+        if(self.settings.getSettingsValue(key: "zotero")){
+            self.zoteroUpdateUserInterface()
+                // if DOI - do CrossRef Addition
+            if(self.bookMark.doi != ""){
+                self.doCrossRefAddition()
+            }
+                // if no DOI - do WebPage Addition
+            else{
+                self.doWebPageAddition()
+            }
         }
-        executeCancel(action: "bookmarked")
+        else{
+            self.bookMarkData.saveBookMark(bookmark: self.bookMark){ (success: Bool) in
+                print("saved")
+            }
+            executeCancel(action: "bookmarked")
+        }
+        
     }
     
     @IBAction func proxyButtonTapped(_ sender: Any) {

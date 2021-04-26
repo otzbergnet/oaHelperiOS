@@ -29,10 +29,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var oahelperLogo: UIImageView!
     
+    @IBOutlet weak var searchProviderLogo: UIImageView!
+    @IBOutlet weak var searchProviderMention: UILabel!
+    
+    
     var searchTerm = ""
     var search = ""
     var proxy = ""
     var apiData = Data()
+    var searchResults = SearchResult()
     var urlScheme = false
     
     // variables used for the HUD control
@@ -60,6 +65,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.settings.ensureSettingsAreRegistered()
+        
+        if(self.settings.getSettingsValue(key: "oauthreturn") && self.settings.getSettingsValue(key: "activeOAuth")){
+            self.tabBarController?.selectedIndex = 1
+        }
 
         //search button should have corner radius and offlineLabel should be empty
         searchButton.layer.cornerRadius = 10
@@ -95,6 +104,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         self.networkAvailable()
+        self.setSearchProviderLogo()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -165,11 +175,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
         selection.selectionChanged()
         self.textField.resignFirstResponder()
         if let search = textField.text {
-            let message = NSLocalizedString("Searching core.ac.uk for you", comment: "shows as soon as search is submitted")
-            self.activityIndicator(message)
-            let query = self.helper.createSearch(search: search)
-            self.search = query
-            checkCore(search: query)
+            if (self.settings.getSettingsValue(key: "epmc")){
+                let query = search
+                self.search = query
+                let message = NSLocalizedString("Searching Europe PMC for you", comment: "shows as soon as search is submitted")
+                self.activityIndicator(message)
+                checkEPMC(search: query)
+            }
+            else {
+                let query = self.helper.createSearch(search: search)
+                self.search = query
+                let message = NSLocalizedString("Searching core.ac.uk for you", comment: "shows as soon as search is submitted")
+                self.activityIndicator(message)
+                checkCore(search: query)
+            }
+            
         }
     }
     
@@ -177,6 +197,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == "searchSegue" {
             if let nextViewController = segue.destination as? TableViewController {
                 nextViewController.apiData = self.apiData
+                nextViewController.searchResults = self.searchResults
                 nextViewController.page = 1
                 nextViewController.search = self.search
                 //print("searchTerm:", self.search)
@@ -204,7 +225,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             case .success(let data):
                 DispatchQueue.main.async {
                     self.settings.incrementOACount(key : "oa_search")
-                    self.apiData = data
+                    self.searchResults = data
                     self.effectView.removeFromSuperview()
                     self.enterSearchLabel.text = NSLocalizedString("Enter your search:", comment: "above the search field")
                     self.enterSearchLabel.textColor = UIColor.black
@@ -221,6 +242,32 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
    
+    func checkEPMC(search: String){
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        self.helper.checkEPMC(search: search, nextCursorMark: "*", page: 1) { (res) in
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+            switch res {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self.settings.incrementOACount(key : "oa_search")
+                    self.searchResults = data
+                    self.effectView.removeFromSuperview()
+                    self.enterSearchLabel.text = NSLocalizedString("Enter your search:", comment: "above the search field")
+                    self.enterSearchLabel.textColor = UIColor.black
+                    self.performSegue(withIdentifier: "searchSegue", sender: nil)
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.effectView.removeFromSuperview()
+                    self.enterSearchLabel.text = NSLocalizedString("Sorry, we encountered a problem", comment: "problem with search")
+                    self.enterSearchLabel.textColor = UIColor.red
+                    print(error)
+                }
+            }
+        }
+    }
     
     func activityIndicator(_ title: String) {
         
@@ -443,6 +490,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func setSearchProviderLogo(){
+        let isEPMC = self.settings.getSettingsValue(key: "epmc")
+        if (isEPMC) {
+            self.searchProviderLogo.image = UIImage(named: "epmc_logo")
+            self.searchProviderMention.text = "Search API kindly provided by Europe PMC"
+        }
+        else{
+            self.searchProviderLogo.image = UIImage(named: "core_ac_uk")
+            self.searchProviderMention.text = "Search API kindly provided by core.ac.uk"
+        }
+    }
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         self.textField.resignFirstResponder()

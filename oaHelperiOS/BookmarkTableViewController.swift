@@ -55,9 +55,9 @@ class BookmarkTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if(self.settings.getSettingsValue(key: "bookmarks") == false){
-            performSegue(withIdentifier: "noBookMarkPopover", sender: self)
-        }
+//        if(self.settings.getSettingsValue(key: "bookmarks") == false){
+//            performSegue(withIdentifier: "noBookMarkPopover", sender: self)
+//        }
         self.networkAvailable()
         self.bookMarkList = self.bookMarkData.getAllBookMarks()
         self.settings.setBookMarkCount(bookMarkCount : self.bookMarkList.count)
@@ -425,15 +425,11 @@ class BookmarkTableViewController: UITableViewController {
     
     func showCloudSyncButton(){
         if(!self.settings.getSettingsValue(key: "bookmarks_icloud")){
-            if traitCollection.userInterfaceStyle == .light {
-                self.cloudSyncButton.tintColor = UIColor(red: 0.988, green: 0.631, blue: 0.216, alpha: 1.00)
-            } else {
-                self.cloudSyncButton.tintColor = UIColor(red: 0.914, green: 0.557, blue: 0.165, alpha: 1.00)
-            }
-            
+            self.cloudSyncButton.isEnabled = false
         }
         else{
-            self.cloudSyncButton.tintColor = UIColor.black
+            self.cloudSyncButton.tintColor = UIColor.orange
+            self.cloudSyncButton.isEnabled = true
         }
     }
     

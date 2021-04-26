@@ -10,6 +10,8 @@ import UIKit
 
 class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
 
+    
+    @IBOutlet weak var searchProviderLogo: UIImageView!
     @IBOutlet weak var articleTitle: UITextField!
     @IBOutlet weak var authorLastName: UITextField!
     @IBOutlet weak var publicationYearFrom: UITextField!
@@ -31,6 +33,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
     var apiData = Data()
     var stopSearch = false
     var search = ""
+    var searchResults = SearchResult()
  
     // variables used for the HUD control
     let messageFrame = UIView()
@@ -40,6 +43,8 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
     
     // allow some haptic feedback
     let selection = UISelectionFeedbackGenerator()
+    
+    var isEPMC = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +67,18 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
             clearButton.isPointerInteractionEnabled = true
         }
         
+        self.isEPMC = self.settings.getSettingsValue(key: "epmc")
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.isEPMC = self.settings.getSettingsValue(key: "epmc")
+        if(self.isEPMC){
+            searchProviderLogo.image = UIImage(named: "epmc_logo")
+        }
+        else{
+            searchProviderLogo.image = UIImage(named: "core_ac_uk")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -92,14 +109,22 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     func makeSearch() -> String{
-        self.searchStatement = []
-        makeYear()
-        makeTextSearch(prefix: "title", searchString: self.articleTitle.text ?? "")
-        makeTextSearch(prefix: "authors", searchString: self.authorLastName.text ?? "")
-        //makeTextSearch(prefix: "language", searchString: self.language.text ?? "")
+        if(self.isEPMC){
+            self.searchStatement = []
+            makeYear()
+            makeEPMCTextSearch(prefix: "title", searchString: self.articleTitle.text ?? "")
+            makeEPMCTextSearch(prefix: "authors", searchString: self.authorLastName.text ?? "")
+            self.searchStatement.append("(HAS_FT:Y)")
+        }
+        else{
+            self.searchStatement = []
+            makeYear()
+            makeTextSearch(prefix: "title", searchString: self.articleTitle.text ?? "")
+            makeTextSearch(prefix: "authors", searchString: self.authorLastName.text ?? "")
+        }
         
         let actualSearch = self.searchStatement.joined(separator: " AND ")
-        
+        print(actualSearch)
         return actualSearch
     }
     
@@ -121,6 +146,15 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         }
         else if(prefix == "language.name" && searchString != ""){
             self.searchStatement.append("\(prefix):\(searchString)")
+        }
+    }
+    
+    func makeEPMCTextSearch(prefix: String, searchString: String){
+        if(prefix == "title" && searchString != ""){
+            self.searchStatement.append("(TITLE:\"\(searchString)\")")
+        }
+        else if (prefix == "authors" && searchString != ""){
+            self.searchStatement.append("(AUTH:\"\(searchString)\")")
         }
     }
     
@@ -153,14 +187,28 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
             self.errorLabel.textColor = UIColor.red
             return
         }
+        if(self.isEPMC){
+            self.searchStatement.append("(FIRST_PDATE:[\(fromYear)-01-01 TO \(toYear)-12-31])")
+        }
+        else{
+            self.searchStatement.append("year:[\(fromYear) TO \(toYear)]")
+        }
         
-        self.searchStatement.append("year:[\(fromYear) TO \(toYear)]")
         
     }
     
     func doSearch(){
         self.clearError()
         self.doResignFirstResponder()
+        if(self.isEPMC){
+            doEPMCSearch()
+        }
+        else{
+            doCoreSearch()
+        }
+    }
+    
+    func doCoreSearch(){
         let message = NSLocalizedString("Searching core.ac.uk for you", comment: "shows as soon as search is submitted")
         self.activityIndicator(message)
         let search = self.makeSearch()
@@ -185,13 +233,50 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
                 case .success(let data):
                     DispatchQueue.main.async {
                         self.settings.incrementOACount(key : "oa_search")
-                        self.apiData = data
+                        self.searchResults = data
                         self.effectView.removeFromSuperview()
                         self.performSegue(withIdentifier: "advancedSearchResults", sender: nil)
                     }
                 case .failure(let error):
-                    self.effectView.removeFromSuperview()
-                    print(error)
+                    DispatchQueue.main.async {
+                        self.effectView.removeFromSuperview()
+                        print(error)
+                    }
+                }
+            }
+        }
+        else{
+            self.effectView.removeFromSuperview()
+            //print("invalid search")
+        }
+    }
+    
+    func doEPMCSearch(){
+        let message = NSLocalizedString("Searching Europe PMC for you", comment: "shows as soon as search is submitted")
+        self.activityIndicator(message)
+        let search = self.makeSearch()
+        self.search = search
+        if(search != "" && !self.stopSearch){
+            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            // lets get the data via the search
+            self.helper.checkEPMC(search: search, nextCursorMark: "*", page: 1) { (res) in
+                DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }
+                switch res {
+                case .success(let data):
+                    DispatchQueue.main.async {
+                        self.settings.incrementOACount(key : "oa_search")
+                        self.searchResults = data
+                        self.effectView.removeFromSuperview()
+                        self.performSegue(withIdentifier: "advancedSearchResults", sender: nil)
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self.effectView.removeFromSuperview()
+                        print(error)
+                    }
                 }
             }
         }
@@ -237,7 +322,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "advancedSearchResults" {
             if let nextViewController = segue.destination as? TableViewController {
-                nextViewController.apiData = self.apiData
+                nextViewController.searchResults = self.searchResults
                 nextViewController.search = self.search
                 nextViewController.page = 1
             }
@@ -257,6 +342,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         self.articleTitle.text = nil
         self.authorLastName.text = nil
         self.publicationYearFrom.text = nil
+        self.publicationYearTo.text = nil
         //self.language.text = nil
     }
     

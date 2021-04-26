@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GQy-uu-nA0">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -14,17 +14,17 @@
             <objects>
                 <viewController id="Tbc-dQ-Hh9" customClass="AdvancedSearchViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vBN-Km-CC7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1EN-Vx-gQN">
-                                <rect key="frame" x="0.0" y="39" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="39" width="375" height="579"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="core_ac_uk" translatesAutoresizingMaskIntoConstraints="NO" id="oya-jY-1IV">
-                                        <rect key="frame" x="75" y="20" width="170" height="50"/>
+                                        <rect key="frame" x="75" y="20" width="225" height="50"/>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Article Title" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="rxk-ok-JMg">
-                                        <rect key="frame" x="20" y="90" width="280" height="50"/>
+                                        <rect key="frame" x="20" y="90" width="335" height="50"/>
                                         <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="hgs-xc-4dD"/>
@@ -33,7 +33,7 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Author (Last Name)" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="NAK-Yy-sdX">
-                                        <rect key="frame" x="20" y="155" width="280" height="50"/>
+                                        <rect key="frame" x="20" y="155" width="335" height="50"/>
                                         <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="IXs-MC-Rbj"/>
@@ -42,7 +42,7 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="From Year" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="VQT-jJ-laO">
-                                        <rect key="frame" x="20" y="220" width="280" height="50"/>
+                                        <rect key="frame" x="20" y="220" width="335" height="50"/>
                                         <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Y1s-zM-y7F"/>
@@ -51,7 +51,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="search"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tl-nX-NTX">
-                                        <rect key="frame" x="20" y="350" width="280" height="50"/>
+                                        <rect key="frame" x="20" y="350" width="335" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="IGf-as-VIL"/>
@@ -63,13 +63,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ErrorLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXL-xz-gc1">
-                                        <rect key="frame" x="20" y="429" width="280" height="20.5"/>
+                                        <rect key="frame" x="20" y="429" width="335" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REW-yP-gPI">
-                                        <rect key="frame" x="237" y="55" width="63" height="27"/>
+                                        <rect key="frame" x="292" y="55" width="63" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="27" id="ABu-wD-mIa"/>
                                         </constraints>
@@ -81,7 +81,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To Year" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="4Su-Au-oDM">
-                                        <rect key="frame" x="20" y="284" width="280" height="50"/>
+                                        <rect key="frame" x="20" y="284" width="335" height="50"/>
                                         <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="h4T-7D-qv1"/>
@@ -143,6 +143,7 @@
                         <outlet property="publicationYearFrom" destination="VQT-jJ-laO" id="izf-JM-1Ci"/>
                         <outlet property="publicationYearTo" destination="4Su-Au-oDM" id="T8R-vn-uac"/>
                         <outlet property="searchButton" destination="4Tl-nX-NTX" id="dBB-LY-eom"/>
+                        <outlet property="searchProviderLogo" destination="oya-jY-1IV" id="veC-45-moc"/>
                         <segue destination="PDw-ar-iKr" kind="show" identifier="advancedSearchResults" id="Xbo-Rx-qqx"/>
                     </connections>
                 </viewController>
@@ -155,11 +156,11 @@
             <objects>
                 <viewController storyboardIdentifier="searchForm" id="BYZ-38-t0r" customClass="ViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter your search" textAlignment="natural" minimumFontSize="15" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="He3-yf-kv9">
-                                <rect key="frame" x="20" y="191.5" width="280" height="50"/>
+                                <rect key="frame" x="20" y="191.5" width="335" height="50"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" searchField="YES"/>
@@ -171,13 +172,13 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your search:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEM-QZ-eEg">
-                                <rect key="frame" x="20" y="163" width="280" height="23.5"/>
+                                <rect key="frame" x="20" y="163" width="335" height="23.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJr-Ge-nca">
-                                <rect key="frame" x="20" y="261.5" width="280" height="50"/>
+                                <rect key="frame" x="20" y="261.5" width="335" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="MCy-dN-CFt"/>
@@ -191,14 +192,14 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icona_64" translatesAutoresizingMaskIntoConstraints="NO" id="U0W-S4-Hpn">
-                                <rect key="frame" x="128" y="79" width="64" height="64"/>
+                                <rect key="frame" x="155.5" y="79" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="4Ia-1w-OeO"/>
                                     <constraint firstAttribute="width" constant="64" id="osT-Au-SI0"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search API kindly provided by core.ac.uk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0s-Th-Qsb">
-                                <rect key="frame" x="67.5" y="490" width="185.5" height="14"/>
+                                <rect key="frame" x="95" y="589" width="185.5" height="14"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
@@ -206,21 +207,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="core_ac_uk" translatesAutoresizingMaskIntoConstraints="NO" id="qiK-UU-Nxp">
-                                <rect key="frame" x="117" y="439" width="86" height="47"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="core_ac_uk" translatesAutoresizingMaskIntoConstraints="NO" id="qiK-UU-Nxp">
+                                <rect key="frame" x="144.5" y="538" width="86" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="86" id="0mW-ib-iBc"/>
                                     <constraint firstAttribute="height" constant="47" id="p0a-p8-qbJ"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please remember that you'll get the most out of OA Helper, if you use the Safari Share Sheet!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oHP-zt-CAG">
-                                <rect key="frame" x="20" y="366.5" width="280" height="57.5"/>
+                                <rect key="frame" x="20" y="484.5" width="335" height="38.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0EK-mq-2BI">
-                                <rect key="frame" x="268" y="44" width="32" height="30"/>
+                                <rect key="frame" x="323" y="44" width="32" height="30"/>
                                 <state key="normal" title="Help">
                                     <color key="titleColor" systemColor="linkColor"/>
                                 </state>
@@ -229,13 +230,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3S3-po-hYW">
-                                <rect key="frame" x="143.5" y="51" width="33" height="16"/>
+                                <rect key="frame" x="171" y="51" width="33" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iH6-Bw-q2M">
-                                <rect key="frame" x="100" y="319" width="120" height="30"/>
+                                <rect key="frame" x="127.5" y="319" width="120" height="30"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Advanced Search"/>
                                 <connections>
@@ -297,6 +298,8 @@
                         <outlet property="oahelperLogo" destination="U0W-S4-Hpn" id="9Rk-9O-w07"/>
                         <outlet property="offlineLabel" destination="3S3-po-hYW" id="u2P-iv-abg"/>
                         <outlet property="searchButton" destination="JJr-Ge-nca" id="x60-xD-WfN"/>
+                        <outlet property="searchProviderLogo" destination="qiK-UU-Nxp" id="RkG-gu-hsh"/>
+                        <outlet property="searchProviderMention" destination="i0s-Th-Qsb" id="tNL-5f-wwR"/>
                         <outlet property="textField" destination="He3-yf-kv9" id="18E-Ge-1YB"/>
                         <segue destination="PDw-ar-iKr" kind="show" identifier="searchSegue" id="QaW-6b-mlT"/>
                     </connections>
@@ -317,7 +320,7 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="806"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="miY-0Z-9fT">
-                                        <rect key="frame" x="15" y="25" width="290" height="810"/>
+                                        <rect key="frame" x="15" y="25" width="290" height="902"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can change the most important settings here and in the settings app." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRu-U1-Sp5" userLabel="settingsExplainLabel">
                                                 <rect key="frame" x="0.0" y="0.0" width="290" height="44"/>
@@ -327,7 +330,7 @@
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="h60-9C-GdD">
-                                                <rect key="frame" x="0.0" y="69" width="290" height="534"/>
+                                                <rect key="frame" x="0.0" y="69" width="290" height="626"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Access Options" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1i-qs-LcB">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="30"/>
@@ -407,8 +410,25 @@
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ier-Fj-4Kw">
+                                                        <rect key="frame" x="0.0" y="183" width="290" height="31"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Europe PMC for Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaG-e1-vMn">
+                                                                <rect key="frame" x="0.0" y="0.0" width="241" height="31"/>
+                                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cmd-WN-tH8">
+                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="useEPMCSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="6nC-Wv-x9w"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmarks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lw-9P-kfI">
-                                                        <rect key="frame" x="0.0" y="183" width="290" height="30"/>
+                                                        <rect key="frame" x="0.0" y="229" width="290" height="30"/>
                                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                         <accessibility key="accessibilityConfiguration">
                                                             <bool key="isElement" value="NO"/>
@@ -421,7 +441,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="SRX-0E-F2u" userLabel="enableBookMarkStack">
-                                                        <rect key="frame" x="0.0" y="228" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="274" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34Y-wY-K30">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -441,7 +461,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="BYD-mR-Ret" userLabel="iCloudSyncStack">
-                                                        <rect key="frame" x="0.0" y="274" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="320" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Sync Bookmarks " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cD5-Oy-m8y">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -461,7 +481,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="MW7-y0-qje" userLabel="resetBookMarkStack">
-                                                        <rect key="frame" x="0.0" y="320" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="366" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Reset Bookmarks from iCloud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nL-4z-9Nt">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -480,8 +500,25 @@
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUq-by-bL7">
+                                                        <rect key="frame" x="0.0" y="412" width="290" height="31"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Bookmarks in Zotero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9Y-mc-Wwe">
+                                                                <rect key="frame" x="0.0" y="0.0" width="241" height="31"/>
+                                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bm-fE-S5n">
+                                                                <rect key="frame" x="241" y="0.0" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="zoteroSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="WdS-o3-eMD"/>
+                                                                </connections>
+                                                            </switch>
+                                                        </subviews>
+                                                    </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Additional Features" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdK-Gg-8py">
-                                                        <rect key="frame" x="0.0" y="366" width="290" height="30"/>
+                                                        <rect key="frame" x="0.0" y="458" width="290" height="30"/>
                                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                         <accessibility key="accessibilityConfiguration">
                                                             <bool key="isElement" value="NO"/>
@@ -494,7 +531,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="DrX-CP-Dze" userLabel="useProxyStackView">
-                                                        <rect key="frame" x="0.0" y="411" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="503" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Proxy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vra-TD-yuG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -515,7 +552,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="15t-e2-Acd" userLabel="useIllStackView">
-                                                        <rect key="frame" x="0.0" y="457" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="549" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Inst. Request Form" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMt-tk-tdn" userLabel="Use Institutional Request Form">
                                                                 <rect key="frame" x="0.0" y="0.0" width="232" height="31"/>
@@ -536,7 +573,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2EU-K6-6Fu" userLabel="useOpenCitStackView">
-                                                        <rect key="frame" x="0.0" y="503" width="290" height="31"/>
+                                                        <rect key="frame" x="0.0" y="595" width="290" height="31"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show OpenCitations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6i-ty-AYy">
                                                                 <rect key="frame" x="0.0" y="0.0" width="241" height="31"/>
@@ -559,7 +596,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Md-7U-bVi">
-                                                <rect key="frame" x="0.0" y="628" width="290" height="182"/>
+                                                <rect key="frame" x="0.0" y="720" width="290" height="182"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloudStatusLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QP7-jR-ut3">
                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="22"/>
@@ -659,14 +696,18 @@
                         <outlet property="resetBookMarksSwitch" destination="bep-E9-Ibv" id="qRw-aW-Ngk"/>
                         <outlet property="setupProxyButton" destination="2SW-lw-2NX" id="tWM-6h-lUf"/>
                         <outlet property="tellYourFriendsButton" destination="uDz-5C-BWW" id="eet-nS-K4g"/>
+                        <outlet property="useEPMCLabel" destination="kaG-e1-vMn" id="KMQ-La-jow"/>
+                        <outlet property="useEPMCSwitch" destination="cmd-WN-tH8" id="wEi-uW-Edt"/>
                         <outlet property="useIllLabel" destination="uMt-tk-tdn" id="dMI-Ia-O6X"/>
                         <outlet property="useIllSwitch" destination="64q-jH-359" id="Wul-0O-Opq"/>
                         <outlet property="useOpenCitationsSwitch" destination="rwa-cs-Bsc" id="SVD-w7-8ni"/>
                         <outlet property="useProxyLabel" destination="Vra-TD-yuG" id="zir-xY-vcH"/>
                         <outlet property="useProxySwitch" destination="1An-xo-deb" id="13F-VR-6nO"/>
+                        <outlet property="zoteroSwitch" destination="6bm-fE-S5n" id="jzX-fw-nPt"/>
                         <segue destination="9Ep-hK-A3f" kind="popoverPresentation" identifier="ezProxySegue" popoverAnchorView="2SW-lw-2NX" id="nUq-Cn-NEb">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
+                        <segue destination="cN4-07-uvj" kind="show" identifier="settings2zoteroSegue" id="KWP-rp-91a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J3r-ei-pOe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -678,15 +719,15 @@
             <objects>
                 <tableViewController id="nzE-8T-XzR" customClass="NewsTableViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NAb-HH-U5l">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="newsCell" textLabel="QXB-17-Pqf" detailTextLabel="Nbo-ag-TJJ" style="IBUITableViewCellStyleSubtitle" id="6G5-v9-f2j" customClass="GenericTableViewCell" customModule="oaHelperiOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="56"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6G5-v9-f2j" id="4Ri-v6-6GF">
-                                    <rect key="frame" x="0.0" y="0.0" width="293" height="56"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="348" height="56"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QXB-17-Pqf">
@@ -732,23 +773,23 @@
             <objects>
                 <viewController id="9Ep-hK-A3f" customClass="ProxySettingsViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P12-v7-D1W">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EZProxy Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S05-fC-VTy">
-                                <rect key="frame" x="15" y="20" width="290" height="21"/>
+                                <rect key="frame" x="15" y="20" width="345" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="proxyPrefix" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. https://proxy.uni.edu/login?url=" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kxE-nz-zPg" userLabel="proxyPrefix">
-                                <rect key="frame" x="25" y="51" width="270" height="34"/>
+                                <rect key="frame" x="25" y="51" width="325" height="34"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done" smartDashesType="no" smartQuotesType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUc-rg-BjY">
-                                <rect key="frame" x="25" y="95" width="270" height="35"/>
+                                <rect key="frame" x="25" y="95" width="325" height="35"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Bub-uc-QH6"/>
@@ -761,33 +802,38 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qx5-tJ-hiD">
-                                <rect key="frame" x="15" y="270" width="290" height="21"/>
+                                <rect key="frame" x="15" y="270" width="345" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="domainField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="institute domain, e.g. harvard.edu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mEF-9Q-afL" userLabel="domainField">
-                                <rect key="frame" x="25" y="339" width="270" height="34"/>
+                                <rect key="frame" x="25" y="339" width="325" height="35"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="D4E-XY-oeS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="search" smartDashesType="no" smartQuotesType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2G-g4-c2A">
-                                <rect key="frame" x="25" y="383" width="270" height="35"/>
-                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="25" y="384" width="325" height="35"/>
+                                <color key="backgroundColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="NUd-HE-xhI"/>
                                 </constraints>
-                                <state key="normal" title="Search Institute"/>
+                                <state key="normal" title="Search Institute">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="searchDomainButtonTapped:" destination="9Ep-hK-A3f" eventType="touchUpInside" id="8ic-Eg-JFj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z94-xJ-2VE">
-                                <rect key="frame" x="25" y="478" width="270" height="50"/>
+                                <rect key="frame" x="25" y="592" width="325" height="35"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="54P-ww-3KB"/>
+                                    <constraint firstAttribute="height" constant="35" id="54P-ww-3KB"/>
                                 </constraints>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -797,25 +843,25 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gz4-K1-Zpp">
-                                <rect key="frame" x="15" y="433" width="290" height="20.5"/>
+                                <rect key="frame" x="15" y="434" width="345" height="20.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request Form Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIp-Nk-j8g">
-                                <rect key="frame" x="14" y="145" width="280" height="21"/>
+                                <rect key="frame" x="14" y="145" width="335" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="illUrl" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. https://proxy.uni.edu/form?doi=" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hS9-np-m46" userLabel="proxyPrefix">
-                                <rect key="frame" x="25" y="176" width="270" height="34"/>
+                                <rect key="frame" x="25" y="176" width="325" height="34"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done" smartDashesType="no" smartQuotesType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEQ-ht-Hai">
-                                <rect key="frame" x="25" y="220" width="270" height="35"/>
+                                <rect key="frame" x="25" y="220" width="325" height="35"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Dmw-rK-eYS"/>
@@ -828,7 +874,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="T2A-Cp-Iqa">
-                                <rect key="frame" x="25" y="299" width="269" height="32"/>
+                                <rect key="frame" x="25" y="299" width="324" height="32"/>
                                 <segments>
                                     <segment title="Domain"/>
                                     <segment title="Name"/>
@@ -843,6 +889,7 @@
                         <constraints>
                             <constraint firstItem="gz4-K1-Zpp" firstAttribute="top" secondItem="Z2G-g4-c2A" secondAttribute="bottom" constant="15" id="0P9-ZV-1u9"/>
                             <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="jUc-rg-BjY" secondAttribute="trailing" constant="25" id="0yi-Lm-sHW"/>
+                            <constraint firstItem="z94-xJ-2VE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gz4-K1-Zpp" secondAttribute="bottom" constant="5" id="1uu-Ut-Nsj"/>
                             <constraint firstItem="mEF-9Q-afL" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="25" id="3o5-QW-x6G"/>
                             <constraint firstItem="Z2G-g4-c2A" firstAttribute="leading" secondItem="jVY-vX-zg9" secondAttribute="leading" constant="25" id="5gx-a1-CeT"/>
                             <constraint firstItem="jVY-vX-zg9" firstAttribute="trailing" secondItem="T2A-Cp-Iqa" secondAttribute="trailing" constant="26" id="6DN-xI-5OL"/>
@@ -989,23 +1036,23 @@
             <objects>
                 <viewController id="wDe-Zl-c0T" customClass="DetailNewsViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h63-bW-ESq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryu-4s-jBf">
-                                <rect key="frame" x="15" y="59" width="290" height="23.5"/>
+                                <rect key="frame" x="15" y="59" width="345" height="23.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nj9-yR-KDx">
-                                <rect key="frame" x="15" y="87.5" width="290" height="16"/>
+                                <rect key="frame" x="15" y="87.5" width="345" height="16"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="fMc-wf-3N5">
-                                <rect key="frame" x="10" y="111.5" width="300" height="407.5"/>
+                                <rect key="frame" x="10" y="111.5" width="355" height="506.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -1058,35 +1105,118 @@
                 <navigationController id="Qtf-T2-qOr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Bookmarks" image="icons8-bookmark-75" id="5Uc-b0-J6l"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N1M-Nc-NMQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" systemColor="systemOrangeColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="darkTextColor"/>
+                            <color key="textColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="nS1-8K-6N6" kind="relationship" relationship="rootViewController" id="FQY-hu-cNE"/>
+                        <segue destination="fOp-YP-j66" kind="relationship" relationship="rootViewController" id="ht5-cY-rGi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qTn-MU-sWy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137" y="1042"/>
         </scene>
+        <!--Bookmark Routing View Controller-->
+        <scene sceneID="6Et-rl-xWb">
+            <objects>
+                <viewController id="fOp-YP-j66" customClass="BookmarkRoutingViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nvz-DQ-Sze">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="F8d-hg-vVY">
+                                <rect key="frame" x="0.0" y="44" width="375" height="370.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Zotero_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="95T-qk-cVp">
+                                        <rect key="frame" x="25" y="25" width="325" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="pGD-xE-L9X"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uSz-5f-h5W">
+                                        <rect key="frame" x="25" y="100" width="325" height="50"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="JE0-rR-UJV"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="iCloud Bookmarks"/>
+                                        <connections>
+                                            <segue destination="nS1-8K-6N6" kind="show" identifier="iCloudBookmark" id="gQ2-Rj-VRy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLS-3a-yYz">
+                                        <rect key="frame" x="25" y="175" width="325" height="50"/>
+                                        <color key="backgroundColor" red="0.70763713120000005" green="0.2168237865" blue="0.1882048845" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="yQ6-QJ-SAa"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Zotero Bookmarks"/>
+                                        <connections>
+                                            <segue destination="dca-Pl-N3o" kind="show" identifier="zoteroBookmark" id="azJ-Yy-LYu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtL-c7-dY9">
+                                        <rect key="frame" x="25" y="250" width="325" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="bRp-aw-v5y"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Setup"/>
+                                        <connections>
+                                            <segue destination="68n-8o-H12" kind="show" identifier="noBookmark" id="E89-Vo-Jtp"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="zoteroLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcJ-HF-Db6">
+                                        <rect key="frame" x="25" y="325" width="325" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="25" leading="25" bottom="25" trailing="25"/>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="K1J-SV-igJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="F8d-hg-vVY" firstAttribute="leading" secondItem="K1J-SV-igJ" secondAttribute="leading" id="RpH-4Q-wFH"/>
+                            <constraint firstItem="K1J-SV-igJ" firstAttribute="trailing" secondItem="F8d-hg-vVY" secondAttribute="trailing" id="h0U-B2-Ec5"/>
+                            <constraint firstItem="F8d-hg-vVY" firstAttribute="top" secondItem="K1J-SV-igJ" secondAttribute="top" id="qyl-ql-cWL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="EOS-Ai-SGU"/>
+                    <connections>
+                        <outlet property="bookmarkButton" destination="uSz-5f-h5W" id="Gy9-wm-3QP"/>
+                        <outlet property="setupButton" destination="BtL-c7-dY9" id="z4v-iT-WeF"/>
+                        <outlet property="zoteroButton" destination="jLS-3a-yYz" id="df3-bO-Iks"/>
+                        <outlet property="zoteroLabel" destination="HcJ-HF-Db6" id="Fsi-9f-Zy1"/>
+                        <outlet property="zoteroLogo" destination="95T-qk-cVp" id="Mx5-F3-5M6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CVX-v7-pgn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="990" y="1039"/>
+        </scene>
         <!--Item-->
         <scene sceneID="WHj-c5-Rcp">
             <objects>
                 <tableViewController storyboardIdentifier="bookMarkTableView" id="nS1-8K-6N6" customClass="BookmarkTableViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Yei-1O-gfM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookMarkCell" textLabel="QbF-XW-6oc" detailTextLabel="1lj-de-Wva" style="IBUITableViewCellStyleSubtitle" id="G2W-Yj-Grx" customClass="GenericTableViewCell" customModule="oaHelperiOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="55.5"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G2W-Yj-Grx" id="axH-Mp-sBV">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="55.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QbF-XW-6oc">
@@ -1123,162 +1253,337 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cloudSyncButton" destination="wrj-kY-gQn" id="EjX-Ug-rqq"/>
-                        <segue destination="68n-8o-H12" kind="show" identifier="noBookMarkPopover" id="Qc7-Vo-tf0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7h7-ut-DA9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="1042"/>
+            <point key="canvasLocation" x="990" y="1843"/>
         </scene>
         <!--Bookmarks-->
         <scene sceneID="Rnj-kc-JiK">
             <objects>
                 <viewController storyboardIdentifier="bookMarkSettings" title="Bookmarks" id="68n-8o-H12" customClass="NoBookMarkSupportViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="udN-UK-twQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Zyc-7x-ecY" userLabel="enableBookmarksStack">
-                                <rect key="frame" x="16" y="290" width="288" height="31"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yKM-TL-piv">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDj-8Q-Y1N">
-                                        <rect key="frame" x="0.0" y="0.0" width="230" height="31"/>
-                                        <accessibility key="accessibilityConfiguration">
-                                            <bool key="isElement" value="NO"/>
-                                        </accessibility>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sy-qI-YpN">
+                                        <rect key="frame" x="15" y="15" width="345" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lGb-Mk-usE">
-                                        <rect key="frame" x="239" y="0.0" width="51" height="31"/>
-                                        <accessibility key="accessibilityConfiguration" label="Enable Bookmarks"/>
-                                        <connections>
-                                            <action selector="bookMarksSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="Uhe-X9-5Kc"/>
-                                            <action selector="bookMarksSwitched:" destination="68n-8o-H12" eventType="valueChanged" id="i83-88-z0g"/>
-                                        </connections>
-                                    </switch>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="97z-Se-YN7" userLabel="iCloudSyncBookmarksStack">
-                                <rect key="frame" x="16" y="336" width="288" height="31"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Sync Bookmarks " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwD-N7-YbI">
-                                        <rect key="frame" x="0.0" y="0.0" width="230" height="31"/>
-                                        <accessibility key="accessibilityConfiguration">
-                                            <bool key="isElement" value="NO"/>
-                                        </accessibility>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UEp-7m-ecA">
-                                        <rect key="frame" x="239" y="0.0" width="51" height="31"/>
-                                        <accessibility key="accessibilityConfiguration" label="iCloud Sync Bookmarks "/>
-                                        <connections>
-                                            <action selector="iCloudSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="VB2-MW-QtG"/>
-                                            <action selector="iCloudSwitched:" destination="68n-8o-H12" eventType="valueChanged" id="YW7-6v-3JG"/>
-                                        </connections>
-                                    </switch>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AE-wr-UX8">
-                                <rect key="frame" x="16" y="60" width="288" height="205"/>
-                                <string key="text">This feature is currently not enabled.
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AE-wr-UX8">
+                                        <rect key="frame" x="15" y="75.5" width="345" height="184.5"/>
+                                        <string key="text">This feature is currently not enabled.
 
 Easily keep track of Open Access versions of articles, as we'll bookmark the URL of the Open Access copy rather than just the URL of the article. 
 
 If you have multiple Apple devices, consider syncing bookmarks between them for increased convenience.</string>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdj-kF-7Wg">
-                                <rect key="frame" x="16" y="454" width="288" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="kLh-sU-39E"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Open Settings">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="openSettingsTapped:" destination="68n-8o-H12" eventType="touchUpInside" id="CGa-qJ-m2B"/>
-                                    <action selector="openSettingsTapped:" destination="oET-sM-Gh4" eventType="touchUpInside" id="ihC-yt-Qgn"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEY-vv-WBU">
-                                <rect key="frame" x="16" y="407" width="288" height="22"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Zyc-7x-ecY" userLabel="enableBookmarksStack">
+                                        <rect key="frame" x="15" y="286.5" width="345" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Bookmarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDj-8Q-Y1N">
+                                                <rect key="frame" x="0.0" y="0.0" width="287" height="31"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lGb-Mk-usE">
+                                                <rect key="frame" x="296" y="0.0" width="51" height="31"/>
+                                                <accessibility key="accessibilityConfiguration" label="Enable Bookmarks"/>
+                                                <connections>
+                                                    <action selector="bookMarksSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="Uhe-X9-5Kc"/>
+                                                    <action selector="bookMarksSwitched:" destination="68n-8o-H12" eventType="valueChanged" id="i83-88-z0g"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="97z-Se-YN7" userLabel="iCloudSyncBookmarksStack">
+                                        <rect key="frame" x="15" y="344.5" width="345" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Sync Bookmarks " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwD-N7-YbI">
+                                                <rect key="frame" x="0.0" y="0.0" width="287" height="31"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UEp-7m-ecA">
+                                                <rect key="frame" x="296" y="0.0" width="51" height="31"/>
+                                                <accessibility key="accessibilityConfiguration" label="iCloud Sync Bookmarks "/>
+                                                <connections>
+                                                    <action selector="iCloudSwitched:" destination="oET-sM-Gh4" eventType="valueChanged" id="VB2-MW-QtG"/>
+                                                    <action selector="iCloudSwitched:" destination="68n-8o-H12" eventType="valueChanged" id="YW7-6v-3JG"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jr9-Wg-DXd">
+                                        <rect key="frame" x="15" y="402.5" width="345" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Bookmarks in Zotero" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggA-dZ-5Vw">
+                                                <rect key="frame" x="0.0" y="0.0" width="296" height="31"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wTX-hJ-FmH">
+                                                <rect key="frame" x="296" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="zoteroSwitched:" destination="68n-8o-H12" eventType="valueChanged" id="46p-hb-AR7"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEY-vv-WBU">
+                                        <rect key="frame" x="15" y="460" width="345" height="22"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdj-kF-7Wg">
+                                        <rect key="frame" x="15" y="509" width="345" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="UZf-fc-eN2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Open Settings">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openSettingsTapped:" destination="68n-8o-H12" eventType="touchUpInside" id="CGa-qJ-m2B"/>
+                                            <action selector="openSettingsTapped:" destination="oET-sM-Gh4" eventType="touchUpInside" id="ihC-yt-Qgn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="15" leading="15" bottom="15" trailing="15"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <directionalEdgeInsets key="directionalLayoutMargins" top="35" leading="75" bottom="35" trailing="75"/>
+                                </variation>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Y24-KQ-war"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="97z-Se-YN7" firstAttribute="leading" secondItem="Y24-KQ-war" secondAttribute="leading" constant="16" id="0L7-kw-010">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
-                            <constraint firstItem="Y24-KQ-war" firstAttribute="trailing" secondItem="97z-Se-YN7" secondAttribute="trailing" constant="16" id="0ee-a8-NJa">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
-                            <constraint firstItem="Zyc-7x-ecY" firstAttribute="top" secondItem="6AE-wr-UX8" secondAttribute="bottom" constant="25" id="2fC-Du-Ct1"/>
-                            <constraint firstItem="Y24-KQ-war" firstAttribute="trailing" secondItem="Zyc-7x-ecY" secondAttribute="trailing" constant="16" id="I93-Bm-g2H">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
-                            <constraint firstItem="Y24-KQ-war" firstAttribute="trailing" secondItem="cdj-kF-7Wg" secondAttribute="trailing" constant="16" id="KZm-sN-mxU">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
-                            <constraint firstItem="6AE-wr-UX8" firstAttribute="top" secondItem="Y24-KQ-war" secondAttribute="top" constant="16" id="M8C-5v-lTc"/>
-                            <constraint firstItem="Y24-KQ-war" firstAttribute="trailing" secondItem="yEY-vv-WBU" secondAttribute="trailing" constant="16" id="UqE-Yl-upN">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
-                            <constraint firstItem="97z-Se-YN7" firstAttribute="top" secondItem="Zyc-7x-ecY" secondAttribute="bottom" constant="15" id="Uzn-o0-OfR"/>
-                            <constraint firstItem="Y24-KQ-war" firstAttribute="trailing" secondItem="6AE-wr-UX8" secondAttribute="trailing" constant="16" id="Vpa-i4-HgU">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
-                            <constraint firstItem="6AE-wr-UX8" firstAttribute="leading" secondItem="Y24-KQ-war" secondAttribute="leading" constant="16" id="WY5-46-bM7">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
-                            <constraint firstItem="cdj-kF-7Wg" firstAttribute="top" secondItem="yEY-vv-WBU" secondAttribute="bottom" constant="25" id="Znn-G1-Hqu"/>
-                            <constraint firstItem="Y24-KQ-war" firstAttribute="bottom" secondItem="cdj-kF-7Wg" secondAttribute="bottom" constant="15" id="rnb-fH-n5T"/>
-                            <constraint firstItem="Zyc-7x-ecY" firstAttribute="leading" secondItem="Y24-KQ-war" secondAttribute="leading" constant="16" id="tMK-6l-V5e">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
-                            <constraint firstItem="yEY-vv-WBU" firstAttribute="leading" secondItem="Y24-KQ-war" secondAttribute="leading" constant="16" id="tcL-6W-X5p">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
-                            <constraint firstItem="cdj-kF-7Wg" firstAttribute="leading" secondItem="Y24-KQ-war" secondAttribute="leading" constant="16" id="xSR-la-lk7">
-                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
-                            </constraint>
+                            <constraint firstItem="Y24-KQ-war" firstAttribute="bottom" secondItem="yKM-TL-piv" secondAttribute="bottom" id="83W-T0-l93"/>
+                            <constraint firstItem="yKM-TL-piv" firstAttribute="leading" secondItem="Y24-KQ-war" secondAttribute="leading" id="Bsh-dt-JPT"/>
+                            <constraint firstItem="yKM-TL-piv" firstAttribute="top" secondItem="Y24-KQ-war" secondAttribute="top" id="ORT-Gr-kTd"/>
+                            <constraint firstAttribute="trailing" secondItem="yKM-TL-piv" secondAttribute="trailing" id="mkw-da-nqi"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="hbp-iC-vJH"/>
                     <connections>
                         <outlet property="bookMarkSwitch" destination="lGb-Mk-usE" id="PUn-DC-E5v"/>
                         <outlet property="iCloudStatusLabel" destination="yEY-vv-WBU" id="UF7-CE-SPj"/>
                         <outlet property="iCloudSwitch" destination="UEp-7m-ecA" id="u5F-Cc-Uug"/>
                         <outlet property="iCloudSwitchLabel" destination="IwD-N7-YbI" id="48T-Fo-dd1"/>
                         <outlet property="openSettingsButton" destination="cdj-kF-7Wg" id="Civ-26-aZr"/>
+                        <outlet property="zoteroSwitch" destination="wTX-hJ-FmH" id="MtO-iQ-FO6"/>
+                        <segue destination="cN4-07-uvj" kind="show" identifier="connectZoteroSegue" id="j4p-ul-eyh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LeB-27-HOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1861.875" y="1041.5492957746478"/>
+            <point key="canvasLocation" x="1761" y="1038"/>
+        </scene>
+        <!--Zotero Connect View Controller-->
+        <scene sceneID="2Vl-bu-JHi">
+            <objects>
+                <viewController id="cN4-07-uvj" customClass="ZoteroConnectViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FHt-qG-lUi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="student" translatesAutoresizingMaskIntoConstraints="NO" id="7pV-Ll-BKx">
+                                <rect key="frame" x="137.5" y="59" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="89g-ZZ-gM0"/>
+                                    <constraint firstAttribute="height" constant="100" id="tkP-wn-DdK"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hOB-2w-oJy">
+                                <rect key="frame" x="20" y="503" width="335" height="105"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahM-Qk-Nvk">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="geU-ip-PFO"/>
+                                        </constraints>
+                                        <state key="normal" title="Use Zotero Bookmarks Now">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="zoteroBookmarksButtonTapped:" destination="cN4-07-uvj" eventType="touchUpInside" id="0ch-wp-RiP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3n-oC-6YX">
+                                        <rect key="frame" x="0.0" y="55" width="335" height="50"/>
+                                        <color key="backgroundColor" red="0.70763713120000005" green="0.2168237865" blue="0.1882048845" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="xoS-tu-Qdn"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Connect to Zotero"/>
+                                        <connections>
+                                            <action selector="connectZoteroTapped:" destination="cN4-07-uvj" eventType="touchUpInside" id="fAB-7m-Gwh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Zotero_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="jhT-mY-EOD">
+                                <rect key="frame" x="137.5" y="167" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="K1t-qk-8xN"/>
+                                    <constraint firstAttribute="width" constant="100" id="YFv-Id-kce"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="ad2-YF-HXI">
+                                <rect key="frame" x="20" y="207" width="335" height="281"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Before you can start saving Bookmarks, we need to connect to Zotero! 
+
+When you tap the button below, I'll take you to Zotero to login. You'll be asked to accept or adjust permissions. As soon as you have approved access, you'll be taken back here.
+
+Once you are back, I’ll add a new collection "Open Access Helper" to Zotero. Any reference, which you bookmark, will be added to this collection. You can view these references by clicking Bookmarks in this app, or by accessing the folder in Zotero.
+
+Got questions? https://www.oahelper.org/zotero</string>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bHV-MO-RaL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7pV-Ll-BKx" firstAttribute="top" secondItem="bHV-MO-RaL" secondAttribute="top" constant="15" id="GxM-2w-QOM">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="hOB-2w-oJy" firstAttribute="leading" secondItem="bHV-MO-RaL" secondAttribute="leading" constant="20" id="Jxl-Cz-kO6">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="7pV-Ll-BKx" firstAttribute="centerX" secondItem="FHt-qG-lUi" secondAttribute="centerX" id="MD6-Hh-hME"/>
+                            <constraint firstItem="bHV-MO-RaL" firstAttribute="trailing" secondItem="ad2-YF-HXI" secondAttribute="trailing" constant="20" id="Qd1-7V-sWG">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="bHV-MO-RaL" firstAttribute="bottom" secondItem="hOB-2w-oJy" secondAttribute="bottom" constant="10" id="Vhc-OP-LCs">
+                                <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                            </constraint>
+                            <constraint firstItem="bHV-MO-RaL" firstAttribute="trailing" secondItem="hOB-2w-oJy" secondAttribute="trailing" constant="20" id="Z70-QS-GIf">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="ad2-YF-HXI" firstAttribute="leading" secondItem="bHV-MO-RaL" secondAttribute="leading" constant="20" id="cga-Oo-Tsn">
+                                <variation key="heightClass=regular-widthClass=regular" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="jhT-mY-EOD" firstAttribute="top" secondItem="7pV-Ll-BKx" secondAttribute="bottom" constant="8" symbolic="YES" id="gUe-26-s5f"/>
+                            <constraint firstItem="ad2-YF-HXI" firstAttribute="top" secondItem="jhT-mY-EOD" secondAttribute="bottom" constant="10" id="jO4-r7-Wtj"/>
+                            <constraint firstItem="jhT-mY-EOD" firstAttribute="centerX" secondItem="FHt-qG-lUi" secondAttribute="centerX" id="pE5-Ws-5i7"/>
+                            <constraint firstItem="hOB-2w-oJy" firstAttribute="top" secondItem="ad2-YF-HXI" secondAttribute="bottom" constant="15" id="xFd-N4-2mL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="eKJ-Nz-N7T"/>
+                    <connections>
+                        <outlet property="connectZoteroButton" destination="X3n-oC-6YX" id="h2e-DI-EIC"/>
+                        <outlet property="goToBookmarksButton" destination="ahM-Qk-Nvk" id="TnF-I4-R7i"/>
+                        <outlet property="instructionTextView" destination="ad2-YF-HXI" id="bjl-Kn-f4r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ttC-UP-Fg4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2511" y="1038"/>
+        </scene>
+        <!--Zotero Table View Controller-->
+        <scene sceneID="S5m-Nm-JRE">
+            <objects>
+                <tableViewController id="dca-Pl-N3o" customClass="ZoteroTableViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ffr-hE-2jD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="zoteroBookmarkCell" rowHeight="60" id="u11-iO-xPZ" customClass="ZoteroTableViewCell" customModule="oaHelperiOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u11-iO-xPZ" id="16X-1S-0u8">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avS-Tu-sgp">
+                                            <rect key="frame" x="60" y="10" width="305" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bQT-QQ-faD">
+                                            <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="i7N-zl-oMy"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqX-89-vgV">
+                                            <rect key="frame" x="60" y="31" width="305" height="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="avS-Tu-sgp" firstAttribute="leading" secondItem="bQT-QQ-faD" secondAttribute="trailing" constant="10" id="DtU-vv-pqN"/>
+                                        <constraint firstItem="avS-Tu-sgp" firstAttribute="top" secondItem="bQT-QQ-faD" secondAttribute="top" id="IpO-YW-bT6"/>
+                                        <constraint firstItem="bQT-QQ-faD" firstAttribute="leading" secondItem="16X-1S-0u8" secondAttribute="leading" constant="10" id="M8s-bR-siI"/>
+                                        <constraint firstAttribute="trailing" secondItem="vqX-89-vgV" secondAttribute="trailing" constant="10" id="PTL-le-4Gf"/>
+                                        <constraint firstItem="bQT-QQ-faD" firstAttribute="top" secondItem="16X-1S-0u8" secondAttribute="top" constant="10" id="RCI-PL-tnd"/>
+                                        <constraint firstItem="vqX-89-vgV" firstAttribute="leading" secondItem="bQT-QQ-faD" secondAttribute="trailing" constant="10" id="RIZ-LW-3y0"/>
+                                        <constraint firstAttribute="bottom" secondItem="bQT-QQ-faD" secondAttribute="bottom" constant="10" id="h9J-O7-aYB"/>
+                                        <constraint firstItem="vqX-89-vgV" firstAttribute="top" secondItem="avS-Tu-sgp" secondAttribute="bottom" constant="1" id="mYb-Iy-o4g"/>
+                                        <constraint firstAttribute="trailing" secondItem="avS-Tu-sgp" secondAttribute="trailing" constant="10" id="qEN-H2-WRg"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="detailLabel" destination="vqX-89-vgV" id="A77-PP-1zi"/>
+                                    <outlet property="iconImageView" destination="bQT-QQ-faD" id="Ch7-dm-dmm"/>
+                                    <outlet property="titleLabel" destination="avS-Tu-sgp" id="tk6-hq-2dY"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dca-Pl-N3o" id="Ske-b7-wnT"/>
+                            <outlet property="delegate" destination="dca-Pl-N3o" id="haf-L9-Ebk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Cn0-Fp-NbZ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VJn-1S-PDJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1760.625" y="1841.1971830985915"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="nG4-Yn-h2F">
             <objects>
                 <tableViewController id="PDw-ar-iKr" customClass="TableViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="s9q-zq-2Ix">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dataCell" rowHeight="63" id="Gsy-EG-UCI" customClass="TableViewCell" customModule="oaHelperiOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="63"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gsy-EG-UCI" id="nch-4G-AV3">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="core_icon" translatesAutoresizingMaskIntoConstraints="NO" id="25n-2w-55b">
@@ -1289,13 +1594,13 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMH-el-X6m">
-                                            <rect key="frame" x="64" y="11" width="240" height="22"/>
+                                            <rect key="frame" x="64" y="11" width="295" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rm1-3d-JDr">
-                                            <rect key="frame" x="64" y="34" width="240" height="20"/>
+                                            <rect key="frame" x="64" y="34" width="295" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="o0F-co-w0Z"/>
                                             </constraints>
@@ -1341,14 +1646,14 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
             <objects>
                 <viewController id="XrP-TS-2nF" customClass="DetailViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l2N-kd-AAv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TTG-Xv-LPm">
-                                <rect key="frame" x="0.0" y="479" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="578" width="375" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mni-tS-rL6">
-                                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
                                         <color key="backgroundColor" red="0.9882352941176471" green="0.61176470588235299" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Cyh-Ue-imh"/>
@@ -1362,7 +1667,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7NV-dD-8xy">
-                                        <rect key="frame" x="106.5" y="0.0" width="107" height="40"/>
+                                        <rect key="frame" x="125" y="0.0" width="125" height="40"/>
                                         <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="4jQ-6o-phw"/>
@@ -1376,7 +1681,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryL-RR-chJ">
-                                        <rect key="frame" x="213.5" y="0.0" width="106.5" height="40"/>
+                                        <rect key="frame" x="250" y="0.0" width="125" height="40"/>
                                         <color key="backgroundColor" red="0.9882352941176471" green="0.61176470588235299" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="dXu-1V-eUg"/>
@@ -1392,28 +1697,28 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                 </subviews>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KM-Oh-4Gc">
-                                <rect key="frame" x="0.0" y="44" width="320" height="435"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="534"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ldk-r4-ZZV" customClass="CopyableLabel" customModule="oaHelperiOS" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="15" width="280" height="23.5"/>
+                                        <rect key="frame" x="20" y="15" width="335" height="23.5"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="authorLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFn-dy-2Xd">
-                                        <rect key="frame" x="20" y="43.5" width="280" height="19.5"/>
+                                        <rect key="frame" x="20" y="43.5" width="335" height="19.5"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abstract" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSb-6n-f6q">
-                                        <rect key="frame" x="20" y="78" width="280" height="23.5"/>
+                                        <rect key="frame" x="20" y="95.5" width="335" height="23.5"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                         <color key="textColor" red="0.98818963766098022" green="0.61019808053970337" blue="0.17042413353919983" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqf-wb-KsL">
-                                        <rect key="frame" x="20" y="155" width="280" height="50"/>
+                                        <rect key="frame" x="20" y="172.5" width="335" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="7Us-Ot-QCv"/>
@@ -1427,18 +1732,24 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="abstractLabel" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="w2g-Gf-A10">
-                                        <rect key="frame" x="15" y="103.5" width="290" height="36.5"/>
+                                        <rect key="frame" x="15" y="121" width="345" height="36.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sourceLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiM-6H-4ye">
+                                        <rect key="frame" x="20" y="68" width="335" height="19.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="Ldk-r4-ZZV" firstAttribute="trailing" secondItem="hFn-dy-2Xd" secondAttribute="trailing" id="2Vd-em-sW4"/>
-                                    <constraint firstAttribute="bottom" secondItem="bqf-wb-KsL" secondAttribute="bottom" constant="150" id="3j9-v1-ziH"/>
+                                    <constraint firstAttribute="bottom" secondItem="bqf-wb-KsL" secondAttribute="bottom" constant="120" id="3j9-v1-ziH"/>
                                     <constraint firstItem="bqf-wb-KsL" firstAttribute="leading" secondItem="2KM-Oh-4Gc" secondAttribute="leading" constant="20" id="A5f-vC-gRR">
                                         <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                                     </constraint>
@@ -1456,16 +1767,19 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                     </constraint>
                                     <constraint firstItem="bqf-wb-KsL" firstAttribute="top" secondItem="w2g-Gf-A10" secondAttribute="bottom" constant="15" id="g9e-HH-pQj"/>
                                     <constraint firstItem="Ldk-r4-ZZV" firstAttribute="top" secondItem="2KM-Oh-4Gc" secondAttribute="top" constant="15" id="nE2-VV-xAh"/>
+                                    <constraint firstItem="FiM-6H-4ye" firstAttribute="trailing" secondItem="iSb-6n-f6q" secondAttribute="trailing" id="oaG-R5-3cV"/>
+                                    <constraint firstItem="iSb-6n-f6q" firstAttribute="top" secondItem="FiM-6H-4ye" secondAttribute="bottom" constant="8" id="p8w-AU-LYt"/>
                                     <constraint firstItem="Ldk-r4-ZZV" firstAttribute="leading" secondItem="2KM-Oh-4Gc" secondAttribute="leading" constant="20" id="pEZ-P4-Ayh">
                                         <variation key="heightClass=regular-widthClass=regular" constant="75"/>
                                     </constraint>
                                     <constraint firstItem="Ldk-r4-ZZV" firstAttribute="leading" secondItem="hFn-dy-2Xd" secondAttribute="leading" id="qqn-PD-Z4F"/>
                                     <constraint firstItem="hFn-dy-2Xd" firstAttribute="trailing" secondItem="iSb-6n-f6q" secondAttribute="trailing" id="ra5-AR-XQX"/>
-                                    <constraint firstItem="iSb-6n-f6q" firstAttribute="top" secondItem="hFn-dy-2Xd" secondAttribute="bottom" constant="15" id="tsu-D7-wle"/>
                                     <constraint firstAttribute="trailing" secondItem="w2g-Gf-A10" secondAttribute="trailing" constant="15" id="xrJ-r5-bDU">
                                         <variation key="heightClass=regular-widthClass=regular" constant="70"/>
                                     </constraint>
+                                    <constraint firstItem="FiM-6H-4ye" firstAttribute="top" secondItem="hFn-dy-2Xd" secondAttribute="bottom" constant="5" id="y30-Uh-k1Q"/>
                                     <constraint firstItem="Ldk-r4-ZZV" firstAttribute="centerX" secondItem="2KM-Oh-4Gc" secondAttribute="centerX" id="zCW-mt-TUr"/>
+                                    <constraint firstItem="FiM-6H-4ye" firstAttribute="leading" secondItem="iSb-6n-f6q" secondAttribute="leading" id="zrU-Is-id2"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="4R4-Z9-0ID" appends="YES" id="0hL-VE-FSM"/>
@@ -1487,6 +1801,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="abstractHeader" destination="iSb-6n-f6q" id="Wj3-SM-Lub"/>
                         <outlet property="abstractNewLabel" destination="w2g-Gf-A10" id="P3J-8g-WhT"/>
                         <outlet property="accessButton" destination="bqf-wb-KsL" id="8IK-Sy-Tyz"/>
                         <outlet property="authorLabel" destination="hFn-dy-2Xd" id="p9G-Tf-TeV"/>
@@ -1495,6 +1810,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                         <outlet property="pdfButton" destination="7NV-dD-8xy" id="u1s-H7-dDD"/>
                         <outlet property="previousButton" destination="Mni-tS-rL6" id="GQ3-yN-mS7"/>
                         <outlet property="scrollView" destination="2KM-Oh-4Gc" id="e0r-Jw-rd3"/>
+                        <outlet property="sourceLabel" destination="FiM-6H-4ye" id="QUx-TP-FcJ"/>
                         <outlet property="titleLabel" destination="Ldk-r4-ZZV" id="Lag-xJ-hGb"/>
                     </connections>
                 </viewController>
@@ -1510,7 +1826,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2719" y="162"/>
+            <point key="canvasLocation" x="2751" y="262"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YSk-vF-gT8">
@@ -1519,7 +1835,15 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Wr-73-lqh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="g5z-3U-3YA" kind="relationship" relationship="viewControllers" id="N3b-CV-iva"/>
@@ -1540,11 +1864,10 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                     <tabBarItem key="tabBarItem" title="Search" image="icons8-search-75" id="o8H-7F-7qK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="F0i-js-t6A">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" systemColor="systemOrangeColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="darkTextColor"/>
+                            <color key="textColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1562,11 +1885,10 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                 <navigationController id="9yt-jW-Std" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Statistics" image="icons8-statistics-75" id="O82-Bh-Fyw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fok-h4-5so">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" systemColor="systemOrangeColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="darkTextColor"/>
+                            <color key="textColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -1582,21 +1904,21 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
             <objects>
                 <viewController id="XyU-0e-gHe" customClass="StatisticsViewController" customModule="oaHelperiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ppk-tN-NRR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WIG-We-XkY">
-                                <rect key="frame" x="0.0" y="44" width="320" height="390"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="390"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="390" id="6fa-jM-4ZX"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="statCell" textLabel="Qi2-nE-LNB" detailTextLabel="jP7-FY-WVl" style="IBUITableViewCellStyleValue1" id="0vj-Au-pr8" customClass="GenericTableViewCell" customModule="oaHelperiOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0vj-Au-pr8" id="zll-If-CBe">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qi2-nE-LNB">
@@ -1607,7 +1929,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jP7-FY-WVl">
-                                                    <rect key="frame" x="266" y="13" width="38" height="19.5"/>
+                                                    <rect key="frame" x="321" y="13" width="38" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                     <nil key="textColor"/>
@@ -1619,11 +1941,11 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcN-Y1-Zub">
-                                <rect key="frame" x="0.0" y="435" width="320" height="84"/>
+                                <rect key="frame" x="0.0" y="435" width="375" height="183"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select a row above for an explanation of the values" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vq8-9p-PLi">
-                                <rect key="frame" x="56" y="449" width="239" height="41"/>
+                                <rect key="frame" x="56" y="449" width="294" height="41"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1671,11 +1993,10 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                     <tabBarItem key="tabBarItem" title="Settings" image="icons8-settings-75" id="OFZ-wQ-cqx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dyq-dg-YKc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" systemColor="systemOrangeColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="darkTextColor"/>
+                            <color key="textColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1694,11 +2015,10 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
                     <tabBarItem key="tabBarItem" title="News" image="icons8-for-you-75" id="WJ7-yu-DEz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dh5-cq-xxL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" systemColor="systemOrangeColor"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="darkTextColor"/>
+                            <color key="textColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1712,10 +2032,12 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Xbo-Rx-qqx"/>
+        <segue reference="QaW-6b-mlT"/>
+        <segue reference="j4p-ul-eyh"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <color key="tintColor" red="0.98038631679999999" green="0.58863216640000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
+        <image name="Zotero_Logo" width="193" height="67"/>
         <image name="core_ac_uk" width="171" height="95"/>
         <image name="core_icon" width="221" height="300"/>
         <image name="icona_64" width="64" height="64"/>
@@ -1728,9 +2050,7 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
         <image name="icons8-statistics-75" width="25" height="25"/>
         <image name="image_read" width="25" height="25"/>
         <image name="info_icon" width="100" height="100"/>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="student" width="170" height="170"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -1740,6 +2060,9 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -1748,9 +2071,6 @@ If you have multiple Apple devices, consider syncing bookmarks between them for 
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemFillColor">
             <color red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>

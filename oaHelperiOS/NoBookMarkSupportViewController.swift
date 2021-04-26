@@ -11,10 +11,12 @@ import CloudKit
 
 class NoBookMarkSupportViewController: UIViewController {
     
-
+    
     @IBOutlet weak var bookMarkSwitch: UISwitch!
     @IBOutlet weak var iCloudSwitch: UISwitch!
     @IBOutlet weak var iCloudSwitchLabel: UILabel!
+    @IBOutlet weak var zoteroSwitch: UISwitch!
+    
     @IBOutlet weak var openSettingsButton: UIButton!
     @IBOutlet weak var iCloudStatusLabel: UILabel!
     
@@ -29,7 +31,7 @@ class NoBookMarkSupportViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         openSettingsButton.layer.cornerRadius = 10
-
+        
         if(self.settings.getSettingsValue(key: "bookmarks")){
             bookMarkSwitch.isOn = true
         }
@@ -154,6 +156,15 @@ class NoBookMarkSupportViewController: UIViewController {
         }
         else{
             self.settings.setSettingsValue(value: false, key: "bookmarks_icloud")
+        }
+    }
+    
+    @IBAction func zoteroSwitched(_ sender: Any) {
+        if(self.zoteroSwitch.isOn){
+            self.performSegue(withIdentifier: "connectZoteroSegue", sender: nil)
+        }
+        else{
+            self.settings.setSettingsValue(value: false, key: "zotero")
         }
     }
     
