@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GQy-uu-nA0">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -1788,7 +1788,7 @@ Got questions? https://www.oahelper.org/zotero</string>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="G6y-Vh-RKu"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2KM-Oh-4Gc" secondAttribute="trailing" id="58B-l5-CCl"/>
                             <constraint firstAttribute="bottomMargin" secondItem="2KM-Oh-4Gc" secondAttribute="bottom" constant="40" id="9gr-qd-opK"/>
@@ -1959,7 +1959,7 @@ Got questions? https://www.oahelper.org/zotero</string>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="U6B-yj-2ee"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="U6B-yj-2ee" firstAttribute="trailing" secondItem="WIG-We-XkY" secondAttribute="trailing" id="2tE-vc-qln"/>
                             <constraint firstItem="U6B-yj-2ee" firstAttribute="trailing" secondItem="vq8-9p-PLi" secondAttribute="trailing" constant="25" id="5HE-NS-hSN"/>
