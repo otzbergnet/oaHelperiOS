@@ -7,14 +7,14 @@
 /* Class = "UILabel"; text = "Be ready to share!"; ObjectID = "dNJ-v4-b9x"; */
 "dNJ-v4-b9x.text" = "Seien Sie bereit \"zu teilen\"!";
 
-/* Class = "UILabel"; text = "The main purpose of this app is to give you the action sheet extension, which will help you access all that Open Access goodness. However, if you open Open Access Helper you can send a search to core.ac.uk - the world's largest Open Access aggregator.\n\nClick \"Close\" below to get started and discover the entire feature set!"; ObjectID = "dYL-df-faw"; */
-"dYL-df-faw.text" = "Die Hauptaufgabe dieser App ist es eine Action Sheet Extension zu installieren, die Ihnen helfen wird Open Access Doku\U00ADmente zu finden. Wenn Sie die App öffnen können Sie eine Suche an core.ac.uk - dem weltweit größten Open Access Aggregator - senden.\n\nDrücken Sie \"Beenden\", um loszulegen!";
+/* Class = "UILabel"; text = "The main purpose of this app is to give you the action sheet extension, which will help you access all that Open Access goodness. However, if you open Open Access Helper you can send a search to core.ac.uk or Europe PMC.\n\nClick \"Close\" below to get started and discover the entire feature set!"; ObjectID = "dYL-df-faw"; */
+"dYL-df-faw.text" = "Die Hauptaufgabe dieser App ist es eine Action Sheet Extension zu installieren, die Ihnen helfen wird Open Access Doku\U00ADmente zu finden. Wenn Sie die App öffnen können Sie eine Suche an core.ac.uk oder Europe PMC senden.\n\nDrücken Sie \"Beenden\", um loszulegen!";
 
 /* Class = "UIButton"; normalTitle = "Close"; ObjectID = "lLR-Ad-8Xk"; */
 "lLR-Ad-8Xk.normalTitle" = "Beenden";
 
-/* Class = "UILabel"; text = "There are more than 25 million Open Access documents available via the unpaywall.org API and this app is here to help you use them.\n\nWhenever you reach a publisher's paywall, tap the share icon in Safari and select OA Helper. The App will inspect the page for a DOI and take you to the Open Access copy, if one is available.\n\nSwipe left to learn more."; ObjectID = "pjO-AG-Swx"; */
-"pjO-AG-Swx.text" = "Die unpaywall.org API kann Ihnen helfen mehr als 25 Millionen Open Access Dokumente zu finden.\n\nSobald Sie keinen Zugriff auf eine wissenschaftliche Veröffentlichung haben, drücken Sie das Teilen-Icon in Safari und wählen OA Helper. Wir suchen einen DOI in der Seite und dann nach einer Open Access Kopie.\n\nWischen Sie nach links, um mehr zu erfahren.";
+/* Class = "UILabel"; text = "There are more than 28 million Open Access documents available via the unpaywall.org API and this app is here to help you use them.\n\nWhenever you reach a publisher's paywall, tap the share icon in Safari and select OA Helper. The App will inspect the page for a DOI and take you to the Open Access copy, if one is available.\n\nSwipe left to learn more."; ObjectID = "pjO-AG-Swx"; */
+"pjO-AG-Swx.text" = "Die unpaywall.org API kann Ihnen helfen mehr als 28 Millionen Open Access Dokumente zu finden.\n\nSobald Sie keinen Zugriff auf eine wissenschaftliche Veröffentlichung haben, drücken Sie das Teilen-Icon in Safari und wählen Open Access Helper. Wir suchen einen DOI in der Seite und dann nach einer Open Access Kopie.\n\nWischen Sie nach links, um mehr zu erfahren.";
 
 /* Class = "UIButton"; normalTitle = "Show me how"; ObjectID = "r6v-qV-YFb"; */
 "r6v-qV-YFb.normalTitle" = "Anleitung zeigen";
@@ -25,11 +25,8 @@
 /* Class = "UILabel"; text = "Bookmarks?"; ObjectID = "RhQ-yr-ZOJ"; */
 "RhQ-yr-ZOJ.text" = "Bookmarks?";
 
-/* Class = "UILabel"; text = "If you have more than one iOS / macOS device, consider enabling Bookmarks and iCloud syncing, so that you have private & convenient access on all your devices. \n\nSyncing is really complicated - so this is a beta feature for now..."; ObjectID = "Zh9-dz-nK5"; */
-"Zh9-dz-nK5.text" = "Wenn Sie mehr als ein iOS / macOS Gerät haben, dann sollten Sie Bookmarks & iCloud Sync aktivieren, damit Sie von allen Geräten auf Ihre Bookmarks zugreifen können. Durch iCloud wird Ihre Privat\U00ADsphäre dabei gut geschützt.\n\nDiese Funktion ist noch in der Beta-Phase";
-
-/* Class = "UILabel"; text = "Enable Bookmarks"; ObjectID = "brv-EB-6Mr"; */
-"brv-EB-6Mr.text" = "Bookmarks";
+/* Class = "UILabel"; text = "If you have more than one iOS / macOS device, consider enabling Bookmarks and iCloud syncing, so that you have private & convenient access on all your devices. \n\nIf you alrady use Zotero, the awesome Open Source bibliographic management tool, we have you covered too. \n\nTap Bookmarks in the application to set this up!"; ObjectID = "Zh9-dz-nK5"; */
+"Zh9-dz-nK5.text" = "Wenn Sie mehr als ein iOS / macOS Gerät haben, dann sollten Sie Bookmarks & iCloud Sync aktivieren, damit Sie von allen Geräten auf Ihre Bookmarks zugreifen können. Durch iCloud wird Ihre Privat\U00ADsphäre dabei gut geschützt.\n\nSollten Sie bereits Zotero, die Open Source Literaturverwaltung nutzen, so können Sie Ihre Bookmarks dort speichern.\n\nTappen Sie auf Bookmarks in der App, um diese Funktion einzurichten";
 
 /* Class = "UIButton"; normalTitle = "Open Settings"; ObjectID = "HaA-at-RLi"; */
 "HaA-at-RLi.normalTitle" = "Einstellungen öffnen";
@@ -60,12 +57,6 @@
 
 /* Class = "UITextField"; placeholder = "Institute Domain, e.g. harvard.edu"; ObjectID = "bS5-pZ-CQi"; */
 "bS5-pZ-CQi.placeholder" = "Domain-Name, z.B. harvard.edu";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "qA9-OA-CGD"; */
-"qA9-OA-CGD.text" = "Label";
-
-/* Class = "UILabel"; text = "iCloud Sync Bookmarks "; ObjectID = "xwc-XU-Ie2"; */
-"xwc-XU-Ie2.text" = "Bookmarks mit iCloud synchronisieren";
 
 /* Class = "UIButton"; normalTitle = "More Info"; ObjectID = "zdd-3y-GlC"; */
 "zdd-3y-GlC.normalTitle" = "Weitere Informationen";

@@ -10,7 +10,6 @@ import Foundation
 
 enum BartyCrouch {
     enum SupportedLanguage: String {
-        // TODO: remove unsupported languages from the following cases list & add any missing languages
         case english = "en"
         case german = "de"
     }
