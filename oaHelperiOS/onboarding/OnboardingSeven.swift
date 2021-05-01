@@ -25,10 +25,14 @@ class OnboardingSeven: UIViewController, UITextFieldDelegate {
         statusLabel.text = NSLocalizedString("Remote Access", comment: "Status Label")
         
         self.domainTextField.delegate = self
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
         self.view.addGestureRecognizer(tapGesture)
         if #available(iOS 13.4, *) {
             setupProxyButton.isPointerInteractionEnabled = true
+        }
+        if #available(iOS 13.0, *) {
+            self.domainTextField.overrideUserInterfaceStyle = .light
         }
     }
     
