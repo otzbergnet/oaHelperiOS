@@ -987,12 +987,26 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func showProxyButtonFunction(){
-        if(self.showProxyButton){
+        if(self.showProxyButton && domainOnProxyList()){
             self.proxyButton.isHidden = false
         }
         else{
             self.proxyButton.isHidden = true
         }
+    }
+    
+    func domainOnProxyList() -> Bool{
+        let domainUrls = self.settings.getStringArray(key: "instituteDomains")
+        let currentUrl = self.bookMark.url
+        if (domainUrls.count == 0){
+            return true
+        }
+        for url in domainUrls {
+            if currentUrl.contains(url) {
+                return true
+            }
+        }
+        return false
     }
     
     
