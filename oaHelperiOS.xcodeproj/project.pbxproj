@@ -54,6 +54,8 @@
 		2DA7887A222C0A680025CB13 /* OnboardingFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78879222C0A680025CB13 /* OnboardingFive.swift */; };
 		2DA8D4782688B5E500BAF569 /* domainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8D4772688B5E500BAF569 /* domainHelper.swift */; };
 		2DA8D4792688B5E500BAF569 /* domainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8D4772688B5E500BAF569 /* domainHelper.swift */; };
+		2DA8D47A2688CC1300BAF569 /* ProxyFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0C19E23F195FB00A725AC /* ProxyFind.swift */; };
+		2DA8D47B2688CCA900BAF569 /* proxyStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0C19C23F1956D00A725AC /* proxyStruct.swift */; };
 		2DAA751C26249C2300654879 /* zoteroStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA751B26249C2300654879 /* zoteroStructs.swift */; };
 		2DAA751F26249C4100654879 /* zoteroStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA751B26249C2300654879 /* zoteroStructs.swift */; };
 		2DAA75222624ACC000654879 /* zotero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5C09C2621F8E4002E967F /* zotero.swift */; };
@@ -584,6 +586,7 @@
 				2D240DF121BC5A8F000BB29B /* ActionViewController.swift in Sources */,
 				2DE8F35C2221D022000B27A1 /* Model.xcdatamodeld in Sources */,
 				2DA6ECB02425DAC400B5369A /* openCitationStruct.swift in Sources */,
+				2DA8D47A2688CC1300BAF569 /* ProxyFind.swift in Sources */,
 				2DC5C0A4262306DD002E967F /* crossRefStruct.swift in Sources */,
 				2D9D393E2614EFFE00EA4F19 /* coreStruct.swift in Sources */,
 				2DA8D4792688B5E500BAF569 /* domainHelper.swift in Sources */,
@@ -593,6 +596,7 @@
 				2DAD65662392A92C00940419 /* coreRecommenderStruct.swift in Sources */,
 				2D24C280222267DB0012B8E1 /* BookMarkData.swift in Sources */,
 				2DAD65692392AA0B00940419 /* RecommenderHelper.swift in Sources */,
+				2DA8D47B2688CCA900BAF569 /* proxyStruct.swift in Sources */,
 				2DAD656C2392AC6200940419 /* Extensions.swift in Sources */,
 				2DAA75222624ACC000654879 /* zotero.swift in Sources */,
 				2DB47C2123A6502B004E44FA /* Timer.swift in Sources */,
