@@ -5,7 +5,7 @@
 "Ldk-r4-ZZV.text" = "titleLabel";
 
 /* Class = "UILabel"; text = "Enter your search:"; ObjectID = "aEM-QZ-eEg"; */
-"aEM-QZ-eEg.text" = "Ihr Suche:";
+"aEM-QZ-eEg.text" = "Ihre Suche:";
 
 /* Class = "UITextField"; placeholder = "Please enter your search"; ObjectID = "He3-yf-kv9"; */
 "He3-yf-kv9.placeholder" = "Bitte Suche eingeben";

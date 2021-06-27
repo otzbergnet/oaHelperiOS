@@ -21,7 +21,7 @@ class SettingsBundleHelper {
             self.serverChangeTokenKey = "\(uuid)"
         }
         else{
-           self.serverChangeTokenKey = "icloudServerToken"
+            self.serverChangeTokenKey = "icloudServerToken"
         }
         
         
@@ -64,6 +64,20 @@ class SettingsBundleHelper {
         self.defaults.synchronize()
     }
     
+    func setStringArray(array : [String], key: String){
+        self.defaults.set(array, forKey: key)
+        self.defaults.synchronize()
+    }
+    
+    func getStringArray(key: String) -> [String] {
+        
+        if let stringArray = self.defaults.stringArray(forKey: key) {
+            return stringArray
+        }
+        
+        return []
+    }
+    
     func setDate(date : String){
         self.defaults.set(date, forKey: "share_date")
         self.defaults.synchronize()
@@ -80,7 +94,7 @@ class SettingsBundleHelper {
     }
     
     func setSyncDate(type: String){
-       
+        
         let currentDate = Date();
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

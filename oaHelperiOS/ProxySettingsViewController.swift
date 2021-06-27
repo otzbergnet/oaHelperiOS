@@ -158,59 +158,42 @@ class ProxySettingsViewController: UIViewController, UITextFieldDelegate {
                     switch res{
                     case .success(let proxyList):
                         if(proxyList.count == 0){
-                            DispatchQueue.main.async {
-                                self.statusLabel.text = NSLocalizedString("No match was found", comment: "if 0 hits returned")
-                            }
+                            self.updateStatusLabel(statusLabel: NSLocalizedString("No match was found", comment: "if 0 hits returned"), textColor: .black)
                         }
                         else if(proxyList.count == 1){
-                            if let proxyPrefix = proxyList.first?.proxyUrl.replacingOccurrences(of: "{targetUrl}", with: ""){
-                                DispatchQueue.main.async {
-                                    self.settings.setSettingsStringValue(value: proxyPrefix, key: "proxyPrefix")
-                                    if(proxyPrefix != ""){
-                                        self.settings.setSettingsValue(value: true, key: "useProxy")
-                                    }
-                                    if let instituteId = proxyList.first?.id{
-                                        self.settings.setSettingsStringValue(value: instituteId, key: "instituteId")
-                                    }
-                                    if let illUrl = proxyList.first?.ill.replacingOccurrences(of: "{doi}", with: "") {
-                                        self.settings.setSettingsStringValue(value: illUrl, key: "illUrl")
-                                        if(illUrl != ""){
-                                            self.settings.setSettingsValue(value: true, key: "useIll")
-                                        }
-                                    }
+                            self.proxyFind.processProxyList(proxyList: proxyList) { (res1) in
+                                switch res1 {
+                                case .success(_):
+                                    print("success")
                                     self.getProxyForTextfield()
-                                    self.statusLabel.text = NSLocalizedString("Successfuly, saved!", comment: "if proxy was successfully saved")
-                                    self.statusLabel.textColor = .blue
+                                    self.updateStatusLabel(statusLabel: NSLocalizedString("Successfuly, saved!", comment: "if proxy was successfully saved"), textColor: .blue)
+                                case .failure(_):
+                                    self.updateStatusLabel(statusLabel: NSLocalizedString("We found a match, but could not get the prefix", comment: "if unable to actually get to the proxyPrefix"), textColor: .black)
                                     self.dismissLater(seconds: 0.75)
                                 }
                             }
-                            else{
-                                DispatchQueue.main.async {
-                                    self.statusLabel.text = NSLocalizedString("We found a match, but could not get the prefix", comment: "if unable to actually get to the proxyPrefix")
-                                }
-                            }
-                            
                         }
                         else{
-                            DispatchQueue.main.async {
-                                self.statusLabel.text = NSLocalizedString("Please review your domain-name, as we were unable to find just one match", comment: "if there are more than one result")
-                            }
+                            self.updateStatusLabel(statusLabel: NSLocalizedString("Please review your domain-name, as we were unable to find just one match", comment: "if there are more than one result"), textColor: .black)
                         }
                     case .failure(let error):
-                        DispatchQueue.main.async {
-                            self.statusLabel.text = NSLocalizedString("We encountered an unexpected error", comment: "if failure received")
-                            print(error)
-                        }
+                        self.updateStatusLabel(statusLabel: NSLocalizedString("We encountered an unexpected error", comment: "if failure received"), textColor: .black)
+                        print(error)
                     }
                 }
             }
             else{
-                DispatchQueue.main.async {
-                    self.statusLabel.text = NSLocalizedString("Looks like the domain field was empty", comment: "if proxy field was empty")
-                }
+                self.updateStatusLabel(statusLabel: NSLocalizedString("Looks like the domain field was empty", comment: "if proxy field was empty"), textColor: .black)
             }
         }
     }
+    
+    func updateStatusLabel(statusLabel: String, textColor: UIColor){
+        DispatchQueue.main.async {
+            self.statusLabel.text = statusLabel
+        }
+    }
+    
     
     @IBAction func searchDomainButtonTapped(_ sender: Any) {
         serchByDomainFunction()

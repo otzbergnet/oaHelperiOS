@@ -94,6 +94,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // do promo containerView (Child VC)
         self.addInfoChildViewController()
         
+        //check if data data update is required
+        
+        
         //support mouse pointer
         if #available(iOS 13.4, *) {
             helpButton.isPointerInteractionEnabled = true
