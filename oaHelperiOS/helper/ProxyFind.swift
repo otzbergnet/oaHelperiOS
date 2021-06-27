@@ -14,6 +14,7 @@ class ProxyFind {
     let settings = SettingsBundleHelper()
         
     func askForProxy(domain : String, queryType: String, completion: @escaping (Result<[ProxyInstitute], Error>) -> ()){
+        
             let apiKey = self.helper.getAPIKeyFromPlist(key: "coreRecommender")
             let apiEndPoint = self.helper.getAPIKeyFromPlist(key: "proxyApi")
             if (apiKey == "") {
