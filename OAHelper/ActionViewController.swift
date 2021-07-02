@@ -93,6 +93,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.setupEmptyView()
         self.getAndSetBasicSettings()
+        self.checkProxyDataUpdateNeeded()
         
         guard let extensionItems = extensionContext?.inputItems as? [NSExtensionItem] else {
             return
@@ -987,12 +988,26 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func showProxyButtonFunction(){
-        if(self.showProxyButton){
+        if(self.showProxyButton && domainOnProxyList()){
             self.proxyButton.isHidden = false
         }
         else{
             self.proxyButton.isHidden = true
         }
+    }
+    
+    func domainOnProxyList() -> Bool{
+        let domainUrls = self.settings.getStringArray(key: "instituteDomains")
+        let currentUrl = self.bookMark.url
+        if (domainUrls.count == 0){
+            return true
+        }
+        for url in domainUrls {
+            if currentUrl.contains(url) {
+                return true
+            }
+        }
+        return false
     }
     
     
@@ -1148,6 +1163,43 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             }
             
         }
+    }
+    
+    //MARK: Update Proxy & Domains from Server
+    
+    func checkProxyDataUpdateNeeded() {
+        let compareTime = "\(NSDate().timeIntervalSince1970 - 7*24*60*60)"
+        let lastUpdateTime = self.settings.getSettingsStringValue(key: "lastUpdate")
+        let instituteId = self.settings.getSettingsStringValue(key: "instituteId")
+        
+        if (compareTime < lastUpdateTime) {
+            return
+        }
+        
+        if (instituteId == ""){
+            return
+        }
+        
+        let proxyFind = ProxyFind()
+
+        proxyFind.askForProxy(domain: "\(instituteId)", queryType: "id") { (res) in
+            switch (res) {
+            case .success(let proxyList):
+                if(proxyList.count == 1){
+                    proxyFind.processProxyList(proxyList: proxyList) { (res1) in
+                        switch res1 {
+                        case .success(_):
+                            print("Successfully processed Proxy List")
+                        case .failure(_):
+                            print("Failed processed Proxy List")
+                        }
+                    }
+                }
+            case .failure(_):
+                print("Failed to get proxy list")
+            }
+        }
+
     }
     
     //MARK: Actions used in Action Buttons Section

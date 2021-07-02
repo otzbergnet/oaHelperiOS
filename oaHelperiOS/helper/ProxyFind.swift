@@ -11,8 +11,10 @@ import Foundation
 class ProxyFind {
     
     let helper = HelperClass()
+    let settings = SettingsBundleHelper()
         
     func askForProxy(domain : String, queryType: String, completion: @escaping (Result<[ProxyInstitute], Error>) -> ()){
+        
             let apiKey = self.helper.getAPIKeyFromPlist(key: "coreRecommender")
             let apiEndPoint = self.helper.getAPIKeyFromPlist(key: "proxyApi")
             if (apiKey == "") {
@@ -89,5 +91,69 @@ class ProxyFind {
             task.resume()
             
         }
+    
+    
+    
+    
+    func  processProxyList(proxyList: [ProxyInstitute], completion: @escaping (Result<[Bool], Error>) -> ()){
+        if let proxyPrefix = proxyList.first?.proxyUrl.replacingOccurrences(of: "{targetUrl}", with: ""){
+            self.settings.setSettingsStringValue(value: proxyPrefix, key: "proxyPrefix")
+            if(proxyPrefix != ""){
+                self.settings.setSettingsValue(value: true, key: "useProxy")
+            }
+            if let instituteId = proxyList.first?.id{
+                self.settings.setSettingsStringValue(value: instituteId, key: "instituteId")
+            }
+            if let illUrl = proxyList.first?.ill.replacingOccurrences(of: "{doi}", with: "") {
+                self.settings.setSettingsStringValue(value: illUrl, key: "illUrl")
+                if(illUrl != ""){
+                    self.settings.setSettingsValue(value: true, key: "useIll")
+                }
+            }
+            if let domainUrl = proxyList.first?.domainUrl {
+                self.settings.setSettingsStringValue(value: domainUrl, key: "domainUrl")
+                if(domainUrl != ""){
+                    self.saveDomains()
+                }
+                else {
+                    self.clearDomains()
+                }
+            }
+            self.settings.setSettingsStringValue(value: "\(NSDate().timeIntervalSince1970)", key: "lastUpdate")
+            completion(.success([true]))
+        }
+        else{
+            completion(.failure(NSError(domain: "", code: 400, userInfo: ["description" : "no valid proxyPrefix found"])))
+        }
+        
+    }
+    
+    func saveDomains() {
+        DispatchQueue.main.async {
+            let domainHelper = DomainHelper()
+            domainHelper.saveDomainList() { (res2) in
+                switch res2 {
+                case .success(_):
+                    print("successfully saved domainList")
+                case .failure(_):
+                    print("failure while saving domainList")
+                }
+            }
+        }
+    }
+    
+    func clearDomains(){
+        DispatchQueue.main.async {
+            let domainHelper = DomainHelper()
+            domainHelper.clearDomainList() { (res2) in
+                switch res2 {
+                case .success(_):
+                    print("successfully cleared domainList")
+                case .failure(_):
+                    print("failure while clearing domainList")
+                }
+            }
+        }
+    }
     
 }

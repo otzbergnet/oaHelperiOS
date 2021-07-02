@@ -52,6 +52,10 @@
 		2DA6ECAF2425D66200B5369A /* OpenCitationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA6ECAD2425D44B00B5369A /* OpenCitationHelper.swift */; };
 		2DA6ECB02425DAC400B5369A /* openCitationStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF9FC2024247C30007C7D75 /* openCitationStruct.swift */; };
 		2DA7887A222C0A680025CB13 /* OnboardingFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78879222C0A680025CB13 /* OnboardingFive.swift */; };
+		2DA8D4782688B5E500BAF569 /* domainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8D4772688B5E500BAF569 /* domainHelper.swift */; };
+		2DA8D4792688B5E500BAF569 /* domainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8D4772688B5E500BAF569 /* domainHelper.swift */; };
+		2DA8D47A2688CC1300BAF569 /* ProxyFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0C19E23F195FB00A725AC /* ProxyFind.swift */; };
+		2DA8D47B2688CCA900BAF569 /* proxyStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0C19C23F1956D00A725AC /* proxyStruct.swift */; };
 		2DAA751C26249C2300654879 /* zoteroStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA751B26249C2300654879 /* zoteroStructs.swift */; };
 		2DAA751F26249C4100654879 /* zoteroStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAA751B26249C2300654879 /* zoteroStructs.swift */; };
 		2DAA75222624ACC000654879 /* zotero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5C09C2621F8E4002E967F /* zotero.swift */; };
@@ -167,6 +171,7 @@
 		2DA4921826148BE600019D7A /* epmcStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = epmcStruct.swift; sourceTree = "<group>"; };
 		2DA6ECAD2425D44B00B5369A /* OpenCitationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCitationHelper.swift; sourceTree = "<group>"; };
 		2DA78879222C0A680025CB13 /* OnboardingFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFive.swift; sourceTree = "<group>"; };
+		2DA8D4772688B5E500BAF569 /* domainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = domainHelper.swift; sourceTree = "<group>"; };
 		2DAA751B26249C2300654879 /* zoteroStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zoteroStructs.swift; sourceTree = "<group>"; };
 		2DACBB50262AD3D400E4AB1E /* ZoteroTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoteroTableViewController.swift; sourceTree = "<group>"; };
 		2DACBB54262AD8D100E4AB1E /* ZoteroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoteroTableViewCell.swift; sourceTree = "<group>"; };
@@ -338,6 +343,7 @@
 				2DB47C1F23A6502B004E44FA /* Timer.swift */,
 				2DA6ECAD2425D44B00B5369A /* OpenCitationHelper.swift */,
 				2DB2D3682479141A007CD6FF /* GenericTableViewCell.swift */,
+				2DA8D4772688B5E500BAF569 /* domainHelper.swift */,
 			);
 			path = helper;
 			sourceTree = "<group>";
@@ -368,11 +374,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D240DF921BC5A8F000BB29B /* Build configuration list for PBXNativeTarget "OAHelper" */;
 			buildPhases = (
+				2DB43AAF23F3112E007B2F3C /* ShellScript */,
 				2D240DE821BC5A8F000BB29B /* Sources */,
 				2D240DE921BC5A8F000BB29B /* Frameworks */,
 				2D240DEA21BC5A8F000BB29B /* Resources */,
 				2D8FDFFD224F6B8C00F4F532 /* Set Build Number */,
-				2DB43AAF23F3112E007B2F3C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -387,12 +393,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DD08CF821BC31EF00D0B3C0 /* Build configuration list for PBXNativeTarget "oaHelperiOS" */;
 			buildPhases = (
+				2DB43AAE23F3111D007B2F3C /* ShellScript */,
 				2DD08CE221BC31ED00D0B3C0 /* Sources */,
 				2DD08CE321BC31ED00D0B3C0 /* Frameworks */,
 				2DD08CE421BC31ED00D0B3C0 /* Resources */,
 				2DD08D1121BC4EFB00D0B3C0 /* Embed App Extensions */,
 				2D8FDFFC224F6B7000F4F532 /* Set Build Number */,
-				2DB43AAE23F3111D007B2F3C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -536,7 +542,7 @@
 		};
 		2DB43AAE23F3111D007B2F3C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -580,14 +586,17 @@
 				2D240DF121BC5A8F000BB29B /* ActionViewController.swift in Sources */,
 				2DE8F35C2221D022000B27A1 /* Model.xcdatamodeld in Sources */,
 				2DA6ECB02425DAC400B5369A /* openCitationStruct.swift in Sources */,
+				2DA8D47A2688CC1300BAF569 /* ProxyFind.swift in Sources */,
 				2DC5C0A4262306DD002E967F /* crossRefStruct.swift in Sources */,
 				2D9D393E2614EFFE00EA4F19 /* coreStruct.swift in Sources */,
+				2DA8D4792688B5E500BAF569 /* domainHelper.swift in Sources */,
 				2DF95CE4221DD41800F11220 /* SettingsBundleHelper.swift in Sources */,
 				2D9D39382614EFE100EA4F19 /* searchResults.swift in Sources */,
 				2DAA751F26249C4100654879 /* zoteroStructs.swift in Sources */,
 				2DAD65662392A92C00940419 /* coreRecommenderStruct.swift in Sources */,
 				2D24C280222267DB0012B8E1 /* BookMarkData.swift in Sources */,
 				2DAD65692392AA0B00940419 /* RecommenderHelper.swift in Sources */,
+				2DA8D47B2688CCA900BAF569 /* proxyStruct.swift in Sources */,
 				2DAD656C2392AC6200940419 /* Extensions.swift in Sources */,
 				2DAA75222624ACC000654879 /* zotero.swift in Sources */,
 				2DB47C2123A6502B004E44FA /* Timer.swift in Sources */,
@@ -652,6 +661,7 @@
 				2DB2D3692479141A007CD6FF /* GenericTableViewCell.swift in Sources */,
 				2D446A7F22E8D2DE001ECFA0 /* coreDiscoveryStruct.swift in Sources */,
 				2DA19A9C23F28BED0096BFD2 /* OnboardingSeven.swift in Sources */,
+				2DA8D4782688B5E500BAF569 /* domainHelper.swift in Sources */,
 				2D787BDD229E3CA900AAE269 /* AdvancedSearchViewController.swift in Sources */,
 				2D15F9A421E0C5A300FF8B46 /* Helper.swift in Sources */,
 				2D652B21227452E300A46F37 /* NewsTableViewController.swift in Sources */,
@@ -734,7 +744,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Extension";
 				CODE_SIGN_ENTITLEMENTS = OAHelper/OAHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = OAHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -743,7 +753,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2021.3.1;
+				MARKETING_VERSION = 2021.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS.OAHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -760,7 +770,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-Extension";
 				CODE_SIGN_ENTITLEMENTS = OAHelper/OAHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = OAHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -769,7 +779,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 2021.3.1;
+				MARKETING_VERSION = 2021.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS.OAHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -906,7 +916,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = oaHelperiOS/oaHelperiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = oaHelperiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -914,7 +924,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2021.3.1;
+				MARKETING_VERSION = 2021.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -930,7 +940,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = oaHelperiOS/oaHelperiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = J3PNNM2UXC;
 				INFOPLIST_FILE = oaHelperiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -938,7 +948,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2021.3.1;
+				MARKETING_VERSION = 2021.4;
 				PRODUCT_BUNDLE_IDENTIFIER = net.otzberg.oaHelperiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

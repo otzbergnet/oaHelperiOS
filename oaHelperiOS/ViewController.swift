@@ -94,6 +94,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // do promo containerView (Child VC)
         self.addInfoChildViewController()
         
+        //check if data data update is required
+        self.checkProxyDataUpdateNeeded()
+        
         //support mouse pointer
         if #available(iOS 13.4, *) {
             helpButton.isPointerInteractionEnabled = true
@@ -501,6 +504,42 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.searchProviderMention.text = "Search API kindly provided by core.ac.uk"
         }
     }
+    
+    func checkProxyDataUpdateNeeded() {
+        let compareTime = "\(NSDate().timeIntervalSince1970 - 7*24*60*60)"
+        let lastUpdateTime = self.settings.getSettingsStringValue(key: "lastUpdate")
+        let instituteId = self.settings.getSettingsStringValue(key: "instituteId")
+        
+        if (compareTime < lastUpdateTime) {
+            return
+        }
+        
+        if (instituteId == ""){
+            return
+        }
+        
+        let proxyFind = ProxyFind()
+
+        proxyFind.askForProxy(domain: "\(instituteId)", queryType: "id") { (res) in
+            switch (res) {
+            case .success(let proxyList):
+                if(proxyList.count == 1){
+                    proxyFind.processProxyList(proxyList: proxyList) { (res1) in
+                        switch res1 {
+                        case .success(_):
+                            print("Successfully processed Proxy List")
+                        case .failure(_):
+                            print("Failed processed Proxy List")
+                        }
+                    }
+                }
+            case .failure(_):
+                print("Failed to get proxy list")
+            }
+        }
+
+    }
+    
     
     @objc func dismissKeyboard (_ sender: UITapGestureRecognizer) {
         self.textField.resignFirstResponder()
