@@ -21,43 +21,36 @@ class RecommenderHelper {
     
     let helper = HelperClass()
     
-    func askForRecommendation(metaData : CoreRequestObject, completion: @escaping (Result<CoreRecommender, Error>) -> ()){
+    func askForRecommendation(metaData : CoreRequestObject, completion: @escaping (Result<[CoreRecommender], Error>) -> ()){
 //        let timer = ParkBenchTimer()
 //        print("ask for Core Recommendation")
-        let apiKey = self.helper.getAPIKeyFromPlist(key: "coreRecommender")
-        let apiEndPoint = self.helper.getAPIKeyFromPlist(key: "coreRecommenderUrl")
+        let apiKey = self.helper.getAPIKeyFromPlist(key: "core")
         if (apiKey == "") {
             //print("no API Key")
             completion(.failure(NSError(domain: "", code: 441, userInfo: ["description" : "no APIKey Present"])))
             return
         }
-        if(apiEndPoint == ""){
-            //print("no API EndPoint")
-            completion(.failure(NSError(domain: "", code: 442, userInfo: ["description" : "no API End Point Present"])))
-            return
-        }
-        let jsonUrlString = apiEndPoint
+        //make request JSON
+        let json: [String: Any] = ["limit": "3",
+                                   "identifier": "\(metaData.doi)",
+                                   "abstract": "\(metaData.aabstract)",
+                                   "authors": "\(metaData.author)",
+                                   "title": "\(metaData.title)"]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        
+        //prepare API call
+        let jsonUrlString = "https://api.core.ac.uk/v3/recommend"
         guard let url = URL(string: jsonUrlString) else {
-            //print("could not create URL")
             completion(.failure(NSError(domain: "", code: 443, userInfo: ["description" : "could not create URL"])))
             return
         }
         
+        //setup POST REQUEST
         var request = URLRequest(url: url)
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.setValue(apiKey, forHTTPHeaderField: "X-Token")
         request.httpMethod = "POST"
-                
-        let parameters: [String: Any] = [
-            "title" : metaData.title,
-            "aabstract" : metaData.aabstract,
-            "author" : metaData.author,
-            "referer" : metaData.referer,
-            "url" : metaData.fulltextUrl,
-            "doi" : metaData.doi
-        ]
+        request.httpBody = jsonData
+        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
         
-        request.httpBody = parameters.percentEscaped().data(using: .utf8)
         let urlconfig = URLSessionConfiguration.default
         urlconfig.timeoutIntervalForRequest = 31
         urlconfig.timeoutIntervalForResource = 31
@@ -75,7 +68,7 @@ class RecommenderHelper {
             if let data = data {
                 //this worked just fine
                 do {
-                    let recommendations = try JSONDecoder().decode(CoreRecommender.self, from: data)
+                    let recommendations = try JSONDecoder().decode([CoreRecommender].self, from: data)
                     //print("data received \(recommendations.code)")
                     completion(.success(recommendations))
                 }
