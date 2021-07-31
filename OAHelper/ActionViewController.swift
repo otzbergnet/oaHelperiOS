@@ -405,14 +405,25 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             self.noOpenAccessFound(title: title, sourceLabel: "")
             return
         }
+        
+        //make request JSON
+        let json: [String: Any] = ["doi": doi]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        
+        //prepare API call
         let apiKey = self.helper.getAPIKeyFromPlist(key: "coreDiscovery")
-        let jsonUrlString = "https://api.core.ac.uk/discovery/discover?doi=\(doi)&apiKey=\(apiKey)"
+        let jsonUrlString = "https://api.core.ac.uk/v3/discover?apiKey=\(apiKey)"
         guard let url = URL(string: jsonUrlString) else {
             self.noOpenAccessFound(title: title, sourceLabel: "")
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+        //setup POST REQUEST
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
+        
+        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
             //            print("The core task took \(timer.stop()) seconds.")
             if let error = error{
                 //we got an error, let's tell the user
@@ -422,6 +433,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 
             }
             if let data = data {
+                print(data)
                 self.handleCoreDiscoveryData(data: data, title: title, sourceLabel: sourceLabel)
             }
             else{
