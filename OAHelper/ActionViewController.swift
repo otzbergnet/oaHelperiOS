@@ -433,7 +433,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 
             }
             if let data = data {
-                print(data)
+                //print(data)
                 self.handleCoreDiscoveryData(data: data, title: title, sourceLabel: sourceLabel)
             }
             else{

@@ -237,7 +237,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
             case .failure(let error):
                 DispatchQueue.main.async {
                     self.effectView.removeFromSuperview()
-                    self.enterSearchLabel.text = NSLocalizedString("Sorry, we encountered a problem", comment: "problem with search")
+                    if(error._code == 442){
+                        self.enterSearchLabel.text = NSLocalizedString("😢 No Results", comment: "problem with search")
+                    }
+                    else{
+                        self.enterSearchLabel.text = NSLocalizedString("Sorry, we encountered a problem", comment: "problem with search")
+                    }
+                    
                     self.enterSearchLabel.textColor = UIColor.red
                     print(error)
                 }

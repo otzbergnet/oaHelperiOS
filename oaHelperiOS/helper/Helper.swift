@@ -9,7 +9,7 @@
 import UIKit
 
 class HelperClass : UIViewController{
-
+    
     
     func cleanAbstract(txt: String) -> String{
         let toClean = ["&lt;p&gt;", "&lt;em&gt;", "&lt;/p&gt;", "&lt;/em&gt;", "\\ud", "&gt", "<p>", "<it>", "</it>", "&lt;em", "Abstract</p>", "<i>", "</i>", "<h4>", "</h4>"]
@@ -84,7 +84,7 @@ class HelperClass : UIViewController{
         }
         return returnValue
     }
- 
+    
     func replaceZeroWithUndersore(value : Int) -> String {
         var returnValue = ""
         if(value == 0){
@@ -124,20 +124,35 @@ class HelperClass : UIViewController{
         }
         return ""
     }
-        
+    
     
     func checkCore(search: String, apiKey: String, page: Int, completion: @escaping (Result<SearchResult, Error>) -> ()) {
-
+        
         if let encodedString = search.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed){
-
-            let jsonUrlString = "https://core.ac.uk/api-v2/articles/search/\(encodedString)?page=\(page)&pageSize=50&metadata=true&fulltext=false&citations=false&similar=false&duplicate=false&urls=true&faithfulMetadata=false&apiKey=\(apiKey)"
+            
+            let jsonUrlString = "https://api.core.ac.uk/v3/search/works"
+            
+            let json: [String: Any] = [
+                "q": search,
+                "offset": page,
+                "limit": 50,
+                "exclude": ["fullText"],
+                "sort": []
+            ]
+            let jsonData = try? JSONSerialization.data(withJSONObject: json)
+            
             
             guard let url = URL(string: jsonUrlString) else {
                 return
             }
-
+            
+            //setup POST REQUEST
             var request = URLRequest(url: url)
-            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            request.httpMethod = "POST"
+            request.httpBody = jsonData
+            request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+            
+            
             let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
                 if let error = error{
                     //we got an error, let's tell the user
@@ -148,31 +163,21 @@ class HelperClass : UIViewController{
                     //this worked just fine
                     do{
                         let coreData = try JSONDecoder().decode(Core.self, from: data)
-                        if(coreData.status == "OK"){
-                            if let totalHits = coreData.totalHits{
-                                let tmpMaxPage = Double(Double(totalHits) / 50)
-                                
-                                let searchResults = SearchResult()
-                                searchResults.service = "core"
-                                searchResults.hitCount = totalHits
-                                searchResults.maxPage = Int(tmpMaxPage.rounded(.up))
-                                searchResults.page = page
-                                searchResults.searchTerm = search
-                                if let coreRecords = coreData.data{
-                                    for record in coreRecords {
-                                        searchResults.records.append(self.makeRecordsFromCore(sourceRecord: record))
-                                    }
-                                    completion(.success(searchResults))
-                                }
-                                else{
-                                    completion(.failure(NSError(domain: "", code: 443, userInfo: ["description" : "failed to get data"])))
-                                    return
-                                }
+                        if(coreData.totalHits > 0){
+                            let totalHits = coreData.totalHits
+                            let tmpMaxPage = Double(Double(totalHits) / 50)
+                            
+                            let searchResults = SearchResult()
+                            searchResults.service = "core"
+                            searchResults.hitCount = totalHits
+                            searchResults.maxPage = Int(tmpMaxPage.rounded(.up))
+                            searchResults.page = page
+                            searchResults.searchTerm = search
+                            let coreRecords = coreData.results
+                            for record in coreRecords {
+                                searchResults.records.append(self.makeRecordsFromCore(sourceRecord: record))
                             }
-                            else{
-                                completion(.failure(NSError(domain: "", code: 442, userInfo: ["description" : "no results"])))
-                                return
-                            }
+                            completion(.success(searchResults))
                         }
                         else{
                             completion(.failure(NSError(domain: "", code: 442, userInfo: ["description" : "no results"])))
@@ -192,60 +197,47 @@ class HelperClass : UIViewController{
                     completion(.failure(NSError(domain: "", code: 440, userInfo: ["description" : "failed to get data"])))
                     return
                 }
-
+                
             }
             task.resume()
         }
-
+        
     }
     
     func makeRecordsFromCore(sourceRecord: Items) -> SearchResultRecords{
         let record = SearchResultRecords()
         record.title = sourceRecord.title ?? ""
+        var authorCount = 0;
         if let authorArray = sourceRecord.authors{
             for author in authorArray {
-                record.author += "\(author);"
+                if (authorCount < 3) {
+                    record.author += "\(author); "
+                    authorCount += 1
+                }
+            }
+            if(authorArray.count > 3){
+                record.author += " et al."
             }
         }
         record.source = "Core"
-        record.year = "\(sourceRecord.year ?? 0)"
+        record.year = "\(sourceRecord.yearPublished ?? 0)"
         record.abstract = sourceRecord.description ?? ""
         
-        if let recordId = sourceRecord.id {
-            record.hasFT = false
-            record.linkUrl = "https://core.ac.uk/display/\(recordId)"
-            record.buttonLabel = NSLocalizedString("View Record at core.ac.uk", comment: "button, core.ac.uk document")
-            record.smallButtonLabel = "core.ac.uk"
-            record.buttonColor = "blue"
-        }
-        
-        if let urlArray = sourceRecord.fulltextUrls{
-            if urlArray.count > 0 {
-                let url = urlArray[0]
-                var url1 = ""
-                if(urlArray.count > 1){
-                    url1 = urlArray[1]
-                }
-                
-                if(url1.contains("arxiv")){
-                    record.hasFT = true
-                    record.buttonLabel = NSLocalizedString("View Record at arXiv.org", comment: "button, arXiv.org document")
-                    record.smallButtonLabel = "arXiv.org"
-                    record.buttonColor = "red"
-                    record.linkUrl = url1
-                }
-                else{
+        if let identifiers = sourceRecord.identifiers {
+            for ident in identifiers {
+                if (ident.type == "CORE_ID") {
+                    let recordId = ident.identifier;
                     record.hasFT = false
-                    record.buttonLabel = NSLocalizedString("View Record at core.ac.uk", comment: "button, access full text")
+                    record.linkUrl = "https://core.ac.uk/display/\(recordId)"
+                    record.buttonLabel = NSLocalizedString("View Record at core.ac.uk", comment: "button, core.ac.uk document")
                     record.smallButtonLabel = "core.ac.uk"
                     record.buttonColor = "blue"
-                    record.linkUrl = url
                 }
-                
             }
         }
+        
         if let downloadUrl = sourceRecord.downloadUrl{
-            if(downloadUrl.count > 0){
+            if(downloadUrl != ""){
                 record.hasFT = true
                 record.buttonLabel = NSLocalizedString("Access Full Text", comment: "button, access full text")
                 record.smallButtonLabel = "Full Text"
@@ -253,7 +245,6 @@ class HelperClass : UIViewController{
                 record.linkUrl = downloadUrl
             }
         }
-
         
         return record
         
@@ -401,27 +392,27 @@ class HelperClass : UIViewController{
         
         return query
     }
-
+    
     func validateProxyPrefix(urlString: String) -> Bool {
-           let prefix = urlString.prefix(4)
-           let suffix = urlString.suffix(5)
-           let testService = "https://www.jstor.org"
-           let testUrl = urlString+testService
-           
-           if(prefix != "http"){
-               return false
-           }
-           if(suffix != "?url=" && suffix != "qurl=" && suffix != "&url="){
-               return false
-           }
-           
-           
-           if let url = URL(string: testUrl) {
-               let urlRequest = URLRequest.init(url: url)
-               return NSURLConnection.canHandle(urlRequest)
-           }
-           return false
-       }
+        let prefix = urlString.prefix(4)
+        let suffix = urlString.suffix(5)
+        let testService = "https://www.jstor.org"
+        let testUrl = urlString+testService
+        
+        if(prefix != "http"){
+            return false
+        }
+        if(suffix != "?url=" && suffix != "qurl=" && suffix != "&url="){
+            return false
+        }
+        
+        
+        if let url = URL(string: testUrl) {
+            let urlRequest = URLRequest.init(url: url)
+            return NSURLConnection.canHandle(urlRequest)
+        }
+        return false
+    }
     
 }
 
