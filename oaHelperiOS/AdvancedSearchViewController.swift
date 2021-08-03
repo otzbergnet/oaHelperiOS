@@ -142,7 +142,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
             self.searchStatement.append("\(prefix):(\(treatedSearchString))")
         }
         else if(prefix != "language.name" && searchString != ""){
-            self.searchStatement.append("\(prefix):\(searchString)")
+            self.searchStatement.append("\(prefix):(\(searchString))")
         }
         else if(prefix == "language.name" && searchString != ""){
             self.searchStatement.append("\(prefix):\(searchString)")
@@ -191,7 +191,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
             self.searchStatement.append("(FIRST_PDATE:[\(fromYear)-01-01 TO \(toYear)-12-31])")
         }
         else{
-            self.searchStatement.append("year:[\(fromYear) TO \(toYear)]")
+            self.searchStatement.append("(yearPublished>=\(fromYear) AND yearPublished<=\(toYear))")
         }
         
         
