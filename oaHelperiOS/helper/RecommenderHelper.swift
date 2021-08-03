@@ -35,7 +35,9 @@ class RecommenderHelper {
                                    "identifier": "\(metaData.doi)",
                                    "abstract": "\(metaData.aabstract)",
                                    "authors": "\(metaData.author)",
-                                   "title": "\(metaData.title)"]
+                                   "title": "\(metaData.title)",
+                                   "exclude": ["fullText"]
+                                    ]
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
         //prepare API call
