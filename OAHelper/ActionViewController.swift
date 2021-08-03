@@ -412,7 +412,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         
         //prepare API call
         let apiKey = self.helper.getAPIKeyFromPlist(key: "coreDiscovery")
-        let jsonUrlString = "https://api.core.ac.uk/v3/discover?apiKey=\(apiKey)"
+        let jsonUrlString = "https://api.core.ac.uk/v3/discover"
         guard let url = URL(string: jsonUrlString) else {
             self.noOpenAccessFound(title: title, sourceLabel: "")
             return
@@ -422,6 +422,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = jsonData
+        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
         
         let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
             //            print("The core task took \(timer.stop()) seconds.")
