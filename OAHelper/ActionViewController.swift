@@ -1082,7 +1082,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 }
                 else{
                     // there was nothing
-                    //                    print("there were 0 hits")
+                    //print("there were 0 hits")
                     self.hideAllRecommenderRelatedStuff()
                 }
                 
