@@ -142,7 +142,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
             self.searchStatement.append("\(prefix):(\(treatedSearchString))")
         }
         else if(prefix != "language.name" && searchString != ""){
-            self.searchStatement.append("\(prefix):\(searchString)")
+            self.searchStatement.append("\(prefix):(\(searchString))")
         }
         else if(prefix == "language.name" && searchString != ""){
             self.searchStatement.append("\(prefix):\(searchString)")
@@ -191,7 +191,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
             self.searchStatement.append("(FIRST_PDATE:[\(fromYear)-01-01 TO \(toYear)-12-31])")
         }
         else{
-            self.searchStatement.append("year:[\(fromYear) TO \(toYear)]")
+            self.searchStatement.append("(yearPublished>=\(fromYear) AND yearPublished<=\(toYear))")
         }
         
         
@@ -240,7 +240,14 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
                 case .failure(let error):
                     DispatchQueue.main.async {
                         self.effectView.removeFromSuperview()
-                        print(error)
+                        if(error._code == 442){
+                            self.errorLabel.text = NSLocalizedString("😢 No Results", comment: "No Result")
+                            self.errorLabel.textColor = UIColor.red
+                        }
+                        else{
+                            self.errorLabel.text = NSLocalizedString("Sorry, we encountered a problem", comment: "other error")
+                            self.errorLabel.textColor = UIColor.red
+                        }
                     }
                 }
             }
@@ -343,6 +350,7 @@ class AdvancedSearchViewController: UIViewController, UITextFieldDelegate {
         self.authorLastName.text = nil
         self.publicationYearFrom.text = nil
         self.publicationYearTo.text = nil
+        self.errorLabel.text = nil
         //self.language.text = nil
     }
     

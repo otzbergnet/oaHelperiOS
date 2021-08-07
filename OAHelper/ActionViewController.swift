@@ -70,7 +70,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     
     //MARK: Setup Core Recommender Related Variables
     
-    var recommendations : [CoreRecommendations] = []
+    var recommendations : [CoreRecommender] = []
     let recommendationObject = CoreRequestObject()
     let recommenderHelper = RecommenderHelper()
     var recommendationText = ""
@@ -405,14 +405,26 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
             self.noOpenAccessFound(title: title, sourceLabel: "")
             return
         }
+        
+        //make request JSON
+        let json: [String: Any] = ["doi": doi]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        
+        //prepare API call
         let apiKey = self.helper.getAPIKeyFromPlist(key: "coreDiscovery")
-        let jsonUrlString = "https://api.core.ac.uk/discovery/discover?doi=\(doi)&apiKey=\(apiKey)"
+        let jsonUrlString = "https://api.core.ac.uk/v3/discover"
         guard let url = URL(string: jsonUrlString) else {
             self.noOpenAccessFound(title: title, sourceLabel: "")
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+        //setup POST REQUEST
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
+        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
             //            print("The core task took \(timer.stop()) seconds.")
             if let error = error{
                 //we got an error, let's tell the user
@@ -422,6 +434,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 
             }
             if let data = data {
+                //print(data)
                 self.handleCoreDiscoveryData(data: data, title: title, sourceLabel: sourceLabel)
             }
             else{
@@ -1052,7 +1065,7 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                 }
                 //                print("core recommends code \(coreRecommends.code)")
                 
-                if(coreRecommends.data.count > 0 && !self.zoteroTapped){
+                if(coreRecommends.count > 0 && !self.zoteroTapped){
                     //                    print("there were results")
                     
                     DispatchQueue.main.async {
@@ -1063,13 +1076,13 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
                         self.tableViewActivityIndicator.isHidden = true
                         self.tableViewActivityIndicator.stopAnimating()
                         self.tableView.isHidden = false
-                        self.recommendations = coreRecommends.data
+                        self.recommendations = coreRecommends
                         self.tableView.reloadData()
                     }
                 }
                 else{
                     // there was nothing
-                    //                    print("there were 0 hits")
+                    //print("there were 0 hits")
                     self.hideAllRecommenderRelatedStuff()
                 }
                 
@@ -1104,14 +1117,18 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recommenderCell", for: indexPath)
         let recommendation = self.recommendations[indexPath.row]
+
         cell.textLabel?.text = recommendation.title
-        var sourceLabel = "";
-        if(recommendation.year != ""){
-            sourceLabel = "(\(recommendation.year)) \(recommendation.author)"
+        var sourceLabel = ""
+        
+        if let year = recommendation.yearPublished {
+            sourceLabel += "(\(year))"
         }
-        else{
-            sourceLabel = "\(recommendation.author)"
+        
+        if let author = recommendation.authors.first {
+            sourceLabel += " \(author.name)"
         }
+
         cell.detailTextLabel?.text = sourceLabel
         return cell
     }
@@ -1119,7 +1136,20 @@ class ActionViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let thisRecommendation = self.recommendations[indexPath.row]
-        let thisLink = thisRecommendation.link
+        var thisLink = ""
+        var foundLink = false
+        if let links = thisRecommendation.links {
+            for link in links {
+                if (link.type == "download" && !foundLink) {
+                    thisLink = link.url
+                    foundLink = true
+                }
+                else if (link.type == "display" && !foundLink) {
+                    thisLink = link.url
+                    foundLink = true
+                }
+            }
+        }
         
         if(thisLink == ""){
             return

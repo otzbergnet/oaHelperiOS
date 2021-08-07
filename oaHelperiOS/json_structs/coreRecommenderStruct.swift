@@ -10,14 +10,25 @@ import Foundation
 
 
 struct CoreRecommender : Decodable{
-    var msg : String
-    var code : Int
-    var data : [CoreRecommendations]
+    var authors : [CoreRecommenderAuthor]
+    var title : String
+    var links : [CoreRecommenderLinks]?
+    var yearPublished : Int?
+    
 }
 
-struct CoreRecommendations : Decodable{
-    var title : String
-    var year : String
-    var author : String
-    var link : String
+struct CoreRecommenderLinks : Decodable{
+    var type : String
+    var url : String
 }
+
+struct CoreRecommenderAuthor : Decodable {
+    var name : String
+}
+
+//struct CoreRecommendations : Decodable{
+//    var title : String
+//    var year : String
+//    var author : String
+//    var link : String
+//}
