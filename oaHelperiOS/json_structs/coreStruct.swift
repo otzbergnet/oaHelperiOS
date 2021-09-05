@@ -15,15 +15,18 @@ struct Core : Decodable{
 }
 
 struct Items : Decodable {
-    let authors : [String]?
-    let description : String?
+    let authors : [CoreAuthors]?
+    let abstract : String?
     let downloadUrl : String?
     let identifiers : [CoreIdentifiers]?
 //    let language : [CoreLanguage]?
     let title : String?
-    let publishedDate : String?
-    let publisher : String?
     let yearPublished : Int?
+    let publisher : String?
+}
+
+struct CoreAuthors : Decodable {
+    let name : String
 }
 
 struct CoreLanguage : Decodable {

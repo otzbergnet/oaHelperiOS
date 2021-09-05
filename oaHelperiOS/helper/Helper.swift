@@ -211,7 +211,7 @@ class HelperClass : UIViewController{
         if let authorArray = sourceRecord.authors{
             for author in authorArray {
                 if (authorCount < 3) {
-                    record.author += "\(author); "
+                    record.author += "\(author.name); "
                     authorCount += 1
                 }
             }
@@ -221,7 +221,7 @@ class HelperClass : UIViewController{
         }
         record.source = "Core"
         record.year = "\(sourceRecord.yearPublished ?? 0)"
-        record.abstract = sourceRecord.description ?? ""
+        record.abstract = sourceRecord.abstract ?? ""
         
         if let identifiers = sourceRecord.identifiers {
             for ident in identifiers {
